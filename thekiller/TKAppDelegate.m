@@ -10,6 +10,7 @@
 
 #import "TKAppDelegate.h"
 #import "TKBluetoothManager.h"
+#import "TKStyle.h"
 
 @interface TKAppDelegate ()
 
@@ -23,16 +24,15 @@
 {    
     [FBLoginView class];
     self.bluetooth = [[TKBluetoothManager alloc] init];
-    
-    [[UILabel appearance] setTextColor:[UIColor redColor]];
-    [[UIView appearance] setBackgroundColor:[UIColor blackColor]];
+
+    ConfigureAppearnace();
     
     
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
     
     BOOL existingSession = [FBSession openActiveSessionWithAllowLoginUI:NO];
     if (existingSession) {
-        self.window.rootViewController = [[self.window.rootViewController storyboard] instantiateViewControllerWithIdentifier:@"main"];
+        self.window.rootViewController = [[self.window.rootViewController storyboard] instantiateViewControllerWithIdentifier:@"gameWillStartVC"]; //was "main"
         return YES;
     }
     

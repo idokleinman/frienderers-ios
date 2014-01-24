@@ -40,7 +40,7 @@
     double delayInSeconds = 1.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        completion(@{ @"gameStartTime": [NSDate date],
+        completion(@{ @"gameStartTime": [NSDate dateWithTimeIntervalSinceNow:70.0],
                       @"gameName": @"The name of the game",
                       @"gameCreator" : @12345678}, nil);
     });

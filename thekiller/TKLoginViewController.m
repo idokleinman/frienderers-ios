@@ -24,7 +24,7 @@
 }
 
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
-    [UIApplication sharedApplication].delegate.window.rootViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"main"];
+    [UIApplication sharedApplication].delegate.window.rootViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"gameWillStartVC"]; //"main"
 }
 
 - (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error {
