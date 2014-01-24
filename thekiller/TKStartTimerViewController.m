@@ -38,6 +38,8 @@
 
 -(void)startGame
 {
+    [self performSegueWithIdentifier:@"nextTarget" sender:self];
+    
     // perform segue
     
 }
@@ -49,7 +51,11 @@
     if (timeIntervalTillStartGame > 0)
         self.gameStartTimerLabel.text = [self stringFromTimeInterval:timeIntervalTillStartGame];
     else
+    {
+        [timer invalidate];
         [self performSelectorOnMainThread:@selector(startGame) withObject:nil waitUntilDone:NO];
+    }
+    
 }
 
 - (void)viewDidLoad
@@ -61,8 +67,6 @@
         _gameStartTime = [gameInfo objectForKey:@"gameStartTime"];
         
         [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(runGameStartTimer:) userInfo:nil repeats:YES];
-        
-        [self performSelectorInBackground:@selector(runGameStartTimer:) withObject:nil];
         
         
     }];

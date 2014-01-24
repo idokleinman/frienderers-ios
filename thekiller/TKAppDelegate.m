@@ -15,6 +15,7 @@
 @interface TKAppDelegate ()
 
 @property (strong, nonatomic) TKBluetoothManager* bluetooth;
+@property (strong, nonatomic) TKServer* server;
 
 @end
 
@@ -23,17 +24,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {    
     [FBLoginView class];
+    [FBProfilePictureView class];
+    
     self.bluetooth = [[TKBluetoothManager alloc] init];
+    self.server = [[TKServer alloc] init];
 
     ConfigureAppearnace();
     
-    
-    [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
-    
-    BOOL existingSession = [FBSession openActiveSessionWithAllowLoginUI:NO];
+    BOOL existingSession = [self.server openSession];
     if (existingSession) {
-        self.window.rootViewController = [[self.window.rootViewController storyboard] instantiateViewControllerWithIdentifier:@"gameWillStartVC"]; //was "main"
-        return YES;
+//        self.window.rootViewController = [[self.window.rootViewController storyboard] instantiateViewControllerWithIdentifier:@"main"]; //was "main"
     }
     
     return YES;
@@ -66,6 +66,11 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"remoteNotificationReceived" object:userInfo];
+}
+
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
@@ -76,7 +81,9 @@
                                stringByReplacingOccurrencesOfString: @"<" withString: @""]
                               stringByReplacingOccurrencesOfString: @">" withString: @""]
                              stringByReplacingOccurrencesOfString: @" " withString: @""];
+    
     NSLog(@"remote notif token: %@", deviceToken);
+    [self.server registerPushToken:deviceToken];
 }
 
 @end

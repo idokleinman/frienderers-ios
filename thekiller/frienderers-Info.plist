@@ -39,11 +39,6 @@
 	<string>Frienderers</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Rosewood.ttf</string>
-		<string>lucida_grande.ttf</string>
-	</array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>bluetooth-central</string>
@@ -69,6 +64,11 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>lucida_grande.ttf</string>
+		<string>Rosewood.ttf</string>
 	</array>
 </dict>
 </plist>

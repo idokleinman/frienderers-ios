@@ -17,6 +17,8 @@
 @implementation TKView : UIView
 @end
 
+@implementation TKButton : UIButton
+@end
 
 void ConfigureAppearnace()
 {
@@ -29,5 +31,8 @@ void ConfigureAppearnace()
     [[TKSmallLabel appearance] setTextColor:[UIColor redColor]];
     
     [[TKView appearance] setBackgroundColor:[UIColor blackColor]];
+    
+    [[TKButton appearance] setBackgroundColor:[UIColor clearColor]];
+    
     
 }
