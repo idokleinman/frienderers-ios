@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F40C2486188459330050AFCE /* UIApplication+TKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F40C2485188459330050AFCE /* UIApplication+TKAppDelegate.m */; };
+		F40C2489188459670050AFCE /* TKMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F40C2488188459670050AFCE /* TKMainViewController.m */; };
+		F40C248C18845FB00050AFCE /* TKNearByDevicesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F40C248B18845FB00050AFCE /* TKNearByDevicesDataSource.m */; };
+		F40CBB8E18926594008E2248 /* TKLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F40CBB8D18926594008E2248 /* TKLoginViewController.m */; };
 		F4416AED18844EF300399D36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4416AEC18844EF300399D36 /* Foundation.framework */; };
 		F4416AEF18844EF300399D36 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4416AEE18844EF300399D36 /* CoreGraphics.framework */; };
 		F4416AF118844EF300399D36 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4416AF018844EF300399D36 /* UIKit.framework */; };
@@ -19,6 +23,12 @@
 		F4416B0818844EF300399D36 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4416AF018844EF300399D36 /* UIKit.framework */; };
 		F4416B1018844EF300399D36 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4416B0E18844EF300399D36 /* InfoPlist.strings */; };
 		F4416B1218844EF300399D36 /* thekillerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F4416B1118844EF300399D36 /* thekillerTests.m */; };
+		F4416B1C188450F200399D36 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4416B1B188450F200399D36 /* CoreBluetooth.framework */; };
+		F4416B1F1884511B00399D36 /* TKBluetoothManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F4416B1E1884511B00399D36 /* TKBluetoothManager.m */; };
+		F4416B21188454BA00399D36 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4416B20188454BA00399D36 /* Storyboard.storyboard */; };
+		F49204A11891994700B8225C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F49204A01891994700B8225C /* FacebookSDK.framework */; };
+		F49204A71892469E00B8225C /* TKServer.m in Sources */ = {isa = PBXBuildFile; fileRef = F49204A61892469E00B8225C /* TKServer.m */; };
+		F4BB4D8F188DB54A00FCFC4A /* CLMultiSectionTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BB4D8E188DB54A00FCFC4A /* CLMultiSectionTableViewDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,22 +42,39 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F4416AE918844EF300399D36 /* thekiller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = thekiller.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F40C2484188459330050AFCE /* UIApplication+TKAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+TKAppDelegate.h"; sourceTree = "<group>"; };
+		F40C2485188459330050AFCE /* UIApplication+TKAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+TKAppDelegate.m"; sourceTree = "<group>"; };
+		F40C2487188459670050AFCE /* TKMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKMainViewController.h; sourceTree = "<group>"; };
+		F40C2488188459670050AFCE /* TKMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKMainViewController.m; sourceTree = "<group>"; };
+		F40C248A18845FB00050AFCE /* TKNearByDevicesDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKNearByDevicesDataSource.h; sourceTree = "<group>"; };
+		F40C248B18845FB00050AFCE /* TKNearByDevicesDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKNearByDevicesDataSource.m; sourceTree = "<group>"; };
+		F40CBB8C18926594008E2248 /* TKLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLoginViewController.h; sourceTree = "<group>"; };
+		F40CBB8D18926594008E2248 /* TKLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKLoginViewController.m; sourceTree = "<group>"; };
+		F4416AE918844EF300399D36 /* Frienderers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Frienderers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4416AEC18844EF300399D36 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F4416AEE18844EF300399D36 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		F4416AF018844EF300399D36 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		F4416AF418844EF300399D36 /* thekiller-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "thekiller-Info.plist"; sourceTree = "<group>"; };
+		F4416AF418844EF300399D36 /* frienderers-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "frienderers-Info.plist"; sourceTree = "<group>"; };
 		F4416AF618844EF300399D36 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F4416AF818844EF300399D36 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		F4416AFA18844EF300399D36 /* thekiller-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "thekiller-Prefix.pch"; sourceTree = "<group>"; };
+		F4416AFA18844EF300399D36 /* frienderers-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "frienderers-Prefix.pch"; sourceTree = "<group>"; };
 		F4416AFB18844EF300399D36 /* TKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKAppDelegate.h; sourceTree = "<group>"; };
 		F4416AFC18844EF300399D36 /* TKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKAppDelegate.m; sourceTree = "<group>"; };
 		F4416AFE18844EF300399D36 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		F4416B0418844EF300399D36 /* thekillerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = thekillerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4416B0418844EF300399D36 /* frienderersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = frienderersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4416B0518844EF300399D36 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		F4416B0D18844EF300399D36 /* thekillerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "thekillerTests-Info.plist"; sourceTree = "<group>"; };
+		F4416B0D18844EF300399D36 /* frienderersTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "frienderersTests-Info.plist"; sourceTree = "<group>"; };
 		F4416B0F18844EF300399D36 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F4416B1118844EF300399D36 /* thekillerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = thekillerTests.m; sourceTree = "<group>"; };
+		F4416B1B188450F200399D36 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		F4416B1D1884511B00399D36 /* TKBluetoothManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKBluetoothManager.h; sourceTree = "<group>"; };
+		F4416B1E1884511B00399D36 /* TKBluetoothManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKBluetoothManager.m; sourceTree = "<group>"; };
+		F4416B20188454BA00399D36 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		F49204A01891994700B8225C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		F49204A51892469E00B8225C /* TKServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKServer.h; sourceTree = "<group>"; };
+		F49204A61892469E00B8225C /* TKServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKServer.m; sourceTree = "<group>"; };
+		F4BB4D8D188DB54A00FCFC4A /* CLMultiSectionTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLMultiSectionTableViewDataSource.h; sourceTree = "<group>"; };
+		F4BB4D8E188DB54A00FCFC4A /* CLMultiSectionTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLMultiSectionTableViewDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +82,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4416B1C188450F200399D36 /* CoreBluetooth.framework in Frameworks */,
+				F49204A11891994700B8225C /* FacebookSDK.framework in Frameworks */,
 				F4416AEF18844EF300399D36 /* CoreGraphics.framework in Frameworks */,
 				F4416AF118844EF300399D36 /* UIKit.framework in Frameworks */,
 				F4416AED18844EF300399D36 /* Foundation.framework in Frameworks */,
@@ -77,8 +106,8 @@
 		F4416AE018844EF300399D36 = {
 			isa = PBXGroup;
 			children = (
-				F4416AF218844EF300399D36 /* thekiller */,
-				F4416B0B18844EF300399D36 /* thekillerTests */,
+				F4416AF218844EF300399D36 /* Frienderers */,
+				F4416B0B18844EF300399D36 /* FrienderersTests */,
 				F4416AEB18844EF300399D36 /* Frameworks */,
 				F4416AEA18844EF300399D36 /* Products */,
 			);
@@ -87,8 +116,8 @@
 		F4416AEA18844EF300399D36 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F4416AE918844EF300399D36 /* thekiller.app */,
-				F4416B0418844EF300399D36 /* thekillerTests.xctest */,
+				F4416AE918844EF300399D36 /* Frienderers.app */,
+				F4416B0418844EF300399D36 /* frienderersTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -96,6 +125,8 @@
 		F4416AEB18844EF300399D36 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F49204A01891994700B8225C /* FacebookSDK.framework */,
+				F4416B1B188450F200399D36 /* CoreBluetooth.framework */,
 				F4416AEC18844EF300399D36 /* Foundation.framework */,
 				F4416AEE18844EF300399D36 /* CoreGraphics.framework */,
 				F4416AF018844EF300399D36 /* UIKit.framework */,
@@ -104,41 +135,58 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F4416AF218844EF300399D36 /* thekiller */ = {
+		F4416AF218844EF300399D36 /* Frienderers */ = {
 			isa = PBXGroup;
 			children = (
+				F4416AF318844EF300399D36 /* Supporting Files */,
+				F4416AFE18844EF300399D36 /* Images.xcassets */,
+				F4416B20188454BA00399D36 /* Storyboard.storyboard */,
 				F4416AFB18844EF300399D36 /* TKAppDelegate.h */,
 				F4416AFC18844EF300399D36 /* TKAppDelegate.m */,
-				F4416AFE18844EF300399D36 /* Images.xcassets */,
-				F4416AF318844EF300399D36 /* Supporting Files */,
+				F4416B1D1884511B00399D36 /* TKBluetoothManager.h */,
+				F4416B1E1884511B00399D36 /* TKBluetoothManager.m */,
+				F40C2484188459330050AFCE /* UIApplication+TKAppDelegate.h */,
+				F40C2485188459330050AFCE /* UIApplication+TKAppDelegate.m */,
+				F40C2487188459670050AFCE /* TKMainViewController.h */,
+				F40C2488188459670050AFCE /* TKMainViewController.m */,
+				F40C248A18845FB00050AFCE /* TKNearByDevicesDataSource.h */,
+				F40C248B18845FB00050AFCE /* TKNearByDevicesDataSource.m */,
+				F4BB4D8D188DB54A00FCFC4A /* CLMultiSectionTableViewDataSource.h */,
+				F4BB4D8E188DB54A00FCFC4A /* CLMultiSectionTableViewDataSource.m */,
+				F40CBB8C18926594008E2248 /* TKLoginViewController.h */,
+				F40CBB8D18926594008E2248 /* TKLoginViewController.m */,
+				F49204A51892469E00B8225C /* TKServer.h */,
+				F49204A61892469E00B8225C /* TKServer.m */,
 			);
+			name = Frienderers;
 			path = thekiller;
 			sourceTree = "<group>";
 		};
 		F4416AF318844EF300399D36 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F4416AF418844EF300399D36 /* thekiller-Info.plist */,
+				F4416AF418844EF300399D36 /* frienderers-Info.plist */,
 				F4416AF518844EF300399D36 /* InfoPlist.strings */,
 				F4416AF818844EF300399D36 /* main.m */,
-				F4416AFA18844EF300399D36 /* thekiller-Prefix.pch */,
+				F4416AFA18844EF300399D36 /* frienderers-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		F4416B0B18844EF300399D36 /* thekillerTests */ = {
+		F4416B0B18844EF300399D36 /* FrienderersTests */ = {
 			isa = PBXGroup;
 			children = (
 				F4416B1118844EF300399D36 /* thekillerTests.m */,
 				F4416B0C18844EF300399D36 /* Supporting Files */,
 			);
+			name = FrienderersTests;
 			path = thekillerTests;
 			sourceTree = "<group>";
 		};
 		F4416B0C18844EF300399D36 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F4416B0D18844EF300399D36 /* thekillerTests-Info.plist */,
+				F4416B0D18844EF300399D36 /* frienderersTests-Info.plist */,
 				F4416B0E18844EF300399D36 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -147,9 +195,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F4416AE818844EF300399D36 /* thekiller */ = {
+		F4416AE818844EF300399D36 /* Frienderers */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F4416B1518844EF300399D36 /* Build configuration list for PBXNativeTarget "thekiller" */;
+			buildConfigurationList = F4416B1518844EF300399D36 /* Build configuration list for PBXNativeTarget "Frienderers" */;
 			buildPhases = (
 				F4416AE518844EF300399D36 /* Sources */,
 				F4416AE618844EF300399D36 /* Frameworks */,
@@ -159,14 +207,14 @@
 			);
 			dependencies = (
 			);
-			name = thekiller;
+			name = Frienderers;
 			productName = thekiller;
-			productReference = F4416AE918844EF300399D36 /* thekiller.app */;
+			productReference = F4416AE918844EF300399D36 /* Frienderers.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F4416B0318844EF300399D36 /* thekillerTests */ = {
+		F4416B0318844EF300399D36 /* FrienderersTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F4416B1818844EF300399D36 /* Build configuration list for PBXNativeTarget "thekillerTests" */;
+			buildConfigurationList = F4416B1818844EF300399D36 /* Build configuration list for PBXNativeTarget "FrienderersTests" */;
 			buildPhases = (
 				F4416B0018844EF300399D36 /* Sources */,
 				F4416B0118844EF300399D36 /* Frameworks */,
@@ -177,9 +225,9 @@
 			dependencies = (
 				F4416B0A18844EF300399D36 /* PBXTargetDependency */,
 			);
-			name = thekillerTests;
+			name = FrienderersTests;
 			productName = thekillerTests;
-			productReference = F4416B0418844EF300399D36 /* thekillerTests.xctest */;
+			productReference = F4416B0418844EF300399D36 /* frienderersTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -192,12 +240,20 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = Citylifeapps;
 				TargetAttributes = {
+					F4416AE818844EF300399D36 = {
+						DevelopmentTeam = CV6VG34TMM;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
 					F4416B0318844EF300399D36 = {
 						TestTargetID = F4416AE818844EF300399D36;
 					};
 				};
 			};
-			buildConfigurationList = F4416AE418844EF300399D36 /* Build configuration list for PBXProject "thekiller" */;
+			buildConfigurationList = F4416AE418844EF300399D36 /* Build configuration list for PBXProject "Frienderers" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -209,8 +265,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F4416AE818844EF300399D36 /* thekiller */,
-				F4416B0318844EF300399D36 /* thekillerTests */,
+				F4416AE818844EF300399D36 /* Frienderers */,
+				F4416B0318844EF300399D36 /* FrienderersTests */,
 			);
 		};
 /* End PBXProject section */
@@ -222,6 +278,7 @@
 			files = (
 				F4416AF718844EF300399D36 /* InfoPlist.strings in Resources */,
 				F4416AFF18844EF300399D36 /* Images.xcassets in Resources */,
+				F4416B21188454BA00399D36 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,7 +297,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F40C2486188459330050AFCE /* UIApplication+TKAppDelegate.m in Sources */,
+				F4416B1F1884511B00399D36 /* TKBluetoothManager.m in Sources */,
+				F40C248C18845FB00050AFCE /* TKNearByDevicesDataSource.m in Sources */,
+				F40C2489188459670050AFCE /* TKMainViewController.m in Sources */,
+				F4BB4D8F188DB54A00FCFC4A /* CLMultiSectionTableViewDataSource.m in Sources */,
 				F4416AF918844EF300399D36 /* main.m in Sources */,
+				F40CBB8E18926594008E2248 /* TKLoginViewController.m in Sources */,
+				F49204A71892469E00B8225C /* TKServer.m in Sources */,
 				F4416AFD18844EF300399D36 /* TKAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,7 +322,7 @@
 /* Begin PBXTargetDependency section */
 		F4416B0A18844EF300399D36 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F4416AE818844EF300399D36 /* thekiller */;
+			target = F4416AE818844EF300399D36 /* Frienderers */;
 			targetProxy = F4416B0918844EF300399D36 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -362,10 +426,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/eladb/Documents/FacebookSDK,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "thekiller/thekiller-Prefix.pch";
-				INFOPLIST_FILE = "thekiller/thekiller-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "thekiller/frienderers-Prefix.pch";
+				INFOPLIST_FILE = "thekiller/frienderers-Info.plist";
+				PRODUCT_NAME = Frienderers;
+				PROVISIONING_PROFILE = "6AB4395E-4AA3-4708-A766-0700C39A86FA";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -375,10 +446,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/eladb/Documents/FacebookSDK,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "thekiller/thekiller-Prefix.pch";
-				INFOPLIST_FILE = "thekiller/thekiller-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "thekiller/frienderers-Prefix.pch";
+				INFOPLIST_FILE = "thekiller/frienderers-Info.plist";
+				PRODUCT_NAME = Frienderers;
+				PROVISIONING_PROFILE = "6AB4395E-4AA3-4708-A766-0700C39A86FA";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -399,8 +477,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "thekillerTests/thekillerTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "thekillerTests/frienderersTests-Info.plist";
+				PRODUCT_NAME = frienderersTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -418,8 +496,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "thekiller/thekiller-Prefix.pch";
-				INFOPLIST_FILE = "thekillerTests/thekillerTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "thekillerTests/frienderersTests-Info.plist";
+				PRODUCT_NAME = frienderersTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -428,7 +506,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F4416AE418844EF300399D36 /* Build configuration list for PBXProject "thekiller" */ = {
+		F4416AE418844EF300399D36 /* Build configuration list for PBXProject "Frienderers" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F4416B1318844EF300399D36 /* Debug */,
@@ -437,21 +515,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F4416B1518844EF300399D36 /* Build configuration list for PBXNativeTarget "thekiller" */ = {
+		F4416B1518844EF300399D36 /* Build configuration list for PBXNativeTarget "Frienderers" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F4416B1618844EF300399D36 /* Debug */,
 				F4416B1718844EF300399D36 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		F4416B1818844EF300399D36 /* Build configuration list for PBXNativeTarget "thekillerTests" */ = {
+		F4416B1818844EF300399D36 /* Build configuration list for PBXNativeTarget "FrienderersTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F4416B1918844EF300399D36 /* Debug */,
 				F4416B1A18844EF300399D36 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

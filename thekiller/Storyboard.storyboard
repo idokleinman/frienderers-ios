@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2NE-cd-o4g">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="lG6-Iw-jNs">
+            <objects>
+                <viewController id="2NE-cd-o4g" customClass="TKLoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rsI-DS-c4U"/>
+                        <viewControllerLayoutGuide type="bottom" id="npd-fZ-FEk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CEd-O2-2Qj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y31-4U-GO6" customClass="FBLoginView">
+                                <rect key="frame" x="48" y="247" width="225" height="74"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="loginButtonView" destination="y31-4U-GO6" id="qLM-zc-byB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r4F-lt-fg4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-744" y="-220"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dmc-JV-QMh">
+            <objects>
+                <navigationController storyboardIdentifier="main" definesPresentationContext="YES" id="BJK-Xe-old" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DEa-oq-t3s">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="aaV-ji-V9J" kind="relationship" relationship="rootViewController" id="MFI-yB-Koh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8gV-Tp-5DM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-379" y="-198"/>
+        </scene>
+        <!--Main View Controller - Frienderers-->
+        <scene sceneID="mph-M8-yKU">
+            <objects>
+                <tableViewController id="aaV-ji-V9J" customClass="TKMainViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="04W-UE-W4b">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="aaV-ji-V9J" id="k9v-Ui-a7M"/>
+                            <outlet property="delegate" destination="aaV-ji-V9J" id="cxt-2Z-w9W"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Frienderers" id="95b-Pn-BVz">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="yft-G2-kHj">
+                            <connections>
+                                <action selector="logout:" destination="aaV-ji-V9J" id="bb4-Ok-rYT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="THb-cY-I30" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="96" y="-198"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

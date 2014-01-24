@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TKBluetoothManager.h"
 
 @interface TKAppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) UIWindow* window;
+@property (readonly, nonatomic) TKBluetoothManager* bluetooth;
 
 @end
+

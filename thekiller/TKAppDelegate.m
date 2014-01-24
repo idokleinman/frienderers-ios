@@ -6,16 +6,32 @@
 //  Copyright (c) 2014 Citylifeapps. All rights reserved.
 //
 
+@import CoreBluetooth;
+
 #import "TKAppDelegate.h"
+#import "TKBluetoothManager.h"
+
+@interface TKAppDelegate ()
+
+@property (strong, nonatomic) TKBluetoothManager* bluetooth;
+
+@end
 
 @implementation TKAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+{    
+    [FBLoginView class];
+    
+    [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
+    
+    BOOL existingSession = [FBSession openActiveSessionWithAllowLoginUI:NO];
+    if (existingSession) {
+        self.window.rootViewController = [[self.window.rootViewController storyboard] instantiateViewControllerWithIdentifier:@"main"];
+        return YES;
+    }
+    
+    self.bluetooth = [[TKBluetoothManager alloc] init];
     return YES;
 }
 
@@ -46,4 +62,18 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceTokenData {
+    NSString* deviceToken = [[[[deviceTokenData description]
+                               stringByReplacingOccurrencesOfString: @"<" withString: @""]
+                              stringByReplacingOccurrencesOfString: @">" withString: @""]
+                             stringByReplacingOccurrencesOfString: @" " withString: @""];
+    NSLog(@"remote notif token: %@", deviceToken);
+}
+
 @end
+
