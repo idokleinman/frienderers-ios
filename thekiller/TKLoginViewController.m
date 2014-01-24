@@ -7,6 +7,7 @@
 //
 
 #import "TKLoginViewController.h"
+#import "UIApplication+TKAppDelegate.h"
 
 @interface TKLoginViewController () <FBLoginViewDelegate>
 
@@ -24,7 +25,8 @@
 }
 
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
-    [UIApplication sharedApplication].delegate.window.rootViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"gameWillStartVC"]; //"main"
+    [[UIApplication sharedApplication].tkapp.server openSession];
+    [UIApplication sharedApplication].delegate.window.rootViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"main"];
 }
 
 - (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error {

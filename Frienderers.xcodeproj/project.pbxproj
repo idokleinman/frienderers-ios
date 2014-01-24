@@ -38,6 +38,7 @@
 		F4416B1C188450F200399D36 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4416B1B188450F200399D36 /* CoreBluetooth.framework */; };
 		F4416B1F1884511B00399D36 /* TKBluetoothManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F4416B1E1884511B00399D36 /* TKBluetoothManager.m */; };
 		F4416B21188454BA00399D36 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4416B20188454BA00399D36 /* Storyboard.storyboard */; };
+		F44C8E7F1892BA7E00DC3297 /* TKServer.m in Sources */ = {isa = PBXBuildFile; fileRef = F44C8E7E1892BA7E00DC3297 /* TKServer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,8 @@
 		F4416B1D1884511B00399D36 /* TKBluetoothManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKBluetoothManager.h; sourceTree = "<group>"; };
 		F4416B1E1884511B00399D36 /* TKBluetoothManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKBluetoothManager.m; sourceTree = "<group>"; };
 		F4416B20188454BA00399D36 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		F44C8E7E1892BA7E00DC3297 /* TKServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKServer.m; sourceTree = "<group>"; };
+		F44C8E801892BA8800DC3297 /* TKServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKServer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +187,8 @@
 		F4416AF218844EF300399D36 /* Frienderers */ = {
 			isa = PBXGroup;
 			children = (
+				F44C8E801892BA8800DC3297 /* TKServer.h */,
+				F44C8E7E1892BA7E00DC3297 /* TKServer.m */,
 				C8F2B3D81892953E00561DBC /* CreateGame */,
 				F4416B20188454BA00399D36 /* Storyboard.storyboard */,
 				C8F2B3CF189290D200561DBC /* TKGame.h */,
@@ -354,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F40C2486188459330050AFCE /* UIApplication+TKAppDelegate.m in Sources */,
+				F44C8E7F1892BA7E00DC3297 /* TKServer.m in Sources */,
 				C8F2B3DE1892956F00561DBC /* TKNameAndTimeViewController.m in Sources */,
 				F4416B1F1884511B00399D36 /* TKBluetoothManager.m in Sources */,
 				50ED336018929D3100C4B45C /* TKStyle.m in Sources */,

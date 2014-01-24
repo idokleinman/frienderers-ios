@@ -15,6 +15,7 @@
 @interface TKAppDelegate ()
 
 @property (strong, nonatomic) TKBluetoothManager* bluetooth;
+@property (strong, nonatomic) TKServer* server;
 
 @end
 
@@ -24,16 +25,13 @@
 {    
     [FBLoginView class];
     self.bluetooth = [[TKBluetoothManager alloc] init];
+    self.server = [[TKServer alloc] init];
 
     ConfigureAppearnace();
     
-    
-    [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
-    
-    BOOL existingSession = [FBSession openActiveSessionWithAllowLoginUI:NO];
+    BOOL existingSession = [self.server openSession];
     if (existingSession) {
         self.window.rootViewController = [[self.window.rootViewController storyboard] instantiateViewControllerWithIdentifier:@"gameWillStartVC"]; //was "main"
-        return YES;
     }
     
     return YES;
@@ -76,7 +74,9 @@
                                stringByReplacingOccurrencesOfString: @"<" withString: @""]
                               stringByReplacingOccurrencesOfString: @">" withString: @""]
                              stringByReplacingOccurrencesOfString: @" " withString: @""];
+    
     NSLog(@"remote notif token: %@", deviceToken);
+    [self.server registerPushToken:deviceToken];
 }
 
 @end
