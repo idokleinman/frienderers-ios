@@ -18,3 +18,7 @@ extern void ConfigureAppearnace();
 
 @interface TKView : UIView
 @end
+
+
+@interface TKButton : UIButton
+@end

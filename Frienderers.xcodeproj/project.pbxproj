@@ -18,6 +18,18 @@
 		C8F2B3E2189299DE00561DBC /* Plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8F2B3E0189299DE00561DBC /* Plus@2x.png */; };
 		C8F2B3E518929BF800561DBC /* Invite.png in Resources */ = {isa = PBXBuildFile; fileRef = C8F2B3E318929BF800561DBC /* Invite.png */; };
 		C8F2B3E618929BF800561DBC /* Invite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8F2B3E418929BF800561DBC /* Invite@2x.png */; };
+		50ED33631892A40900C4B45C /* TKkillTargetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ED33621892A40900C4B45C /* TKkillTargetViewController.m */; };
+		50ED336D1892A61E00C4B45C /* Invite.png in Resources */ = {isa = PBXBuildFile; fileRef = 50ED33651892A61E00C4B45C /* Invite.png */; };
+		50ED336E1892A61E00C4B45C /* Invite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50ED33661892A61E00C4B45C /* Invite@2x.png */; };
+		50ED336F1892A61E00C4B45C /* Plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 50ED33671892A61E00C4B45C /* Plus.png */; };
+		50ED33701892A61E00C4B45C /* Plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50ED33681892A61E00C4B45C /* Plus@2x.png */; };
+		50ED33711892A61E00C4B45C /* SmallTick.png in Resources */ = {isa = PBXBuildFile; fileRef = 50ED33691892A61E00C4B45C /* SmallTick.png */; };
+		50ED33721892A61E00C4B45C /* SmallTick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50ED336A1892A61E00C4B45C /* SmallTick@2x.png */; };
+		50ED33731892A61E00C4B45C /* Tick.png in Resources */ = {isa = PBXBuildFile; fileRef = 50ED336B1892A61E00C4B45C /* Tick.png */; };
+		50ED33741892A61E00C4B45C /* Tick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50ED336C1892A61E00C4B45C /* Tick@2x.png */; };
+		50ED33771892C0D800C4B45C /* TKShootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ED33761892C0D800C4B45C /* TKShootViewController.m */; };
+		50ED337A1892C13100C4B45C /* Gun.png in Resources */ = {isa = PBXBuildFile; fileRef = 50ED33781892C13100C4B45C /* Gun.png */; };
+		50ED337B1892C13100C4B45C /* Gun@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50ED33791892C13100C4B45C /* Gun@2x.png */; };
 		F40C2486188459330050AFCE /* UIApplication+TKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F40C2485188459330050AFCE /* UIApplication+TKAppDelegate.m */; };
 		F40C2489188459670050AFCE /* TKMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F40C2488188459670050AFCE /* TKMainViewController.m */; };
 		F40C248C18845FB00050AFCE /* TKNearByDevicesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F40C248B18845FB00050AFCE /* TKNearByDevicesDataSource.m */; };
@@ -69,6 +81,20 @@
 		C8F2B3E0189299DE00561DBC /* Plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Plus@2x.png"; sourceTree = "<group>"; };
 		C8F2B3E318929BF800561DBC /* Invite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Invite.png; sourceTree = "<group>"; };
 		C8F2B3E418929BF800561DBC /* Invite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Invite@2x.png"; sourceTree = "<group>"; };
+		50ED33611892A40900C4B45C /* TKkillTargetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKkillTargetViewController.h; sourceTree = "<group>"; };
+		50ED33621892A40900C4B45C /* TKkillTargetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKkillTargetViewController.m; sourceTree = "<group>"; };
+		50ED33651892A61E00C4B45C /* Invite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Invite.png; sourceTree = "<group>"; };
+		50ED33661892A61E00C4B45C /* Invite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Invite@2x.png"; sourceTree = "<group>"; };
+		50ED33671892A61E00C4B45C /* Plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Plus.png; sourceTree = "<group>"; };
+		50ED33681892A61E00C4B45C /* Plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Plus@2x.png"; sourceTree = "<group>"; };
+		50ED33691892A61E00C4B45C /* SmallTick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SmallTick.png; sourceTree = "<group>"; };
+		50ED336A1892A61E00C4B45C /* SmallTick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SmallTick@2x.png"; sourceTree = "<group>"; };
+		50ED336B1892A61E00C4B45C /* Tick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tick.png; sourceTree = "<group>"; };
+		50ED336C1892A61E00C4B45C /* Tick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tick@2x.png"; sourceTree = "<group>"; };
+		50ED33751892C0D800C4B45C /* TKShootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKShootViewController.h; sourceTree = "<group>"; };
+		50ED33761892C0D800C4B45C /* TKShootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKShootViewController.m; sourceTree = "<group>"; };
+		50ED33781892C13100C4B45C /* Gun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gun.png; sourceTree = "<group>"; };
+		50ED33791892C13100C4B45C /* Gun@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gun@2x.png"; sourceTree = "<group>"; };
 		F40C2484188459330050AFCE /* UIApplication+TKAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+TKAppDelegate.h"; sourceTree = "<group>"; };
 		F40C2485188459330050AFCE /* UIApplication+TKAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+TKAppDelegate.m"; sourceTree = "<group>"; };
 		F40C2487188459670050AFCE /* TKMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKMainViewController.h; sourceTree = "<group>"; };
@@ -148,6 +174,16 @@
 				C8F2B3E418929BF800561DBC /* Invite@2x.png */,
 				C8F2B3DF189299DE00561DBC /* Plus.png */,
 				C8F2B3E0189299DE00561DBC /* Plus@2x.png */,
+				50ED33781892C13100C4B45C /* Gun.png */,
+				50ED33791892C13100C4B45C /* Gun@2x.png */,
+				50ED33651892A61E00C4B45C /* Invite.png */,
+				50ED33661892A61E00C4B45C /* Invite@2x.png */,
+				50ED33671892A61E00C4B45C /* Plus.png */,
+				50ED33681892A61E00C4B45C /* Plus@2x.png */,
+				50ED33691892A61E00C4B45C /* SmallTick.png */,
+				50ED336A1892A61E00C4B45C /* SmallTick@2x.png */,
+				50ED336B1892A61E00C4B45C /* Tick.png */,
+				50ED336C1892A61E00C4B45C /* Tick@2x.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -195,6 +231,14 @@
 				C8F2B3D0189290D200561DBC /* TKGame.m */,
 				F4416AF318844EF300399D36 /* Supporting Files */,
 				F4416AFE18844EF300399D36 /* Images.xcassets */,
+				50ED33641892A60300C4B45C /* assets */,
+				F4416AF318844EF300399D36 /* Supporting Files */,
+				F4416AFE18844EF300399D36 /* Images.xcassets */,
+				F4416B20188454BA00399D36 /* Storyboard.storyboard */,
+				50ED33751892C0D800C4B45C /* TKShootViewController.h */,
+				50ED33761892C0D800C4B45C /* TKShootViewController.m */,
+				50ED33611892A40900C4B45C /* TKkillTargetViewController.h */,
+				50ED33621892A40900C4B45C /* TKkillTargetViewController.m */,
 				50ED335B18928C8100C4B45C /* TKStartTimerViewController.h */,
 				50ED335C18928C8100C4B45C /* TKStartTimerViewController.m */,
 				50ED33581892877B00C4B45C /* TKServerController.h */,
@@ -332,6 +376,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50ED337A1892C13100C4B45C /* Gun.png in Resources */,
+				50ED33701892A61E00C4B45C /* Plus@2x.png in Resources */,
+				50ED336D1892A61E00C4B45C /* Invite.png in Resources */,
+				50ED33731892A61E00C4B45C /* Tick.png in Resources */,
 				F4416AF718844EF300399D36 /* InfoPlist.strings in Resources */,
 				C8F2B3E618929BF800561DBC /* Invite@2x.png in Resources */,
 				C8F2B3D7189294C800561DBC /* CreateGameStoryboard.storyboard in Resources */,
@@ -339,7 +387,13 @@
 				C8F2B3E1189299DE00561DBC /* Plus.png in Resources */,
 				F4416AFF18844EF300399D36 /* Images.xcassets in Resources */,
 				C8F2B3E518929BF800561DBC /* Invite.png in Resources */,
+				50ED33711892A61E00C4B45C /* SmallTick.png in Resources */,
+				50ED33741892A61E00C4B45C /* Tick@2x.png in Resources */,
+				50ED336F1892A61E00C4B45C /* Plus.png in Resources */,
 				F4416B21188454BA00399D36 /* Storyboard.storyboard in Resources */,
+				50ED336E1892A61E00C4B45C /* Invite@2x.png in Resources */,
+				50ED337B1892C13100C4B45C /* Gun@2x.png in Resources */,
+				50ED33721892A61E00C4B45C /* SmallTick@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +424,8 @@
 				50ED335D18928C8100C4B45C /* TKStartTimerViewController.m in Sources */,
 				F4416AF918844EF300399D36 /* main.m in Sources */,
 				F40CBB8E18926594008E2248 /* TKLoginViewController.m in Sources */,
+				50ED33631892A40900C4B45C /* TKkillTargetViewController.m in Sources */,
+				50ED33771892C0D800C4B45C /* TKShootViewController.m in Sources */,
 				F4416AFD18844EF300399D36 /* TKAppDelegate.m in Sources */,
 				50ED335A1892877B00C4B45C /* TKServerController.m in Sources */,
 			);

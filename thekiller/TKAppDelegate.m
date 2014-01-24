@@ -24,6 +24,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {    
     [FBLoginView class];
+    [FBProfilePictureView class];
+    
     self.bluetooth = [[TKBluetoothManager alloc] init];
     self.server = [[TKServer alloc] init];
 

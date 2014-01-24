@@ -14,6 +14,7 @@
 
 +(id)sharedServer;
 - (void)loadGameInformation:(void(^)(NSDictionary* gameInfo, NSError* error))completion;
+- (void)loadNextTarget:(void(^)(NSString* nextTargetProfileID, NSError* error))completion;
 
 
 @end
