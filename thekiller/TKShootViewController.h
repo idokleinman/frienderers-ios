@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "TKStyle.h"
 
-@interface TKShootViewController : UIViewController
+@interface TKShootViewController : UIViewController <UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet TKButton *shootButton;
+@property BOOL isGunLoaded;
 
 @end

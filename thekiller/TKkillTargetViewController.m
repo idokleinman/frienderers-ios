@@ -26,7 +26,10 @@
 }
 
 
-- (IBAction)targetApproveButton:(id)sender {
+- (IBAction)targetApproveButton:(id)sender
+{
+    [self performSegueWithIdentifier:@"shoot" sender:self];
+    
 }
 
 - (void)viewDidLoad
