@@ -9,8 +9,6 @@
 #import "TKMainViewController.h"
 #import "TKNearByDevicesDataSource.h"
 
-#import "CLMultiSectionTableViewDataSource.h"
-
 @interface TKBluetoothStatusDataSource : NSObject <UITableViewDataSource>
 @property(strong,nonatomic) UITableView* tableView;
 @end
@@ -62,9 +60,6 @@
 @interface TKMainViewController ()
 
 @property (strong, nonatomic) TKNearByDevicesDataSource* nearbyDevicesDataSource;
-@property (strong, nonatomic) TKBluetoothStatusDataSource* statusDataSource;
-
-@property (strong, nonatomic) CLMultiSectionTableViewDataSource* dataSources;
 
 @end
 

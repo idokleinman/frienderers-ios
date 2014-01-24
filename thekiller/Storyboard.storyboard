@@ -30,7 +30,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r4F-lt-fg4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-744" y="-220"/>
+            <point key="canvasLocation" x="-866" y="-180"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dmc-JV-QMh">
@@ -45,7 +45,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8gV-Tp-5DM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-379" y="-198"/>
+            <point key="canvasLocation" x="-413" y="-180"/>
         </scene>
         <!--Main View Controller - Frienderers-->
         <scene sceneID="mph-M8-yKU">
@@ -72,6 +72,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="THb-cY-I30" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="96" y="-198"/>
+        </scene>
+        <!--Start Timer View Controller-->
+        <scene sceneID="Oon-Tz-Ypq">
+            <objects>
+                <viewController storyboardIdentifier="gameWillStartVC" id="lTn-4M-60F" customClass="TKStartTimerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pgH-nL-Ugx"/>
+                        <viewControllerLayoutGuide type="bottom" id="5z3-o9-fbk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xuL-FB-PUD" customClass="TKView">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game will start in:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zf-CJ-Ene" customClass="TKBigLabel">
+                                <rect key="frame" x="77" y="217" width="167" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="21"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HH:MM:SS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1c3-Np-G81" customClass="TKSmallLabel">
+                                <rect key="frame" x="117" y="274" width="87" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="1c3-Np-G81" secondAttribute="centerY" id="IHp-Qn-Lsq"/>
+                            <constraint firstAttribute="centerX" secondItem="1c3-Np-G81" secondAttribute="centerX" id="Rc2-w3-ymN"/>
+                            <constraint firstItem="1c3-Np-G81" firstAttribute="top" secondItem="2zf-CJ-Ene" secondAttribute="bottom" constant="36" id="btY-GI-9af"/>
+                            <constraint firstAttribute="centerX" secondItem="2zf-CJ-Ene" secondAttribute="centerX" id="ees-At-KDz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="gameStartTimerLabel" destination="1c3-Np-G81" id="QR3-Mz-BAR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="INQ-iw-IOV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="622" y="-212"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
