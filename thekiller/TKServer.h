@@ -10,7 +10,13 @@
 
 @interface TKServer : NSObject
 
+@property (readonly, nonatomic) NSString* userid;
+@property (readonly, nonatomic) NSDictionary* profile;
+
 - (BOOL)openSession;
+- (void)hello:(void(^)(NSDictionary* existingGame, NSError* error))completion;
+
 - (void)registerPushToken:(NSString*)deviceToken;
+- (void)createGameWithTitle:(NSString*)title startTime:(NSDate*)startTime playerUserIDs:(NSArray*)players completion:(void(^)(NSDictionary* game, NSError* error))completion;
 
 @end
