@@ -22,6 +22,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {    
     [FBLoginView class];
+    self.bluetooth = [[TKBluetoothManager alloc] init];
+    
+    [[UILabel appearance] setTextColor:[UIColor redColor]];
+    [[UIView appearance] setBackgroundColor:[UIColor blackColor]];
+    
     
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
     
@@ -31,7 +36,6 @@
         return YES;
     }
     
-    self.bluetooth = [[TKBluetoothManager alloc] init];
     return YES;
 }
 

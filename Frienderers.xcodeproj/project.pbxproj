@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50ED335A1892877B00C4B45C /* TKServerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ED33591892877B00C4B45C /* TKServerController.m */; };
+		50ED335D18928C8100C4B45C /* TKStartTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ED335C18928C8100C4B45C /* TKStartTimerViewController.m */; };
 		F40C2486188459330050AFCE /* UIApplication+TKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F40C2485188459330050AFCE /* UIApplication+TKAppDelegate.m */; };
 		F40C2489188459670050AFCE /* TKMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F40C2488188459670050AFCE /* TKMainViewController.m */; };
 		F40C248C18845FB00050AFCE /* TKNearByDevicesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F40C248B18845FB00050AFCE /* TKNearByDevicesDataSource.m */; };
@@ -28,7 +30,6 @@
 		F4416B1F1884511B00399D36 /* TKBluetoothManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F4416B1E1884511B00399D36 /* TKBluetoothManager.m */; };
 		F4416B21188454BA00399D36 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4416B20188454BA00399D36 /* Storyboard.storyboard */; };
 		F49204A71892469E00B8225C /* TKServer.m in Sources */ = {isa = PBXBuildFile; fileRef = F49204A61892469E00B8225C /* TKServer.m */; };
-		F4BB4D8F188DB54A00FCFC4A /* CLMultiSectionTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BB4D8E188DB54A00FCFC4A /* CLMultiSectionTableViewDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		50ED33581892877B00C4B45C /* TKServerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKServerController.h; sourceTree = "<group>"; };
+		50ED33591892877B00C4B45C /* TKServerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKServerController.m; sourceTree = "<group>"; };
+		50ED335B18928C8100C4B45C /* TKStartTimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKStartTimerViewController.h; sourceTree = "<group>"; };
+		50ED335C18928C8100C4B45C /* TKStartTimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKStartTimerViewController.m; sourceTree = "<group>"; };
 		F40C2484188459330050AFCE /* UIApplication+TKAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+TKAppDelegate.h"; sourceTree = "<group>"; };
 		F40C2485188459330050AFCE /* UIApplication+TKAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+TKAppDelegate.m"; sourceTree = "<group>"; };
 		F40C2487188459670050AFCE /* TKMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKMainViewController.h; sourceTree = "<group>"; };
@@ -73,8 +78,6 @@
 		F4416B20188454BA00399D36 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		F49204A51892469E00B8225C /* TKServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKServer.h; sourceTree = "<group>"; };
 		F49204A61892469E00B8225C /* TKServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKServer.m; sourceTree = "<group>"; };
-		F4BB4D8D188DB54A00FCFC4A /* CLMultiSectionTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLMultiSectionTableViewDataSource.h; sourceTree = "<group>"; };
-		F4BB4D8E188DB54A00FCFC4A /* CLMultiSectionTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLMultiSectionTableViewDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +144,10 @@
 				F4416AF318844EF300399D36 /* Supporting Files */,
 				F4416AFE18844EF300399D36 /* Images.xcassets */,
 				F4416B20188454BA00399D36 /* Storyboard.storyboard */,
+				50ED335B18928C8100C4B45C /* TKStartTimerViewController.h */,
+				50ED335C18928C8100C4B45C /* TKStartTimerViewController.m */,
+				50ED33581892877B00C4B45C /* TKServerController.h */,
+				50ED33591892877B00C4B45C /* TKServerController.m */,
 				F4416AFB18844EF300399D36 /* TKAppDelegate.h */,
 				F4416AFC18844EF300399D36 /* TKAppDelegate.m */,
 				F4416B1D1884511B00399D36 /* TKBluetoothManager.h */,
@@ -151,8 +158,6 @@
 				F40C2488188459670050AFCE /* TKMainViewController.m */,
 				F40C248A18845FB00050AFCE /* TKNearByDevicesDataSource.h */,
 				F40C248B18845FB00050AFCE /* TKNearByDevicesDataSource.m */,
-				F4BB4D8D188DB54A00FCFC4A /* CLMultiSectionTableViewDataSource.h */,
-				F4BB4D8E188DB54A00FCFC4A /* CLMultiSectionTableViewDataSource.m */,
 				F40CBB8C18926594008E2248 /* TKLoginViewController.h */,
 				F40CBB8D18926594008E2248 /* TKLoginViewController.m */,
 				F49204A51892469E00B8225C /* TKServer.h */,
@@ -301,11 +306,12 @@
 				F4416B1F1884511B00399D36 /* TKBluetoothManager.m in Sources */,
 				F40C248C18845FB00050AFCE /* TKNearByDevicesDataSource.m in Sources */,
 				F40C2489188459670050AFCE /* TKMainViewController.m in Sources */,
-				F4BB4D8F188DB54A00FCFC4A /* CLMultiSectionTableViewDataSource.m in Sources */,
+				50ED335D18928C8100C4B45C /* TKStartTimerViewController.m in Sources */,
 				F4416AF918844EF300399D36 /* main.m in Sources */,
 				F40CBB8E18926594008E2248 /* TKLoginViewController.m in Sources */,
 				F49204A71892469E00B8225C /* TKServer.m in Sources */,
 				F4416AFD18844EF300399D36 /* TKAppDelegate.m in Sources */,
+				50ED335A1892877B00C4B45C /* TKServerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,7 +442,7 @@
 				GCC_PREFIX_HEADER = "thekiller/frienderers-Prefix.pch";
 				INFOPLIST_FILE = "thekiller/frienderers-Info.plist";
 				PRODUCT_NAME = Frienderers;
-				PROVISIONING_PROFILE = "6AB4395E-4AA3-4708-A766-0700C39A86FA";
+				PROVISIONING_PROFILE = "7F3F7E0D-6A84-4B41-82FD-4EF3657056D8";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -456,7 +462,7 @@
 				GCC_PREFIX_HEADER = "thekiller/frienderers-Prefix.pch";
 				INFOPLIST_FILE = "thekiller/frienderers-Info.plist";
 				PRODUCT_NAME = Frienderers;
-				PROVISIONING_PROFILE = "6AB4395E-4AA3-4708-A766-0700C39A86FA";
+				PROVISIONING_PROFILE = "7F3F7E0D-6A84-4B41-82FD-4EF3657056D8";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
