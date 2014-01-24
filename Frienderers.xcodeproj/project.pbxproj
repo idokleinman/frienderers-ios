@@ -22,6 +22,7 @@
 		50ED33771892C0D800C4B45C /* TKShootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ED33761892C0D800C4B45C /* TKShootViewController.m */; };
 		50ED337A1892C13100C4B45C /* Gun.png in Resources */ = {isa = PBXBuildFile; fileRef = 50ED33781892C13100C4B45C /* Gun.png */; };
 		50ED337B1892C13100C4B45C /* Gun@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50ED33791892C13100C4B45C /* Gun@2x.png */; };
+		50ED337E1892D15500C4B45C /* TKDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ED337D1892D15500C4B45C /* TKDevice.m */; };
 		C8F2B3D1189290D200561DBC /* TKGame.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F2B3D0189290D200561DBC /* TKGame.m */; };
 		C8F2B3D7189294C800561DBC /* CreateGameStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8F2B3D6189294C800561DBC /* CreateGameStoryboard.storyboard */; };
 		C8F2B3DB1892956200561DBC /* TKCreateGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F2B3DA1892956200561DBC /* TKCreateGameViewController.m */; };
@@ -84,6 +85,8 @@
 		50ED33761892C0D800C4B45C /* TKShootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKShootViewController.m; sourceTree = "<group>"; };
 		50ED33781892C13100C4B45C /* Gun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gun.png; sourceTree = "<group>"; };
 		50ED33791892C13100C4B45C /* Gun@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gun@2x.png"; sourceTree = "<group>"; };
+		50ED337C1892D15500C4B45C /* TKDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKDevice.h; sourceTree = "<group>"; };
+		50ED337D1892D15500C4B45C /* TKDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKDevice.m; sourceTree = "<group>"; };
 		C8F2B3CF189290D200561DBC /* TKGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKGame.h; path = ../TKGame.h; sourceTree = "<group>"; };
 		C8F2B3D0189290D200561DBC /* TKGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKGame.m; path = ../TKGame.m; sourceTree = "<group>"; };
 		C8F2B3D6189294C800561DBC /* CreateGameStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateGameStoryboard.storyboard; sourceTree = "<group>"; };
@@ -246,6 +249,8 @@
 				F4416AFC18844EF300399D36 /* TKAppDelegate.m */,
 				F4416B1D1884511B00399D36 /* TKBluetoothManager.h */,
 				F4416B1E1884511B00399D36 /* TKBluetoothManager.m */,
+				50ED337C1892D15500C4B45C /* TKDevice.h */,
+				50ED337D1892D15500C4B45C /* TKDevice.m */,
 				F40C2484188459330050AFCE /* UIApplication+TKAppDelegate.h */,
 				F40C2485188459330050AFCE /* UIApplication+TKAppDelegate.m */,
 				F40C2487188459670050AFCE /* TKMainViewController.h */,
@@ -418,6 +423,7 @@
 				50ED336018929D3100C4B45C /* TKStyle.m in Sources */,
 				F40C248C18845FB00050AFCE /* TKNearByDevicesDataSource.m in Sources */,
 				F40C2489188459670050AFCE /* TKMainViewController.m in Sources */,
+				50ED337E1892D15500C4B45C /* TKDevice.m in Sources */,
 				C8F2B3D1189290D200561DBC /* TKGame.m in Sources */,
 				C8F2B3DB1892956200561DBC /* TKCreateGameViewController.m in Sources */,
 				50ED335D18928C8100C4B45C /* TKStartTimerViewController.m in Sources */,

@@ -10,6 +10,9 @@
 
 @interface TKServer : NSObject
 
+@property (nonatomic, strong) NSString* profileID;
+
+
 - (BOOL)openSession;
 - (void)registerPushToken:(NSString*)deviceToken;
 

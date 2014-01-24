@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "TKStyle.h"
+#import "TKBluetoothManager.h"
+#import "TKServer.h"
 
 @interface TKShootViewController : UIViewController <UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet TKButton *shootButton;
 @property BOOL isGunLoaded;
+
+@property (strong, nonatomic) TKServer* server;
 
 @end

@@ -9,6 +9,8 @@
 @import CoreBluetooth;
 
 #import "TKBluetoothManager.h"
+#import "TKDevice.h"
+#import "TKServer.h"
 
 NSString* const SERVICE_UUID = @"0194827D-A9F6-4500-8AC3-BB6189EEE15E";
 NSString* const CHARACTERISTIC_UUID = @"BD5DF558-9DF1-4216-8521-411D6F917A8C";
@@ -30,32 +32,47 @@ NSString* const CHARACTERISTIC_UUID = @"BD5DF558-9DF1-4216-8521-411D6F917A8C";
 
 @implementation TKBluetoothManager
 
-- (id)init {
-    if (self = [super init]) {
-        
-        // set up peripheral
-        NSData* data = [@"Hello, world" dataUsingEncoding:NSUTF8StringEncoding];
-        CBMutableCharacteristic* characteristic = [[CBMutableCharacteristic alloc] initWithType:[CBUUID UUIDWithString:CHARACTERISTIC_UUID] properties:CBCharacteristicPropertyRead value:data permissions:CBAttributePermissionsReadable];
-        CBMutableService* service = [[CBMutableService alloc] initWithType:[CBUUID UUIDWithString:SERVICE_UUID] primary:YES];
-        service.characteristics = @[ characteristic ];
-        self.peripheral = [[CBPeripheralManager alloc] initWithDelegate:self queue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0) options:nil];
-        [self.peripheral addService:service];
-        
-        NSString* name = [UIDevice currentDevice].name;
-        NSLog(@"device name: %@", name);
-        NSDictionary* d = @{ CBAdvertisementDataLocalNameKey: name,
-                             CBAdvertisementDataServiceUUIDsKey: @[ service.UUID ] };
-        
-        [self.peripheral startAdvertising:d];
-        [self peripheralManagerDidUpdateState:self.peripheral];
-        
-        // set up central
-        self.central = [[CBCentralManager alloc] initWithDelegate:self queue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0) options:nil];
-        [self centralManagerDidUpdateState:self.central];
-        
-        self.nearbyDevicesDictionary = [NSMutableDictionary new];
+
+static TKBluetoothManager *sharedManager = nil;
+
++(TKBluetoothManager *)sharedManager
+{
+    if (!sharedManager) {
+        sharedManager = [[TKBluetoothManager alloc] init];
     }
-    return self;
+    
+    return sharedManager;
+}
+
+
+- (void)startWithName:(NSString *)name
+{
+    NSParameterAssert(name);
+    
+    
+    // set up peripheral
+    NSData* data = [@"Hello, world" dataUsingEncoding:NSUTF8StringEncoding];
+    
+    CBMutableCharacteristic* characteristic = [[CBMutableCharacteristic alloc] initWithType:[CBUUID UUIDWithString:CHARACTERISTIC_UUID] properties:CBCharacteristicPropertyRead value:data permissions:CBAttributePermissionsReadable];
+    CBMutableService* service = [[CBMutableService alloc] initWithType:[CBUUID UUIDWithString:SERVICE_UUID] primary:YES];
+    service.characteristics = @[ characteristic ];
+    self.peripheral = [[CBPeripheralManager alloc] initWithDelegate:self queue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0) options:nil];
+    [self.peripheral addService:service];
+    
+    
+    
+    NSDictionary* d = @{ CBAdvertisementDataLocalNameKey: name,
+                         CBAdvertisementDataServiceUUIDsKey: @[ service.UUID ] };
+    
+    [self.peripheral startAdvertising:d];
+    [self peripheralManagerDidUpdateState:self.peripheral];
+    
+    // set up central
+    self.central = [[CBCentralManager alloc] initWithDelegate:self queue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0) options:nil];
+    [self centralManagerDidUpdateState:self.central];
+    
+    self.nearbyDevicesDictionary = [NSMutableDictionary new];
+    
 }
 
 #pragma mark - Peripheral
@@ -141,34 +158,4 @@ NSString* DescriptionForState(NSInteger state)
     return description;
 }
 
-@end
-
-@interface TKDevice ()
-@property (strong, nonatomic) NSString* name;
-@property (strong, nonatomic) NSArray* rssiSamples;
-@end
-
-@implementation TKDevice
-- (id)initWithName:(NSString*)name {
-    if (self = [super init]) {
-        self.name = name;
-        self.rssiSamples = [NSMutableArray new];
-    }
-    return self;
-}
--(void)addSample:(NSNumber *)sample{
-    NSMutableArray* samples = (NSMutableArray*)self.rssiSamples;
-    [samples addObject:sample];
-    if (samples.count > 50) {
-        [samples removeObjectAtIndex:0];
-    }
-    
-    NSInteger sum = 0;
-    for (NSNumber* sample in samples) {
-        sum += [sample integerValue];
-    }
-    
-    _prevRSSI = _rssi;
-    _rssi = (NSInteger)((CGFloat)sum / samples.count);
-}
 @end

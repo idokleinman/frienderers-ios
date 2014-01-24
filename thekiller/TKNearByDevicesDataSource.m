@@ -8,6 +8,7 @@
 
 #import "TKNearByDevicesDataSource.h"
 #import "TKAppDelegate.h"
+#import "TKDevice.h"
 
 @interface TKNearByDevicesDataSource ()
 
@@ -20,7 +21,7 @@
 - (id)initWithTableView:(UITableView*)tableView {
     self = [super init];
     if (self) {
-        self.manager = [UIApplication sharedApplication].tkapp.bluetooth;
+//        self.manager = [UIApplication sharedApplication].tkapp.bluetooth;
         self.tableView = tableView;
         [self.manager addObserver:self forKeyPath:@"nearbyDevicesDictionary" options:NSKeyValueObservingOptionInitial context:0];
     }

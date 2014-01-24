@@ -8,6 +8,7 @@
 
 #import "TKShootViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import "TKBluetoothManager.h"
 
 @interface TKShootViewController ()
 
@@ -35,6 +36,22 @@
     [self.view addGestureRecognizer:panRecognizer];
     
     self.isGunLoaded = NO;
+    
+    // bluetooth
+    self.server = [UIApplication sharedApplication].tkapp.server;
+    
+    [[TKBluetoothManager sharedManager] startWithName:@"temp"];//self.server.profileID];
+    [[TKBluetoothManager sharedManager] addObserver:self forKeyPath:@"nearbyDevicesDictionary" options:NSKeyValueObservingOptionInitial context:0];
+
+}
+
+- (void)dealloc
+{
+    [[TKBluetoothManager sharedManager] removeObserver:self forKeyPath:@"nearbyDevicesDictionary" context:0];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+//    [self.tableView reloadData];
 }
 
 
@@ -46,11 +63,15 @@
 }
 
 
-- (void) respondToCocking:(UITapGestureRecognizer *)shot
+- (void) respondToCocking:(UITapGestureRecognizer *)cocking
 {
-    NSLog(@"swipe cocking");
-    self.isGunLoaded = YES;
-    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+    
+    if (cocking.state == UIGestureRecognizerStateEnded)
+    {
+        NSLog(@"swipe cocking");
+        self.isGunLoaded = YES;
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+    }
 }
 
 
@@ -61,8 +82,12 @@
     {
         if (motion == UIEventSubtypeMotionShake)
         {
+            
+            // shoot logic
             self.isGunLoaded = NO;
             NSLog(@"motion shake -- shoot");
+            
+            
         }
     }
 }

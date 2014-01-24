@@ -14,16 +14,7 @@
 @property (readonly, nonatomic) NSString* centralStatus;
 @property (readonly, nonatomic) NSMutableDictionary* nearbyDevicesDictionary;
 
-@end
-
-@interface TKDevice : NSObject
-
-@property (readonly, nonatomic) NSString* name;
-@property (readonly, nonatomic) NSArray* rssiSamples;
-@property (readonly, nonatomic) NSInteger rssi;
-@property (readonly, nonatomic) NSInteger prevRSSI;
-
-- (id)initWithName:(NSString*)name;
-- (void)addSample:(NSNumber*)sample;
++(TKBluetoothManager *)sharedManager;
+- (void)startWithName:(NSString *)name;
 
 @end
