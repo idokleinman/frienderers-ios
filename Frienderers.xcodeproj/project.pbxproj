@@ -11,6 +11,7 @@
 		F40C2489188459670050AFCE /* TKMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F40C2488188459670050AFCE /* TKMainViewController.m */; };
 		F40C248C18845FB00050AFCE /* TKNearByDevicesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F40C248B18845FB00050AFCE /* TKNearByDevicesDataSource.m */; };
 		F40CBB8E18926594008E2248 /* TKLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F40CBB8D18926594008E2248 /* TKLoginViewController.m */; };
+		F40CBB9418926DD8008E2248 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40CBB9318926DD8008E2248 /* FacebookSDK.framework */; };
 		F4416AED18844EF300399D36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4416AEC18844EF300399D36 /* Foundation.framework */; };
 		F4416AEF18844EF300399D36 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4416AEE18844EF300399D36 /* CoreGraphics.framework */; };
 		F4416AF118844EF300399D36 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4416AF018844EF300399D36 /* UIKit.framework */; };
@@ -26,7 +27,6 @@
 		F4416B1C188450F200399D36 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4416B1B188450F200399D36 /* CoreBluetooth.framework */; };
 		F4416B1F1884511B00399D36 /* TKBluetoothManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F4416B1E1884511B00399D36 /* TKBluetoothManager.m */; };
 		F4416B21188454BA00399D36 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4416B20188454BA00399D36 /* Storyboard.storyboard */; };
-		F49204A11891994700B8225C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F49204A01891994700B8225C /* FacebookSDK.framework */; };
 		F49204A71892469E00B8225C /* TKServer.m in Sources */ = {isa = PBXBuildFile; fileRef = F49204A61892469E00B8225C /* TKServer.m */; };
 		F4BB4D8F188DB54A00FCFC4A /* CLMultiSectionTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BB4D8E188DB54A00FCFC4A /* CLMultiSectionTableViewDataSource.m */; };
 /* End PBXBuildFile section */
@@ -50,6 +50,7 @@
 		F40C248B18845FB00050AFCE /* TKNearByDevicesDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKNearByDevicesDataSource.m; sourceTree = "<group>"; };
 		F40CBB8C18926594008E2248 /* TKLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLoginViewController.h; sourceTree = "<group>"; };
 		F40CBB8D18926594008E2248 /* TKLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKLoginViewController.m; sourceTree = "<group>"; };
+		F40CBB9318926DD8008E2248 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		F4416AE918844EF300399D36 /* Frienderers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Frienderers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4416AEC18844EF300399D36 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F4416AEE18844EF300399D36 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -70,7 +71,6 @@
 		F4416B1D1884511B00399D36 /* TKBluetoothManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKBluetoothManager.h; sourceTree = "<group>"; };
 		F4416B1E1884511B00399D36 /* TKBluetoothManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKBluetoothManager.m; sourceTree = "<group>"; };
 		F4416B20188454BA00399D36 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
-		F49204A01891994700B8225C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		F49204A51892469E00B8225C /* TKServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKServer.h; sourceTree = "<group>"; };
 		F49204A61892469E00B8225C /* TKServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKServer.m; sourceTree = "<group>"; };
 		F4BB4D8D188DB54A00FCFC4A /* CLMultiSectionTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLMultiSectionTableViewDataSource.h; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4416B1C188450F200399D36 /* CoreBluetooth.framework in Frameworks */,
-				F49204A11891994700B8225C /* FacebookSDK.framework in Frameworks */,
+				F40CBB9418926DD8008E2248 /* FacebookSDK.framework in Frameworks */,
 				F4416AEF18844EF300399D36 /* CoreGraphics.framework in Frameworks */,
 				F4416AF118844EF300399D36 /* UIKit.framework in Frameworks */,
 				F4416AED18844EF300399D36 /* Foundation.framework in Frameworks */,
@@ -125,7 +125,7 @@
 		F4416AEB18844EF300399D36 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F49204A01891994700B8225C /* FacebookSDK.framework */,
+				F40CBB9318926DD8008E2248 /* FacebookSDK.framework */,
 				F4416B1B188450F200399D36 /* CoreBluetooth.framework */,
 				F4416AEC18844EF300399D36 /* Foundation.framework */,
 				F4416AEE18844EF300399D36 /* CoreGraphics.framework */,
