@@ -7,6 +7,7 @@
 //
 
 #import "TKServer.h"
+#import <AFNetworking/AFNetworking.h>
 
 @interface NSData (UTF8)
 
@@ -14,6 +15,12 @@
 
 @end
 
+@interface TKServer ()
+
+@property (strong, nonatomic) NSString* userid;
+@property (strong, nonatomic) NSDictionary* profile;
+
+@end
 
 @implementation TKServer
 
@@ -27,12 +34,17 @@
 }
 
 - (NSString*)domainName {
-    return @"localhost";
+//    return @"localhost";
+    return @"frienderers.com";
+}
+
+- (NSString*)domainURLPostfix {
+//    return @":5000";
+    return @"";
 }
 
 - (NSURL*)URLWithPath:(NSString*)path {
-//    NSURL* url = [NSURL URLWithString:@"http://frienderers.com"];
-    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@:5000", [self domainName]]];
+    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@%@", [self domainName], [self domainURLPostfix]]];
     return [NSURL URLWithString:path relativeToURL:url];
 }
 
@@ -58,17 +70,35 @@
     // register remote notifications once we set the authentication cookie
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
     
-#ifdef DEBUG
-    [self registerPushToken:@"ff1cb8fb9b49794dc6268a5b28132496257e19b611b046a7abe1c458294e0d7d"];
-#endif
-    
-    NSURLRequest* req = [NSURLRequest requestWithURL:[self URLWithPath:@"/me"]];
-    [[[NSURLSession sharedSession] dataTaskWithRequest:req completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSLog(@"%@", [data UTF8String]);
-
-    }] resume];
+//#ifdef DEBUG
+//    [self registerPushToken:@"ff1cb8fb9b49794dc6268a5b28132496257e19b611b046a7abe1c458294e0d7d"];
+//#endif
+//    [self createGameWithTitle:@"GAME_TITLE" startTime:[NSDate date] playerUserIDs:@[ @"1234", @"3333" ] completion:^(NSDictionary* game, NSError *error) {
+//        NSLog(@"created game: %@", game);
+//    }];
+    [self hello:^(NSDictionary *existingGame, NSError *error) {
+        NSLog(@"existingGame: %@", existingGame);
+    }];
     
     return YES;
+}
+
+- (void)hello:(void(^)(NSDictionary* existingGame, NSError* error))completion {
+    NSURLRequest* req = [NSURLRequest requestWithURL:[self URLWithPath:@"/hello"]];
+    [self request:req completion:^(id response, NSError *error) {
+        if (error) {
+            completion(nil, error);
+            return;
+        }
+        
+        self.profile = response[@"profile"];
+        self.userid = response[@"userid"];
+        
+        NSLog(@"loggin with with userid %@", self.userid);
+        NSLog(@"facebook profile: %@", self.profile);
+        
+        completion(response[@"existing-game"], nil);
+    }];
 }
 
 - (void)registerPushToken:(NSString*)deviceToken {
@@ -76,9 +106,56 @@
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[self URLWithPath:path]];
     request.HTTPMethod = @"POST";
     
+    [self request:request completion:^(id response, NSError *error) {
+        NSLog(@"Push token response: %@", response);
+    }];
+}
+
+- (void)createGameWithTitle:(NSString*)title startTime:(NSDate*)startTime playerUserIDs:(NSArray*)players completion:(void(^)(NSDictionary* game, NSError* error))completion {
+    NSString* url = [[self URLWithPath:@"/game"] absoluteString];
+    NSDictionary* params = @{ @"title": title,
+                              @"players": players,
+                              @"start": @([startTime timeIntervalSinceReferenceDate]) };
+    
+    NSMutableURLRequest* req = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:url parameters:params error:nil];
+    [self request:req completion:^(id response, NSError* error) {
+        if (error) {
+            completion(nil, error);
+            return;
+        }
+        
+        NSLog(@"Create game response: %@", response);
+        completion(response, nil);
+    }];
+}
+
+- (void)request:(NSURLRequest*)request completion:(void(^)(id response, NSError* error))completion {
     [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSLog(@"RESPONSE: %@", [data UTF8String]);
+        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+        if (httpResponse.statusCode != 200) {
+            NSString* s = [data UTF8String];
+            if (s.length == 0) {
+                s = @"Request Failed";
+            }
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion(nil, MakeError(s, httpResponse.statusCode));
+            });
+            return;
+        }
+        
+        
+        id obj = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion(obj, nil);
+        });
     }] resume];
+}
+
+NSError* MakeError(NSString* desc, NSInteger code) {
+    NSString* f = [NSString stringWithFormat:@"%d: %@", code, desc];
+    NSError* error = [NSError errorWithDomain:@"TKServer" code:0 userInfo:@{ NSLocalizedDescriptionKey: f }];
+    return error;
 }
 
 @end
