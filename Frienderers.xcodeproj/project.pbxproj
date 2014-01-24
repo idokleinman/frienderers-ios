@@ -128,10 +128,7 @@
 		C8F2B3D81892953E00561DBC /* CreateGame */ = {
 			isa = PBXGroup;
 			children = (
-				C8F2B3E318929BF800561DBC /* Invite.png */,
-				C8F2B3E418929BF800561DBC /* Invite@2x.png */,
-				C8F2B3DF189299DE00561DBC /* Plus.png */,
-				C8F2B3E0189299DE00561DBC /* Plus@2x.png */,
+				C8F2B3E81892B27C00561DBC /* images */,
 				C8F2B3D6189294C800561DBC /* CreateGameStoryboard.storyboard */,
 				C8F2B3D91892956200561DBC /* TKCreateGameViewController.h */,
 				C8F2B3DA1892956200561DBC /* TKCreateGameViewController.m */,
@@ -139,6 +136,17 @@
 				C8F2B3DD1892956F00561DBC /* TKNameAndTimeViewController.m */,
 			);
 			name = CreateGame;
+			sourceTree = "<group>";
+		};
+		C8F2B3E81892B27C00561DBC /* images */ = {
+			isa = PBXGroup;
+			children = (
+				C8F2B3E318929BF800561DBC /* Invite.png */,
+				C8F2B3E418929BF800561DBC /* Invite@2x.png */,
+				C8F2B3DF189299DE00561DBC /* Plus.png */,
+				C8F2B3E0189299DE00561DBC /* Plus@2x.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 		F4416AE018844EF300399D36 = {
@@ -182,7 +190,6 @@
 				C8F2B3D0189290D200561DBC /* TKGame.m */,
 				F4416AF318844EF300399D36 /* Supporting Files */,
 				F4416AFE18844EF300399D36 /* Images.xcassets */,
-				F4416B20188454BA00399D36 /* Storyboard.storyboard */,
 				50ED335B18928C8100C4B45C /* TKStartTimerViewController.h */,
 				50ED335C18928C8100C4B45C /* TKStartTimerViewController.m */,
 				50ED33581892877B00C4B45C /* TKServerController.h */,
