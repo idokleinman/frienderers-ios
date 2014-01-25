@@ -9,6 +9,8 @@
 #import "TKKillTargetViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import "TKShootViewController.h"
+#import "TKSoundManager.h"
+
 
 @interface TKKillTargetViewController ()
 
@@ -31,6 +33,7 @@
 
 - (IBAction)targetApproveButton:(id)sender
 {
+    [[TKSoundManager sharedManager] playSound:@"target"];
     
     [self performSegueWithIdentifier:@"shoot" sender:self];
     
@@ -46,6 +49,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[TKSoundManager sharedManager] stopSoundInBackground];
+    
+    
+    
     [[TKServer sharedInstance] nextTarget:^(NSString *nextTargetProfileID, NSError *error) {
         if (error) {
             [[UIAlertView alertWithError:error] show];

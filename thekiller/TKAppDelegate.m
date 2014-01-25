@@ -12,6 +12,8 @@
 #import "TKBluetoothManager.h"
 #import "TKStyle.h"
 #import "TKServer.h"
+#import "TKSoundManager.h"
+
 
 @interface TKAppDelegate ()
 
@@ -42,7 +44,12 @@
 }
 
 - (void)startGame {
-    self.window.rootViewController = [self.gameStoryboard instantiateViewControllerWithIdentifier:@"splash"];
+    
+    [[TKSoundManager sharedManager] playSoundInBackground:@"background"];
+    
+    self.window.rootViewController = [self.gameStoryboard instantiateViewControllerWithIdentifier:@"splash"]; //"splash" //gameWillStartVC
+    
+  
     [[TKServer sharedInstance] hello:^(TKGameInfo *gameInfo, NSError *error) {
         if (gameInfo) {
             self.window.rootViewController = [self.gameStoryboard instantiateViewControllerWithIdentifier:@"gameWillStartVC"];
@@ -51,9 +58,13 @@
             self.window.rootViewController = [self.createStoryboard instantiateInitialViewController];
         }
     }];
+    
 }
 
-
+-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    
+}
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

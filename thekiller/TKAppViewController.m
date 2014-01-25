@@ -11,15 +11,6 @@
 
 @interface TKAppViewController ()
 
-typedef enum {
-    remoteNotificationKillSucceeded = 1,
-    remoteNotificationKillFailed,
-    remoteNotificationYouDead,
-    remoteNotificationSomeoneDied,
-    remoteNotificationSomeoneWin,
-    remoteNotificationRunAway,
-    remoteNotificationGameBegins
-} RemoteNotifications;
 
 @end
 
