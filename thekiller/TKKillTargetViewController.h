@@ -12,5 +12,6 @@
 @interface TKKillTargetViewController : UIViewController
 @property (weak, nonatomic) IBOutlet TKSmallLabel *killLabel;
 @property (weak, nonatomic) IBOutlet FBProfilePictureView *nextTargetFBProfileImage;
+@property (strong, nonatomic) IBOutlet TKSmallLabel *buttonTitle;
 
 @end

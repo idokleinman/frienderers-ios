@@ -175,6 +175,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Dc8-k4-dSE"/>
                     <connections>
+                        <outlet property="buttonTitle" destination="eTP-KC-aQJ" id="G2u-ma-yoc"/>
                         <outlet property="killLabel" destination="wwH-wF-bEk" id="HYu-sN-cq0"/>
                         <outlet property="nextTargetFBProfileImage" destination="nd3-4W-iD2" id="Z0k-8I-Xey"/>
                         <segue destination="UhG-Mk-rJu" kind="push" identifier="shoot" id="BAS-wc-rlE"/>
@@ -196,7 +197,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="AdX-S6-Z1j" customClass="TKSmallLabel">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="AdX-S6-Z1j">
                                 <rect key="frame" x="20" y="40" width="280" height="508"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <string key="text">-There is one winner whose mission is to isolate and kill other players and not fall into the trap of others' similar intentions. 
@@ -206,6 +207,7 @@
 - You will never know who is playing the game and who is not, except for the frenemy that invited you of course. Hence you need to be on your toes, smart with your isolating strategies and ready to defend yourself!   
 </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4XB-6O-SPw" customClass="TKButton">
@@ -231,7 +233,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gmI-O2-iYV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2412" y="-1242"/>
+            <point key="canvasLocation" x="2392" y="-1249"/>
         </scene>
         <!--Win View Controller-->
         <scene sceneID="0KO-jd-GT5">
@@ -284,6 +286,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="RNa-Wk-Qoc"/>
+                    <connections>
+                        <outlet property="buttonTitleLabel" destination="i7m-Hm-rsP" id="qY8-lU-88c"/>
+                        <outlet property="headerLabel" destination="kGZ-rK-XHA" id="AxZ-lr-Dcv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xth-YE-dnj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -357,7 +363,9 @@
                     <navigationItem key="navigationItem" id="jJz-sH-WIG"/>
                     <connections>
                         <outlet property="gunLoadedLabel" destination="JM2-ZM-Roe" id="zSB-7r-Ac1"/>
+                        <outlet property="instructionLabel" destination="IQU-aH-6Jw" id="p1f-t8-GHN"/>
                         <outlet property="shootButton" destination="ZZw-6F-mh4" id="Uaq-oK-b5h"/>
+                        <outlet property="shootLabel" destination="0Ic-br-shc" id="vFX-Jh-VN2"/>
                         <segue destination="VVD-0i-gZm" kind="push" identifier="win" id="TTv-G7-Ig3"/>
                     </connections>
                 </viewController>
@@ -402,7 +410,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="21c-Qi-ndk">
                                 <rect key="frame" x="124" y="243" width="72" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Plus.png">
+                                <state key="normal" image="Plus">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -410,13 +418,16 @@
                                     <segue destination="0Rs-gQ-vHe" kind="push" id="jb0-8j-Kds"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bji-eU-Vij">
-                                <rect key="frame" x="111" y="505" width="99" height="52"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bji-eU-Vij" customClass="TKButton">
+                                <rect key="frame" x="136" y="505" width="48" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" image="Info.png">
+                                <state key="normal" image="info">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="c9P-Do-3Vb" kind="push" id="w1p-qM-Qr0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -474,7 +485,7 @@
                                     <!--2014-01-24 12:50:00 +0000-->
                                 </date>
                                 <timeZone key="timeZone" name="America/Los_Angeles">
-                                    <mutableData key="data">
+                                    <data key="data">
 VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
 y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
 5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
@@ -492,13 +503,13 @@ f5gqkAABAAECAwEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
-</mutableData>
+</data>
                                 </timeZone>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZwA-Sv-YGp">
                                 <rect key="frame" x="135" y="439" width="50" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Invite.png">
+                                <state key="normal" image="Invite">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -642,9 +653,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     </scenes>
     <resources>
         <image name="Gun" width="66" height="52"/>
-        <image name="Info.png" width="59" height="44"/>
-        <image name="Invite.png" width="59" height="44"/>
-        <image name="Plus.png" width="59" height="44"/>
+        <image name="Invite" width="50" height="50"/>
+        <image name="Plus" width="53" height="52"/>
         <image name="Tick" width="59" height="44"/>
         <image name="info" width="34" height="34"/>
     </resources>

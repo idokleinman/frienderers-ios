@@ -34,7 +34,6 @@ TKAppViewController* AppController() {
 {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:@"remoteNotificationReceived" object:nil];
-    [self performSelector:@selector(showAlert) withObject:Nil afterDelay:3.0];
     
     self.internalViewController = self.childViewControllers[0];
 }
@@ -61,22 +60,6 @@ TKAppViewController* AppController() {
             [self.internalViewController performSegueWithIdentifier:@"create" sender:self];
         }
     }];
-}
-
--(void)showAlert
-{
-//    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 100, 320, 200)];
-//    TKBigLabel *label = [[TKBigLabel alloc] initWithFrame:view.frame];
-//    [label setText:@"HI THIS IS A TEST FOR VIEW"];
-//    [label setFont:[UIFont fontWithName:@"Rosewood" size:28]];
-//    
-//    [view setBackgroundColor:[UIColor redColor]];
-//    
-//    [view addSubview:label];
-//    
-//    [self.view addSubview:view];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"remoteNotificationReceived" object:nil userInfo:@{@"loc-args":@{@"type":@(remoteNotificationKillFailed), @"name":@"Amit"}}];
 }
 
 -(void)dealloc
@@ -108,8 +91,6 @@ TKAppViewController* AppController() {
             
         case remoteNotificationKillFailed:
             // popup
-//            [view.popupView.layer setBorderColor:[UIColor redColor].CGColor];
-//            [view.popupView.layer setBorderWidth:2.0];
             [view.singleLabel setAttributedText:getAsPopupAttributedString(@"Witness \n Warning!", NSTextAlignmentCenter)];
             view.headerLabel.hidden = YES;
             view.topTitleLabel.hidden = YES;
@@ -122,8 +103,6 @@ TKAppViewController* AppController() {
         
         case remoteNotificationRunAway:
             // popup
-//            [view.popupView.layer setBorderColor:[UIColor redColor].CGColor];
-//            [view.popupView.layer setBorderWidth:2.0];
             [view.singleLabel setAttributedText:getAsPopupAttributedString(@"Shooting \n Nearby!", NSTextAlignmentCenter)];
             view.headerLabel.hidden = YES;
             view.topTitleLabel.hidden = YES;

@@ -50,6 +50,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     self.gameStartTimerLabel.text = @"--:--:--";
     
     [[TKServer sharedInstance] hello:^(TKGameInfo *gameInfo, NSError *error) {

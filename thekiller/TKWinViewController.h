@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TKStyle.h"
 
 @interface TKWinViewController : UIViewController
+@property (strong, nonatomic) IBOutlet TKSmallLabel *buttonTitleLabel;
+@property (strong, nonatomic) IBOutlet TKSmallLabel *headerLabel;
 
 @end

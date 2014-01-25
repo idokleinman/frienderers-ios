@@ -51,6 +51,7 @@
     [super viewDidLoad];
     [[TKSoundManager sharedManager] stopSoundInBackground];
     
+    [self.buttonTitle setAttributedText:getAsSmallAttributedString(self.buttonTitle.text, NSTextAlignmentCenter)];
     
     
     [[TKServer sharedInstance] nextTarget:^(NSString *nextTargetProfileID, NSError *error) {
@@ -71,7 +72,7 @@
             {
                 // Success! Include your code to handle the results here
                 NSLog(@"Next target user info: %@", result);
-                self.killLabel.text = [NSString stringWithFormat:@"Kill %@ before someone else kills you!",[result objectForKey:@"first_name"]];
+                self.killLabel.attributedText = getAsSmallAttributedString([NSString stringWithFormat:@"Kill %@ before someone else kills you!",[result objectForKey:@"first_name"]], NSTextAlignmentCenter);
                
                 
             }

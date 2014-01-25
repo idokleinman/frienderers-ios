@@ -36,6 +36,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.gunLoadedLabel.attributedText = getAsSmallAttributedString(self.gunLoadedLabel.text, NSTextAlignmentCenter);
+    self.instructionLabel.attributedText = getAsSmallAttributedString(self.instructionLabel.text, NSTextAlignmentCenter);
+    self.shootLabel.attributedText = getAsSmallAttributedString(self.shootLabel.text, NSTextAlignmentCenter);
+    
     // Create and initialize a tap gesture
     UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc]
                                              initWithTarget:self action:@selector(respondToCocking:)];

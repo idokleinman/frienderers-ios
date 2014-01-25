@@ -27,6 +27,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    self.headerLabel.attributedText = getAsSmallAttributedString(self.headerLabel.text, NSTextAlignmentCenter);
+    self.buttonTitleLabel.attributedText = getAsSmallAttributedString(self.buttonTitleLabel.text, NSTextAlignmentCenter);
 }
 
 - (void)didReceiveMemoryWarning
