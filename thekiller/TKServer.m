@@ -7,7 +7,7 @@
 //
 
 #import "TKServer.h"
-#import <AFNetworking/AFNetworking.h>
+#import "AFNetworking.h"
 
 @interface NSData (UTF8)
 

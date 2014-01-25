@@ -11,7 +11,6 @@
 		50ED336018929D3100C4B45C /* TKStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ED335F18929D3100C4B45C /* TKStyle.m */; };
 		50ED33631892A40900C4B45C /* TKKillTargetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ED33621892A40900C4B45C /* TKKillTargetViewController.m */; };
 		50ED33771892C0D800C4B45C /* TKShootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ED33761892C0D800C4B45C /* TKShootViewController.m */; };
-		5D3F66F05800449A954E3302 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B9F914A8D494AE08D071A29 /* libPods.a */; };
 		C8F2B3D7189294C800561DBC /* CreateGameStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8F2B3D6189294C800561DBC /* CreateGameStoryboard.storyboard */; };
 		C8F2B3DB1892956200561DBC /* TKCreateGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F2B3DA1892956200561DBC /* TKCreateGameViewController.m */; };
 		C8F2B3DE1892956F00561DBC /* TKNameAndTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F2B3DD1892956F00561DBC /* TKNameAndTimeViewController.m */; };
@@ -43,6 +42,15 @@
 		F4AF80A21893C2B600B9C9CB /* TKNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4AF80A01893C2B600B9C9CB /* TKNotificationView.xib */; };
 		F4AF80A41893C2D700B9C9CB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4AF80A31893C2D700B9C9CB /* Images.xcassets */; };
 		F4AF80A91893C33400B9C9CB /* TKServer.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AF80A81893C33400B9C9CB /* TKServer.m */; };
+		F4AF80C21893D15700B9C9CB /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AF80B01893D15700B9C9CB /* AFHTTPRequestOperation.m */; };
+		F4AF80C31893D15700B9C9CB /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AF80B21893D15700B9C9CB /* AFHTTPRequestOperationManager.m */; };
+		F4AF80C41893D15700B9C9CB /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AF80B41893D15700B9C9CB /* AFHTTPSessionManager.m */; };
+		F4AF80C51893D15700B9C9CB /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AF80B71893D15700B9C9CB /* AFNetworkReachabilityManager.m */; };
+		F4AF80C61893D15700B9C9CB /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AF80B91893D15700B9C9CB /* AFSecurityPolicy.m */; };
+		F4AF80C71893D15700B9C9CB /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AF80BB1893D15700B9C9CB /* AFURLConnectionOperation.m */; };
+		F4AF80C81893D15700B9C9CB /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AF80BD1893D15700B9C9CB /* AFURLRequestSerialization.m */; };
+		F4AF80C91893D15700B9C9CB /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AF80BF1893D15700B9C9CB /* AFURLResponseSerialization.m */; };
+		F4AF80CA1893D15700B9C9CB /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AF80C11893D15700B9C9CB /* AFURLSessionManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +121,25 @@
 		F4AF80A31893C2D700B9C9CB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F4AF80A71893C33400B9C9CB /* TKServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKServer.h; sourceTree = "<group>"; };
 		F4AF80A81893C33400B9C9CB /* TKServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKServer.m; sourceTree = "<group>"; };
+		F4AF80AF1893D15700B9C9CB /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		F4AF80B01893D15700B9C9CB /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		F4AF80B11893D15700B9C9CB /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		F4AF80B21893D15700B9C9CB /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
+		F4AF80B31893D15700B9C9CB /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		F4AF80B41893D15700B9C9CB /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		F4AF80B51893D15700B9C9CB /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		F4AF80B61893D15700B9C9CB /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		F4AF80B71893D15700B9C9CB /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		F4AF80B81893D15700B9C9CB /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		F4AF80B91893D15700B9C9CB /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		F4AF80BA1893D15700B9C9CB /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		F4AF80BB1893D15700B9C9CB /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		F4AF80BC1893D15700B9C9CB /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		F4AF80BD1893D15700B9C9CB /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		F4AF80BE1893D15700B9C9CB /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		F4AF80BF1893D15700B9C9CB /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		F4AF80C01893D15700B9C9CB /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
+		F4AF80C11893D15700B9C9CB /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +152,6 @@
 				F4416AEF18844EF300399D36 /* CoreGraphics.framework in Frameworks */,
 				F4416AF118844EF300399D36 /* UIKit.framework in Frameworks */,
 				F4416AED18844EF300399D36 /* Foundation.framework in Frameworks */,
-				5D3F66F05800449A954E3302 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +183,7 @@
 		F4416AE018844EF300399D36 = {
 			isa = PBXGroup;
 			children = (
+				F4AF80AD1893D14100B9C9CB /* External */,
 				F4416AF218844EF300399D36 /* Frienderers */,
 				F4416AF318844EF300399D36 /* Supporting Files */,
 				F4416B0B18844EF300399D36 /* FrienderersTests */,
@@ -312,6 +339,41 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
+		F4AF80AD1893D14100B9C9CB /* External */ = {
+			isa = PBXGroup;
+			children = (
+				F4AF80AE1893D15700B9C9CB /* AFNetworking */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
+		F4AF80AE1893D15700B9C9CB /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				F4AF80AF1893D15700B9C9CB /* AFHTTPRequestOperation.h */,
+				F4AF80B01893D15700B9C9CB /* AFHTTPRequestOperation.m */,
+				F4AF80B11893D15700B9C9CB /* AFHTTPRequestOperationManager.h */,
+				F4AF80B21893D15700B9C9CB /* AFHTTPRequestOperationManager.m */,
+				F4AF80B31893D15700B9C9CB /* AFHTTPSessionManager.h */,
+				F4AF80B41893D15700B9C9CB /* AFHTTPSessionManager.m */,
+				F4AF80B51893D15700B9C9CB /* AFNetworking.h */,
+				F4AF80B61893D15700B9C9CB /* AFNetworkReachabilityManager.h */,
+				F4AF80B71893D15700B9C9CB /* AFNetworkReachabilityManager.m */,
+				F4AF80B81893D15700B9C9CB /* AFSecurityPolicy.h */,
+				F4AF80B91893D15700B9C9CB /* AFSecurityPolicy.m */,
+				F4AF80BA1893D15700B9C9CB /* AFURLConnectionOperation.h */,
+				F4AF80BB1893D15700B9C9CB /* AFURLConnectionOperation.m */,
+				F4AF80BC1893D15700B9C9CB /* AFURLRequestSerialization.h */,
+				F4AF80BD1893D15700B9C9CB /* AFURLRequestSerialization.m */,
+				F4AF80BE1893D15700B9C9CB /* AFURLResponseSerialization.h */,
+				F4AF80BF1893D15700B9C9CB /* AFURLResponseSerialization.m */,
+				F4AF80C01893D15700B9C9CB /* AFURLSessionManager.h */,
+				F4AF80C11893D15700B9C9CB /* AFURLSessionManager.m */,
+			);
+			name = AFNetworking;
+			path = External/AFNetworking/AFNetworking;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -319,11 +381,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F4416B1518844EF300399D36 /* Build configuration list for PBXNativeTarget "Frienderers" */;
 			buildPhases = (
-				1D9C257D965A41C2B967E78B /* Check Pods Manifest.lock */,
 				F4416AE518844EF300399D36 /* Sources */,
 				F4416AE618844EF300399D36 /* Frameworks */,
 				F4416AE718844EF300399D36 /* Resources */,
-				85DED2A608884E9A9701D1A0 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -418,39 +478,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		1D9C257D965A41C2B967E78B /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		85DED2A608884E9A9701D1A0 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		F4416AE518844EF300399D36 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -458,6 +485,9 @@
 			files = (
 				F49769EE1893B65F000559A3 /* TKDevice.m in Sources */,
 				F40C2486188459330050AFCE /* UIApplication+TKAppDelegate.m in Sources */,
+				F4AF80C61893D15700B9C9CB /* AFSecurityPolicy.m in Sources */,
+				F4AF80C31893D15700B9C9CB /* AFHTTPRequestOperationManager.m in Sources */,
+				F4AF80C21893D15700B9C9CB /* AFHTTPRequestOperation.m in Sources */,
 				C8F2B4011892E5D300561DBC /* TKAppViewController.m in Sources */,
 				F4AF80A11893C2B600B9C9CB /* TKNotificationView.m in Sources */,
 				C8F2B3DE1892956F00561DBC /* TKNameAndTimeViewController.m in Sources */,
@@ -466,13 +496,19 @@
 				F4416B1F1884511B00399D36 /* TKBluetoothManager.m in Sources */,
 				50ED336018929D3100C4B45C /* TKStyle.m in Sources */,
 				C8F2B3DB1892956200561DBC /* TKCreateGameViewController.m in Sources */,
+				F4AF80C41893D15700B9C9CB /* AFHTTPSessionManager.m in Sources */,
 				50ED335D18928C8100C4B45C /* TKStartTimerViewController.m in Sources */,
 				F4416AF918844EF300399D36 /* main.m in Sources */,
+				F4AF80C71893D15700B9C9CB /* AFURLConnectionOperation.m in Sources */,
+				F4AF80C81893D15700B9C9CB /* AFURLRequestSerialization.m in Sources */,
+				F4AF80CA1893D15700B9C9CB /* AFURLSessionManager.m in Sources */,
+				F4AF80C91893D15700B9C9CB /* AFURLResponseSerialization.m in Sources */,
 				F40CBB8E18926594008E2248 /* TKLoginViewController.m in Sources */,
 				50ED33631892A40900C4B45C /* TKKillTargetViewController.m in Sources */,
 				50ED33771892C0D800C4B45C /* TKShootViewController.m in Sources */,
 				F4416AFD18844EF300399D36 /* TKAppDelegate.m in Sources */,
 				F49769EB1893B616000559A3 /* TKSoundManager.m in Sources */,
+				F4AF80C51893D15700B9C9CB /* AFNetworkReachabilityManager.m in Sources */,
 				F4AF80A91893C33400B9C9CB /* TKServer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
