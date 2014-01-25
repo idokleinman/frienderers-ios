@@ -17,15 +17,6 @@
 
 @implementation TKNameAndTimeViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -44,8 +35,6 @@
     self.gameName.delegate = self;
     
     [self.datePicker setMinimumDate:[NSDate date]];
-    
-
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -62,6 +51,44 @@
     [self.gameName resignFirstResponder];
 }
 
+- (void)addFriends:(void(^)(NSArray* friends, NSError* error))completion {
+    [FBWebDialogs presentRequestsDialogModallyWithSession:[FBSession activeSession] message:@"Come play with me" title:@"Frienderers" parameters:nil handler:^(FBWebDialogResult result, NSURL *resultURL, NSError *error) {
+        if (error) {
+            // Error launching the dialog or sending the request.
+            NSLog(@"Error sending request.");
+            completion(nil, error);
+        } else {
+            if (result == FBWebDialogResultDialogNotCompleted) {
+                // User clicked the "x" icon
+                NSLog(@"User canceled request.");
+                completion(@[], nil);
+            } else {
+                // Handle the send request callback
+                NSDictionary *urlParams = [self parseURLParams:[resultURL query]];
+                if (![urlParams valueForKey:@"request"]) {
+                    // User clicked the Cancel button
+                    NSLog(@"User canceled request.");
+                    completion(@[], nil);
+                } else {
+                    // User clicked the Send button
+                    NSString *requestID = [urlParams valueForKey:@"request"];
+                    NSLog(@"Request ID: %@", requestID);
+                    
+                    NSMutableDictionary *p = [urlParams mutableCopy];
+                    [p removeObjectForKey:@"request"];
+                    
+                    
+                    NSMutableArray *players = [[NSMutableArray alloc] initWithArray:p.allValues];
+                    [players addObject:[TKServer sharedInstance].userid];
+
+                    completion(players, nil);
+                }
+            }
+        }
+    }];
+    
+}
+
 - (IBAction)inviteButtonPressed:(UIButton *)sender {
     
     if ([self.gameName.text isEqualToString:@""]) {
@@ -69,49 +96,31 @@
         
         [alert show];
     } else {
-        [FBWebDialogs presentRequestsDialogModallyWithSession:[FBSession activeSession] message:@"Come play with me" title:@"Frienderers" parameters:nil handler:^(FBWebDialogResult result, NSURL *resultURL, NSError *error) {
-            if (error) {
-                // Error launching the dialog or sending the request.
-                NSLog(@"Error sending request.");
-            } else {
-                if (result == FBWebDialogResultDialogNotCompleted) {
-                    // User clicked the "x" icon
-                    NSLog(@"User canceled request.");
-                } else {
-                    // Handle the send request callback
-                    NSDictionary *urlParams = [self parseURLParams:[resultURL query]];
-                    if (![urlParams valueForKey:@"request"]) {
-                        // User clicked the Cancel button
-                        NSLog(@"User canceled request.");
-                    } else {
-                        // User clicked the Send button
-                        NSString *requestID = [urlParams valueForKey:@"request"];
-                        NSLog(@"Request ID: %@", requestID);
-                        
-                        NSMutableDictionary *p = [urlParams mutableCopy];
-                        [p removeObjectForKey:@"request"];
-                        
-                        TKServer *server = [TKServer sharedInstance];
-                        
-                        NSMutableArray *players = [[NSMutableArray alloc] initWithArray:p.allValues];
-                        [players addObject:server.userid];
-                        
-                        [server createGameWithTitle:self.gameName.text
-                                          startTime:self.datePicker.date
-                                      playerUserIDs:players
-                                         completion:^(TKGameInfo *game, NSError *error)
-                        {
-                             if (error) {
-                                 [[UIAlertView alertWithError:error] show];
-                                 return;
-                             }
-                             NSLog(@"Game created: %@", game);
-                             [AppController() reloadState];
-                        }];
-                    }
-                }
-            }
+        self.loadingView.hidden = NO;
+        self.loadingView.alpha = 0.0f;
+
+        [UIView animateWithDuration:0.25f animations:^{
+            self.loadingView.alpha = 1.0f;
         }];
+        
+        __weak TKNameAndTimeViewController* myself = self;
+        
+        [self addFriends:^(NSArray *friends, NSError *error) {
+            [[TKServer sharedInstance] createGameWithTitle:myself.gameName.text
+                                                 startTime:myself.datePicker.date
+                                             playerUserIDs:friends
+                                                completion:^(TKGameInfo *game, NSError *error)
+             {
+                 if (error) {
+                     [[UIAlertView alertWithError:error] show];
+                     return;
+                 } else {
+                     NSLog(@"Game created: %@", game);
+                     [AppController() reloadState];
+                 }
+             }];
+        }];
+
     }
 }
 

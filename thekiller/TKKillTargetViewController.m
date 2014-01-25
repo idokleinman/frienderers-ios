@@ -14,13 +14,11 @@
 
 @interface TKKillTargetViewController ()
 
+@property (strong, nonatomic) NSString* nextTargetProfileID;
+
 @end
 
 @implementation TKKillTargetViewController
-{
-    NSString* _nextTargetProfileID;
-}
-
 
 - (UIImage *) convertToGreyscale:(UIImage *)i {
     
@@ -95,11 +93,9 @@
     return self;
 }
 
-
 - (IBAction)targetApproveButton:(id)sender
 {
     [[TKSoundManager sharedManager] playSound:@"target"];
-    
     [self performSegueWithIdentifier:@"shoot" sender:self];
     
 }
@@ -132,41 +128,31 @@
     [super viewDidLoad];
     [[TKSoundManager sharedManager] stopSoundInBackground];
     
-    
-    
-//    [[TKServer sharedInstance] nextTarget:^(NSString *nextTargetProfileID, NSError *error) {
-//        if (error) {
-//            [[UIAlertView alertWithError:error] show];
-//            return;
-//        }
-    NSString *nextTargetProfileID = @"501317600"; // temp temp temp
-    
+    [[TKServer sharedInstance] nextTarget:^(NSString *nextTargetProfileID, NSError *error) {
+        if (error) {
+            [[UIAlertView alertWithError:error] show];
+            return;
+        }
+
         [self.nextTargetFBProfileImage setProfileID:nextTargetProfileID];
-    [self.nextTargetFBProfileImage setPictureCropping:FBProfilePictureCroppingSquare];
+        [self.nextTargetFBProfileImage setPictureCropping:FBProfilePictureCroppingSquare];
     
-    
-    _nextTargetProfileID = nextTargetProfileID;
-    
-    [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(grayScaleImageFB:) userInfo:Nil repeats:NO];
-    
-    [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"/%@",nextTargetProfileID] completionHandler:^(FBRequestConnection *connection, id result, NSError *error)
-     {
-         if (!error)
-         {
-             // Success! Include your code to handle the results here
-             NSLog(@"Next target user info: %@", result);
-                self.killLabel.text = [NSString stringWithFormat:@"Kill %@ before someone else kills you!",[result objectForKey:@"first_name"]];
-               
-                
+        _nextTargetProfileID = nextTargetProfileID;
+        
+        [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(grayScaleImageFB:) userInfo:Nil repeats:NO];
+        
+        [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"/%@",nextTargetProfileID] completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+             if (!error)
+             {
+                 // Success! Include your code to handle the results here
+                 NSLog(@"Next target user info: %@", result);
+                 self.killLabel.text = [NSString stringWithFormat:@"Kill %@ before someone else kills you!",[result objectForKey:@"first_name"]];
             }
             else
             {
                 // An error occurred, we need to handle the error
             }
-            
-//        }];
-        
-        // Do any additional setup after loading the view.
+        }];
     }];
 }
      
