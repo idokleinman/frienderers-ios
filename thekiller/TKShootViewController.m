@@ -12,6 +12,7 @@
 #import "TKDevice.h"
 #import "TKSoundManager.h"
 #import "TKAppViewController.h"
+#import "TKServer.h"
 
 
 @interface TKShootViewController ()
@@ -45,9 +46,13 @@
     
     _isGunLoaded = NO;
     _isTargetInRange = NO;
-        
-    [[TKBluetoothManager sharedManager] startWithName:@"temp"];//self.server.profileID]; //$$$
+    self.gunLoadedLabel.text = @"Your gun is not loaded";
+    
+    [[TKBluetoothManager sharedManager] startWithName:@"temp"];
+//    [[TKBluetoothManager sharedManager] startWithName:[TKServer sharedInstance].userid]; //$$$
     [[TKBluetoothManager sharedManager] addObserver:self forKeyPath:@"nearbyDevicesDictionary" options:NSKeyValueObservingOptionInitial context:0];
+    
+    self.gunButton.alpha = 0.5;
 
 }
 
@@ -67,9 +72,14 @@
         {
             _isTargetInRange = YES;
             // add glow to gun icon $$$
+            self.gunButton.alpha = 1.0;
+
         }
         else
+        {
             _isTargetInRange = NO;
+            self.gunButton.alpha = 0.5;
+        }
     }
     
 }
@@ -86,12 +96,14 @@
 - (void) respondToCocking:(UITapGestureRecognizer *)cocking
 {
     
-    if (cocking.state == UIGestureRecognizerStateEnded)
+    if ((cocking.state == UIGestureRecognizerStateEnded) && (!_isGunLoaded))
     {
         NSLog(@"swipe cocking");
         _isGunLoaded = YES;
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
         [[TKSoundManager sharedManager] playSound:@"loadgun"];
+        self.gunLoadedLabel.text = @"Your gun is loaded!";
+    
     }
 }
 
@@ -103,6 +115,7 @@
         if (_isGunLoaded)
         {
             _isGunLoaded = NO;
+            self.gunLoadedLabel.text = @"Your gun is not loaded";
             // play shoot sound
             NSLog(@"motion shake -- shoot");
             
@@ -115,6 +128,7 @@
                 if (d.range <= MEDIUM)
                     [nearByPlayersArr addObject:d.name];
             }
+            
             
             [[TKServer sharedInstance] shootTarget:self.targetProfileID success:_isTargetInRange nearby:nearByPlayersArr completion:^(NSString *nextTargetID, NSError *error) {
                 if ((error) || (!nextTargetID)) {

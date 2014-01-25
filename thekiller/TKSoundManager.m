@@ -44,7 +44,7 @@ static TKSoundManager *sharedManager = nil;
     //    if (loop)
     //        [_audioPlay setNumberOfLoops:-1];
     //    else
-    [_audioPlay setNumberOfLoops:1];
+    [_audioPlay setNumberOfLoops:0];
     [_audioPlay prepareToPlay];
     
     [_audioPlay play];

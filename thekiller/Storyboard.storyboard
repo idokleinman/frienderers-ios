@@ -106,7 +106,7 @@
         <!--Kill Target View Controller-->
         <scene sceneID="SeU-C9-8XM">
             <objects>
-                <viewController id="pkV-Ig-9ny" customClass="TKKillTargetViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="killTarget" id="pkV-Ig-9ny" customClass="TKKillTargetViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VjT-Oi-lhe"/>
                         <viewControllerLayoutGuide type="bottom" id="hvm-zS-bCi"/>
@@ -292,7 +292,7 @@
         <!--Shoot View Controller-->
         <scene sceneID="8zn-zP-9i3">
             <objects>
-                <viewController id="UhG-Mk-rJu" customClass="TKShootViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="shoot" id="UhG-Mk-rJu" customClass="TKShootViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ate-42-TrM"/>
                         <viewControllerLayoutGuide type="bottom" id="Rba-ZU-y0a"/>
@@ -356,6 +356,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="jJz-sH-WIG"/>
                     <connections>
+                        <outlet property="gunButton" destination="ZZw-6F-mh4" id="oSZ-Il-7hh"/>
                         <outlet property="gunLoadedLabel" destination="JM2-ZM-Roe" id="zSB-7r-Ac1"/>
                         <outlet property="shootButton" destination="ZZw-6F-mh4" id="Uaq-oK-b5h"/>
                         <segue destination="VVD-0i-gZm" kind="push" identifier="win" id="TTv-G7-Ig3"/>

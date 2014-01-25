@@ -43,23 +43,6 @@
     }
 }
 
-//- (void)startGame {
-//    
-//    [[TKSoundManager sharedManager] playSoundInBackground:@"background"];
-//    
-//    self.window.rootViewController = [self.gameStoryboard instantiateViewControllerWithIdentifier:@"splash"]; //"splash" //gameWillStartVC
-//    
-//  
-//    [[TKServer sharedInstance] hello:^(TKGameInfo *gameInfo, NSError *error) {
-//        if (gameInfo) {
-//            self.window.rootViewController = [self.gameStoryboard instantiateViewControllerWithIdentifier:@"gameWillStartVC"];
-//        }
-//        else {
-//            self.window.rootViewController = [self.createStoryboard instantiateInitialViewController];
-//        }
-//    }];
-//    
-//}
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
