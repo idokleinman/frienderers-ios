@@ -38,7 +38,7 @@ TKAppViewController* AppController() {
     UINavigationController* n = self.childViewControllers[0];
     self.internalViewController = (TKInternalViewController*)n.topViewController;
     
-    [self performSelector:@selector(showAlert) withObject:nil afterDelay:3.0];
+//    [self performSelector:@selector(showAlert) withObject:nil afterDelay:3.0];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

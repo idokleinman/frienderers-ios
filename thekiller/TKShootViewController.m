@@ -25,15 +25,6 @@
     BOOL _isGunLoaded;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -57,14 +48,12 @@
     [[TKBluetoothManager sharedManager] addObserver:self forKeyPath:@"nearbyDevicesDictionary" options:NSKeyValueObservingOptionInitial context:0];
     
     self.gunButton.alpha = 0.5;
-
 }
 
 - (void)dealloc
 {
     [[TKBluetoothManager sharedManager] removeObserver:self forKeyPath:@"nearbyDevicesDictionary" context:0];
 }
-
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
@@ -93,11 +82,23 @@
 
 - (void) viewWillDisappear:(BOOL)animated
 {
+    [self resignFirstResponder];
+    
     // Request to stop receiving accelerometer events and turn off accelerometer
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
+
+    [super viewWillDisappear:animated];
 }
 
+-(BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self becomeFirstResponder];
+}
 
 - (void) respondToCocking:(UITapGestureRecognizer *)cocking
 {
@@ -113,46 +114,46 @@
     }
 }
 
+- (IBAction)shoot:(id)sender {
+    [self shoot];
+}
 
--(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
-{
-    if (motion == UIEventSubtypeMotionShake)
+- (void)shoot {
+    if (_isGunLoaded)
     {
-        if (_isGunLoaded)
+        _isGunLoaded = NO;
+        self.gunLoadedLabel.text = @"Your gun is not loaded";
+        // play shoot sound
+        NSLog(@"motion shake -- shoot");
+        
+        [[TKSoundManager sharedManager] playSound:@"shoot"];
+        NSMutableArray *nearByPlayersArr = [[NSMutableArray alloc] init];
+        NSArray *devicesArr = [[TKBluetoothManager sharedManager].nearbyDevicesDictionary allValues];
+        
+        for (TKDevice *d in devicesArr)
         {
-            _isGunLoaded = NO;
-            self.gunLoadedLabel.text = @"Your gun is not loaded";
-            // play shoot sound
-            NSLog(@"motion shake -- shoot");
-            
-            [[TKSoundManager sharedManager] playSound:@"shoot"];
-            NSMutableArray *nearByPlayersArr = [[NSMutableArray alloc] init];
-            NSArray *devicesArr = [[TKBluetoothManager sharedManager].nearbyDevicesDictionary allValues];
-            
-            for (TKDevice *d in devicesArr)
-            {
-                if (d.range <= MEDIUM)
-                    [nearByPlayersArr addObject:d.name];
+            //                if (d.range <= MEDIUM)
+            [nearByPlayersArr addObject:d.name];
+        }
+        
+        
+        [[TKServer sharedInstance] shootTarget:self.targetProfileID success:_isTargetInRange nearby:nearByPlayersArr completion:^(NSString *nextTargetID, NSError *error) {
+            if ((error) || (!nextTargetID)) {
+                [[UIAlertView alertWithError:error] show];
+                return;
             }
             
-            
-            [[TKServer sharedInstance] shootTarget:self.targetProfileID success:_isTargetInRange nearby:nearByPlayersArr completion:^(NSString *nextTargetID, NSError *error) {
-                if ((error) || (!nextTargetID)) {
-                    [[UIAlertView alertWithError:error] show];
-                    return;
-                }
-                
-                if ([nextTargetID isEqualToString:self.targetProfileID]) {
-                    NSLog(@"shooting failed, target did not change");
-//                    [[[UIAlertView alloc] initWithTitle:@"You failed" message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
-//                    
-                    [[NSNotificationCenter defaultCenter] postNotificationName:@"remoteNotificationReceived" object:nil userInfo:@{@"loc-args":@{@"type":@(remoteNotificationKillFailed)}}];
-                    return;
-                }
-                else
+            if ([nextTargetID isEqualToString:self.targetProfileID]) {
+                NSLog(@"shooting failed, target did not change");
+                //                    [[[UIAlertView alloc] initWithTitle:@"You failed" message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+                //
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"remoteNotificationReceived" object:nil userInfo:@{@"loc-args":@{@"type":@(remoteNotificationKillFailed)}}];
+                return;
+            }
+            else
                 if ([nextTargetID isEqualToString:[TKServer sharedInstance].userid]) {
                     NSLog(@"shooting success, you are the last man, you win!");
-//                    [[[UIAlertView alloc] initWithTitle:@"You win!" message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+                    //                    [[[UIAlertView alloc] initWithTitle:@"You win!" message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
                     [self performSegueWithIdentifier:@"win" sender:self];
                     
                     //$$$
@@ -163,20 +164,26 @@
                     
                     NSLog(@"shooting success, next target aquired");
                     [[NSNotificationCenter defaultCenter] postNotificationName:@"remoteNotificationReceived" object:nil userInfo:@{@"loc-args":@{@"type":@(remoteNotificationKillSucceeded)}}];
-
+                    
                     [self.navigationController popViewControllerAnimated:YES];
                     
                     
                     //$$$
                     return;
                 }
-                    
-                
-                NSLog(@"NEXT SCREEN");
-            }];
-        }
+            
+            
+            NSLog(@"NEXT SCREEN");
+        }];
     }
-    
+}
+
+-(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    if (motion == UIEventSubtypeMotionShake)
+    {
+        [self shoot];
+    }
 }
 
 - (void)didReceiveMemoryWarning

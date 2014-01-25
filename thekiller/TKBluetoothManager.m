@@ -32,18 +32,15 @@ NSString* const CHARACTERISTIC_UUID = @"BD5DF558-9DF1-4216-8521-411D6F917A8C";
 
 @implementation TKBluetoothManager
 
-
-static TKBluetoothManager *sharedManager = nil;
-
-+(TKBluetoothManager *)sharedManager
++ (TKBluetoothManager *)sharedManager
 {
-    if (!sharedManager) {
-        sharedManager = [[TKBluetoothManager alloc] init];
+    static TKBluetoothManager* s = NULL;
+    if (!s) {
+        s = [[TKBluetoothManager alloc] init];
     }
     
-    return sharedManager;
+    return s;
 }
-
 
 - (void)startWithName:(NSString *)name
 {
