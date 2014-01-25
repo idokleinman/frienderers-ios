@@ -10,13 +10,14 @@
 #import "TKStyle.h"
 
 @interface TKNotificationView : TKView
-@property (strong, nonatomic) IBOutlet TKSmallLabel *headerLabel;
-@property (strong, nonatomic) IBOutlet TKBigLabel *topTitleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *headerLabel;
+@property (strong, nonatomic) IBOutlet UILabel *topTitleLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *profilePicture;
-@property (strong, nonatomic) IBOutlet TKBigLabel *bottomTitleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *bottomTitleLabel;
 @property (strong, nonatomic) IBOutlet UIButton *continueButton;
-@property (strong, nonatomic) IBOutlet TKSmallLabel *buttonLabel;
+@property (strong, nonatomic) IBOutlet UILabel *buttonLabel;
 @property (strong, nonatomic) IBOutlet TKView *popupView;
 @property (nonatomic) BOOL needsToFadeOut;
 
+@property (strong, nonatomic) IBOutlet UILabel *singleLabel;
 @end

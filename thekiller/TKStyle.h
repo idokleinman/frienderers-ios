@@ -10,6 +10,8 @@
 
 extern void ConfigureAppearnace();
 extern NSAttributedString *getAsSmallAttributedString(NSString *str, NSTextAlignment alignment);
+extern NSAttributedString *getAsPopupAttributedString(NSString *str, NSTextAlignment alignment);
+
 @interface TKBigLabel : UILabel
 @end
 

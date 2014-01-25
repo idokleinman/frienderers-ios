@@ -50,9 +50,29 @@ NSAttributedString *getAsSmallAttributedString(NSString *str, NSTextAlignment al
     [attString addAttribute:NSParagraphStyleAttributeName
                       value:style
                       range:NSMakeRange(0, attString.length)];
+    [attString addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, attString.length)];
     
     [attString addAttribute:NSKernAttributeName value:@(1.0) range:NSMakeRange(0,attString.length)];
     [attString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"JollyLodger" size:20] range:NSMakeRange(0, attString.length)];
 
+    return attString;
+}
+
+NSAttributedString *getAsPopupAttributedString(NSString *str, NSTextAlignment alignment)
+{
+    NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:str];
+    
+    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+    [style setLineSpacing:0];
+//    [style setMinimumLineHeight:80];
+    [style setMaximumLineHeight:80];
+    [style setAlignment:alignment];
+    [attString addAttribute:NSParagraphStyleAttributeName
+                      value:style
+                      range:NSMakeRange(0, attString.length)];
+    [attString addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, attString.length)];
+    [attString addAttribute:NSKernAttributeName value:@(1.0) range:NSMakeRange(0,attString.length)];
+    [attString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"JollyLodger" size:80.0] range:NSMakeRange(0, attString.length)];
+    
     return attString;
 }

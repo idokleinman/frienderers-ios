@@ -58,7 +58,7 @@ typedef enum {
 //    
 //    [self.view addSubview:view];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"remoteNotificationReceived" object:nil userInfo:@{@"loc-args":@{@"type":@"3", @"name":@"Amit"}}];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"remoteNotificationReceived" object:nil userInfo:@{@"loc-args":@{@"type":@(remoteNotificationKillFailed), @"name":@"Amit"}}];
 }
 -(void)dealloc
 {
@@ -84,14 +84,15 @@ typedef enum {
             view.continueButton.hidden = YES;
             view.buttonLabel.hidden = YES;
             view.needsToFadeOut = YES;
+            view.singleLabel.hidden = YES;
             break;
             
         case remoteNotificationKillFailed:
             // popup
-            [view.popupView.layer setBorderColor:[UIColor redColor].CGColor];
-            [view.popupView.layer setBorderWidth:2.0];
-            [view.headerLabel setText:@"Witness Warning!"];
-            [view.headerLabel setCenter:view.popupView.center];
+//            [view.popupView.layer setBorderColor:[UIColor redColor].CGColor];
+//            [view.popupView.layer setBorderWidth:2.0];
+            [view.singleLabel setAttributedText:getAsPopupAttributedString(@"Witness \n Warning!", NSTextAlignmentCenter)];
+            view.headerLabel.hidden = YES;
             view.topTitleLabel.hidden = YES;
             view.profilePicture.hidden = YES;
             view.bottomTitleLabel.hidden = YES;
@@ -102,10 +103,10 @@ typedef enum {
         
         case remoteNotificationRunAway:
             // popup
-            [view.popupView.layer setBorderColor:[UIColor redColor].CGColor];
-            [view.popupView.layer setBorderWidth:2.0];
-            [view.headerLabel setText:@"Shooting Nearby!"];
-            [view.headerLabel setCenter:view.center];
+//            [view.popupView.layer setBorderColor:[UIColor redColor].CGColor];
+//            [view.popupView.layer setBorderWidth:2.0];
+            [view.singleLabel setAttributedText:getAsPopupAttributedString(@"Shooting \n Nearby!", NSTextAlignmentCenter)];
+            view.headerLabel.hidden = YES;
             view.topTitleLabel.hidden = YES;
             view.profilePicture.hidden = YES;
             view.bottomTitleLabel.hidden = YES;
@@ -125,6 +126,7 @@ typedef enum {
             view.continueButton.hidden = YES;
             view.buttonLabel.hidden = YES;
             view.needsToFadeOut = YES;
+            view.singleLabel.hidden = YES;
             break;
             
         case remoteNotificationSomeoneWin:
@@ -136,6 +138,7 @@ typedef enum {
             
             [view.buttonLabel setAttributedText:getAsSmallAttributedString(@"Let's start another round", NSTextAlignmentCenter)];
             view.needsToFadeOut = NO;
+            view.singleLabel.hidden = YES;
             
             break;
             
@@ -146,13 +149,13 @@ typedef enum {
             [view.bottomTitleLabel setText:@"REST IN PEACE"];
             view.continueButton.hidden = YES;
             [view.buttonLabel setAttributedText:getAsSmallAttributedString(@"You won't be forgotten & will be updated with the events to come", NSTextAlignmentCenter)];
-            
+            view.singleLabel.hidden = YES;
             view.needsToFadeOut = NO;
             break;
             
         case remoteNotificationGameBegins:
-            [view.headerLabel setAttributedText:getAsSmallAttributedString(@"The game is starting now! \n Ther's no way out \n All you have left is to kill or die", NSTextAlignmentCenter)];
-            [view.headerLabel setCenter:view.center];
+            [view.singleLabel setAttributedText:getAsSmallAttributedString(@"The game is starting now! \n Ther's no way out \n All you have left is to kill or die", NSTextAlignmentCenter)];
+            view.headerLabel.hidden = YES;
             view.topTitleLabel.hidden = YES;
             view.profilePicture.hidden = YES;
             view.bottomTitleLabel.hidden = YES;
