@@ -24,6 +24,8 @@
         [self removeFromSuperview];
     }
 }
+- (IBAction)continueButtonPressed:(UIButton *)sender {
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

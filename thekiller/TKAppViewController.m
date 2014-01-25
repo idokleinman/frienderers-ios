@@ -13,12 +13,12 @@
 
 typedef enum {
     remoteNotificationKillSucceeded = 1,
-    remoteNotificationYouWin,
     remoteNotificationKillFailed,
     remoteNotificationYouDead,
     remoteNotificationSomeoneDied,
     remoteNotificationSomeoneWin,
-    remoteNotificationRunAway
+    remoteNotificationRunAway,
+    remoteNotificationGameBegins
 } RemoteNotifications;
 
 @end
@@ -58,14 +58,14 @@ typedef enum {
 //    
 //    [self.view addSubview:view];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"remoteNotificationReceived" object:nil userInfo:@{@"loc-args":@{@"type":@"1"}}];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"remoteNotificationReceived" object:nil userInfo:@{@"loc-args":@{@"type":@"6", @"name":@"Amit"}}];
 }
 -(void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
--(UIView *)createNotificationViewWithData:(NSDictionary *)data
+-(TKNotificationView *)createNotificationViewWithData:(NSDictionary *)data
 {
     NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"TKNotificationView" owner:self options:nil];
     TKNotificationView *view = arr[0];
@@ -74,47 +74,92 @@ typedef enum {
     
     switch (type) {
         case remoteNotificationKillSucceeded:
+            //popup
+            [view.popupView.layer setBorderColor:[UIColor redColor].CGColor];
+            [view.popupView.layer setBorderWidth:2.0];
+            view.headerLabel.hidden = YES;
             [view.topTitleLabel setText:@"KILLED"];
             [view.profilePicture setImage:[UIImage imageNamed:@"amit.jpg"]];
             [view.bottomTitleLabel setText:@"REST IN PEACE"];
+            view.continueButton.hidden = YES;
+            view.buttonLabel.hidden = YES;
+            view.needsToFadeOut = YES;
             break;
             
         case remoteNotificationKillFailed:
-            [view.headerLabel setText:@"Killed Failed!"];
-            [view.topTitleLabel setText:@"RUN AWAY!"];
-//            [view.profilePicture setImage:[UIImage imageNamed:@"amit.png"]];
-//            [view.bottomTitleLabel setText:@"REST IN PEACE"];
+            // popup
+            [view.popupView.layer setBorderColor:[UIColor redColor].CGColor];
+            [view.popupView.layer setBorderWidth:2.0];
+            [view.headerLabel setText:@"Witness Warning!"];
+            [view.headerLabel setCenter:view.popupView.center];
+            view.topTitleLabel.hidden = YES;
+            view.profilePicture.hidden = YES;
+            view.bottomTitleLabel.hidden = YES;
+            view.continueButton.hidden = YES;
+            view.buttonLabel.hidden = YES;
+            view.needsToFadeOut = YES;
             break;
         
         case remoteNotificationRunAway:
-            [view.headerLabel setText:@"There was a shooting!"];
-            [view.topTitleLabel setText:@"RUN AWAY!"];
-//            [view.profilePicture setImage:[UIImage imageNamed:@"amit.png"]];
-//            [view.bottomTitleLabel setText:@"REST IN PEACE"];
+            // popup
+            [view.popupView.layer setBorderColor:[UIColor redColor].CGColor];
+            [view.popupView.layer setBorderWidth:2.0];
+            [view.headerLabel setText:@"Shooting Nearby!"];
+            [view.headerLabel setCenter:view.center];
+            view.topTitleLabel.hidden = YES;
+            view.profilePicture.hidden = YES;
+            view.bottomTitleLabel.hidden = YES;
+            view.continueButton.hidden = YES;
+            view.buttonLabel.hidden = YES;
+            view.needsToFadeOut = YES;
             break;
             
         case remoteNotificationSomeoneDied:
-            [view.headerLabel setText:[NSString stringWithFormat:@"%@ was", data[@"name"]]];
+            // popup
+            [view.popupView.layer setBorderColor:[UIColor redColor].CGColor];
+            [view.popupView.layer setBorderWidth:2.0];
+            view.headerLabel.hidden = YES;
             [view.topTitleLabel setText:@"KILLED"];
-            [view.profilePicture setImage:[UIImage imageNamed:@"amit.png"]];
+            [view.profilePicture setImage:[UIImage imageNamed:@"amit.jpg"]];
             [view.bottomTitleLabel setText:@"REST IN PEACE"];
+            view.continueButton.hidden = YES;
+            view.buttonLabel.hidden = YES;
+            view.needsToFadeOut = YES;
             break;
             
         case remoteNotificationSomeoneWin:
-            [view.topTitleLabel setText:[NSString stringWithFormat:@"%@ WINS!", data[@"name"]]];
-            [view.profilePicture setImage:[UIImage imageNamed:@"amit.png"]];
-//            [view.bottomTitleLabel setText:@"REST IN PEACE"];
+            [view.headerLabel setText:[NSString stringWithFormat:@"%@ just killed the last victim", data[@"loc-args"][@"name"]]];
+            view.headerLabel.hidden = YES;
+            [view.topTitleLabel setText:@"WINNER"];
+            [view.profilePicture setImage:[UIImage imageNamed:@"amit.jpg"]];
+            [view.bottomTitleLabel setText:@"MEGA KILLER"];
+            
+            [view.buttonLabel setText:@"Let's start another round"];
+            view.needsToFadeOut = NO;
+            
             break;
             
         case remoteNotificationYouDead:
-            [view.headerLabel setText:[NSString stringWithFormat:@"%@ just shot you", data[@"name"]]];
-            [view.topTitleLabel setText:@"YOU'RE DEAD!"];
-            [view.profilePicture setImage:[UIImage imageNamed:@"amit.png"]];
+            [view.headerLabel setText:[NSString stringWithFormat:@"%@ just shot you", data[@"loc-args"][@"name"]]];
+            [view.topTitleLabel setText:@"YOU'RE DEAD"];
+            [view.profilePicture setImage:[UIImage imageNamed:@"amit.jpg"]];
             [view.bottomTitleLabel setText:@"REST IN PEACE"];
+            view.continueButton.hidden = YES;
+            [view.buttonLabel setText:@"You won't be forgotten & will be updated with the events to come"];
+            
+            view.needsToFadeOut = NO;
             break;
             
-        case remoteNotificationYouWin:
-            [view.topTitleLabel setText:@"YOU WIN!"];
+        case remoteNotificationGameBegins:
+            [view.headerLabel setText:@"The game is starting now! \n Ther's no way out \n All you have left is to kill or die"];
+            [view.headerLabel setCenter:view.center];
+            view.topTitleLabel.hidden = YES;
+            view.profilePicture.hidden = YES;
+            view.bottomTitleLabel.hidden = YES;
+            view.continueButton.hidden = YES;
+            view.buttonLabel.hidden = YES;
+            
+            view.needsToFadeOut = YES;
             break;
             
         default:
@@ -126,15 +171,17 @@ typedef enum {
 
 -(void)handleNotification:(NSNotification *)notification
 {
-    UIView *view = [self createNotificationViewWithData:notification.userInfo];
-    view.center = self.view.center;
+    TKNotificationView *view = [self createNotificationViewWithData:notification.userInfo];
+//    view.center = self.view.center;
     view.alpha = 0;
     [self.view addSubview:view];
     
     [UIView animateWithDuration:0.4 animations:^{
         view.alpha = 1.0;
     } completion:^(BOOL finished) {
-        [self performSelector:@selector(closeNotificationView:) withObject:view afterDelay:3.0];
+        if (view.needsToFadeOut) {
+            [self performSelector:@selector(closeNotificationView:) withObject:view afterDelay:3.0];
+        }
     }];
 }
 
