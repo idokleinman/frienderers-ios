@@ -14,5 +14,5 @@
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (strong, nonatomic) IBOutlet TKSmallLabel *headerLabel;
 @property (strong, nonatomic) IBOutlet TKSmallLabel *bottomButtonLabel;
-
+@property (strong, nonatomic) IBOutlet UIView* loadingView;
 @end
