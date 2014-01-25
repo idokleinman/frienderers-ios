@@ -206,7 +206,7 @@
     
 }
 
-- (void)createGameWithTitle:(NSString*)title startTime:(NSDate*)startTime playerUserIDs:(NSArray*)players completion:(void(^)(NSDictionary* game, NSError* error))completion {
+- (void)createGameWithTitle:(NSString*)title startTime:(NSDate*)startTime playerUserIDs:(NSArray*)players completion:(void(^)(TKGameInfo* game, NSError* error))completion {
     NSString* url = [[self URLWithPath:@"/games"] absoluteString];
     NSDictionary* params = @{ @"title": title,
                               @"players": players,
@@ -220,7 +220,8 @@
         }
         
         NSLog(@"Create game response: %@", response);
-        completion(response, nil);
+        TKGameInfo* gameInfo = [[TKGameInfo alloc] initWithDictionary:response];
+        completion(gameInfo, nil);
     }];
 }
 

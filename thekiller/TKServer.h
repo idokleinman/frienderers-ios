@@ -19,7 +19,7 @@
 - (void)hello:(void(^)(TKGameInfo* gameInfo, NSError* error))completion;
 - (void)nextTarget:(void(^)(NSString* targetUserID, NSError* error))completion;
 - (void)registerPushToken:(NSString*)deviceToken;
-- (void)createGameWithTitle:(NSString*)title startTime:(NSDate*)startTime playerUserIDs:(NSArray*)players completion:(void(^)(NSDictionary* game, NSError* error))completion;
+- (void)createGameWithTitle:(NSString*)title startTime:(NSDate*)startTime playerUserIDs:(NSArray*)players completion:(void(^)(TKGameInfo* game, NSError* error))completion;
 - (void)shootTarget:(NSString*)targetID success:(BOOL)success nearby:(NSArray*)nearby completion:(void(^)(NSString* nextTargetID, NSError* error))completion;
 
 @end
