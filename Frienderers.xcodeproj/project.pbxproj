@@ -35,6 +35,8 @@
 		C8F2B4011892E5D300561DBC /* TKAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F2B3FC1892E5D300561DBC /* TKAppViewController.m */; };
 		C8F2B4021892E5D300561DBC /* TKNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8F2B3FF1892E5D300561DBC /* TKNotificationView.xib */; };
 		C8F2B4031892E5D300561DBC /* TKNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F2B4001892E5D300561DBC /* TKNotificationView.m */; };
+		C8F2B4071893A82E00561DBC /* JollyLodger.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8F2B4061893A82300561DBC /* JollyLodger.ttf */; };
+		C8F2B4081893A82E00561DBC /* Rosewood.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8F2B3F91892E51D00561DBC /* Rosewood.ttf */; };
 		F40C2486188459330050AFCE /* UIApplication+TKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F40C2485188459330050AFCE /* UIApplication+TKAppDelegate.m */; };
 		F40C2489188459670050AFCE /* TKMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F40C2488188459670050AFCE /* TKMainViewController.m */; };
 		F40C248C18845FB00050AFCE /* TKNearByDevicesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F40C248B18845FB00050AFCE /* TKNearByDevicesDataSource.m */; };
@@ -102,7 +104,6 @@
 		C8F2B3E0189299DE00561DBC /* Plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Plus@2x.png"; sourceTree = "<group>"; };
 		C8F2B3E318929BF800561DBC /* Invite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Invite.png; sourceTree = "<group>"; };
 		C8F2B3E418929BF800561DBC /* Invite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Invite@2x.png"; sourceTree = "<group>"; };
-		C8F2B3F81892E51D00561DBC /* lucida_grande.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lucida_grande.ttf; sourceTree = "<group>"; };
 		C8F2B3F91892E51D00561DBC /* Rosewood.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Rosewood.ttf; sourceTree = "<group>"; };
 		C8F2B3FA1892E53100561DBC /* amit.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = amit.jpg; sourceTree = "<group>"; };
 		C8F2B3FC1892E5D300561DBC /* TKAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKAppViewController.m; sourceTree = "<group>"; };
@@ -110,6 +111,7 @@
 		C8F2B3FE1892E5D300561DBC /* TKNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKNotificationView.h; sourceTree = "<group>"; };
 		C8F2B3FF1892E5D300561DBC /* TKNotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKNotificationView.xib; sourceTree = "<group>"; };
 		C8F2B4001892E5D300561DBC /* TKNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKNotificationView.m; sourceTree = "<group>"; };
+		C8F2B4061893A82300561DBC /* JollyLodger.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = JollyLodger.ttf; sourceTree = "<group>"; };
 		F40C2484188459330050AFCE /* UIApplication+TKAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+TKAppDelegate.h"; sourceTree = "<group>"; };
 		F40C2485188459330050AFCE /* UIApplication+TKAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+TKAppDelegate.m"; sourceTree = "<group>"; };
 		F40C2487188459670050AFCE /* TKMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKMainViewController.h; sourceTree = "<group>"; };
@@ -205,6 +207,31 @@
 			name = images;
 			sourceTree = "<group>";
 		};
+		C8F2B4041893A73E00561DBC /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				C8F2B3FC1892E5D300561DBC /* TKAppViewController.m */,
+				C8F2B3FD1892E5D300561DBC /* TKAppViewController.h */,
+				C8F2B3FE1892E5D300561DBC /* TKNotificationView.h */,
+				C8F2B3FF1892E5D300561DBC /* TKNotificationView.xib */,
+				C8F2B4001892E5D300561DBC /* TKNotificationView.m */,
+			);
+			name = Notifications;
+			sourceTree = "<group>";
+		};
+		C8F2B4051893A75000561DBC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				50ED335E18929D3100C4B45C /* TKStyle.h */,
+				50ED335F18929D3100C4B45C /* TKStyle.m */,
+				F44C8E801892BA8800DC3297 /* TKServer.h */,
+				F44C8E7E1892BA7E00DC3297 /* TKServer.m */,
+				C8F2B3CF189290D200561DBC /* TKGame.h */,
+				C8F2B3D0189290D200561DBC /* TKGame.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		F4416AE018844EF300399D36 = {
 			isa = PBXGroup;
 			children = (
@@ -242,17 +269,10 @@
 		F4416AF218844EF300399D36 /* Frienderers */ = {
 			isa = PBXGroup;
 			children = (
-				C8F2B3FC1892E5D300561DBC /* TKAppViewController.m */,
-				C8F2B3FD1892E5D300561DBC /* TKAppViewController.h */,
-				C8F2B3FE1892E5D300561DBC /* TKNotificationView.h */,
-				C8F2B3FF1892E5D300561DBC /* TKNotificationView.xib */,
-				C8F2B4001892E5D300561DBC /* TKNotificationView.m */,
-				F44C8E801892BA8800DC3297 /* TKServer.h */,
-				F44C8E7E1892BA7E00DC3297 /* TKServer.m */,
+				C8F2B4051893A75000561DBC /* Models */,
+				C8F2B4041893A73E00561DBC /* Notifications */,
 				C8F2B3D81892953E00561DBC /* CreateGame */,
 				F4416B20188454BA00399D36 /* Storyboard.storyboard */,
-				C8F2B3CF189290D200561DBC /* TKGame.h */,
-				C8F2B3D0189290D200561DBC /* TKGame.m */,
 				F4416AF318844EF300399D36 /* Supporting Files */,
 				F4416AFE18844EF300399D36 /* Images.xcassets */,
 				F4416AF318844EF300399D36 /* Supporting Files */,
@@ -278,8 +298,6 @@
 				F40C248B18845FB00050AFCE /* TKNearByDevicesDataSource.m */,
 				F40CBB8C18926594008E2248 /* TKLoginViewController.h */,
 				F40CBB8D18926594008E2248 /* TKLoginViewController.m */,
-				50ED335E18929D3100C4B45C /* TKStyle.h */,
-				50ED335F18929D3100C4B45C /* TKStyle.m */,
 			);
 			name = Frienderers;
 			path = thekiller;
@@ -288,7 +306,7 @@
 		F4416AF318844EF300399D36 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C8F2B3F81892E51D00561DBC /* lucida_grande.ttf */,
+				C8F2B4061893A82300561DBC /* JollyLodger.ttf */,
 				C8F2B3F91892E51D00561DBC /* Rosewood.ttf */,
 				F4416AF418844EF300399D36 /* frienderers-Info.plist */,
 				F4416AF518844EF300399D36 /* InfoPlist.strings */,
@@ -403,6 +421,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8F2B4071893A82E00561DBC /* JollyLodger.ttf in Resources */,
+				C8F2B4081893A82E00561DBC /* Rosewood.ttf in Resources */,
 				50ED337A1892C13100C4B45C /* Gun.png in Resources */,
 				50ED33701892A61E00C4B45C /* Plus@2x.png in Resources */,
 				50ED336D1892A61E00C4B45C /* Invite.png in Resources */,

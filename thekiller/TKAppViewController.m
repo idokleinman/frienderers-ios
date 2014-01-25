@@ -58,7 +58,7 @@ typedef enum {
 //    
 //    [self.view addSubview:view];
     
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"remoteNotificationReceived" object:nil userInfo:@{@"loc-args":@{@"type":@"1"}}];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"remoteNotificationReceived" object:nil userInfo:@{@"loc-args":@{@"type":@"1"}}];
 }
 -(void)dealloc
 {
@@ -127,9 +127,23 @@ typedef enum {
 -(void)handleNotification:(NSNotification *)notification
 {
     UIView *view = [self createNotificationViewWithData:notification.userInfo];
+    view.center = self.view.center;
+    view.alpha = 0;
     [self.view addSubview:view];
+    
+    [UIView animateWithDuration:0.4 animations:^{
+        view.alpha = 1.0;
+    } completion:^(BOOL finished) {
+        [self performSelector:@selector(closeNotificationView:) withObject:view afterDelay:3.0];
+    }];
 }
 
+-(void)closeNotificationView:(UIView *)view
+{
+    if (view.superview) {
+        [view removeFromSuperview];
+    }
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

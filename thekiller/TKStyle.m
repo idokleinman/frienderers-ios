@@ -26,7 +26,7 @@ void ConfigureAppearnace()
     [[TKBigLabel appearance] setBackgroundColor:[UIColor clearColor]];
     [[TKBigLabel appearance] setTextColor:[UIColor redColor]];
 
-    [[TKSmallLabel appearance] setFont:[UIFont fontWithName:@"lucida_grande" size:20]];
+    [[TKSmallLabel appearance] setFont:[UIFont fontWithName:@"JollyLodger" size:20]];
     [[TKSmallLabel appearance] setBackgroundColor:[UIColor clearColor]];
     [[TKSmallLabel appearance] setTextColor:[UIColor redColor]];
     
