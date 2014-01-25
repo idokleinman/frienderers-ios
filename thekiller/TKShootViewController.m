@@ -65,6 +65,9 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     
+    self.log.text = [[TKBluetoothManager sharedManager].nearbyDevicesDictionary description];
+    
+    
     TKDevice *device = [[TKBluetoothManager sharedManager].nearbyDevicesDictionary objectForKey:self.targetProfileID];
     if (device)
     {

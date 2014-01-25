@@ -20,4 +20,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *gunLoadedLabel;
 
+@property (weak, nonatomic) IBOutlet UITextView *log;
+
 @end
