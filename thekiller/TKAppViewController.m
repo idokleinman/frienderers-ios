@@ -58,7 +58,7 @@ typedef enum {
 //    
 //    [self.view addSubview:view];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"remoteNotificationReceived" object:nil userInfo:@{@"loc-args":@{@"type":@"6", @"name":@"Amit"}}];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"remoteNotificationReceived" object:nil userInfo:@{@"loc-args":@{@"type":@"3", @"name":@"Amit"}}];
 }
 -(void)dealloc
 {
@@ -128,30 +128,30 @@ typedef enum {
             break;
             
         case remoteNotificationSomeoneWin:
-            [view.headerLabel setText:[NSString stringWithFormat:@"%@ just killed the last victim", data[@"loc-args"][@"name"]]];
+            [view.headerLabel setAttributedText:getAsSmallAttributedString([NSString stringWithFormat:@"%@ just killed the last victim", data[@"loc-args"][@"name"]],NSTextAlignmentCenter)];
             view.headerLabel.hidden = YES;
             [view.topTitleLabel setText:@"WINNER"];
             [view.profilePicture setImage:[UIImage imageNamed:@"amit.jpg"]];
             [view.bottomTitleLabel setText:@"MEGA KILLER"];
             
-            [view.buttonLabel setText:@"Let's start another round"];
+            [view.buttonLabel setAttributedText:getAsSmallAttributedString(@"Let's start another round", NSTextAlignmentCenter)];
             view.needsToFadeOut = NO;
             
             break;
             
         case remoteNotificationYouDead:
-            [view.headerLabel setText:[NSString stringWithFormat:@"%@ just shot you", data[@"loc-args"][@"name"]]];
+            [view.headerLabel setAttributedText:getAsSmallAttributedString([NSString stringWithFormat:@"%@ just shot you", data[@"loc-args"][@"name"]], NSTextAlignmentCenter)];
             [view.topTitleLabel setText:@"YOU'RE DEAD"];
             [view.profilePicture setImage:[UIImage imageNamed:@"amit.jpg"]];
             [view.bottomTitleLabel setText:@"REST IN PEACE"];
             view.continueButton.hidden = YES;
-            [view.buttonLabel setText:@"You won't be forgotten & will be updated with the events to come"];
+            [view.buttonLabel setAttributedText:getAsSmallAttributedString(@"You won't be forgotten & will be updated with the events to come", NSTextAlignmentCenter)];
             
             view.needsToFadeOut = NO;
             break;
             
         case remoteNotificationGameBegins:
-            [view.headerLabel setText:@"The game is starting now! \n Ther's no way out \n All you have left is to kill or die"];
+            [view.headerLabel setAttributedText:getAsSmallAttributedString(@"The game is starting now! \n Ther's no way out \n All you have left is to kill or die", NSTextAlignmentCenter)];
             [view.headerLabel setCenter:view.center];
             view.topTitleLabel.hidden = YES;
             view.profilePicture.hidden = YES;
@@ -180,7 +180,7 @@ typedef enum {
         view.alpha = 1.0;
     } completion:^(BOOL finished) {
         if (view.needsToFadeOut) {
-            [self performSelector:@selector(closeNotificationView:) withObject:view afterDelay:3.0];
+            [self performSelector:@selector(closeNotificationView:) withObject:view afterDelay:7.0];
         }
     }];
 }

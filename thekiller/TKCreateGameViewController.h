@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TKStyle.h"
 @interface TKCreateGameViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet TKSmallLabel *label;
 
 @end

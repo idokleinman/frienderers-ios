@@ -34,5 +34,25 @@ void ConfigureAppearnace()
     
     [[TKButton appearance] setBackgroundColor:[UIColor clearColor]];
     
+    [UINavigationBar appearance].barTintColor = [UIColor colorWithRed:51./255. green:51./255. blue:51./255. alpha:1.0];
     
+}
+
+NSAttributedString *getAsSmallAttributedString(NSString *str, NSTextAlignment alignment)
+{
+    NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:str];
+    
+    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+    [style setLineSpacing:0];
+    [style setMinimumLineHeight:20];
+    [style setMaximumLineHeight:20];
+    [style setAlignment:alignment];
+    [attString addAttribute:NSParagraphStyleAttributeName
+                      value:style
+                      range:NSMakeRange(0, attString.length)];
+    
+    [attString addAttribute:NSKernAttributeName value:@(1.0) range:NSMakeRange(0,attString.length)];
+    [attString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"JollyLodger" size:20] range:NSMakeRange(0, attString.length)];
+
+    return attString;
 }

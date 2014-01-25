@@ -27,6 +27,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    [self.label setAttributedText:getAsSmallAttributedString(self.label.text, NSTextAlignmentCenter)];
 }
 
 - (void)didReceiveMemoryWarning

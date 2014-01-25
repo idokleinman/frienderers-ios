@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TKStyle.h"
 
-@interface TKNameAndTimeViewController : UIViewController
+@interface TKNameAndTimeViewController : UIViewController <UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *gameName;
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (strong, nonatomic) IBOutlet TKSmallLabel *headerLabel;
+@property (strong, nonatomic) IBOutlet TKSmallLabel *bottomButtonLabel;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "TKNameAndTimeViewController.h"
 #import "TKServer.h"
+#import "TKStyle.h"
 
 @interface TKNameAndTimeViewController ()
 
@@ -29,13 +30,28 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    [self.headerLabel setAttributedText:getAsSmallAttributedString(self.headerLabel.text, NSTextAlignmentLeft)];
 
-    UIColor *color = [UIColor redColor];
-    self.gameName.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.gameName.placeholder attributes:@{NSForegroundColorAttributeName: color}];
+    [self.bottomButtonLabel setAttributedText:getAsSmallAttributedString(self.bottomButtonLabel.text, NSTextAlignmentCenter)];
+    
+    UIColor *color = [[UIColor redColor] colorWithAlphaComponent:0.5];
+    [self.gameName setBackgroundColor:[UIColor colorWithRed:51./255. green:51./255. blue:51./255. alpha:1.0]];
+
+    [self.gameName.layer setBorderColor:[UIColor redColor].CGColor];
+    [self.gameName.layer setBorderWidth:2.0];
+    self.gameName.attributedPlaceholder = [[NSAttributedString alloc] initWithString:self.gameName.placeholder attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName:@"JollyLodger"}];
+    self.gameName.delegate = self;
     
     [self.datePicker setMinimumDate:[NSDate date]];
+    
+
 }
 
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.gameName resignFirstResponder];
+    return YES;
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
