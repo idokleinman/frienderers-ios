@@ -106,7 +106,7 @@
         <!--Kill Target View Controller-->
         <scene sceneID="SeU-C9-8XM">
             <objects>
-                <viewController id="pkV-Ig-9ny" customClass="TKKillTargetViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="killTarget" id="pkV-Ig-9ny" customClass="TKKillTargetViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VjT-Oi-lhe"/>
                         <viewControllerLayoutGuide type="bottom" id="hvm-zS-bCi"/>
@@ -197,7 +197,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="AdX-S6-Z1j">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="AdX-S6-Z1j" customClass="TKSmallLabel">
                                 <rect key="frame" x="20" y="40" width="280" height="508"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <string key="text">-There is one winner whose mission is to isolate and kill other players and not fall into the trap of others' similar intentions. 
@@ -298,7 +298,7 @@
         <!--Shoot View Controller-->
         <scene sceneID="8zn-zP-9i3">
             <objects>
-                <viewController id="UhG-Mk-rJu" customClass="TKShootViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="shoot" id="UhG-Mk-rJu" customClass="TKShootViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ate-42-TrM"/>
                         <viewControllerLayoutGuide type="bottom" id="Rba-ZU-y0a"/>
@@ -362,6 +362,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="jJz-sH-WIG"/>
                     <connections>
+                        <outlet property="gunButton" destination="ZZw-6F-mh4" id="oSZ-Il-7hh"/>
                         <outlet property="gunLoadedLabel" destination="JM2-ZM-Roe" id="zSB-7r-Ac1"/>
                         <outlet property="instructionLabel" destination="IQU-aH-6Jw" id="p1f-t8-GHN"/>
                         <outlet property="shootButton" destination="ZZw-6F-mh4" id="Uaq-oK-b5h"/>

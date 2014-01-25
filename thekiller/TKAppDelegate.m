@@ -43,23 +43,6 @@
     }
 }
 
-//- (void)startGame {
-//    
-//    [[TKSoundManager sharedManager] playSoundInBackground:@"background"];
-//    
-//    self.window.rootViewController = [self.gameStoryboard instantiateViewControllerWithIdentifier:@"splash"]; //"splash" //gameWillStartVC
-//    
-//  
-//    [[TKServer sharedInstance] hello:^(TKGameInfo *gameInfo, NSError *error) {
-//        if (gameInfo) {
-//            self.window.rootViewController = [self.gameStoryboard instantiateViewControllerWithIdentifier:@"gameWillStartVC"];
-//        }
-//        else {
-//            self.window.rootViewController = [self.createStoryboard instantiateInitialViewController];
-//        }
-//    }];
-//    
-//}
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -81,6 +64,7 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [AppController() reloadState];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

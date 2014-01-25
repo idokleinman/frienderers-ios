@@ -16,6 +16,7 @@
 
 
 @property (strong, nonatomic) NSString* targetProfileID;
+@property (weak, nonatomic) IBOutlet TKButton *gunButton;
 
 @property (weak, nonatomic) IBOutlet UILabel *gunLoadedLabel;
 @property (strong, nonatomic) IBOutlet TKSmallLabel *shootLabel;
