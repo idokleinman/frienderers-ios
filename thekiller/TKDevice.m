@@ -37,4 +37,25 @@
     _prevRSSI = _rssi;
     _rssi = (NSInteger)((CGFloat)sum / samples.count);
 }
+
+-(rangeType)range
+{
+    if (self.rssi < -90)
+        return VERY_FAR;
+    
+    if ((self.rssi < -70) && (self.rssi > -90))
+        return FAR;
+        
+    if ((self.rssi < -50) && (self.rssi > -70))
+        return MEDIUM;
+    
+    if ((self.rssi < -30) && (self.rssi > -50))
+        return NEAR;
+    
+    if (self.rssi > -30)
+        return VERY_NEAR;
+ 
+    
+    return VERY_FAR;
+}
 @end

@@ -23,6 +23,12 @@
 		50ED337A1892C13100C4B45C /* Gun.png in Resources */ = {isa = PBXBuildFile; fileRef = 50ED33781892C13100C4B45C /* Gun.png */; };
 		50ED337B1892C13100C4B45C /* Gun@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50ED33791892C13100C4B45C /* Gun@2x.png */; };
 		50ED337E1892D15500C4B45C /* TKDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ED337D1892D15500C4B45C /* TKDevice.m */; };
+		50ED33811893021600C4B45C /* TKSoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ED33801893021600C4B45C /* TKSoundManager.m */; };
+		50ED338D189304AA00C4B45C /* Click (Info+Facebook).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 50ED3384189304AA00C4B45C /* Click (Info+Facebook).mp3 */; };
+		50ED338E189304AA00C4B45C /* Click (SignIn+Invite).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 50ED3385189304AA00C4B45C /* Click (SignIn+Invite).mp3 */; };
+		50ED3391189304AA00C4B45C /* Menu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 50ED3388189304AA00C4B45C /* Menu.mp3 */; };
+		50ED3393189304AA00C4B45C /* Winner (You won+C).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 50ED338A189304AA00C4B45C /* Winner (You won+C).mp3 */; };
+		50ED3394189304AA00C4B45C /* YourTarget.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 50ED338B189304AA00C4B45C /* YourTarget.mp3 */; };
 		C8F2B3D1189290D200561DBC /* TKGame.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F2B3D0189290D200561DBC /* TKGame.m */; };
 		C8F2B3D7189294C800561DBC /* CreateGameStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8F2B3D6189294C800561DBC /* CreateGameStoryboard.storyboard */; };
 		C8F2B3DB1892956200561DBC /* TKCreateGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F2B3DA1892956200561DBC /* TKCreateGameViewController.m */; };
@@ -87,6 +93,13 @@
 		50ED33791892C13100C4B45C /* Gun@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gun@2x.png"; sourceTree = "<group>"; };
 		50ED337C1892D15500C4B45C /* TKDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKDevice.h; sourceTree = "<group>"; };
 		50ED337D1892D15500C4B45C /* TKDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKDevice.m; sourceTree = "<group>"; };
+		50ED337F1893021000C4B45C /* TKSoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKSoundManager.h; sourceTree = "<group>"; };
+		50ED33801893021600C4B45C /* TKSoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKSoundManager.m; sourceTree = "<group>"; };
+		50ED3384189304AA00C4B45C /* Click (Info+Facebook).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Click (Info+Facebook).mp3"; sourceTree = "<group>"; };
+		50ED3385189304AA00C4B45C /* Click (SignIn+Invite).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Click (SignIn+Invite).mp3"; sourceTree = "<group>"; };
+		50ED3388189304AA00C4B45C /* Menu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Menu.mp3; sourceTree = "<group>"; };
+		50ED338A189304AA00C4B45C /* Winner (You won+C).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Winner (You won+C).mp3"; sourceTree = "<group>"; };
+		50ED338B189304AA00C4B45C /* YourTarget.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = YourTarget.mp3; sourceTree = "<group>"; };
 		C8F2B3CF189290D200561DBC /* TKGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKGame.h; path = ../TKGame.h; sourceTree = "<group>"; };
 		C8F2B3D0189290D200561DBC /* TKGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKGame.m; path = ../TKGame.m; sourceTree = "<group>"; };
 		C8F2B3D6189294C800561DBC /* CreateGameStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateGameStoryboard.storyboard; sourceTree = "<group>"; };
@@ -157,6 +170,88 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		500854D0189307C80003091D /* New Group5 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group5";
+			sourceTree = "<group>";
+		};
+		500854D1189307CC0003091D /* New Group6 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group6";
+			sourceTree = "<group>";
+		};
+		50D656571893081F0042A7DD /* New Group7 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group7";
+			sourceTree = "<group>";
+		};
+		50D656581893AD2D0042A7DD /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
+		50D656591893AD320042A7DD /* New Group1 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group1";
+			sourceTree = "<group>";
+		};
+		50ED33821893049700C4B45C /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				50ED3384189304AA00C4B45C /* Click (Info+Facebook).mp3 */,
+				50ED3385189304AA00C4B45C /* Click (SignIn+Invite).mp3 */,
+				50ED3388189304AA00C4B45C /* Menu.mp3 */,
+				50ED338A189304AA00C4B45C /* Winner (You won+C).mp3 */,
+				50ED338B189304AA00C4B45C /* YourTarget.mp3 */,
+			);
+			name = Sound;
+			sourceTree = "<group>";
+		};
+		50ED33951893050D00C4B45C /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
+		50ED33961893051200C4B45C /* New Group1 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group1";
+			sourceTree = "<group>";
+		};
+		50ED33971893052200C4B45C /* New Group2 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group2";
+			sourceTree = "<group>";
+		};
+		50ED33981893052D00C4B45C /* New Group3 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group3";
+			sourceTree = "<group>";
+		};
+		50ED33991893053300C4B45C /* New Group4 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group4";
+			sourceTree = "<group>";
+		};
 		C8F2B3D81892953E00561DBC /* CreateGame */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +289,15 @@
 		F4416AE018844EF300399D36 = {
 			isa = PBXGroup;
 			children = (
+				50D656571893081F0042A7DD /* New Group7 */,
+				500854D1189307CC0003091D /* New Group6 */,
+				500854D0189307C80003091D /* New Group5 */,
+				50ED33991893053300C4B45C /* New Group4 */,
+				50ED33981893052D00C4B45C /* New Group3 */,
+				50ED33971893052200C4B45C /* New Group2 */,
+				50ED33961893051200C4B45C /* New Group1 */,
+				50ED33951893050D00C4B45C /* New Group */,
+				50ED33821893049700C4B45C /* Sound */,
 				F4416AF218844EF300399D36 /* Frienderers */,
 				F4416B0B18844EF300399D36 /* FrienderersTests */,
 				F4416AEB18844EF300399D36 /* Frameworks */,
@@ -226,8 +330,12 @@
 		F4416AF218844EF300399D36 /* Frienderers */ = {
 			isa = PBXGroup;
 			children = (
+				50D656591893AD320042A7DD /* New Group1 */,
+				50D656581893AD2D0042A7DD /* New Group */,
 				F44C8E801892BA8800DC3297 /* TKServer.h */,
 				F44C8E7E1892BA7E00DC3297 /* TKServer.m */,
+				50ED33581892877B00C4B45C /* TKServerController.h */,
+				50ED33591892877B00C4B45C /* TKServerController.m */,
 				C8F2B3D81892953E00561DBC /* CreateGame */,
 				F4416B20188454BA00399D36 /* Storyboard.storyboard */,
 				C8F2B3CF189290D200561DBC /* TKGame.h */,
@@ -239,12 +347,12 @@
 				F4416B20188454BA00399D36 /* Storyboard.storyboard */,
 				50ED33751892C0D800C4B45C /* TKShootViewController.h */,
 				50ED33761892C0D800C4B45C /* TKShootViewController.m */,
+				50ED337F1893021000C4B45C /* TKSoundManager.h */,
+				50ED33801893021600C4B45C /* TKSoundManager.m */,
 				50ED33611892A40900C4B45C /* TKkillTargetViewController.h */,
 				50ED33621892A40900C4B45C /* TKkillTargetViewController.m */,
 				50ED335B18928C8100C4B45C /* TKStartTimerViewController.h */,
 				50ED335C18928C8100C4B45C /* TKStartTimerViewController.m */,
-				50ED33581892877B00C4B45C /* TKServerController.h */,
-				50ED33591892877B00C4B45C /* TKServerController.m */,
 				F4416AFB18844EF300399D36 /* TKAppDelegate.h */,
 				F4416AFC18844EF300399D36 /* TKAppDelegate.m */,
 				F4416B1D1884511B00399D36 /* TKBluetoothManager.h */,
@@ -383,12 +491,15 @@
 				50ED337A1892C13100C4B45C /* Gun.png in Resources */,
 				50ED33701892A61E00C4B45C /* Plus@2x.png in Resources */,
 				50ED336D1892A61E00C4B45C /* Invite.png in Resources */,
+				50ED3391189304AA00C4B45C /* Menu.mp3 in Resources */,
 				50ED33731892A61E00C4B45C /* Tick.png in Resources */,
 				F4416AF718844EF300399D36 /* InfoPlist.strings in Resources */,
 				C8F2B3E618929BF800561DBC /* Invite@2x.png in Resources */,
 				C8F2B3D7189294C800561DBC /* CreateGameStoryboard.storyboard in Resources */,
 				C8F2B3E2189299DE00561DBC /* Plus@2x.png in Resources */,
 				C8F2B3E1189299DE00561DBC /* Plus.png in Resources */,
+				50ED338E189304AA00C4B45C /* Click (SignIn+Invite).mp3 in Resources */,
+				50ED3393189304AA00C4B45C /* Winner (You won+C).mp3 in Resources */,
 				F4416AFF18844EF300399D36 /* Images.xcassets in Resources */,
 				C8F2B3E518929BF800561DBC /* Invite.png in Resources */,
 				50ED33711892A61E00C4B45C /* SmallTick.png in Resources */,
@@ -398,6 +509,8 @@
 				50ED336E1892A61E00C4B45C /* Invite@2x.png in Resources */,
 				50ED337B1892C13100C4B45C /* Gun@2x.png in Resources */,
 				50ED33721892A61E00C4B45C /* SmallTick@2x.png in Resources */,
+				50ED3394189304AA00C4B45C /* YourTarget.mp3 in Resources */,
+				50ED338D189304AA00C4B45C /* Click (Info+Facebook).mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +537,7 @@
 				F40C248C18845FB00050AFCE /* TKNearByDevicesDataSource.m in Sources */,
 				F40C2489188459670050AFCE /* TKMainViewController.m in Sources */,
 				50ED337E1892D15500C4B45C /* TKDevice.m in Sources */,
+				50ED33811893021600C4B45C /* TKSoundManager.m in Sources */,
 				C8F2B3D1189290D200561DBC /* TKGame.m in Sources */,
 				C8F2B3DB1892956200561DBC /* TKCreateGameViewController.m in Sources */,
 				50ED335D18928C8100C4B45C /* TKStartTimerViewController.m in Sources */,

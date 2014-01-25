@@ -13,8 +13,10 @@
 
 @interface TKShootViewController : UIViewController <UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet TKButton *shootButton;
-@property BOOL isGunLoaded;
 
-@property (strong, nonatomic) TKServer* server;
+
+@property (strong, nonatomic) NSString* targetProfileID;
+
+@property (weak, nonatomic) IBOutlet UILabel *gunLoadedLabel;
 
 @end

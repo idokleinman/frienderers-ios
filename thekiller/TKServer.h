@@ -10,7 +10,7 @@
 
 @interface TKServer : NSObject
 
-@property (nonatomic, strong) NSString* profileID;
+@property (nonatomic, strong) NSString* myProfileID;
 
 
 - (BOOL)openSession;

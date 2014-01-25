@@ -9,12 +9,18 @@
 #import "TKShootViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "TKBluetoothManager.h"
+#import "TKDevice.h"
+#import "TKServerController.h"
 
 @interface TKShootViewController ()
-
+@property (strong, nonatomic) TKServerController* server; //TKServer $$$
 @end
 
 @implementation TKShootViewController
+{
+    BOOL _isTargetInRange;
+    BOOL _isGunLoaded;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,12 +41,13 @@
     // Add the tap gesture recognizer to the view
     [self.view addGestureRecognizer:panRecognizer];
     
-    self.isGunLoaded = NO;
+    _isGunLoaded = NO;
+    _isTargetInRange = NO;
     
     // bluetooth
     self.server = [UIApplication sharedApplication].tkapp.server;
     
-    [[TKBluetoothManager sharedManager] startWithName:@"temp"];//self.server.profileID];
+    [[TKBluetoothManager sharedManager] startWithName:@"temp"];//self.server.profileID]; //$$$
     [[TKBluetoothManager sharedManager] addObserver:self forKeyPath:@"nearbyDevicesDictionary" options:NSKeyValueObservingOptionInitial context:0];
 
 }
@@ -50,8 +57,22 @@
     [[TKBluetoothManager sharedManager] removeObserver:self forKeyPath:@"nearbyDevicesDictionary" context:0];
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-//    [self.tableView reloadData];
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    
+    TKDevice *device = [[TKBluetoothManager sharedManager].nearbyDevicesDictionary objectForKey:self.targetProfileID];
+    if (device)
+    {
+        if (device.range == VERY_NEAR)
+        {
+            _isTargetInRange = YES;
+            // add glow to gun icon $$$
+        }
+        else
+            _isTargetInRange = NO;
+    }
+    
 }
 
 
@@ -69,27 +90,42 @@
     if (cocking.state == UIGestureRecognizerStateEnded)
     {
         NSLog(@"swipe cocking");
-        self.isGunLoaded = YES;
+        _isGunLoaded = YES;
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     }
 }
 
 
-
-- (void) motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
+-(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
 {
-    if (_isGunLoaded)
+    if (motion == UIEventSubtypeMotionShake)
     {
-        if (motion == UIEventSubtypeMotionShake)
+        if (_isGunLoaded)
         {
-            
-            // shoot logic
-            self.isGunLoaded = NO;
+            _isGunLoaded = NO;
+            // play shoot sound
             NSLog(@"motion shake -- shoot");
             
+            NSMutableArray *nearByPlayersArr = [[NSMutableArray alloc] init];
+            NSArray *devicesArr = [[TKBluetoothManager sharedManager].nearbyDevicesDictionary allValues];
             
+            for (TKDevice *d in devicesArr)
+            {
+                if (d.range <= MEDIUM)
+                    [nearByPlayersArr addObject:d.name];
+            }
+            
+            [self.server postShoot:_isTargetInRange nearByPlayers:nearByPlayersArr completionBlock:^(BOOL ack, NSError *error) {
+                if (!error)
+                {
+                    // handle ack $$$
+                    // play hit/miss sound
+                }
+            }];
+
         }
     }
+    
 }
 
 - (void)didReceiveMemoryWarning

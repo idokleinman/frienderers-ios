@@ -14,7 +14,6 @@
 
 @interface TKAppDelegate ()
 
-@property (strong, nonatomic) TKBluetoothManager* bluetooth;
 @property (strong, nonatomic) TKServer* server;
 
 @end
@@ -26,8 +25,8 @@
     [FBLoginView class];
     [FBProfilePictureView class];
     
-    self.bluetooth = [[TKBluetoothManager alloc] init];
     self.server = [[TKServer alloc] init];
+    
 
     ConfigureAppearnace();
     
