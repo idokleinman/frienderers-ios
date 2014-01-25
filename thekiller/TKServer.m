@@ -261,7 +261,7 @@
 }
 
 NSError* MakeError(NSString* desc, NSInteger code) {
-    NSString* f = [NSString stringWithFormat:@"%d: %@", code, desc];
+    NSString* f = [NSString stringWithFormat:@"%ld: %@", (long)code, desc];
     NSError* error = [NSError errorWithDomain:@"TKServer" code:0 userInfo:@{ NSLocalizedDescriptionKey: f }];
     return error;
 }
