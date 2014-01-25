@@ -18,6 +18,12 @@
     }
     return self;
 }
+- (IBAction)dismissNotificationView:(UIButton *)sender {
+    
+    if (self.superview) {
+        [self removeFromSuperview];
+    }
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.
