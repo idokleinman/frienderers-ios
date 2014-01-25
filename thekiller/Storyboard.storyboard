@@ -40,7 +40,7 @@
                         <viewControllerLayoutGuide type="top" id="DUH-Bi-ZxK"/>
                         <viewControllerLayoutGuide type="bottom" id="VL2-K6-ADX"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="RfD-RB-6Ee">
+                    <view key="view" contentMode="scaleToFill" id="RfD-RB-6Ee" customClass="TKView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -250,12 +250,12 @@
         <!--Win View Controller-->
         <scene sceneID="0KO-jd-GT5">
             <objects>
-                <viewController id="VVD-0i-gZm" customClass="TKWinViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="win" id="VVD-0i-gZm" customClass="TKWinViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BTa-ho-FJ5"/>
                         <viewControllerLayoutGuide type="bottom" id="6S1-K4-t6a"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Y6o-dN-jbc">
+                    <view key="view" contentMode="scaleToFill" id="Y6o-dN-jbc" customClass="TKView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>

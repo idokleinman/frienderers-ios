@@ -47,7 +47,7 @@
     
     [[TKSoundManager sharedManager] playSoundInBackground:@"background"];
     
-    self.window.rootViewController = [self.gameStoryboard instantiateViewControllerWithIdentifier:@"gameWillStartVC"]; //"splash"
+    self.window.rootViewController = [self.gameStoryboard instantiateViewControllerWithIdentifier:@"win"]; //"splash" //gameWillStartVC
     
     // temp
     /*
