@@ -30,7 +30,7 @@ void ConfigureAppearnace()
     [[TKSmallLabel appearance] setBackgroundColor:[UIColor clearColor]];
     [[TKSmallLabel appearance] setTextColor:[UIColor redColor]];
     
-    [[TKView appearance] setBackgroundColor:[UIColor blackColor]];
+    [[TKView appearance] setBackgroundColor:[UIColor colorWithRed:51./255. green:51./255. blue:51./255. alpha:1.0]];
     
     [[TKButton appearance] setBackgroundColor:[UIColor clearColor]];
     
