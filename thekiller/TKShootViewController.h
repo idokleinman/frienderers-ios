@@ -22,4 +22,6 @@
 @property (strong, nonatomic) IBOutlet TKSmallLabel *shootLabel;
 @property (strong, nonatomic) IBOutlet TKSmallLabel *instructionLabel;
 
+@property (weak, nonatomic) IBOutlet UITextView *log;
+
 @end

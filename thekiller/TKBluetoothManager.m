@@ -122,6 +122,8 @@ static TKBluetoothManager *sharedManager = nil;
     if (device.rssi != device.prevRSSI) {
         [self willChangeValueForKey:@"nearbyDevicesDictionary"];
         [self didChangeValueForKey:@"nearbyDevicesDictionary"];
+        
+        
     }
 }
 
