@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		503AAF681893D8C200D47BFC /* TKInfoScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 503AAF671893D8C200D47BFC /* TKInfoScreenViewController.m */; };
+		503AAF881893E33E00D47BFC /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 503AAF7E1893E33E00D47BFC /* background.mp3 */; };
+		503AAF891893E33E00D47BFC /* create.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 503AAF7F1893E33E00D47BFC /* create.mp3 */; };
+		503AAF8A1893E33E00D47BFC /* death.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 503AAF801893E33E00D47BFC /* death.mp3 */; };
+		503AAF8B1893E33E00D47BFC /* info.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 503AAF811893E33E00D47BFC /* info.mp3 */; };
+		503AAF8C1893E33E00D47BFC /* join.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 503AAF821893E33E00D47BFC /* join.mp3 */; };
+		503AAF8D1893E33E00D47BFC /* loadgun.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 503AAF831893E33E00D47BFC /* loadgun.mp3 */; };
+		503AAF8E1893E33E00D47BFC /* shoot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 503AAF841893E33E00D47BFC /* shoot.mp3 */; };
+		503AAF8F1893E33E00D47BFC /* shotalert.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 503AAF851893E33E00D47BFC /* shotalert.mp3 */; };
+		503AAF901893E33E00D47BFC /* target.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 503AAF861893E33E00D47BFC /* target.mp3 */; };
+		503AAF911893E33E00D47BFC /* winner.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 503AAF871893E33E00D47BFC /* winner.mp3 */; };
+		503AAF941893EC5D00D47BFC /* TKWinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 503AAF931893EC5D00D47BFC /* TKWinViewController.m */; };
 		50ED335D18928C8100C4B45C /* TKStartTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ED335C18928C8100C4B45C /* TKStartTimerViewController.m */; };
 		50ED336018929D3100C4B45C /* TKStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ED335F18929D3100C4B45C /* TKStyle.m */; };
 		50ED33631892A40900C4B45C /* TKKillTargetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ED33621892A40900C4B45C /* TKKillTargetViewController.m */; };
@@ -65,6 +77,20 @@
 
 /* Begin PBXFileReference section */
 		4431CD61F38A4A1CB7E4CE3F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		503AAF661893D8C200D47BFC /* TKInfoScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKInfoScreenViewController.h; sourceTree = "<group>"; };
+		503AAF671893D8C200D47BFC /* TKInfoScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKInfoScreenViewController.m; sourceTree = "<group>"; };
+		503AAF7E1893E33E00D47BFC /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
+		503AAF7F1893E33E00D47BFC /* create.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = create.mp3; sourceTree = "<group>"; };
+		503AAF801893E33E00D47BFC /* death.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = death.mp3; sourceTree = "<group>"; };
+		503AAF811893E33E00D47BFC /* info.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = info.mp3; sourceTree = "<group>"; };
+		503AAF821893E33E00D47BFC /* join.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = join.mp3; sourceTree = "<group>"; };
+		503AAF831893E33E00D47BFC /* loadgun.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = loadgun.mp3; sourceTree = "<group>"; };
+		503AAF841893E33E00D47BFC /* shoot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = shoot.mp3; sourceTree = "<group>"; };
+		503AAF851893E33E00D47BFC /* shotalert.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = shotalert.mp3; sourceTree = "<group>"; };
+		503AAF861893E33E00D47BFC /* target.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = target.mp3; sourceTree = "<group>"; };
+		503AAF871893E33E00D47BFC /* winner.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = winner.mp3; sourceTree = "<group>"; };
+		503AAF921893EC5D00D47BFC /* TKWinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKWinViewController.h; sourceTree = "<group>"; };
+		503AAF931893EC5D00D47BFC /* TKWinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKWinViewController.m; sourceTree = "<group>"; };
 		50ED335B18928C8100C4B45C /* TKStartTimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKStartTimerViewController.h; sourceTree = "<group>"; };
 		50ED335C18928C8100C4B45C /* TKStartTimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKStartTimerViewController.m; sourceTree = "<group>"; };
 		50ED335E18929D3100C4B45C /* TKStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKStyle.h; sourceTree = "<group>"; };
@@ -168,6 +194,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		503AAF691893DCA900D47BFC /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				503AAF7E1893E33E00D47BFC /* background.mp3 */,
+				503AAF7F1893E33E00D47BFC /* create.mp3 */,
+				503AAF801893E33E00D47BFC /* death.mp3 */,
+				503AAF811893E33E00D47BFC /* info.mp3 */,
+				503AAF821893E33E00D47BFC /* join.mp3 */,
+				503AAF831893E33E00D47BFC /* loadgun.mp3 */,
+				503AAF841893E33E00D47BFC /* shoot.mp3 */,
+				503AAF851893E33E00D47BFC /* shotalert.mp3 */,
+				503AAF861893E33E00D47BFC /* target.mp3 */,
+				503AAF871893E33E00D47BFC /* winner.mp3 */,
+			);
+			name = Sounds;
+			sourceTree = "<group>";
+		};
 		C8F2B3D81892953E00561DBC /* Create */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +226,7 @@
 		F4416AE018844EF300399D36 = {
 			isa = PBXGroup;
 			children = (
+				503AAF691893DCA900D47BFC /* Sounds */,
 				F4AF80AD1893D14100B9C9CB /* External */,
 				F4416AF218844EF300399D36 /* Frienderers */,
 				F4416AF318844EF300399D36 /* Supporting Files */,
@@ -318,8 +362,12 @@
 		F4AF80AB1893C3E900B9C9CB /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				503AAF661893D8C200D47BFC /* TKInfoScreenViewController.h */,
+				503AAF671893D8C200D47BFC /* TKInfoScreenViewController.m */,
 				50ED33751892C0D800C4B45C /* TKShootViewController.h */,
 				50ED33761892C0D800C4B45C /* TKShootViewController.m */,
+				503AAF921893EC5D00D47BFC /* TKWinViewController.h */,
+				503AAF931893EC5D00D47BFC /* TKWinViewController.m */,
 				50ED33611892A40900C4B45C /* TKKillTargetViewController.h */,
 				50ED33621892A40900C4B45C /* TKKillTargetViewController.m */,
 				50ED335B18928C8100C4B45C /* TKStartTimerViewController.h */,
@@ -458,13 +506,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				503AAF891893E33E00D47BFC /* create.mp3 in Resources */,
 				C8F2B4071893A82E00561DBC /* JollyLodger.ttf in Resources */,
+				503AAF8C1893E33E00D47BFC /* join.mp3 in Resources */,
 				C8F2B4081893A82E00561DBC /* Rosewood.ttf in Resources */,
 				F4AF80A21893C2B600B9C9CB /* TKNotificationView.xib in Resources */,
+				503AAF911893E33E00D47BFC /* winner.mp3 in Resources */,
 				F4416AF718844EF300399D36 /* InfoPlist.strings in Resources */,
+				503AAF881893E33E00D47BFC /* background.mp3 in Resources */,
+				503AAF8D1893E33E00D47BFC /* loadgun.mp3 in Resources */,
+				503AAF8E1893E33E00D47BFC /* shoot.mp3 in Resources */,
 				C8F2B3D7189294C800561DBC /* CreateGameStoryboard.storyboard in Resources */,
 				F4AF80A41893C2D700B9C9CB /* Images.xcassets in Resources */,
 				F4416B21188454BA00399D36 /* Storyboard.storyboard in Resources */,
+				503AAF8B1893E33E00D47BFC /* info.mp3 in Resources */,
+				503AAF8F1893E33E00D47BFC /* shotalert.mp3 in Resources */,
+				503AAF8A1893E33E00D47BFC /* death.mp3 in Resources */,
+				503AAF901893E33E00D47BFC /* target.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +547,7 @@
 				F4AF80C31893D15700B9C9CB /* AFHTTPRequestOperationManager.m in Sources */,
 				F4AF80C21893D15700B9C9CB /* AFHTTPRequestOperation.m in Sources */,
 				C8F2B4011892E5D300561DBC /* TKAppViewController.m in Sources */,
+				503AAF941893EC5D00D47BFC /* TKWinViewController.m in Sources */,
 				F4AF80A11893C2B600B9C9CB /* TKNotificationView.m in Sources */,
 				C8F2B3DE1892956F00561DBC /* TKNameAndTimeViewController.m in Sources */,
 				F49769F41893BAC8000559A3 /* TKGameInfo.m in Sources */,
@@ -496,6 +555,7 @@
 				F4416B1F1884511B00399D36 /* TKBluetoothManager.m in Sources */,
 				50ED336018929D3100C4B45C /* TKStyle.m in Sources */,
 				C8F2B3DB1892956200561DBC /* TKCreateGameViewController.m in Sources */,
+				503AAF681893D8C200D47BFC /* TKInfoScreenViewController.m in Sources */,
 				F4AF80C41893D15700B9C9CB /* AFHTTPSessionManager.m in Sources */,
 				50ED335D18928C8100C4B45C /* TKStartTimerViewController.m in Sources */,
 				F4416AF918844EF300399D36 /* main.m in Sources */,

@@ -30,7 +30,8 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="or8-9g-vrD" kind="modal" id="IbW-qS-7ds"/>
+                                    <action selector="createButton:" destination="4CZ-iI-aGB" eventType="touchUpInside" id="1aI-zC-daA"/>
+                                    <segue destination="or8-9g-vrD" kind="push" id="IbW-qS-7ds"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dmM-sf-JSF">

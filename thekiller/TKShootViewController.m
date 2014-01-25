@@ -10,6 +10,9 @@
 #import <AVFoundation/AVFoundation.h>
 #import "TKBluetoothManager.h"
 #import "TKDevice.h"
+#import "TKSoundManager.h"
+#import "TKAppViewController.h"
+
 
 @interface TKShootViewController ()
 
@@ -88,6 +91,7 @@
         NSLog(@"swipe cocking");
         _isGunLoaded = YES;
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+        [[TKSoundManager sharedManager] playSound:@"loadgun"];
     }
 }
 
@@ -102,6 +106,7 @@
             // play shoot sound
             NSLog(@"motion shake -- shoot");
             
+            [[TKSoundManager sharedManager] playSound:@"shoot"];
             NSMutableArray *nearByPlayersArr = [[NSMutableArray alloc] init];
             NSArray *devicesArr = [[TKBluetoothManager sharedManager].nearbyDevicesDictionary allValues];
             
@@ -112,16 +117,40 @@
             }
             
             [[TKServer sharedInstance] shootTarget:self.targetProfileID success:_isTargetInRange nearby:nearByPlayersArr completion:^(NSString *nextTargetID, NSError *error) {
-                if (error) {
+                if ((error) || (!nextTargetID)) {
                     [[UIAlertView alertWithError:error] show];
                     return;
                 }
                 
                 if ([nextTargetID isEqualToString:self.targetProfileID]) {
                     NSLog(@"shooting failed, target did not change");
-                    [[[UIAlertView alloc] initWithTitle:@"You failed" message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+//                    [[[UIAlertView alloc] initWithTitle:@"You failed" message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+//                    
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"remoteNotificationReceived" object:nil userInfo:@{@"loc-args":@{@"type":@(remoteNotificationKillFailed)}}];
                     return;
                 }
+                else
+                if ([nextTargetID isEqualToString:[TKServer sharedInstance].userid]) {
+                    NSLog(@"shooting success, you are the last man, you win!");
+//                    [[[UIAlertView alloc] initWithTitle:@"You win!" message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+                    [self performSegueWithIdentifier:@"win" sender:self];
+                    
+                    //$$$
+                    return;
+                }
+                else
+                {
+                    
+                    NSLog(@"shooting success, next target aquired");
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"remoteNotificationReceived" object:nil userInfo:@{@"loc-args":@{@"type":@(remoteNotificationKillSucceeded)}}];
+
+                    [self.navigationController popViewControllerAnimated:YES];
+                    
+                    
+                    //$$$
+                    return;
+                }
+                    
                 
                 NSLog(@"NEXT SCREEN");
             }];

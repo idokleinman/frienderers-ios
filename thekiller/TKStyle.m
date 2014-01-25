@@ -31,8 +31,12 @@ void ConfigureAppearnace()
     [[TKSmallLabel appearance] setTextColor:[UIColor redColor]];
     
     [[TKView appearance] setBackgroundColor:[UIColor colorWithRed:51./255. green:51./255. blue:51./255. alpha:1.0]];
-    
+
+    // need to fix
+    [[TKButton appearance].titleLabel setFont:[UIFont fontWithName:@"JollyLodger" size:20]];
     [[TKButton appearance] setBackgroundColor:[UIColor clearColor]];
+    [[TKButton appearance].titleLabel setTextColor:[UIColor redColor]];
+    
     
     [UINavigationBar appearance].barTintColor = [UIColor colorWithRed:51./255. green:51./255. blue:51./255. alpha:1.0];
     

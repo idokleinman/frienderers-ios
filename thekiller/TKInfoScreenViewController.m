@@ -1,20 +1,18 @@
 //
-//  TKCreateGameViewController.m
+//  TKInfoScreenViewController.m
 //  Frienderers
 //
-//  Created by Amit Attias on 1/24/14.
+//  Created by Ido on 25/Jan/14.
 //  Copyright (c) 2014 Citylifeapps. All rights reserved.
 //
 
-#import "TKCreateGameViewController.h"
-#import "TKSoundManager.h"
+#import "TKInfoScreenViewController.h"
 
-
-@interface TKCreateGameViewController ()
+@interface TKInfoScreenViewController ()
 
 @end
 
-@implementation TKCreateGameViewController
+@implementation TKInfoScreenViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,8 +27,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-    [self.label setAttributedText:getAsSmallAttributedString(self.label.text, NSTextAlignmentCenter)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,9 +34,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-- (IBAction)createButton:(id)sender {
-    [[TKSoundManager sharedManager] playSound:@"create"];
+- (IBAction)backButton:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
     
 }
 

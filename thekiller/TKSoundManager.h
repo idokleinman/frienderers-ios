@@ -11,10 +11,11 @@
 
 @interface TKSoundManager : NSObject
 
-@property (strong,nonatomic) AVAudioPlayer *audioPlay;
 
-+ (TKSoundManager *) sharedSound;
++ (TKSoundManager *) sharedManager;
 
 - (void) playSound:(NSString *)Name;
+-(void) playSoundInBackground:(NSString *)Name;
+-(void) stopSoundInBackground;
 
 @end

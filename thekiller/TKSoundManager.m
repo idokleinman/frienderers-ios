@@ -8,18 +8,29 @@
 
 #import "TKSoundManager.h"
 
+@interface TKSoundManager()
+
+@property (strong,nonatomic) AVAudioPlayer *audioPlay;
+@property (strong,nonatomic) AVAudioPlayer *audioBackgroundPlay;
+
+
+@end
+
 @implementation TKSoundManager
 
-static TKSoundManager *sharedSound = nil;
 
-+ (TKSoundManager *) sharedSound
+
+static TKSoundManager *sharedManager = nil;
+
++ (TKSoundManager *) sharedManager
 {
-    if (!sharedSound)
+    if (!sharedManager)
     {
-        sharedSound = [[TKSoundManager alloc] init];
+        sharedManager = [[TKSoundManager alloc] init];
     }
-    return sharedSound;
+    return sharedManager;
 }
+
 
 - (void) playSound:(NSString *)Name
 {
@@ -30,9 +41,34 @@ static TKSoundManager *sharedSound = nil;
     
     _audioPlay = [[AVAudioPlayer alloc] initWithData:localSoundData error:NULL];
     
+    //    if (loop)
+    //        [_audioPlay setNumberOfLoops:-1];
+    //    else
+    [_audioPlay setNumberOfLoops:1];
     [_audioPlay prepareToPlay];
     
     [_audioPlay play];
 }
 
+-(void)playSoundInBackground:(NSString *)Name
+{
+    NSURL *localSoundURL = [[NSBundle mainBundle] URLForResource:Name withExtension:@"mp3"];
+    
+    NSData *localSoundData = [[NSData alloc] initWithContentsOfURL:localSoundURL];
+    
+    if (!_audioBackgroundPlay)
+        _audioBackgroundPlay = [[AVAudioPlayer alloc] initWithData:localSoundData error:NULL];
+    
+    [_audioBackgroundPlay setNumberOfLoops:-1];
+    [_audioBackgroundPlay prepareToPlay];
+    
+    [_audioBackgroundPlay play];
+}
+
+-(void)stopSoundInBackground
+{
+    if (_audioBackgroundPlay)
+        [_audioBackgroundPlay stop];
+    
+}
 @end

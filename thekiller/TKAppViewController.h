@@ -8,6 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+    remoteNotificationKillSucceeded = 1,
+    remoteNotificationKillFailed,
+    remoteNotificationYouDead,
+    remoteNotificationSomeoneDied,
+    remoteNotificationSomeoneWin,
+    remoteNotificationRunAway,
+    remoteNotificationGameBegins
+} RemoteNotifications;
+
+
+
 @interface TKAppViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIView *containerView;
 
