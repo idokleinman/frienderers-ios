@@ -42,13 +42,13 @@
 }
 
 - (NSString*)domainName {
-    return @"localhost";
-//    return @"frienderers.com";
+//    return @"localhost";
+    return @"frienderers.com";
 }
 
 - (NSString*)domainURLPostfix {
-    return @":5000";
-//    return @"";
+//    return @":5000";
+    return @"";
 }
 
 - (NSURL*)URLWithPath:(NSString*)path {
@@ -189,9 +189,11 @@
 
 - (void)shootTarget:(NSString*)targetID success:(BOOL)success nearby:(NSArray*)nearby completion:(void(^)(NSString* nextTargetID, NSError* error))completion {
     NSString* url = [[self URLWithPath:@"/shoot"] absoluteString];
+    NSMutableArray* nearby_with_me = [[NSMutableArray alloc] initWithArray:nearby];
+    [nearby_with_me addObject:self.userid];
     NSDictionary* params = @{ @"targetid": targetID,
                               @"is_success": @(success),
-                              @"nearby_friends": nearby };
+                              @"nearby_friends": nearby_with_me };
     NSMutableURLRequest* req = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:url parameters:params error:nil];
     [self request:req completion:^(id response, NSError* error) {
         if (error) {

@@ -19,15 +19,6 @@
     
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (NSString *)stringFromTimeInterval:(NSTimeInterval)interval {
     NSInteger ti = (NSInteger)interval;
     NSInteger seconds = ti % 60;
@@ -39,9 +30,7 @@
 -(void)startGame
 {
     [self performSegueWithIdentifier:@"nextTarget" sender:self];
-    
     // perform segue
-    
 }
 
 -(void)runGameStartTimer:(NSTimer *)timer
@@ -68,6 +57,10 @@
             [[UIAlertView alertWithError:error] show];
             return;
         }
+        
+        [[TKServer sharedInstance] joinGame:^(BOOL success, NSError *error) {
+            NSLog(@"JOIN GAME %@ (ERROR: %@)", success ? @"OK" : @"FAIL", error);
+        }];
         
         _gameStartTime = gameInfo.startTime;
         [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(runGameStartTimer:) userInfo:nil repeats:YES];

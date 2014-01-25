@@ -17,7 +17,6 @@
 
 @interface TKAppDelegate ()
 
-@property (strong, nonatomic) TKServer* server;
 @property (strong, nonatomic) UIStoryboard* gameStoryboard;
 @property (strong, nonatomic) UIStoryboard* createStoryboard;
 
@@ -104,7 +103,12 @@
                              stringByReplacingOccurrencesOfString: @" " withString: @""];
     
     NSLog(@"remote notif token: %@", deviceToken);
-    [self.server registerPushToken:deviceToken];
+    [[TKServer sharedInstance] registerPushToken:deviceToken];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    NSLog(@"remote notification: %@", userInfo);
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"remoteNotificationReceived" object:nil userInfo:userInfo];
 }
 
 @end

@@ -51,6 +51,7 @@
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"remoteNotificationReceived" object:nil userInfo:@{@"loc-args":@{@"type":@(remoteNotificationKillFailed), @"name":@"Amit"}}];
 }
+
 -(void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -184,11 +185,6 @@
     if (view.superview) {
         [view removeFromSuperview];
     }
-}
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
