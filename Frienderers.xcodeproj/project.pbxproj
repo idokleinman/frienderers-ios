@@ -23,6 +23,7 @@
 		50ED336018929D3100C4B45C /* TKStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ED335F18929D3100C4B45C /* TKStyle.m */; };
 		50ED33631892A40900C4B45C /* TKKillTargetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ED33621892A40900C4B45C /* TKKillTargetViewController.m */; };
 		50ED33771892C0D800C4B45C /* TKShootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ED33761892C0D800C4B45C /* TKShootViewController.m */; };
+		A0D88D1C1893EE98009B72E7 /* TKJoinMasacareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D88D1B1893EE98009B72E7 /* TKJoinMasacareViewController.m */; };
 		C8F2B3D7189294C800561DBC /* CreateGameStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8F2B3D6189294C800561DBC /* CreateGameStoryboard.storyboard */; };
 		C8F2B3DB1892956200561DBC /* TKCreateGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F2B3DA1892956200561DBC /* TKCreateGameViewController.m */; };
 		C8F2B3DE1892956F00561DBC /* TKNameAndTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F2B3DD1892956F00561DBC /* TKNameAndTimeViewController.m */; };
@@ -100,6 +101,8 @@
 		50ED33751892C0D800C4B45C /* TKShootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKShootViewController.h; sourceTree = "<group>"; };
 		50ED33761892C0D800C4B45C /* TKShootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKShootViewController.m; sourceTree = "<group>"; };
 		8B9F914A8D494AE08D071A29 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0D88D1A1893EE98009B72E7 /* TKJoinMasacareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKJoinMasacareViewController.h; sourceTree = "<group>"; };
+		A0D88D1B1893EE98009B72E7 /* TKJoinMasacareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKJoinMasacareViewController.m; sourceTree = "<group>"; };
 		C8F2B3D6189294C800561DBC /* CreateGameStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateGameStoryboard.storyboard; sourceTree = "<group>"; };
 		C8F2B3D91892956200561DBC /* TKCreateGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKCreateGameViewController.h; sourceTree = "<group>"; };
 		C8F2B3DA1892956200561DBC /* TKCreateGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKCreateGameViewController.m; sourceTree = "<group>"; };
@@ -214,6 +217,8 @@
 		C8F2B3D81892953E00561DBC /* Create */ = {
 			isa = PBXGroup;
 			children = (
+				A0D88D1A1893EE98009B72E7 /* TKJoinMasacareViewController.h */,
+				A0D88D1B1893EE98009B72E7 /* TKJoinMasacareViewController.m */,
 				C8F2B3D6189294C800561DBC /* CreateGameStoryboard.storyboard */,
 				C8F2B3D91892956200561DBC /* TKCreateGameViewController.h */,
 				C8F2B3DA1892956200561DBC /* TKCreateGameViewController.m */,
@@ -550,6 +555,7 @@
 				503AAF941893EC5D00D47BFC /* TKWinViewController.m in Sources */,
 				F4AF80A11893C2B600B9C9CB /* TKNotificationView.m in Sources */,
 				C8F2B3DE1892956F00561DBC /* TKNameAndTimeViewController.m in Sources */,
+				A0D88D1C1893EE98009B72E7 /* TKJoinMasacareViewController.m in Sources */,
 				F49769F41893BAC8000559A3 /* TKGameInfo.m in Sources */,
 				F49769F11893B954000559A3 /* UIAlertView+alertWithError.m in Sources */,
 				F4416B1F1884511B00399D36 /* TKBluetoothManager.m in Sources */,
