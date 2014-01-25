@@ -606,6 +606,7 @@
 				INFOPLIST_FILE = "thekiller/frienderers-Info.plist";
 				PRODUCT_NAME = Frienderers;
 				PROVISIONING_PROFILE = "7F3F7E0D-6A84-4B41-82FD-4EF3657056D8";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -627,6 +628,7 @@
 				INFOPLIST_FILE = "thekiller/frienderers-Info.plist";
 				PRODUCT_NAME = Frienderers;
 				PROVISIONING_PROFILE = "7F3F7E0D-6A84-4B41-82FD-4EF3657056D8";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
