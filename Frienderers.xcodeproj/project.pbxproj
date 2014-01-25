@@ -22,7 +22,6 @@
 		50ED337A1892C13100C4B45C /* Gun.png in Resources */ = {isa = PBXBuildFile; fileRef = 50ED33781892C13100C4B45C /* Gun.png */; };
 		50ED337B1892C13100C4B45C /* Gun@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50ED33791892C13100C4B45C /* Gun@2x.png */; };
 		5D3F66F05800449A954E3302 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B9F914A8D494AE08D071A29 /* libPods.a */; };
-		C8F2B3D1189290D200561DBC /* TKGame.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F2B3D0189290D200561DBC /* TKGame.m */; };
 		C8F2B3D7189294C800561DBC /* CreateGameStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8F2B3D6189294C800561DBC /* CreateGameStoryboard.storyboard */; };
 		C8F2B3DB1892956200561DBC /* TKCreateGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F2B3DA1892956200561DBC /* TKCreateGameViewController.m */; };
 		C8F2B3DE1892956F00561DBC /* TKNameAndTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F2B3DD1892956F00561DBC /* TKNameAndTimeViewController.m */; };
@@ -92,8 +91,6 @@
 		50ED33781892C13100C4B45C /* Gun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gun.png; sourceTree = "<group>"; };
 		50ED33791892C13100C4B45C /* Gun@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gun@2x.png"; sourceTree = "<group>"; };
 		8B9F914A8D494AE08D071A29 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		C8F2B3CF189290D200561DBC /* TKGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKGame.h; path = ../TKGame.h; sourceTree = "<group>"; };
-		C8F2B3D0189290D200561DBC /* TKGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKGame.m; path = ../TKGame.m; sourceTree = "<group>"; };
 		C8F2B3D6189294C800561DBC /* CreateGameStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateGameStoryboard.storyboard; sourceTree = "<group>"; };
 		C8F2B3D91892956200561DBC /* TKCreateGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKCreateGameViewController.h; sourceTree = "<group>"; };
 		C8F2B3DA1892956200561DBC /* TKCreateGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKCreateGameViewController.m; sourceTree = "<group>"; };
@@ -266,8 +263,6 @@
 				F44C8E801892BA8800DC3297 /* TKServer.h */,
 				F44C8E7E1892BA7E00DC3297 /* TKServer.m */,
 				C8F2B3D81892953E00561DBC /* CreateGame */,
-				C8F2B3CF189290D200561DBC /* TKGame.h */,
-				C8F2B3D0189290D200561DBC /* TKGame.m */,
 				F4416AF318844EF300399D36 /* Supporting Files */,
 				F4416AFE18844EF300399D36 /* Images.xcassets */,
 				F4416AF318844EF300399D36 /* Supporting Files */,
@@ -500,7 +495,6 @@
 				50ED336018929D3100C4B45C /* TKStyle.m in Sources */,
 				F40C248C18845FB00050AFCE /* TKNearByDevicesDataSource.m in Sources */,
 				F40C2489188459670050AFCE /* TKMainViewController.m in Sources */,
-				C8F2B3D1189290D200561DBC /* TKGame.m in Sources */,
 				C8F2B3DB1892956200561DBC /* TKCreateGameViewController.m in Sources */,
 				50ED335D18928C8100C4B45C /* TKStartTimerViewController.m in Sources */,
 				F4416AF918844EF300399D36 /* main.m in Sources */,

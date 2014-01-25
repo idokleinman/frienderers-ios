@@ -32,6 +32,35 @@
             </objects>
             <point key="canvasLocation" x="-866" y="-180"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="n8A-hA-9QD">
+            <objects>
+                <viewController storyboardIdentifier="splash" id="QNQ-rb-zOQ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DUH-Bi-ZxK"/>
+                        <viewControllerLayoutGuide type="bottom" id="VL2-K6-ADX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RfD-RB-6Ee">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="n50-cY-9eG">
+                                <rect key="frame" x="142" y="265" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.90588235289999997" green="0.043137254899999998" blue="0.043137254899999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="n50-cY-9eG" secondAttribute="centerY" id="WLl-IK-TXL"/>
+                            <constraint firstAttribute="centerX" secondItem="n50-cY-9eG" secondAttribute="centerX" id="yGZ-Hz-Pj5"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MCg-sa-5Nw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1274" y="441"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="dmc-JV-QMh">
             <objects>

@@ -17,6 +17,10 @@
 @implementation TKGameInfo
 
 - (instancetype)initWithDictionary:(NSDictionary *)dict {
+    if (!dict) {
+        return nil;
+    }
+    
     self = [super init];
     if (self) {
         self.dict = dict;
