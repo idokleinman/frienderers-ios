@@ -34,17 +34,18 @@
 }
 
 - (NSString*)domainName {
-//    return @"localhost";
-    return @"frienderers.com";
+    return @"localhost";
+//    return @"frienderers.com";
 }
 
 - (NSString*)domainURLPostfix {
-//    return @":5000";
-    return @"";
+    return @":5000";
+//    return @"";
 }
 
 - (NSURL*)URLWithPath:(NSString*)path {
     NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@%@", [self domainName], [self domainURLPostfix]]];
+    path = [NSString stringWithFormat:@"/api%@", path];
     return [NSURL URLWithString:path relativeToURL:url];
 }
 
@@ -70,15 +71,36 @@
     // register remote notifications once we set the authentication cookie
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
     
-//#ifdef DEBUG
-//    [self registerPushToken:@"ff1cb8fb9b49794dc6268a5b28132496257e19b611b046a7abe1c458294e0d7d"];
-//#endif
-//    [self createGameWithTitle:@"GAME_TITLE" startTime:[NSDate date] playerUserIDs:@[ @"1234", @"3333" ] completion:^(NSDictionary* game, NSError *error) {
-//        NSLog(@"created game: %@", game);
+//    
+////#ifdef DEBUG
+////    [self registerPushToken:@"ff1cb8fb9b49794dc6268a5b28132496257e19b611b046a7abe1c458294e0d7d"];
+////#endif
+////    [self createGameWithTitle:@"GAME_TITLE" startTime:[NSDate date] playerUserIDs:@[ @"1234", @"3333" ] completion:^(NSDictionary* game, NSError *error) {
+////        NSLog(@"created game: %@", game);
+////    }];
+//    [self hello:^(NSDictionary *existingGame, NSError *error) {
+//        NSLog(@"existingGame: %@", existingGame);
 //    }];
-    [self hello:^(NSDictionary *existingGame, NSError *error) {
-        NSLog(@"existingGame: %@", existingGame);
-    }];
+//    
+//    [self createGameWithTitle:@"game_title" startTime:[NSDate date] playerUserIDs:@[ @"620032", @"1234", @"3333" ] completion:^(NSDictionary *game, NSError *error) {
+//        NSLog(@"game: %@", game);
+//        
+//        [self joinGame:^(BOOL success, NSError *error) {
+//            if (!success) {
+//                NSLog(@"FAILED TO JOIN GAME");
+//            }
+//            
+//            NSLog(@"JOIN");
+//            
+//            [self startGame:game[@"gameid"] completion:^(NSDictionary *game, NSError *error) {
+//                
+//                [self shootTarget:@"1234" success:YES nearby:@[@"aaa"] completion:^(NSString *nextTargetID, NSError *error) {
+//                    NSLog(@"SHOOT");
+//                }];
+//            }];
+//            
+//        }];
+//    }];
     
     return YES;
 }
@@ -87,6 +109,7 @@
     NSURLRequest* req = [NSURLRequest requestWithURL:[self URLWithPath:@"/hello"]];
     [self request:req completion:^(id response, NSError *error) {
         if (error) {
+            NSLog(@"ERROR: %@", error);
             completion(nil, error);
             return;
         }
@@ -101,6 +124,21 @@
     }];
 }
 
+- (void)startGame:(NSString*)gameid completion:(void(^)(NSDictionary* game, NSError* error))completion {
+    NSString* path = [NSString stringWithFormat:@"/games/%@/start", gameid];
+    NSString* url = [[self URLWithPath:path] absoluteString];
+    NSMutableURLRequest* req = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:url parameters:nil error:nil];
+    [self request:req completion:^(id response, NSError* error) {
+        if (error) {
+            completion(nil, error);
+            return;
+        }
+        
+        NSLog(@"%@", response);
+        completion(response, nil);
+    }];
+}
+
 - (void)registerPushToken:(NSString*)deviceToken {
     NSString* path = [NSString stringWithFormat:@"/push_token?token=%@", deviceToken];
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[self URLWithPath:path]];
@@ -111,8 +149,42 @@
     }];
 }
 
+- (void)joinGame:(void(^)(BOOL success, NSError* error))completion {
+    NSString* url = [[self URLWithPath:@"/join"] absoluteString];
+    NSMutableURLRequest* req = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:url parameters:nil error:nil];
+    [self request:req completion:^(id response, NSError* error) {
+        if (error) {
+            completion(NO, error);
+            return;
+        }
+        
+        NSLog(@"Join game response: %@", response);
+        completion([response[@"success"] boolValue], nil);
+    }];
+    
+}
+
+- (void)shootTarget:(NSString*)targetID success:(BOOL)success nearby:(NSArray*)nearby completion:(void(^)(NSString* nextTargetID, NSError* error))completion {
+    NSString* url = [[self URLWithPath:@"/shoot"] absoluteString];
+    NSDictionary* params = @{ @"targetid": targetID,
+                              @"is_success": @(success),
+                              @"nearby_friends": nearby };
+    NSMutableURLRequest* req = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:url parameters:params error:nil];
+    [self request:req completion:^(id response, NSError* error) {
+        if (error) {
+            completion(NO, error);
+            return;
+        }
+        
+        NSLog(@"Shoot response: %@", response);
+        completion(response[@"next_target"], nil);
+    }];
+    
+    
+}
+
 - (void)createGameWithTitle:(NSString*)title startTime:(NSDate*)startTime playerUserIDs:(NSArray*)players completion:(void(^)(NSDictionary* game, NSError* error))completion {
-    NSString* url = [[self URLWithPath:@"/game"] absoluteString];
+    NSString* url = [[self URLWithPath:@"/games"] absoluteString];
     NSDictionary* params = @{ @"title": title,
                               @"players": players,
                               @"start": @([startTime timeIntervalSinceReferenceDate]) };
@@ -131,6 +203,14 @@
 
 - (void)request:(NSURLRequest*)request completion:(void(^)(id response, NSError* error))completion {
     [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (error) {
+            NSLog(@"API CALL ERROR: %@", error);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion(nil, error);
+            });
+            return;
+        }
+
         NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
         if (httpResponse.statusCode != 200) {
             NSString* s = [data UTF8String];
@@ -139,7 +219,9 @@
             }
             
             dispatch_async(dispatch_get_main_queue(), ^{
-                completion(nil, MakeError(s, httpResponse.statusCode));
+                NSError* e = MakeError(s, httpResponse.statusCode);
+                NSLog(@"API ERROR: %@", e);
+                completion(nil, e);
             });
             return;
         }
