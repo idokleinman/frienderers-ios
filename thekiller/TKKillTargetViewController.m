@@ -132,7 +132,8 @@
     [[TKSoundManager sharedManager] stopSoundInBackground];
     
     [self.buttonTitle setAttributedText:getAsSmallAttributedString(self.buttonTitle.text, NSTextAlignmentCenter)];
-    
+    [self.wantedLabel setFont:[UIFont fontWithName:@"Rosewood" size:67.0]];
+    [self.deadOrDeadLabel setFont:[UIFont fontWithName:@"Rosewood" size:35.0]];
     [[TKServer sharedInstance] nextTarget:^(NSString *nextTargetProfileID, NSError *error) {
         if (error) {
             [[UIAlertView alertWithError:error] show];

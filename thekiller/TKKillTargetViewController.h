@@ -13,5 +13,7 @@
 @property (weak, nonatomic) IBOutlet TKSmallLabel *killLabel;
 @property (weak, nonatomic) IBOutlet FBProfilePictureView *nextTargetFBProfileImage;
 @property (strong, nonatomic) IBOutlet TKSmallLabel *buttonTitle;
+@property (strong, nonatomic) IBOutlet TKBigLabel *wantedLabel;
+@property (strong, nonatomic) IBOutlet TKBigLabel *deadOrDeadLabel;
 
 @end

@@ -35,7 +35,10 @@ TKAppViewController* AppController() {
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:@"remoteNotificationReceived" object:nil];
     
-    self.internalViewController = self.childViewControllers[0];
+    UINavigationController* n = self.childViewControllers[0];
+    self.internalViewController = (TKInternalViewController*)n.topViewController;
+    
+    [self performSelector:@selector(showAlert) withObject:nil afterDelay:3.0];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -45,6 +48,12 @@ TKAppViewController* AppController() {
 
 - (BOOL)prefersStatusBarHidden {
     return YES;
+}
+
+-(void)showAlert
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"remoteNotificationReceived" object:nil userInfo:@{@"loc-args":@{@"type":@(remoteNotificationKillSucceeded), @"name":@"Amit"}}];
+
 }
 
 - (void)reloadState {
@@ -176,6 +185,7 @@ TKAppViewController* AppController() {
 //    view.center = self.view.center;
     view.alpha = 0;
     [self.view addSubview:view];
+//    [self.view addSubview:view];
     
     [UIView animateWithDuration:0.4 animations:^{
         view.alpha = 1.0;
