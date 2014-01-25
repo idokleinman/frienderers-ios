@@ -7,7 +7,7 @@
 //
 
 #import "TKStartTimerViewController.h"
-#import "TKServerController.h"
+#import "TKServer.h"
 
 @interface TKStartTimerViewController ()
 
@@ -63,21 +63,15 @@
     [super viewDidLoad];
     self.gameStartTimerLabel.text = @"--:--:--";
     
-    [[TKServerController sharedServer] loadGameInformation:^(NSDictionary *gameInfo, NSError *error) {
-        _gameStartTime = [gameInfo objectForKey:@"gameStartTime"];
+    [[TKServer sharedInstance] hello:^(TKGameInfo *gameInfo, NSError *error) {
+        if (error) {
+            [[UIAlertView alertWithError:error] show];
+            return;
+        }
         
+        _gameStartTime = gameInfo.startTime;
         [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(runGameStartTimer:) userInfo:nil repeats:YES];
-        
-        
     }];
-     // Do any additional setup after loading the view
-    
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

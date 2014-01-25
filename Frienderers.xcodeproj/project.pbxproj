@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		50ED335A1892877B00C4B45C /* TKServerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ED33591892877B00C4B45C /* TKServerController.m */; };
 		50ED335D18928C8100C4B45C /* TKStartTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ED335C18928C8100C4B45C /* TKStartTimerViewController.m */; };
 		50ED336018929D3100C4B45C /* TKStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ED335F18929D3100C4B45C /* TKStyle.m */; };
 		50ED33631892A40900C4B45C /* TKkillTargetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ED33621892A40900C4B45C /* TKkillTargetViewController.m */; };
@@ -56,6 +55,10 @@
 		F4416B1F1884511B00399D36 /* TKBluetoothManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F4416B1E1884511B00399D36 /* TKBluetoothManager.m */; };
 		F4416B21188454BA00399D36 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4416B20188454BA00399D36 /* Storyboard.storyboard */; };
 		F44C8E7F1892BA7E00DC3297 /* TKServer.m in Sources */ = {isa = PBXBuildFile; fileRef = F44C8E7E1892BA7E00DC3297 /* TKServer.m */; };
+		F49769EB1893B616000559A3 /* TKSoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F49769EA1893B616000559A3 /* TKSoundManager.m */; };
+		F49769EE1893B65F000559A3 /* TKDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = F49769ED1893B65E000559A3 /* TKDevice.m */; };
+		F49769F11893B954000559A3 /* UIAlertView+alertWithError.m in Sources */ = {isa = PBXBuildFile; fileRef = F49769F01893B954000559A3 /* UIAlertView+alertWithError.m */; };
+		F49769F41893BAC8000559A3 /* TKGameInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F49769F31893BAC8000559A3 /* TKGameInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,8 +73,6 @@
 
 /* Begin PBXFileReference section */
 		4431CD61F38A4A1CB7E4CE3F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		50ED33581892877B00C4B45C /* TKServerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKServerController.h; sourceTree = "<group>"; };
-		50ED33591892877B00C4B45C /* TKServerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKServerController.m; sourceTree = "<group>"; };
 		50ED335B18928C8100C4B45C /* TKStartTimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKStartTimerViewController.h; sourceTree = "<group>"; };
 		50ED335C18928C8100C4B45C /* TKStartTimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKStartTimerViewController.m; sourceTree = "<group>"; };
 		50ED335E18929D3100C4B45C /* TKStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKStyle.h; sourceTree = "<group>"; };
@@ -141,6 +142,14 @@
 		F4416B20188454BA00399D36 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		F44C8E7E1892BA7E00DC3297 /* TKServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKServer.m; sourceTree = "<group>"; };
 		F44C8E801892BA8800DC3297 /* TKServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKServer.h; sourceTree = "<group>"; };
+		F49769E91893B616000559A3 /* TKSoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKSoundManager.h; sourceTree = "<group>"; };
+		F49769EA1893B616000559A3 /* TKSoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKSoundManager.m; sourceTree = "<group>"; };
+		F49769EC1893B65E000559A3 /* TKDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKDevice.h; sourceTree = "<group>"; };
+		F49769ED1893B65E000559A3 /* TKDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKDevice.m; sourceTree = "<group>"; };
+		F49769EF1893B954000559A3 /* UIAlertView+alertWithError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+alertWithError.h"; sourceTree = "<group>"; };
+		F49769F01893B954000559A3 /* UIAlertView+alertWithError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+alertWithError.m"; sourceTree = "<group>"; };
+		F49769F21893BAC8000559A3 /* TKGameInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKGameInfo.h; sourceTree = "<group>"; };
+		F49769F31893BAC8000559A3 /* TKGameInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKGameInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +251,13 @@
 		F4416AF218844EF300399D36 /* Frienderers */ = {
 			isa = PBXGroup;
 			children = (
+				F4416B20188454BA00399D36 /* Storyboard.storyboard */,
+				F4416AFB18844EF300399D36 /* TKAppDelegate.h */,
+				F4416AFC18844EF300399D36 /* TKAppDelegate.m */,
+				F49769EC1893B65E000559A3 /* TKDevice.h */,
+				F49769ED1893B65E000559A3 /* TKDevice.m */,
+				F49769E91893B616000559A3 /* TKSoundManager.h */,
+				F49769EA1893B616000559A3 /* TKSoundManager.m */,
 				C8F2B3FC1892E5D300561DBC /* TKAppViewController.m */,
 				C8F2B3FD1892E5D300561DBC /* TKAppViewController.h */,
 				C8F2B3FE1892E5D300561DBC /* TKNotificationView.h */,
@@ -250,7 +266,6 @@
 				F44C8E801892BA8800DC3297 /* TKServer.h */,
 				F44C8E7E1892BA7E00DC3297 /* TKServer.m */,
 				C8F2B3D81892953E00561DBC /* CreateGame */,
-				F4416B20188454BA00399D36 /* Storyboard.storyboard */,
 				C8F2B3CF189290D200561DBC /* TKGame.h */,
 				C8F2B3D0189290D200561DBC /* TKGame.m */,
 				F4416AF318844EF300399D36 /* Supporting Files */,
@@ -264,10 +279,6 @@
 				50ED33621892A40900C4B45C /* TKkillTargetViewController.m */,
 				50ED335B18928C8100C4B45C /* TKStartTimerViewController.h */,
 				50ED335C18928C8100C4B45C /* TKStartTimerViewController.m */,
-				50ED33581892877B00C4B45C /* TKServerController.h */,
-				50ED33591892877B00C4B45C /* TKServerController.m */,
-				F4416AFB18844EF300399D36 /* TKAppDelegate.h */,
-				F4416AFC18844EF300399D36 /* TKAppDelegate.m */,
 				F4416B1D1884511B00399D36 /* TKBluetoothManager.h */,
 				F4416B1E1884511B00399D36 /* TKBluetoothManager.m */,
 				F40C2484188459330050AFCE /* UIApplication+TKAppDelegate.h */,
@@ -280,6 +291,10 @@
 				F40CBB8D18926594008E2248 /* TKLoginViewController.m */,
 				50ED335E18929D3100C4B45C /* TKStyle.h */,
 				50ED335F18929D3100C4B45C /* TKStyle.m */,
+				F49769EF1893B954000559A3 /* UIAlertView+alertWithError.h */,
+				F49769F01893B954000559A3 /* UIAlertView+alertWithError.m */,
+				F49769F21893BAC8000559A3 /* TKGameInfo.h */,
+				F49769F31893BAC8000559A3 /* TKGameInfo.m */,
 			);
 			name = Frienderers;
 			path = thekiller;
@@ -474,10 +489,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F49769EE1893B65F000559A3 /* TKDevice.m in Sources */,
 				F40C2486188459330050AFCE /* UIApplication+TKAppDelegate.m in Sources */,
 				C8F2B4011892E5D300561DBC /* TKAppViewController.m in Sources */,
 				F44C8E7F1892BA7E00DC3297 /* TKServer.m in Sources */,
 				C8F2B3DE1892956F00561DBC /* TKNameAndTimeViewController.m in Sources */,
+				F49769F41893BAC8000559A3 /* TKGameInfo.m in Sources */,
+				F49769F11893B954000559A3 /* UIAlertView+alertWithError.m in Sources */,
 				F4416B1F1884511B00399D36 /* TKBluetoothManager.m in Sources */,
 				50ED336018929D3100C4B45C /* TKStyle.m in Sources */,
 				F40C248C18845FB00050AFCE /* TKNearByDevicesDataSource.m in Sources */,
@@ -491,7 +509,7 @@
 				50ED33631892A40900C4B45C /* TKkillTargetViewController.m in Sources */,
 				50ED33771892C0D800C4B45C /* TKShootViewController.m in Sources */,
 				F4416AFD18844EF300399D36 /* TKAppDelegate.m in Sources */,
-				50ED335A1892877B00C4B45C /* TKServerController.m in Sources */,
+				F49769EB1893B616000559A3 /* TKSoundManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

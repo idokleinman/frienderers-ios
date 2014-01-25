@@ -7,14 +7,17 @@
 //
 
 #import "TKkillTargetViewController.h"
-#import "TKServerController.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import "TKShootViewController.h"
 
 @interface TKkillTargetViewController ()
 
 @end
 
 @implementation TKkillTargetViewController
+{
+    NSString* _nextTargetProfileID;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,19 +31,32 @@
 
 - (IBAction)targetApproveButton:(id)sender
 {
+    
     [self performSegueWithIdentifier:@"shoot" sender:self];
+    
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    TKShootViewController *svc = [segue destinationViewController];
+    svc.targetProfileID = _nextTargetProfileID;
     
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[TKServerController sharedServer] loadNextTarget:^(NSString *nextTargetProfileID, NSError *error) {
+    [[TKServer sharedInstance] nextTarget:^(NSString *nextTargetProfileID, NSError *error) {
+        if (error) {
+            [[UIAlertView alertWithError:error] show];
+            return;
+        }
         
         //        self.nextTargetFBProfileImage = [[FBProfilePictureView alloc] initWithProfileID:nextTargetProfileID pictureCropping:FBProfilePictureCroppingSquare];
         
         [self.nextTargetFBProfileImage setProfileID:nextTargetProfileID];
         [self.nextTargetFBProfileImage setPictureCropping:FBProfilePictureCroppingSquare];
+        _nextTargetProfileID = nextTargetProfileID;
         
         [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"/%@",nextTargetProfileID] completionHandler:^(FBRequestConnection *connection, id result, NSError *error)
         {
@@ -49,6 +65,8 @@
                 // Success! Include your code to handle the results here
                 NSLog(@"Next target user info: %@", result);
                 self.killLabel.text = [NSString stringWithFormat:@"Kill %@ before someone else kills you!",[result objectForKey:@"first_name"]];
+               
+                
             }
             else
             {

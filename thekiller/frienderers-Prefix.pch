@@ -15,5 +15,6 @@
     #import <Foundation/Foundation.h>
     #import "UIApplication+TKAppDelegate.h"
     #import <FacebookSDK/FacebookSDK.h>
-    #import "TKGame.h"
+    #import "UIAlertView+alertWithError.h"
+
 #endif

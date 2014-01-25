@@ -11,10 +11,10 @@
 #import "TKAppDelegate.h"
 #import "TKBluetoothManager.h"
 #import "TKStyle.h"
+#import "TKServer.h"
 
 @interface TKAppDelegate ()
 
-@property (strong, nonatomic) TKBluetoothManager* bluetooth;
 @property (strong, nonatomic) TKServer* server;
 
 @end
@@ -26,14 +26,14 @@
     [FBLoginView class];
     [FBProfilePictureView class];
     
-    self.bluetooth = [[TKBluetoothManager alloc] init];
-    self.server = [[TKServer alloc] init];
+
+    
 
     ConfigureAppearnace();
     
-    BOOL existingSession = [self.server openSession];
+    BOOL existingSession = [[TKServer sharedInstance] openSession];
     if (existingSession) {
-//        self.window.rootViewController = [[self.window.rootViewController storyboard] instantiateViewControllerWithIdentifier:@"main"]; //was "main"
+        self.window.rootViewController = [[self.window.rootViewController storyboard] instantiateViewControllerWithIdentifier:@"gameWillStartVC"];
     }
     
     return YES;
@@ -64,11 +64,6 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
-
--(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
-{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"remoteNotificationReceived" object:userInfo];
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation

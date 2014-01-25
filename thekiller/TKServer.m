@@ -24,6 +24,14 @@
 
 @implementation TKServer
 
++ (TKServer*)sharedInstance {
+    static TKServer* i = NULL;
+    if (!i) {
+        i = [[TKServer alloc] init];
+    }
+    return i;
+}
+
 - (void)loadGameInformation:(void(^)(NSDictionary* gameInfo, NSError* error))completion {
     double delayInSeconds = 1.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
@@ -105,7 +113,7 @@
     return YES;
 }
 
-- (void)hello:(void(^)(NSDictionary* existingGame, NSError* error))completion {
+- (void)hello:(void(^)(TKGameInfo* existingGame, NSError* error))completion {
     NSURLRequest* req = [NSURLRequest requestWithURL:[self URLWithPath:@"/hello"]];
     [self request:req completion:^(id response, NSError *error) {
         if (error) {
@@ -120,9 +128,24 @@
         NSLog(@"loggin with with userid %@", self.userid);
         NSLog(@"facebook profile: %@", self.profile);
         
-        completion(response[@"existing-game"], nil);
+        TKGameInfo* gameInfo = [[TKGameInfo alloc] initWithDictionary:response[@"existing-game"]];
+        completion(gameInfo, nil);
     }];
 }
+
+- (void)nextTarget:(void(^)(NSString* targetUserID, NSError* error))completion {
+    NSURLRequest* req = [NSURLRequest requestWithURL:[self URLWithPath:@"/next_target"]];
+    [self request:req completion:^(id response, NSError *error) {
+        if (error) {
+            completion(nil, error);
+            return;
+        }
+        
+        NSLog(@"next taget: %@", response);
+        completion(response[@"next_target"], nil);
+    }];
+}
+
 
 - (void)startGame:(NSString*)gameid completion:(void(^)(NSDictionary* game, NSError* error))completion {
     NSString* path = [NSString stringWithFormat:@"/games/%@/start", gameid];

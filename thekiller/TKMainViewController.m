@@ -18,15 +18,15 @@
 - (id)initWithTableView:(UITableView*)tableView {
     if (self = [super init]) {
         self.tableView = tableView;
-        [[UIApplication sharedApplication].tkapp.bluetooth addObserver:self forKeyPath:@"centralStatus" options:0 context:0];
-        [[UIApplication sharedApplication].tkapp.bluetooth addObserver:self forKeyPath:@"peripheralStatus" options:0 context:0];
+        [[TKBluetoothManager sharedManager] addObserver:self forKeyPath:@"centralStatus" options:0 context:0];
+        [[TKBluetoothManager sharedManager] addObserver:self forKeyPath:@"peripheralStatus" options:0 context:0];
     }
     return self;
 }
 
 - (void)dealloc {
-    [[UIApplication sharedApplication].tkapp.bluetooth removeObserver:self forKeyPath:@"centralStatus" context:0];
-    [[UIApplication sharedApplication].tkapp.bluetooth removeObserver:self forKeyPath:@"peripheralStatus" context:0];
+    [[TKBluetoothManager sharedManager] removeObserver:self forKeyPath:@"centralStatus" context:0];
+    [[TKBluetoothManager sharedManager] removeObserver:self forKeyPath:@"peripheralStatus" context:0];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
@@ -43,11 +43,11 @@
     
     if (indexPath.row == 0) {
         title = @"Central";
-        value = [UIApplication sharedApplication].tkapp.bluetooth.centralStatus;
+        value = [TKBluetoothManager sharedManager].centralStatus;
     }
     else if (indexPath.row == 1) {
         title = @"Peripheral";
-        value = [UIApplication sharedApplication].tkapp.bluetooth.peripheralStatus;
+        value = [TKBluetoothManager sharedManager].peripheralStatus;
     }
     
     UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
@@ -67,7 +67,7 @@
 
 - (TKBluetoothManager*)bluetooth
 {
-    return [UIApplication sharedApplication].tkapp.bluetooth;
+    return [TKBluetoothManager sharedManager];
 }
 
 - (void)viewDidLoad

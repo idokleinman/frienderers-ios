@@ -128,8 +128,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Kill (target) before someone else kills you" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="215" translatesAutoresizingMaskIntoConstraints="NO" id="wwH-wF-bEk" customClass="TKSmallLabel">
-                                <rect key="frame" x="53" y="20" width="215" height="78"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kill (target) before someone else kills you" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="215" translatesAutoresizingMaskIntoConstraints="NO" id="wwH-wF-bEk" customClass="TKSmallLabel">
+                                <rect key="frame" x="53" y="20" width="215" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -216,14 +216,20 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Find a way to isolate your target, make sure there are  no witnesses around, and..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="250" translatesAutoresizingMaskIntoConstraints="NO" id="IQU-aH-6Jw" customClass="TKSmallLabel">
-                                <rect key="frame" x="35" y="85" width="250" height="154"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find a way to isolate your target, make sure there are no witnesses around, load your gun, and..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="250" translatesAutoresizingMaskIntoConstraints="NO" id="IQU-aH-6Jw" customClass="TKSmallLabel">
+                                <rect key="frame" x="35" y="85" width="250" height="82"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Shoot!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ic-br-shc" customClass="TKSmallLabel">
-                                <rect key="frame" x="115" y="341" width="51" height="21"/>
+                                <rect key="frame" x="114" y="341" width="51" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your gun is not loaded" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JM2-ZM-Roe" customClass="TKSmallLabel">
+                                <rect key="frame" x="62" y="405" width="172" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -231,14 +237,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="JM2-ZM-Roe" secondAttribute="centerX" id="ALx-im-Czl"/>
                             <constraint firstItem="0Ic-br-shc" firstAttribute="top" secondItem="ZZw-6F-mh4" secondAttribute="bottom" constant="34" id="LXI-Nd-heq"/>
+                            <constraint firstAttribute="centerX" secondItem="0Ic-br-shc" secondAttribute="centerX" id="SEZ-2D-lrQ"/>
+                            <constraint firstItem="JM2-ZM-Roe" firstAttribute="top" secondItem="ZZw-6F-mh4" secondAttribute="bottom" constant="95" id="Vjq-wS-ebm"/>
+                            <constraint firstAttribute="centerY" secondItem="ZZw-6F-mh4" secondAttribute="centerY" id="YIY-ha-4sA"/>
+                            <constraint firstAttribute="centerX" secondItem="ZZw-6F-mh4" secondAttribute="centerX" id="ZLP-vt-Xm2"/>
+                            <constraint firstItem="ZZw-6F-mh4" firstAttribute="top" secondItem="IQU-aH-6Jw" secondAttribute="bottom" constant="91" id="aj7-9A-4Lp"/>
                             <constraint firstAttribute="centerX" secondItem="0Ic-br-shc" secondAttribute="centerX" id="cF7-BR-qzl"/>
                             <constraint firstAttribute="centerX" secondItem="ZZw-6F-mh4" secondAttribute="centerX" id="dNs-tw-fp5"/>
+                            <constraint firstAttribute="centerX" secondItem="IQU-aH-6Jw" secondAttribute="centerX" id="mep-Ka-6R0"/>
                             <constraint firstAttribute="centerY" secondItem="ZZw-6F-mh4" secondAttribute="centerY" id="rwL-RS-nrp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jJz-sH-WIG"/>
                     <connections>
+                        <outlet property="gunLoadedLabel" destination="JM2-ZM-Roe" id="zSB-7r-Ac1"/>
                         <outlet property="shootButton" destination="ZZw-6F-mh4" id="Uaq-oK-b5h"/>
                     </connections>
                 </viewController>

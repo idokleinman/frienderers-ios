@@ -8,7 +8,7 @@
 
 #import "TKLoginViewController.h"
 #import "UIApplication+TKAppDelegate.h"
-
+#import "TKServer.h"
 @interface TKLoginViewController () <FBLoginViewDelegate>
 
 @property (strong, nonatomic) IBOutlet FBLoginView* loginButtonView;
@@ -25,7 +25,8 @@
 }
 
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
-    [[UIApplication sharedApplication].tkapp.server openSession];
+    self.loginButtonView.delegate = nil;
+    [[TKServer sharedInstance] openSession];
     [UIApplication sharedApplication].delegate.window.rootViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"main"];
 }
 
