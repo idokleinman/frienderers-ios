@@ -53,8 +53,7 @@
     _isTargetInRange = NO;
     self.gunLoadedLabel.text = @"Your gun is not loaded";
     
-    [[TKBluetoothManager sharedManager] startWithName:@"temp"];
-//    [[TKBluetoothManager sharedManager] startWithName:[TKServer sharedInstance].userid]; //$$$
+    [[TKBluetoothManager sharedManager] startWithName:[TKServer sharedInstance].userid];
     [[TKBluetoothManager sharedManager] addObserver:self forKeyPath:@"nearbyDevicesDictionary" options:NSKeyValueObservingOptionInitial context:0];
     
     self.gunButton.alpha = 0.5;
@@ -69,27 +68,26 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    
-    self.log.text = [[TKBluetoothManager sharedManager].nearbyDevicesDictionary description];
-    
-    
-    TKDevice *device = [[TKBluetoothManager sharedManager].nearbyDevicesDictionary objectForKey:self.targetProfileID];
-    if (device)
-    {
-        if (device.range == VERY_NEAR)
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.log.text = [[TKBluetoothManager sharedManager].nearbyDevicesDictionary description];
+        
+        TKDevice *device = [[TKBluetoothManager sharedManager].nearbyDevicesDictionary objectForKey:self.targetProfileID];
+        if (device)
         {
-            _isTargetInRange = YES;
-            // add glow to gun icon $$$
-            self.gunButton.alpha = 1.0;
-
+            if (device.range == VERY_NEAR)
+            {
+                _isTargetInRange = YES;
+                // add glow to gun icon $$$
+                self.gunButton.alpha = 1.0;
+                
+            }
+            else
+            {
+                _isTargetInRange = NO;
+                self.gunButton.alpha = 0.5;
+            }
         }
-        else
-        {
-            _isTargetInRange = NO;
-            self.gunButton.alpha = 0.5;
-        }
-    }
-    
+    });
 }
 
 

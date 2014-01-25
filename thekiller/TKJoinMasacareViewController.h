@@ -18,6 +18,4 @@
 @property (weak, nonatomic) IBOutlet TKButton *joinGameButton;
 @property (strong, nonatomic) TKGameInfo *gameInvintationInfo;
 
-- (void) joinMasacreJam;
-
 @end

@@ -49,7 +49,6 @@ static TKBluetoothManager *sharedManager = nil;
 {
     NSParameterAssert(name);
     
-    
     // set up peripheral
     NSData* data = [@"Hello, world" dataUsingEncoding:NSUTF8StringEncoding];
     
