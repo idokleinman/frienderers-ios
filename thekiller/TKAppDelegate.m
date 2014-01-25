@@ -28,6 +28,8 @@
     [FBLoginView class];
     [FBProfilePictureView class];
     
+    application.applicationSupportsShakeToEdit = YES;
+    
     self.appViewController = [[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"app"];
     
     ConfigureAppearnace();

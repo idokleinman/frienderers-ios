@@ -17,15 +17,6 @@
 
 @implementation TKJoinMasacareViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -46,22 +37,6 @@
     
     // Main Label
     self.joinGameLabel.text = [NSString stringWithFormat:@"%@ has invited you to join a Frienderers game \"Game Jam Massacre\" this starts %@ at %@", self.gameInvintationInfo.creatorID, dayGameStarts, timeGameStarts];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void) joinMasacreJam
-{
-    [[TKServer sharedInstance] joinGame:^(BOOL success, NSError *error){
-        if (success)
-        {
-#warning FIX
-//            [[UIApplication sharedApplication].tkapp startGame];
-        }}];
 }
 
 @end

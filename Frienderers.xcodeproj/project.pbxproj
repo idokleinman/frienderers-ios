@@ -211,8 +211,6 @@
 		C8F2B3D81892953E00561DBC /* Create */ = {
 			isa = PBXGroup;
 			children = (
-				A0D88D1A1893EE98009B72E7 /* TKJoinMasacareViewController.h */,
-				A0D88D1B1893EE98009B72E7 /* TKJoinMasacareViewController.m */,
 				C8F2B3D91892956200561DBC /* TKCreateGameViewController.h */,
 				C8F2B3DA1892956200561DBC /* TKCreateGameViewController.m */,
 				C8F2B3DC1892956F00561DBC /* TKNameAndTimeViewController.h */,
@@ -357,6 +355,8 @@
 		F4AF80AB1893C3E900B9C9CB /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				A0D88D1A1893EE98009B72E7 /* TKJoinMasacareViewController.h */,
+				A0D88D1B1893EE98009B72E7 /* TKJoinMasacareViewController.m */,
 				503AAF661893D8C200D47BFC /* TKInfoScreenViewController.h */,
 				503AAF671893D8C200D47BFC /* TKInfoScreenViewController.m */,
 				50ED33751892C0D800C4B45C /* TKShootViewController.h */,

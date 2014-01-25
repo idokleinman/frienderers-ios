@@ -58,4 +58,9 @@
     
     return VERY_FAR;
 }
+
+- (NSString *)description {
+    return self.name;
+}
+
 @end
