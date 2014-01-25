@@ -41,7 +41,6 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>lucida_grande.ttf</string>
 		<string>JollyLodger.ttf</string>
 		<string>Rosewood.ttf</string>
 	</array>
@@ -53,7 +52,7 @@
 		<string>remote-notification</string>
 	</array>
 	<key>UIMainStoryboardFile</key>
-	<string>CreateGameStoryboard</string>
+	<string>Storyboard</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

@@ -16,6 +16,8 @@
 @interface TKAppDelegate ()
 
 @property (strong, nonatomic) TKServer* server;
+@property (strong, nonatomic) UIStoryboard* gameStoryboard;
+@property (strong, nonatomic) UIStoryboard* createStoryboard;
 
 @end
 
@@ -25,25 +27,32 @@
 {    
     [FBLoginView class];
     [FBProfilePictureView class];
+    
+    self.createStoryboard = [UIStoryboard storyboardWithName:@"CreateGameStoryboard" bundle:nil];
+    self.gameStoryboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
 
     ConfigureAppearnace();
     
     BOOL existingSession = [[TKServer sharedInstance] openSession];
     if (existingSession) {
-        self.window.rootViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"splash"];
-        [[TKServer sharedInstance] hello:^(TKGameInfo *gameInfo, NSError *error) {
-            if (gameInfo) {
-                self.window.rootViewController = [[self.window.rootViewController storyboard] instantiateViewControllerWithIdentifier:@"gameWillStartVC"];
-            }
-            else {
-                UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"CreateGameStoryboard" bundle:nil];
-                self.window.rootViewController = [storyboard instantiateInitialViewController];
-            }
-        }];
+        [self startGame];
     }
     
     return YES;
 }
+
+- (void)startGame {
+    self.window.rootViewController = [self.gameStoryboard instantiateViewControllerWithIdentifier:@"splash"];
+    [[TKServer sharedInstance] hello:^(TKGameInfo *gameInfo, NSError *error) {
+        if (gameInfo) {
+            self.window.rootViewController = [self.gameStoryboard instantiateViewControllerWithIdentifier:@"gameWillStartVC"];
+        }
+        else {
+            self.window.rootViewController = [self.createStoryboard instantiateInitialViewController];
+        }
+    }];
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

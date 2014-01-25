@@ -254,12 +254,12 @@
 			children = (
 				F40CBB8C18926594008E2248 /* TKLoginViewController.h */,
 				F40CBB8D18926594008E2248 /* TKLoginViewController.m */,
-				F40C2484188459330050AFCE /* UIApplication+TKAppDelegate.h */,
-				F40C2485188459330050AFCE /* UIApplication+TKAppDelegate.m */,
 				C8F2B3FC1892E5D300561DBC /* TKAppViewController.m */,
 				C8F2B3FD1892E5D300561DBC /* TKAppViewController.h */,
 				F4416AFB18844EF300399D36 /* TKAppDelegate.h */,
 				F4416AFC18844EF300399D36 /* TKAppDelegate.m */,
+				F40C2484188459330050AFCE /* UIApplication+TKAppDelegate.h */,
+				F40C2485188459330050AFCE /* UIApplication+TKAppDelegate.m */,
 			);
 			name = Application;
 			sourceTree = "<group>";

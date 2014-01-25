@@ -7,6 +7,7 @@
 //
 
 #import "TKNameAndTimeViewController.h"
+#import "TKServer.h"
 
 @interface TKNameAndTimeViewController ()
 
@@ -46,30 +47,58 @@
 
 - (IBAction)inviteButtonPressed:(UIButton *)sender {
     
-    [FBWebDialogs presentRequestsDialogModallyWithSession:[FBSession activeSession] message:@"Come play with me" title:@"Frienderers" parameters:nil handler:^(FBWebDialogResult result, NSURL *resultURL, NSError *error) {
-        if (error) {
-            // Error launching the dialog or sending the request.
-            NSLog(@"Error sending request.");
-        } else {
-            if (result == FBWebDialogResultDialogNotCompleted) {
-                // User clicked the "x" icon
-                NSLog(@"User canceled request.");
+    if ([self.gameName.text isEqualToString:@""]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Please enter a game name" delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert show];
+    } else {
+        [FBWebDialogs presentRequestsDialogModallyWithSession:[FBSession activeSession] message:@"Come play with me" title:@"Frienderers" parameters:nil handler:^(FBWebDialogResult result, NSURL *resultURL, NSError *error) {
+            if (error) {
+                // Error launching the dialog or sending the request.
+                NSLog(@"Error sending request.");
             } else {
-                // Handle the send request callback
-                NSDictionary *urlParams = [self parseURLParams:[resultURL query]];
-                if (![urlParams valueForKey:@"request"]) {
-                    // User clicked the Cancel button
+                if (result == FBWebDialogResultDialogNotCompleted) {
+                    // User clicked the "x" icon
                     NSLog(@"User canceled request.");
                 } else {
-                    // User clicked the Send button
-                    NSString *requestID = [urlParams valueForKey:@"request"];
-                    NSLog(@"Request ID: %@", requestID);
-                    
-                    //TODO: call server and move to next screen
+                    // Handle the send request callback
+                    NSDictionary *urlParams = [self parseURLParams:[resultURL query]];
+                    if (![urlParams valueForKey:@"request"]) {
+                        // User clicked the Cancel button
+                        NSLog(@"User canceled request.");
+                    } else {
+                        // User clicked the Send button
+                        NSString *requestID = [urlParams valueForKey:@"request"];
+                        NSLog(@"Request ID: %@", requestID);
+                        
+                        NSMutableDictionary *p = [urlParams mutableCopy];
+                        [p removeObjectForKey:@"request"];
+                        
+                        TKServer *server = [TKServer sharedInstance];
+                        
+                        NSMutableArray *players = [[NSMutableArray alloc] initWithArray:p.allValues];
+                        [players addObject:server.userid];
+                        
+                        [server createGameWithTitle:self.gameName.text
+                                          startTime:self.datePicker.date
+                                      playerUserIDs:players
+                                         completion:^(TKGameInfo *game, NSError *error)
+                        {
+                             if (error) {
+                                 [[UIAlertView alertWithError:error] show];
+                                 return;
+                             } else {
+                                 [[[UIApplication sharedApplication] tkapp] startGame];
+                             }
+                             
+                            NSLog(@"Game created: %@", game);
+                                             
+                        }];
+                    }
                 }
             }
-        }
-    }];
+        }];
+    }
 }
 
 - (NSDictionary*)parseURLParams:(NSString *)query {
