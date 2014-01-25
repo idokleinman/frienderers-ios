@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TKStyle.h"
 
-@interface TKkillTargetViewController : UIViewController
+@interface TKKillTargetViewController : UIViewController
 @property (weak, nonatomic) IBOutlet TKSmallLabel *killLabel;
 @property (weak, nonatomic) IBOutlet FBProfilePictureView *nextTargetFBProfileImage;
 

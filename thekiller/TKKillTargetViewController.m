@@ -6,15 +6,15 @@
 //  Copyright (c) 2014 Citylifeapps. All rights reserved.
 //
 
-#import "TKkillTargetViewController.h"
+#import "TKKillTargetViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import "TKShootViewController.h"
 
-@interface TKkillTargetViewController ()
+@interface TKKillTargetViewController ()
 
 @end
 
-@implementation TKkillTargetViewController
+@implementation TKKillTargetViewController
 {
     NSString* _nextTargetProfileID;
 }

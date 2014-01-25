@@ -30,7 +30,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r4F-lt-fg4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-866" y="-180"/>
+            <point key="canvasLocation" x="142" y="-168"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="n8A-hA-9QD">
@@ -59,48 +59,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MCg-sa-5Nw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1274" y="441"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="dmc-JV-QMh">
-            <objects>
-                <navigationController storyboardIdentifier="main" definesPresentationContext="YES" id="BJK-Xe-old" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DEa-oq-t3s">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="aaV-ji-V9J" kind="relationship" relationship="rootViewController" id="MFI-yB-Koh"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8gV-Tp-5DM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-413" y="-180"/>
-        </scene>
-        <!--Main View Controller - Frienderers-->
-        <scene sceneID="mph-M8-yKU">
-            <objects>
-                <tableViewController id="aaV-ji-V9J" customClass="TKMainViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="04W-UE-W4b">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <sections/>
-                        <connections>
-                            <outlet property="dataSource" destination="aaV-ji-V9J" id="k9v-Ui-a7M"/>
-                            <outlet property="delegate" destination="aaV-ji-V9J" id="cxt-2Z-w9W"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Frienderers" id="95b-Pn-BVz">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="yft-G2-kHj">
-                            <connections>
-                                <action selector="logout:" destination="aaV-ji-V9J" id="bb4-Ok-rYT"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="THb-cY-I30" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="44" y="-180"/>
+            <point key="canvasLocation" x="142" y="573"/>
         </scene>
         <!--Start Timer View Controller-->
         <scene sceneID="Oon-Tz-Ypq">
@@ -145,10 +104,10 @@
             </objects>
             <point key="canvasLocation" x="1108" y="-168"/>
         </scene>
-        <!--Kkill Target View Controller-->
+        <!--Kill Target View Controller-->
         <scene sceneID="SeU-C9-8XM">
             <objects>
-                <viewController id="pkV-Ig-9ny" customClass="TKkillTargetViewController" sceneMemberID="viewController">
+                <viewController id="pkV-Ig-9ny" customClass="TKKillTargetViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VjT-Oi-lhe"/>
                         <viewControllerLayoutGuide type="bottom" id="hvm-zS-bCi"/>
