@@ -52,7 +52,7 @@ TKAppViewController* AppController() {
 
 -(void)showAlert
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"remoteNotificationReceived" object:nil userInfo:@{@"loc-args":@{@"type":@(remoteNotificationKillSucceeded), @"name":@"Amit"}}];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"remoteNotificationReceived" object:nil userInfo:@{@"loc-args":@{@"type":@(remoteNotificationYouDead), @"name":@"Amit"}}];
 
 }
 
@@ -90,8 +90,10 @@ TKAppViewController* AppController() {
             [view.popupView.layer setBorderWidth:2.0];
             view.headerLabel.hidden = YES;
             [view.topTitleLabel setText:@"KILLED"];
+            [view.topTitleLabel setFont:[UIFont fontWithName:@"Rosewood" size:67.0]];
             [view.profilePicture setImage:[UIImage imageNamed:@"amit.jpg"]];
             [view.bottomTitleLabel setText:@"REST IN PEACE"];
+            [view.bottomTitleLabel setFont:[UIFont fontWithName:@"Rosewood" size:35.0]];
             view.continueButton.hidden = YES;
             view.buttonLabel.hidden = YES;
             view.needsToFadeOut = YES;
@@ -128,8 +130,10 @@ TKAppViewController* AppController() {
             [view.popupView.layer setBorderWidth:2.0];
             view.headerLabel.hidden = YES;
             [view.topTitleLabel setText:@"KILLED"];
+            [view.topTitleLabel setFont:[UIFont fontWithName:@"Rosewood" size:67.0]];
             [view.profilePicture setImage:[UIImage imageNamed:@"amit.jpg"]];
             [view.bottomTitleLabel setText:@"REST IN PEACE"];
+            [view.bottomTitleLabel setFont:[UIFont fontWithName:@"Rosewood" size:35.0]];
             view.continueButton.hidden = YES;
             view.buttonLabel.hidden = YES;
             view.needsToFadeOut = YES;
@@ -140,8 +144,10 @@ TKAppViewController* AppController() {
             [view.headerLabel setAttributedText:getAsSmallAttributedString([NSString stringWithFormat:@"%@ just killed the last victim", data[@"loc-args"][@"name"]],NSTextAlignmentCenter)];
             view.headerLabel.hidden = YES;
             [view.topTitleLabel setText:@"WINNER"];
+            [view.topTitleLabel setFont:[UIFont fontWithName:@"Rosewood" size:67.0]];
             [view.profilePicture setImage:[UIImage imageNamed:@"amit.jpg"]];
             [view.bottomTitleLabel setText:@"MEGA KILLER"];
+            [view.bottomTitleLabel setFont:[UIFont fontWithName:@"Rosewood" size:35.0]];
             
             [view.buttonLabel setAttributedText:getAsSmallAttributedString(@"Let's start another round", NSTextAlignmentCenter)];
             view.needsToFadeOut = NO;
@@ -152,8 +158,10 @@ TKAppViewController* AppController() {
         case remoteNotificationYouDead:
             [view.headerLabel setAttributedText:getAsSmallAttributedString([NSString stringWithFormat:@"%@ just shot you", data[@"loc-args"][@"name"]], NSTextAlignmentCenter)];
             [view.topTitleLabel setText:@"YOU'RE DEAD"];
+            [view.topTitleLabel setFont:[UIFont fontWithName:@"Rosewood" size:40.0]];
             [view.profilePicture setImage:[UIImage imageNamed:@"amit.jpg"]];
             [view.bottomTitleLabel setText:@"REST IN PEACE"];
+            [view.bottomTitleLabel setFont:[UIFont fontWithName:@"Rosewood" size:35.0]];
             view.continueButton.hidden = YES;
             [view.buttonLabel setAttributedText:getAsSmallAttributedString(@"You won't be forgotten & will be updated with the events to come", NSTextAlignmentCenter)];
             view.singleLabel.hidden = YES;
