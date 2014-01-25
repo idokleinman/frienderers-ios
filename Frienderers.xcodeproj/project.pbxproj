@@ -77,7 +77,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4431CD61F38A4A1CB7E4CE3F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		503AAF661893D8C200D47BFC /* TKInfoScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKInfoScreenViewController.h; sourceTree = "<group>"; };
 		503AAF671893D8C200D47BFC /* TKInfoScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKInfoScreenViewController.m; sourceTree = "<group>"; };
 		503AAF7E1893E33E00D47BFC /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
@@ -238,7 +237,6 @@
 				F4416B0B18844EF300399D36 /* FrienderersTests */,
 				F4416AEB18844EF300399D36 /* Frameworks */,
 				F4416AEA18844EF300399D36 /* Products */,
-				4431CD61F38A4A1CB7E4CE3F /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -693,7 +691,6 @@
 		};
 		F4416B1618844EF300399D36 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4431CD61F38A4A1CB7E4CE3F /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -715,7 +712,6 @@
 		};
 		F4416B1718844EF300399D36 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4431CD61F38A4A1CB7E4CE3F /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

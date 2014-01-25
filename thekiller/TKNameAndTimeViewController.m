@@ -9,6 +9,7 @@
 #import "TKNameAndTimeViewController.h"
 #import "TKServer.h"
 #import "TKStyle.h"
+#import "UIApplication+TKAppDelegate.h"
 
 @interface TKNameAndTimeViewController ()
 
@@ -108,7 +109,7 @@
                              }
                              
                             NSLog(@"Game created: %@", game);
-                                             
+                            [[UIApplication sharedApplication].tkapp startGame];
                         }];
                     }
                 }
