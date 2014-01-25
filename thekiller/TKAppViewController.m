@@ -49,7 +49,7 @@
 //    
 //    [self.view addSubview:view];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"remoteNotificationReceived" object:nil userInfo:@{@"loc-args":@{@"type":@"3", @"name":@"Amit"}}];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"remoteNotificationReceived" object:nil userInfo:@{@"loc-args":@{@"type":@"3", @"name":@"Amit"}}];
 }
 -(void)dealloc
 {

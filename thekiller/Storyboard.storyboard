@@ -213,12 +213,12 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="AdX-S6-Z1j" customClass="TKSmallLabel">
                                 <rect key="frame" x="20" y="40" width="280" height="508"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <mutableString key="text">-There is one winner whose mission is to isolate and kill other players and not fall into the trap of others' similar intentions. 
+                                <string key="text">-There is one winner whose mission is to isolate and kill other players and not fall into the trap of others' similar intentions. 
 - Ensure you are close enough to kill your assigned target each time and far away from all the other players when doing so. 
 -You will always have one person to kill and one person intending to kill you.  
 - Sirens go off for everyone playing if you attempt to kill but did not isolate your target well enough. 
 - You will never know who is playing the game and who is not, except for the frenemy that invited you of course. Hence you need to be on your toes, smart with your isolating strategies and ready to defend yourself!   
-</mutableString>
+</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
