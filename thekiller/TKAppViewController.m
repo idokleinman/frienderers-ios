@@ -8,32 +8,59 @@
 
 #import "TKAppViewController.h"
 #import "TKNotificationView.h"
+#import "TKServer.h"
+#import "TKAppDelegate.h"
+
+TKAppViewController* AppController() {
+    return ((TKAppDelegate*)[UIApplication sharedApplication].delegate).appViewController;
+}
+
+@interface TKInternalViewController : UIViewController
+
+@end
+
+@implementation TKInternalViewController
+@end
 
 @interface TKAppViewController ()
 
+@property (strong, nonatomic) TKInternalViewController* internalViewController;
 
 @end
 
 @implementation TKAppViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:@"remoteNotificationReceived" object:nil];
-    
-    
     [self performSelector:@selector(showAlert) withObject:Nil afterDelay:3.0];
+    
+    self.internalViewController = self.childViewControllers[0];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self reloadState];
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
+- (void)reloadState {
+    NSLog(@"reload state");
+
+    [[TKServer sharedInstance] hello:^(TKGameInfo *gameInfo, NSError *error) {
+        [self.internalViewController dismissViewControllerAnimated:NO completion:nil];
+        
+        if (gameInfo) {
+            [self.internalViewController performSegueWithIdentifier:@"game" sender:self];
+        }
+        else {
+            [self.internalViewController performSegueWithIdentifier:@"create" sender:self];
+        }
+    }];
 }
 
 -(void)showAlert

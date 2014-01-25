@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TKAppViewController.h"
 
 @interface TKAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow* window;
+@property (readonly, nonatomic) TKAppViewController* appViewController;
 
-- (void)startGame;
+- (void)showApplicationViewControllerIfLoggedIn;
 
 @end
 

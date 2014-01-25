@@ -19,8 +19,10 @@ typedef enum {
 } RemoteNotifications;
 
 
-
 @interface TKAppViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UIView *containerView;
+
+- (void)reloadState;
 
 @end
+
+extern TKAppViewController* AppController();

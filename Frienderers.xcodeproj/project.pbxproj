@@ -24,13 +24,11 @@
 		50ED33631892A40900C4B45C /* TKKillTargetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ED33621892A40900C4B45C /* TKKillTargetViewController.m */; };
 		50ED33771892C0D800C4B45C /* TKShootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ED33761892C0D800C4B45C /* TKShootViewController.m */; };
 		A0D88D1C1893EE98009B72E7 /* TKJoinMasacareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D88D1B1893EE98009B72E7 /* TKJoinMasacareViewController.m */; };
-		C8F2B3D7189294C800561DBC /* CreateGameStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8F2B3D6189294C800561DBC /* CreateGameStoryboard.storyboard */; };
 		C8F2B3DB1892956200561DBC /* TKCreateGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F2B3DA1892956200561DBC /* TKCreateGameViewController.m */; };
 		C8F2B3DE1892956F00561DBC /* TKNameAndTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F2B3DD1892956F00561DBC /* TKNameAndTimeViewController.m */; };
 		C8F2B4011892E5D300561DBC /* TKAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F2B3FC1892E5D300561DBC /* TKAppViewController.m */; };
 		C8F2B4071893A82E00561DBC /* JollyLodger.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8F2B4061893A82300561DBC /* JollyLodger.ttf */; };
 		C8F2B4081893A82E00561DBC /* Rosewood.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8F2B3F91892E51D00561DBC /* Rosewood.ttf */; };
-		F40C2486188459330050AFCE /* UIApplication+TKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F40C2485188459330050AFCE /* UIApplication+TKAppDelegate.m */; };
 		F40CBB8E18926594008E2248 /* TKLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F40CBB8D18926594008E2248 /* TKLoginViewController.m */; };
 		F40CBB9418926DD8008E2248 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40CBB9318926DD8008E2248 /* FacebookSDK.framework */; };
 		F4416AED18844EF300399D36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4416AEC18844EF300399D36 /* Foundation.framework */; };
@@ -102,7 +100,6 @@
 		8B9F914A8D494AE08D071A29 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D88D1A1893EE98009B72E7 /* TKJoinMasacareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKJoinMasacareViewController.h; sourceTree = "<group>"; };
 		A0D88D1B1893EE98009B72E7 /* TKJoinMasacareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKJoinMasacareViewController.m; sourceTree = "<group>"; };
-		C8F2B3D6189294C800561DBC /* CreateGameStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateGameStoryboard.storyboard; sourceTree = "<group>"; };
 		C8F2B3D91892956200561DBC /* TKCreateGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKCreateGameViewController.h; sourceTree = "<group>"; };
 		C8F2B3DA1892956200561DBC /* TKCreateGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKCreateGameViewController.m; sourceTree = "<group>"; };
 		C8F2B3DC1892956F00561DBC /* TKNameAndTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKNameAndTimeViewController.h; sourceTree = "<group>"; };
@@ -111,8 +108,6 @@
 		C8F2B3FC1892E5D300561DBC /* TKAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKAppViewController.m; sourceTree = "<group>"; };
 		C8F2B3FD1892E5D300561DBC /* TKAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKAppViewController.h; sourceTree = "<group>"; };
 		C8F2B4061893A82300561DBC /* JollyLodger.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = JollyLodger.ttf; sourceTree = "<group>"; };
-		F40C2484188459330050AFCE /* UIApplication+TKAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+TKAppDelegate.h"; sourceTree = "<group>"; };
-		F40C2485188459330050AFCE /* UIApplication+TKAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+TKAppDelegate.m"; sourceTree = "<group>"; };
 		F40CBB8C18926594008E2248 /* TKLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLoginViewController.h; sourceTree = "<group>"; };
 		F40CBB8D18926594008E2248 /* TKLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKLoginViewController.m; sourceTree = "<group>"; };
 		F40CBB9318926DD8008E2248 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
@@ -218,7 +213,6 @@
 			children = (
 				A0D88D1A1893EE98009B72E7 /* TKJoinMasacareViewController.h */,
 				A0D88D1B1893EE98009B72E7 /* TKJoinMasacareViewController.m */,
-				C8F2B3D6189294C800561DBC /* CreateGameStoryboard.storyboard */,
 				C8F2B3D91892956200561DBC /* TKCreateGameViewController.h */,
 				C8F2B3DA1892956200561DBC /* TKCreateGameViewController.m */,
 				C8F2B3DC1892956F00561DBC /* TKNameAndTimeViewController.h */,
@@ -326,14 +320,12 @@
 		F4AF80A51893C2F000B9C9CB /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				F4416AFB18844EF300399D36 /* TKAppDelegate.h */,
+				F4416AFC18844EF300399D36 /* TKAppDelegate.m */,
 				F40CBB8C18926594008E2248 /* TKLoginViewController.h */,
 				F40CBB8D18926594008E2248 /* TKLoginViewController.m */,
 				C8F2B3FC1892E5D300561DBC /* TKAppViewController.m */,
 				C8F2B3FD1892E5D300561DBC /* TKAppViewController.h */,
-				F4416AFB18844EF300399D36 /* TKAppDelegate.h */,
-				F4416AFC18844EF300399D36 /* TKAppDelegate.m */,
-				F40C2484188459330050AFCE /* UIApplication+TKAppDelegate.h */,
-				F40C2485188459330050AFCE /* UIApplication+TKAppDelegate.m */,
 			);
 			name = Application;
 			sourceTree = "<group>";
@@ -519,7 +511,6 @@
 				503AAF881893E33E00D47BFC /* background.mp3 in Resources */,
 				503AAF8D1893E33E00D47BFC /* loadgun.mp3 in Resources */,
 				503AAF8E1893E33E00D47BFC /* shoot.mp3 in Resources */,
-				C8F2B3D7189294C800561DBC /* CreateGameStoryboard.storyboard in Resources */,
 				F4AF80A41893C2D700B9C9CB /* Images.xcassets in Resources */,
 				F4416B21188454BA00399D36 /* Storyboard.storyboard in Resources */,
 				503AAF8B1893E33E00D47BFC /* info.mp3 in Resources */,
@@ -545,7 +536,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F49769EE1893B65F000559A3 /* TKDevice.m in Sources */,
-				F40C2486188459330050AFCE /* UIApplication+TKAppDelegate.m in Sources */,
 				F4AF80C61893D15700B9C9CB /* AFSecurityPolicy.m in Sources */,
 				F4AF80C31893D15700B9C9CB /* AFHTTPRequestOperationManager.m in Sources */,
 				F4AF80C21893D15700B9C9CB /* AFHTTPRequestOperation.m in Sources */,

@@ -9,7 +9,7 @@
 #import "TKNameAndTimeViewController.h"
 #import "TKServer.h"
 #import "TKStyle.h"
-#import "UIApplication+TKAppDelegate.h"
+#import "TKAppViewController.h"
 
 @interface TKNameAndTimeViewController ()
 
@@ -104,12 +104,9 @@
                              if (error) {
                                  [[UIAlertView alertWithError:error] show];
                                  return;
-                             } else {
-                                 [[[UIApplication sharedApplication] tkapp] startGame];
                              }
-                             
-                            NSLog(@"Game created: %@", game);
-                            [[UIApplication sharedApplication].tkapp startGame];
+                             NSLog(@"Game created: %@", game);
+                             [AppController() reloadState];
                         }];
                     }
                 }

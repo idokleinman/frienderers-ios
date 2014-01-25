@@ -17,8 +17,7 @@
 
 @interface TKAppDelegate ()
 
-@property (strong, nonatomic) UIStoryboard* gameStoryboard;
-@property (strong, nonatomic) UIStoryboard* createStoryboard;
+@property (strong, nonatomic) TKAppViewController* appViewController;
 
 @end
 
@@ -29,36 +28,38 @@
     [FBLoginView class];
     [FBProfilePictureView class];
     
-    self.createStoryboard = [UIStoryboard storyboardWithName:@"CreateGameStoryboard" bundle:nil];
-    self.gameStoryboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle:nil];
-
+    self.appViewController = [[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"app"];
+    
     ConfigureAppearnace();
     
-    BOOL existingSession = [[TKServer sharedInstance] openSession];
-    if (existingSession) {
-        [self startGame];
-    }
+    [self showApplicationViewControllerIfLoggedIn];
     
     return YES;
 }
 
-- (void)startGame {
-    
-    [[TKSoundManager sharedManager] playSoundInBackground:@"background"];
-    
-    self.window.rootViewController = [self.gameStoryboard instantiateViewControllerWithIdentifier:@"splash"]; //"splash" //gameWillStartVC
-    
-  
-    [[TKServer sharedInstance] hello:^(TKGameInfo *gameInfo, NSError *error) {
-        if (gameInfo) {
-            self.window.rootViewController = [self.gameStoryboard instantiateViewControllerWithIdentifier:@"gameWillStartVC"];
-        }
-        else {
-            self.window.rootViewController = [self.createStoryboard instantiateInitialViewController];
-        }
-    }];
-    
+- (void)showApplicationViewControllerIfLoggedIn {
+    if ([[TKServer sharedInstance] openSession]) {
+        self.window.rootViewController = self.appViewController;
+    }
 }
+
+//- (void)startGame {
+//    
+//    [[TKSoundManager sharedManager] playSoundInBackground:@"background"];
+//    
+//    self.window.rootViewController = [self.gameStoryboard instantiateViewControllerWithIdentifier:@"splash"]; //"splash" //gameWillStartVC
+//    
+//  
+//    [[TKServer sharedInstance] hello:^(TKGameInfo *gameInfo, NSError *error) {
+//        if (gameInfo) {
+//            self.window.rootViewController = [self.gameStoryboard instantiateViewControllerWithIdentifier:@"gameWillStartVC"];
+//        }
+//        else {
+//            self.window.rootViewController = [self.createStoryboard instantiateInitialViewController];
+//        }
+//    }];
+//    
+//}
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

@@ -59,7 +59,8 @@
     [[TKServer sharedInstance] joinGame:^(BOOL success, NSError *error){
         if (success)
         {
-            [[UIApplication sharedApplication].tkapp startGame];
+#warning FIX
+//            [[UIApplication sharedApplication].tkapp startGame];
         }}];
 }
 
