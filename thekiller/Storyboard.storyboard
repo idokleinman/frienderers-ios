@@ -254,6 +254,9 @@ that pretty face</string>
                                 <state key="normal" image="Tick">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="continueButtonPressed" destination="VVD-0i-gZm" eventType="touchUpInside" id="tqK-4P-18n"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's start another round and kill them again" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="253" translatesAutoresizingMaskIntoConstraints="NO" id="i7m-Hm-rsP" customClass="TKSmallLabel">
                                 <rect key="frame" x="34" y="507" width="253" height="41"/>
@@ -331,14 +334,6 @@ that pretty face</string>
                                     <segue destination="c9P-Do-3Vb" kind="push" id="Gnn-xF-dMl"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EPz-6L-2uj">
-                                <rect key="frame" x="20" y="20" width="288" height="235"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -362,9 +357,9 @@ that pretty face</string>
                         <outlet property="gunButton" destination="ZZw-6F-mh4" id="oSZ-Il-7hh"/>
                         <outlet property="gunLoadedLabel" destination="JM2-ZM-Roe" id="zSB-7r-Ac1"/>
                         <outlet property="instructionLabel" destination="IQU-aH-6Jw" id="p1f-t8-GHN"/>
-                        <outlet property="log" destination="EPz-6L-2uj" id="PUc-CP-MtY"/>
                         <outlet property="shootButton" destination="ZZw-6F-mh4" id="Uaq-oK-b5h"/>
                         <outlet property="shootLabel" destination="0Ic-br-shc" id="vFX-Jh-VN2"/>
+                        <segue destination="VVD-0i-gZm" kind="push" identifier="win" id="LnR-U1-mdn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8KY-zs-2yV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -424,7 +419,7 @@ that pretty face</string>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="c9P-Do-3Vb" kind="modal" id="HHn-MR-evD"/>
+                                    <segue destination="c9P-Do-3Vb" kind="push" id="HHn-MR-evD"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -686,6 +681,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="fpc-mo-h5X"/>
-        <segue reference="HHn-MR-evD"/>
+        <segue reference="Gnn-xF-dMl"/>
+        <segue reference="LnR-U1-mdn"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -7,6 +7,7 @@
 //
 
 #import "TKWinViewController.h"
+#import "TKAppViewController.h"
 
 @interface TKWinViewController ()
 
@@ -30,6 +31,9 @@
     
     self.headerLabel.attributedText = getAsSmallAttributedString(self.headerLabel.text, NSTextAlignmentCenter);
     self.buttonTitleLabel.attributedText = getAsSmallAttributedString(self.buttonTitleLabel.text, NSTextAlignmentCenter);
+}
+- (IBAction)continueButtonPressed {
+    [AppController() reloadState];
 }
 
 - (void)didReceiveMemoryWarning
