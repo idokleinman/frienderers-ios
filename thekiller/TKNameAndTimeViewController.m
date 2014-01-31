@@ -112,7 +112,8 @@
                                                 completion:^(TKGameInfo *game, NSError *error)
              {
                  if (error) {
-                     [[UIAlertView alertWithError:error] show];
+//                     [[UIAlertView alertWithError:error] show];
+                     myself.loadingView.hidden = YES;
                      return;
                  } else {
                      NSLog(@"Game created: %@", game);
