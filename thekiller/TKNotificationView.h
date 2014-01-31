@@ -19,5 +19,6 @@
 @property (strong, nonatomic) IBOutlet TKView *popupView;
 @property (nonatomic) BOOL needsToFadeOut;
 
+@property (strong, nonatomic) IBOutlet FBProfilePictureView *fbProfilePicture;
 @property (strong, nonatomic) IBOutlet UILabel *singleLabel;
 @end

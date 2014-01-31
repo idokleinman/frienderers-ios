@@ -10,6 +10,7 @@
 #import "TKNotificationView.h"
 #import "TKServer.h"
 #import "TKAppDelegate.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 TKAppViewController* AppController() {
     return ((TKAppDelegate*)[UIApplication sharedApplication].delegate).appViewController;
@@ -91,7 +92,8 @@ TKAppViewController* AppController() {
             view.headerLabel.hidden = YES;
             [view.topTitleLabel setText:@"KILLED"];
             [view.topTitleLabel setFont:[UIFont fontWithName:@"Rosewood" size:67.0]];
-            [view.profilePicture setImage:[UIImage imageNamed:@"amit.jpg"]];
+            [view.fbProfilePicture setProfileID:data[@"loc-args"][@"subjectid"]];
+            [view.fbProfilePicture setPictureCropping:FBProfilePictureCroppingSquare];
             [view.bottomTitleLabel setText:@"REST IN PEACE"];
             [view.bottomTitleLabel setFont:[UIFont fontWithName:@"Rosewood" size:35.0]];
             view.continueButton.hidden = YES;
@@ -131,7 +133,8 @@ TKAppViewController* AppController() {
             view.headerLabel.hidden = YES;
             [view.topTitleLabel setText:@"KILLED"];
             [view.topTitleLabel setFont:[UIFont fontWithName:@"Rosewood" size:67.0]];
-            [view.profilePicture setImage:[UIImage imageNamed:@"amit.jpg"]];
+            [view.fbProfilePicture setProfileID:data[@"loc-args"][@"subjectid"]];
+            [view.fbProfilePicture setPictureCropping:FBProfilePictureCroppingSquare];
             [view.bottomTitleLabel setText:@"REST IN PEACE"];
             [view.bottomTitleLabel setFont:[UIFont fontWithName:@"Rosewood" size:35.0]];
             view.continueButton.hidden = YES;
@@ -145,7 +148,8 @@ TKAppViewController* AppController() {
             view.headerLabel.hidden = YES;
             [view.topTitleLabel setText:@"WINNER"];
             [view.topTitleLabel setFont:[UIFont fontWithName:@"Rosewood" size:67.0]];
-            [view.profilePicture setImage:[UIImage imageNamed:@"amit.jpg"]];
+            [view.fbProfilePicture setProfileID:data[@"loc-args"][@"subjectid"]];
+            [view.fbProfilePicture setPictureCropping:FBProfilePictureCroppingSquare];
             [view.bottomTitleLabel setText:@"MEGA KILLER"];
             [view.bottomTitleLabel setFont:[UIFont fontWithName:@"Rosewood" size:35.0]];
             
@@ -159,7 +163,9 @@ TKAppViewController* AppController() {
             [view.headerLabel setAttributedText:getAsSmallAttributedString([NSString stringWithFormat:@"%@ just shot you", data[@"loc-args"][@"name"]], NSTextAlignmentCenter)];
             [view.topTitleLabel setText:@"YOU'RE DEAD"];
             [view.topTitleLabel setFont:[UIFont fontWithName:@"Rosewood" size:40.0]];
-            [view.profilePicture setImage:[UIImage imageNamed:@"amit.jpg"]];
+            
+            [view.fbProfilePicture setProfileID:data[@"loc-args"][@"subjectid"]];
+            [view.fbProfilePicture setPictureCropping:FBProfilePictureCroppingSquare];
             [view.bottomTitleLabel setText:@"REST IN PEACE"];
             [view.bottomTitleLabel setFont:[UIFont fontWithName:@"Rosewood" size:35.0]];
             view.continueButton.hidden = YES;

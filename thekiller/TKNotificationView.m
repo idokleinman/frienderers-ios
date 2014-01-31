@@ -7,6 +7,7 @@
 //
 
 #import "TKNotificationView.h"
+#import "TKAppViewController.h"
 
 @implementation TKNotificationView
 
@@ -25,6 +26,8 @@
     }
 }
 - (IBAction)continueButtonPressed:(UIButton *)sender {
+    [AppController() reloadState];
+    [self dismissNotificationView:nil];
 }
 
 /*
