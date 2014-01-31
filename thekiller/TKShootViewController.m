@@ -29,7 +29,6 @@
 {
     [super viewDidLoad];
     
-    self.gunLoadedLabel.attributedText = getAsSmallAttributedString(self.gunLoadedLabel.text, NSTextAlignmentCenter);
     self.instructionLabel.attributedText = getAsSmallAttributedString(self.instructionLabel.text, NSTextAlignmentCenter);
     self.shootLabel.attributedText = getAsSmallAttributedString(self.shootLabel.text, NSTextAlignmentCenter);
     
@@ -42,7 +41,7 @@
     
     _isGunLoaded = NO;
     _isTargetInRange = NO;
-    self.gunLoadedLabel.text = @"Your gun is not loaded";
+    self.gunLoadedLabel.attributedText = getAsSmallAttributedString(@"Your gun is not loaded", NSTextAlignmentCenter);
     
     [[TKBluetoothManager sharedManager] startWithName:[TKServer sharedInstance].userid];
     [[TKBluetoothManager sharedManager] addObserver:self forKeyPath:@"nearbyDevicesDictionary" options:NSKeyValueObservingOptionInitial context:0];
@@ -58,7 +57,6 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        self.log.text = [[TKBluetoothManager sharedManager].nearbyDevicesDictionary description];
         
         TKDevice *device = [[TKBluetoothManager sharedManager].nearbyDevicesDictionary objectForKey:self.targetProfileID];
         if (device)
@@ -109,7 +107,7 @@
         _isGunLoaded = YES;
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
         [[TKSoundManager sharedManager] playSound:@"loadgun"];
-        self.gunLoadedLabel.text = @"Your gun is loaded!";
+        self.gunLoadedLabel.attributedText = getAsSmallAttributedString(@"Your gun is loaded!", NSTextAlignmentCenter);
     
     }
 }
@@ -122,7 +120,7 @@
     if (_isGunLoaded)
     {
         _isGunLoaded = NO;
-        self.gunLoadedLabel.text = @"Your gun is not loaded";
+        self.gunLoadedLabel.attributedText = getAsSmallAttributedString(@"Your gun is not loaded", NSTextAlignmentCenter);
         // play shoot sound
         NSLog(@"motion shake -- shoot");
         
@@ -145,15 +143,14 @@
             
             if ([nextTargetID isEqualToString:self.targetProfileID]) {
                 NSLog(@"shooting failed, target did not change");
-                //                    [[[UIAlertView alloc] initWithTitle:@"You failed" message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
-                //
+                
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"remoteNotificationReceived" object:nil userInfo:@{@"loc-args":@{@"type":@(remoteNotificationKillFailed)}}];
                 return;
             }
             else
                 if ([nextTargetID isEqualToString:[TKServer sharedInstance].userid]) {
                     NSLog(@"shooting success, you are the last man, you win!");
-                    //                    [[[UIAlertView alloc] initWithTitle:@"You win!" message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+                    
                     [self performSegueWithIdentifier:@"win" sender:self];
                     
                     //$$$
@@ -163,7 +160,7 @@
                 {
                     
                     NSLog(@"shooting success, next target aquired");
-                    [[NSNotificationCenter defaultCenter] postNotificationName:@"remoteNotificationReceived" object:nil userInfo:@{@"loc-args":@{@"type":@(remoteNotificationKillSucceeded)}}];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"remoteNotificationReceived" object:nil userInfo:@{@"loc-args":@{@"type":@(remoteNotificationKillSucceeded), @"subjectid":self.targetProfileID}}];
                     
                     [self.navigationController popViewControllerAnimated:YES];
                     
