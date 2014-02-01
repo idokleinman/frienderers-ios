@@ -125,17 +125,19 @@
         NSLog(@"motion shake -- shoot");
         
         [[TKSoundManager sharedManager] playSound:@"shoot"];
-        NSMutableArray *nearByPlayersArr = [[NSMutableArray alloc] init];
+        NSMutableArray *nearbyPlayersArr = [[NSMutableArray alloc] init];
         NSArray *devicesArr = [[TKBluetoothManager sharedManager].nearbyDevicesDictionary allValues];
         
         for (TKDevice *d in devicesArr)
         {
             //                if (d.range <= MEDIUM)
-            [nearByPlayersArr addObject:d.name];
+            [nearbyPlayersArr addObject:d.name];
         }
         
+        // if the target is in range and it's the only nearby player arround
+        BOOL isSuccess = _isTargetInRange && (nearbyPlayersArr.count == 1);
         
-        [[TKServer sharedInstance] shootTarget:self.targetProfileID success:_isTargetInRange nearby:nearByPlayersArr completion:^(NSString *nextTargetID, NSError *error) {
+        [[TKServer sharedInstance] shootTarget:self.targetProfileID success:isSuccess nearby:nearbyPlayersArr completion:^(NSString *nextTargetID, NSError *error) {
             if ((error) || (!nextTargetID)) {
                 [[UIAlertView alertWithError:error] show];
                 return;
