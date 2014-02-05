@@ -109,6 +109,7 @@ TKAppViewController* AppController() {
             view.notificationImage.hidden = YES;
             view.bottomTitleLabel.hidden = YES;
             view.continueButton.hidden = YES;
+            view.fbProfilePicture.hidden = YES;
             view.buttonLabel.hidden = YES;
             view.needsToFadeOut = YES;
             
@@ -120,6 +121,7 @@ TKAppViewController* AppController() {
             view.headerLabel.hidden = YES;
             view.topTitleLabel.hidden = YES;
             view.notificationImage.hidden = YES;
+            view.fbProfilePicture.hidden = YES;
             view.bottomTitleLabel.hidden = YES;
             view.continueButton.hidden = YES;
             view.buttonLabel.hidden = YES;
@@ -182,6 +184,7 @@ TKAppViewController* AppController() {
             view.topTitleLabel.hidden = YES;
             view.notificationImage.hidden = YES;
             view.bottomTitleLabel.hidden = YES;
+            view.fbProfilePicture.hidden = YES;
             view.continueButton.hidden = YES;
             view.buttonLabel.hidden = YES;
             view.needsToFadeOut = YES;
@@ -197,6 +200,7 @@ TKAppViewController* AppController() {
             view.topTitleLabel.hidden = YES;
             view.notificationImage.hidden = YES;
             view.bottomTitleLabel.hidden = YES;
+            view.fbProfilePicture.hidden = YES;
             view.continueButton.hidden = NO;
             view.buttonLabel.hidden = NO;
             [view.buttonLabel setAttributedText:getAsSmallAttributedString(@"Accept or die!", NSTextAlignmentCenter)];
@@ -216,7 +220,7 @@ TKAppViewController* AppController() {
             view.notificationImage.hidden = NO;
             view.buttonLabel.hidden = NO;
             view.singleLabel.hidden = NO;
-            
+            view.fbProfilePicture.hidden = YES;
             view.headerLabel.hidden = YES;
             view.topTitleLabel.hidden = YES;
             view.bottomTitleLabel.hidden = YES;
