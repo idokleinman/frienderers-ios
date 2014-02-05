@@ -11,6 +11,7 @@
 #import "TKBluetoothManager.h"
 #import "TKDevice.h"
 #import "TKServer.h"
+#import "TKAppViewController.h"
 
 NSString* const SERVICE_UUID = @"0194827D-A9F6-4500-8AC3-BB6189EEE15E";
 NSString* const CHARACTERISTIC_UUID = @"BD5DF558-9DF1-4216-8521-411D6F917A8C";
@@ -29,6 +30,8 @@ NSString* const CHARACTERISTIC_UUID = @"BD5DF558-9DF1-4216-8521-411D6F917A8C";
 @property (strong, nonatomic) NSMutableDictionary* nearbyDevicesDictionary;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSDate *lastUpdate;
+
+@property (strong, nonatomic) TKNotificationView *notificationView;
 @end
 
 @implementation TKBluetoothManager
@@ -189,7 +192,11 @@ NSString* DescriptionForState(NSInteger state)
 - (void) handleBluetoothNotify:(NSNotification *)notification
 {
     if (notification.userInfo[@"isBluetoothWorking"]){
-        NSLog(@"me luv u long time!");
+        self.notificationView = [AppController() showNotification:@{@"type":@(remoteNotificationsBTClosed)}];
+    } else {
+        if (self.notificationView) {
+            [AppController() closeNotificationView:self.notificationView];
+        }
     }
 }
 

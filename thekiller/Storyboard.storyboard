@@ -100,33 +100,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kill (target) before someone else kills you" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="251" translatesAutoresizingMaskIntoConstraints="NO" id="wwH-wF-bEk" customClass="TKSmallLabel">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Kill (target) before someone else kills you" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="251" translatesAutoresizingMaskIntoConstraints="NO" id="wwH-wF-bEk" customClass="TKSmallLabel">
                                 <rect key="frame" x="35" y="20" width="251" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wanted" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EzQ-62-RLQ" customClass="TKBigLabel">
-                                <rect key="frame" x="48" y="132" width="240" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wanted" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EzQ-62-RLQ" customClass="TKBigLabel">
+                                <rect key="frame" x="40" y="106" width="240" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dead or dead" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJS-u6-fr7" customClass="TKBigLabel">
-                                <rect key="frame" x="48" y="409" width="240" height="26"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dead or dead" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJS-u6-fr7" customClass="TKBigLabel">
+                                <rect key="frame" x="40" y="409" width="240" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zff-vW-67K" customClass="TKButton">
-                                <rect key="frame" x="139" y="461" width="59" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zff-vW-67K" customClass="TKButton">
+                                <rect key="frame" x="131" y="461" width="59" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Tick"/>
                                 <connections>
                                     <action selector="targetApproveButton:" destination="pkV-Ig-9ny" eventType="touchUpInside" id="R99-t1-zdR"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="156" translatesAutoresizingMaskIntoConstraints="NO" id="eTP-KC-aQJ" customClass="TKSmallLabel">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="156" translatesAutoresizingMaskIntoConstraints="NO" id="eTP-KC-aQJ" customClass="TKSmallLabel">
                                 <rect key="frame" x="82" y="507" width="156" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <string key="text">OK, I've memorized 
@@ -134,31 +134,13 @@ that pretty face</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nd3-4W-iD2" customClass="FBProfilePictureView">
-                                <rect key="frame" x="48" y="161" width="240" height="240"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nd3-4W-iD2" customClass="UIImageView">
+                                <rect key="frame" x="40" y="161" width="240" height="240"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="centerX" secondItem="eTP-KC-aQJ" secondAttribute="centerX" id="2Rz-oq-iJz"/>
-                            <constraint firstItem="wwH-wF-bEk" firstAttribute="top" secondItem="cC1-TH-nVw" secondAttribute="top" constant="20" id="35j-uG-d5L"/>
-                            <constraint firstItem="nd3-4W-iD2" firstAttribute="leading" secondItem="cC1-TH-nVw" secondAttribute="leading" constant="48" id="7Bv-7A-iXq"/>
-                            <constraint firstItem="nd3-4W-iD2" firstAttribute="leading" secondItem="vJS-u6-fr7" secondAttribute="leading" id="B61-zb-qt9"/>
-                            <constraint firstAttribute="trailing" secondItem="nd3-4W-iD2" secondAttribute="trailing" constant="32" id="BIL-zt-apZ"/>
-                            <constraint firstItem="nd3-4W-iD2" firstAttribute="top" secondItem="Zff-vW-67K" secondAttribute="bottom" constant="-344" id="Ih8-Lu-Fc0"/>
-                            <constraint firstItem="nd3-4W-iD2" firstAttribute="trailing" secondItem="vJS-u6-fr7" secondAttribute="trailing" id="NL7-81-wls"/>
-                            <constraint firstItem="hvm-zS-bCi" firstAttribute="top" secondItem="eTP-KC-aQJ" secondAttribute="bottom" constant="20" id="OBN-im-YtL"/>
-                            <constraint firstItem="nd3-4W-iD2" firstAttribute="top" secondItem="EzQ-62-RLQ" secondAttribute="bottom" constant="8" symbolic="YES" id="U1I-4c-9Vy"/>
-                            <constraint firstAttribute="bottom" secondItem="nd3-4W-iD2" secondAttribute="bottom" constant="167" id="YaR-GD-52x"/>
-                            <constraint firstItem="nd3-4W-iD2" firstAttribute="trailing" secondItem="EzQ-62-RLQ" secondAttribute="trailing" id="bno-mF-tfH"/>
-                            <constraint firstAttribute="centerX" secondItem="Zff-vW-67K" secondAttribute="centerX" constant="-8.5" id="bwy-oa-bEV"/>
-                            <constraint firstAttribute="centerX" secondItem="wwH-wF-bEk" secondAttribute="centerX" id="jHv-6i-ksc"/>
-                            <constraint firstItem="vJS-u6-fr7" firstAttribute="top" secondItem="nd3-4W-iD2" secondAttribute="bottom" constant="8" symbolic="YES" id="k0S-MT-6mt"/>
-                            <constraint firstItem="Zff-vW-67K" firstAttribute="top" secondItem="wwH-wF-bEk" secondAttribute="bottom" constant="400" id="rml-h4-uwE"/>
-                            <constraint firstItem="nd3-4W-iD2" firstAttribute="leading" secondItem="EzQ-62-RLQ" secondAttribute="leading" id="w4c-1D-3bB"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Dc8-k4-dSE"/>
                     <connections>

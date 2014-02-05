@@ -17,10 +17,10 @@
 
 - (BOOL)openSession;
 - (void)hello:(void(^)(TKGameInfo* gameInfo, NSError* error))completion;
-- (void)nextTarget:(void(^)(NSString* targetUserID, NSError* error))completion;
+- (void)nextTarget:(void(^)(NSString* targetUserID, NSString *targetName, NSError* error))completion;
 - (void)registerPushToken:(NSString*)deviceToken;
 - (void)createGameWithTitle:(NSString*)title startTime:(NSDate*)startTime playerUserIDs:(NSArray*)players completion:(void(^)(TKGameInfo* game, NSError* error))completion;
-- (void)shootTarget:(NSString*)targetID success:(BOOL)success nearby:(NSArray*)nearby completion:(void(^)(NSString* nextTargetID, NSError* error))completion;
+- (void)shootTarget:(NSString*)targetID success:(BOOL)success nearby:(NSArray*)nearby completion:(void(^)(NSString* nextTargetID, NSString *targetName, NSError* error))completion;
 - (void)joinGame:(void(^)(BOOL success, NSError* error))completion;
 - (void)startGame:(NSString*)gameid completion:(void(^)(NSDictionary* game, NSError* error))completion;
 

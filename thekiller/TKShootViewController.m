@@ -137,7 +137,7 @@
         // if the target is in range and it's the only nearby player arround
         BOOL isSuccess = _isTargetInRange && (nearbyPlayersArr.count == 1);
         
-        [[TKServer sharedInstance] shootTarget:self.targetProfileID success:isSuccess nearby:nearbyPlayersArr completion:^(NSString *nextTargetID, NSError *error) {
+        [[TKServer sharedInstance] shootTarget:self.targetProfileID success:isSuccess nearby:nearbyPlayersArr completion:^(NSString *nextTargetID, NSString *targetName, NSError *error) {
             if ((error) || (!nextTargetID)) {
                 [[UIAlertView alertWithError:error] show];
                 return;
