@@ -8,6 +8,7 @@
 
 #import "TKStartTimerViewController.h"
 #import "TKServer.h"
+#import "TKSoundManager.h"
 
 @interface TKStartTimerViewController ()
 
@@ -66,6 +67,8 @@
         _gameStartTime = gameInfo.startTime;
         [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(runGameStartTimer:) userInfo:nil repeats:YES];
     }];
+    
+    [[TKSoundManager sharedManager] playSoundInBackground:@"background"];
 }
 
 
