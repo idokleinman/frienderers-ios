@@ -694,41 +694,19 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <segue destination="x2h-rw-VJd" kind="embed" id="Wj4-Ae-MZd"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vmG-fD-9NM">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gri-KG-S2A">
+                                <rect key="frame" x="20" y="20" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gri-KG-S2A">
-                                        <rect key="frame" x="20" y="20" width="83" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Open Tester">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="showTester:" destination="7bb-r5-vme" eventType="touchUpInside" id="KSc-sa-RwY"/>
-                                            <segue destination="2Nb-Lf-hid" kind="modal" identifier="tester" id="i1A-F5-R2Q"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstItem="Gri-KG-S2A" firstAttribute="top" secondItem="vmG-fD-9NM" secondAttribute="top" constant="20" id="1gF-pV-wJL"/>
-                                    <constraint firstItem="Gri-KG-S2A" firstAttribute="leading" secondItem="vmG-fD-9NM" secondAttribute="leading" constant="20" id="6Lp-q7-FHT"/>
-                                </constraints>
+                                <state key="normal" title="Open Tester">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="vZs-Nc-LYS" appends="YES" id="Di1-XD-M6P"/>
-                                    <outletCollection property="gestureRecognizers" destination="vZs-Nc-LYS" appends="YES" id="06y-o7-GVg"/>
+                                    <action selector="showTester:" destination="7bb-r5-vme" eventType="touchUpInside" id="KSc-sa-RwY"/>
+                                    <segue destination="2Nb-Lf-hid" kind="modal" identifier="tester" id="i1A-F5-R2Q"/>
                                 </connections>
-                            </view>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="vmG-fD-9NM" firstAttribute="top" secondItem="2bM-Kc-wkm" secondAttribute="top" id="5sJ-1M-Yh4"/>
-                            <constraint firstItem="TVo-IN-Ot6" firstAttribute="top" secondItem="vmG-fD-9NM" secondAttribute="bottom" id="EUz-YP-3KF"/>
-                            <constraint firstItem="vmG-fD-9NM" firstAttribute="leading" secondItem="2bM-Kc-wkm" secondAttribute="leading" id="qnD-3D-KeD"/>
-                            <constraint firstAttribute="trailing" secondItem="vmG-fD-9NM" secondAttribute="trailing" id="zWK-WF-L8b"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="testerButton" destination="Gri-KG-S2A" id="diM-Ay-umd"/>

@@ -35,7 +35,7 @@
         NSInteger sum = 0, count = 0;
         for (NSArray* sample in self.rssiSamples)
         {
-            if ([[NSDate date] timeIntervalSinceDate:sample[1]] < 1.5f)
+            if ([[NSDate date] timeIntervalSinceDate:sample[1]] < 5.0f)
             {
                 sum += [sample[0] integerValue];
                 count++;
@@ -53,7 +53,7 @@
 {
     @synchronized (self.rssiSamples) {
         [self.rssiSamples addObject:@[sample,[NSDate date]]];
-        if (self.rssiSamples.count > 100)
+        if (self.rssiSamples.count > 500)
         {
             [self.rssiSamples removeObjectAtIndex:0];
         }
