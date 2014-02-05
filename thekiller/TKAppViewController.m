@@ -214,7 +214,7 @@ TKAppViewController* AppController() {
             
         case remoteNotificationsBTClosed:
         {
-            UIImage *bluetoothImage = [[UIImage alloc] initWithContentsOfFile:@"BlueTooth"];
+            UIImage *bluetoothImage = [UIImage imageNamed:@"BlueTooth"];
             
             [view.notificationImage setImage:bluetoothImage];
             [view.buttonLabel setAttributedText:getAsSmallAttributedString(@"Frienderers is using only Bluetooth Low Energy, \n so it won't kill your battery", NSTextAlignmentCenter)];
