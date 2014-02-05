@@ -17,6 +17,7 @@
 @property (readonly, nonatomic) NSArray* invited;
 @property (readonly, nonatomic) NSArray* joined;
 @property (readonly, nonatomic) NSArray* rejected;
+@property (readonly, nonatomic) NSString* gameID;
 @property (readonly, nonatomic) NSDictionary* killList;
 
 - (instancetype)initWithDictionary:(NSDictionary*)dict;

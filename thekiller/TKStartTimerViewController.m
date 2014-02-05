@@ -12,13 +12,11 @@
 
 @interface TKStartTimerViewController ()
 
+@property (strong, nonatomic) TKGameInfo* gameInfo;
+
 @end
 
 @implementation TKStartTimerViewController
-{
-    NSDate* _gameStartTime;
-    
-}
 
 - (NSString *)stringFromTimeInterval:(NSTimeInterval)interval {
     NSInteger ti = (NSInteger)interval;
@@ -30,13 +28,22 @@
 
 -(void)startGame
 {
-    [self performSegueWithIdentifier:@"nextTarget" sender:self];
-    // perform segue
+    // let server know game is started
+    [[TKServer sharedInstance] startGame:self.gameInfo.gameID completion:^(NSDictionary *game, NSError *error) {
+        if (error) {
+            [[UIAlertView alertWithError:error] show];
+            return;
+        }
+        
+        // perform segue
+        NSLog(@"game started");
+        [self performSegueWithIdentifier:@"nextTarget" sender:self];
+    }];
 }
 
 -(void)runGameStartTimer:(NSTimer *)timer
 {
-    NSTimeInterval timeIntervalTillStartGame = -[[NSDate date] timeIntervalSinceDate:_gameStartTime];
+    NSTimeInterval timeIntervalTillStartGame = -[[NSDate date] timeIntervalSinceDate:self.gameInfo.startTime];
     
     if (timeIntervalTillStartGame > 0)
         self.gameStartTimerLabel.text = [self stringFromTimeInterval:timeIntervalTillStartGame];
@@ -64,7 +71,7 @@
             NSLog(@"JOIN GAME %@ (ERROR: %@)", success ? @"OK" : @"FAIL", error);
         }];
         
-        _gameStartTime = gameInfo.startTime;
+        self.gameInfo = gameInfo;
         [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(runGameStartTimer:) userInfo:nil repeats:YES];
     }];
 }

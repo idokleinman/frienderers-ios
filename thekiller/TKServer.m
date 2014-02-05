@@ -240,25 +240,43 @@
 
         NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
         if (httpResponse.statusCode != 200) {
-            NSString* s = [data UTF8String];
-            if (s.length == 0) {
-                s = @"Request Failed";
+            id obj = [NSJSONSerialization JSONObjectWithData:data options:0 error:0];
+            NSError* e;
+            if (!obj) {
+                NSString* s = [data UTF8String];
+                if (s.length == 0) {
+                    s = @"Request Failed";
+                }
+                
+                e = MakeError(s, httpResponse.statusCode);
+            }
+            else {
+                NSString* message = obj[@"message"];
+                if (!message) {
+                    message = @"Request Failed";
+                }
+                
+                e = MakeErrorWithMessage(message);
             }
             
+            
             dispatch_async(dispatch_get_main_queue(), ^{
-                NSError* e = MakeError(s, httpResponse.statusCode);
                 NSLog(@"API ERROR: %@", e);
                 completion(nil, e);
             });
             return;
         }
         
-        
         id obj = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         dispatch_async(dispatch_get_main_queue(), ^{
             completion(obj, nil);
         });
     }] resume];
+}
+
+NSError* MakeErrorWithMessage(NSString* desc) {
+    NSError* error = [NSError errorWithDomain:@"TKServer" code:0 userInfo:@{ NSLocalizedDescriptionKey: desc }];
+    return error;
 }
 
 NSError* MakeError(NSString* desc, NSInteger code) {

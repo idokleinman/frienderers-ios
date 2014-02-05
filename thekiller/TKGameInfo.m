@@ -28,6 +28,7 @@
     return self;
 }
 
+- (NSString*)gameID { return self.dict[@"gameid"]; }
 - (NSString *)title { return self.dict[@"title"]; }
 - (NSDate *)startTime { return [NSDate dateWithTimeIntervalSinceReferenceDate:[self.dict[@"start"] doubleValue]]; }
 - (NSString *)creatorID { return self.dict[@"creator"]; }
