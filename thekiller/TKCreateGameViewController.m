@@ -19,6 +19,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[TKSoundManager sharedManager] playSoundInBackground:@"background"];
+    
     [self.label setAttributedText:getAsSmallAttributedString(self.label.text, NSTextAlignmentCenter)];
 }
 

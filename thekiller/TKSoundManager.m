@@ -40,9 +40,6 @@ static TKSoundManager *sharedManager = nil;
     
     _audioPlay = [[AVAudioPlayer alloc] initWithData:localSoundData error:NULL];
     
-    //    if (loop)
-    //        [_audioPlay setNumberOfLoops:-1];
-    //    else
     [_audioPlay setNumberOfLoops:0];
     [_audioPlay prepareToPlay];
     
