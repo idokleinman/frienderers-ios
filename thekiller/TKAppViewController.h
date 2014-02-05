@@ -15,7 +15,8 @@ typedef enum {
     remoteNotificationSomeoneDied,
     remoteNotificationSomeoneWin,
     remoteNotificationRunAway,
-    remoteNotificationGameBegins
+    remoteNotificationGameBegins,
+    remoteNotificationsInviteReceived
 } RemoteNotifications;
 
 

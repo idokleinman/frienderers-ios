@@ -186,6 +186,21 @@ TKAppViewController* AppController() {
             view.needsToFadeOut = YES;
             break;
             
+        case remoteNotificationsInviteReceived:
+        {
+            NSString *str = [NSString stringWithFormat:@"%@ has invited you to join a Frienderers game starts on %@", data[@"loc-args"][@"name"], data[@"loc-args"][@"start_time"]];
+            
+            [view.singleLabel setAttributedText:getAsSmallAttributedString(str, NSTextAlignmentCenter)];
+            view.headerLabel.hidden = YES;
+            view.topTitleLabel.hidden = YES;
+            view.profilePicture.hidden = YES;
+            view.bottomTitleLabel.hidden = YES;
+            view.continueButton.hidden = NO;
+            view.buttonLabel.hidden = NO;
+            [view.buttonLabel setAttributedText:getAsSmallAttributedString(@"Accept or die!", NSTextAlignmentCenter)];
+            view.needsToFadeOut = NO;
+            break;
+        }
         default:
             break;
     }
