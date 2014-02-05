@@ -19,6 +19,7 @@
 		503AAF901893E33E00D47BFC /* target.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 503AAF861893E33E00D47BFC /* target.mp3 */; };
 		503AAF911893E33E00D47BFC /* winner.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 503AAF871893E33E00D47BFC /* winner.mp3 */; };
 		503AAF941893EC5D00D47BFC /* TKWinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 503AAF931893EC5D00D47BFC /* TKWinViewController.m */; };
+		505FFA9018A2AF6400E365ED /* TKBTTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 505FFA8F18A2AF6400E365ED /* TKBTTestViewController.m */; };
 		50ED335D18928C8100C4B45C /* TKStartTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ED335C18928C8100C4B45C /* TKStartTimerViewController.m */; };
 		50ED336018929D3100C4B45C /* TKStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ED335F18929D3100C4B45C /* TKStyle.m */; };
 		50ED33631892A40900C4B45C /* TKKillTargetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ED33621892A40900C4B45C /* TKKillTargetViewController.m */; };
@@ -89,6 +90,8 @@
 		503AAF871893E33E00D47BFC /* winner.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = winner.mp3; sourceTree = "<group>"; };
 		503AAF921893EC5D00D47BFC /* TKWinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKWinViewController.h; sourceTree = "<group>"; };
 		503AAF931893EC5D00D47BFC /* TKWinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKWinViewController.m; sourceTree = "<group>"; };
+		505FFA8E18A2AF6400E365ED /* TKBTTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKBTTestViewController.h; sourceTree = "<group>"; };
+		505FFA8F18A2AF6400E365ED /* TKBTTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKBTTestViewController.m; sourceTree = "<group>"; };
 		50ED335B18928C8100C4B45C /* TKStartTimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKStartTimerViewController.h; sourceTree = "<group>"; };
 		50ED335C18928C8100C4B45C /* TKStartTimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKStartTimerViewController.m; sourceTree = "<group>"; };
 		50ED335E18929D3100C4B45C /* TKStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKStyle.h; sourceTree = "<group>"; };
@@ -260,6 +263,8 @@
 			children = (
 				F4AF80A31893C2D700B9C9CB /* Images.xcassets */,
 				F4416B20188454BA00399D36 /* Storyboard.storyboard */,
+				505FFA8E18A2AF6400E365ED /* TKBTTestViewController.h */,
+				505FFA8F18A2AF6400E365ED /* TKBTTestViewController.m */,
 				F4AF80AA1893C36700B9C9CB /* Managers */,
 				F4AF80A61893C30A00B9C9CB /* API */,
 				F4AF80A51893C2F000B9C9CB /* Application */,
@@ -562,6 +567,7 @@
 				50ED33771892C0D800C4B45C /* TKShootViewController.m in Sources */,
 				F4416AFD18844EF300399D36 /* TKAppDelegate.m in Sources */,
 				F49769EB1893B616000559A3 /* TKSoundManager.m in Sources */,
+				505FFA9018A2AF6400E365ED /* TKBTTestViewController.m in Sources */,
 				F4AF80C51893D15700B9C9CB /* AFNetworkReachabilityManager.m in Sources */,
 				F4AF80A91893C33400B9C9CB /* TKServer.m in Sources */,
 			);

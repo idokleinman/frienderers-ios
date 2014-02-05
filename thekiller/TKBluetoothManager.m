@@ -27,7 +27,8 @@ NSString* const CHARACTERISTIC_UUID = @"BD5DF558-9DF1-4216-8521-411D6F917A8C";
 @property (strong, nonatomic) NSString* centralStatus;
 
 @property (strong, nonatomic) NSMutableDictionary* nearbyDevicesDictionary;
-
+@property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSDate *lastUpdate;
 @end
 
 @implementation TKBluetoothManager
@@ -45,7 +46,7 @@ NSString* const CHARACTERISTIC_UUID = @"BD5DF558-9DF1-4216-8521-411D6F917A8C";
 - (void)startWithName:(NSString *)name
 {
     NSParameterAssert(name);
-    
+    _name = name;
     // set up peripheral
     NSData* data = [@"Hello, world" dataUsingEncoding:NSUTF8StringEncoding];
     
@@ -57,14 +58,11 @@ NSString* const CHARACTERISTIC_UUID = @"BD5DF558-9DF1-4216-8521-411D6F917A8C";
     
     
     
-    NSDictionary* d = @{ CBAdvertisementDataLocalNameKey: name,
-                         CBAdvertisementDataServiceUUIDsKey: @[ service.UUID ] };
-    
-    [self.peripheral startAdvertising:d];
     [self peripheralManagerDidUpdateState:self.peripheral];
     
     // set up central
     self.central = [[CBCentralManager alloc] initWithDelegate:self queue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0) options:nil];
+    
     [self centralManagerDidUpdateState:self.central];
     
     self.nearbyDevicesDictionary = [NSMutableDictionary new];
@@ -76,7 +74,15 @@ NSString* const CHARACTERISTIC_UUID = @"BD5DF558-9DF1-4216-8521-411D6F917A8C";
 - (void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral
 {
     self.peripheralStatus = DescriptionForState(peripheral.state);
+    
+    NSDictionary* d = @{ CBAdvertisementDataLocalNameKey: self.name,
+                         CBAdvertisementDataServiceUUIDsKey: @[ [CBUUID UUIDWithString:SERVICE_UUID] ] };
+    
+    [self.peripheral startAdvertising:d];
+
     NSLog(@"Peripheral Status: %@", self.peripheralStatus);
+    
+    
 }
 
 - (void)peripheralManager:(CBPeripheralManager *)peripheral didAddService:(CBService *)service error:(NSError *)error
@@ -112,18 +118,31 @@ NSString* const CHARACTERISTIC_UUID = @"BD5DF558-9DF1-4216-8521-411D6F917A8C";
     return  device;
 }
 
+
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
 {
     if (!peripheral.name) {
         return;
     }
-    
+    NSLog(@"discovered %@ with RSSI %d",peripheral.name,[RSSI intValue]);
     TKDevice* device = [self deviceWithName:peripheral.name];
     [device addSample:RSSI];
+    
+    for (TKDevice* device in [self.nearbyDevicesDictionary allValues])
+    {
+        NSTimeInterval iv = [[NSDate date] timeIntervalSinceDate:device.lastUpdate];
+        if (iv > 3.0f) // kill devices older than 3 seconds from last update
+        {
+            [self.nearbyDevicesDictionary removeObjectForKey:device.name];
+            NSLog(@"device %@ is out of range",device.name);
+        }
+    }
     
     if (device.rssi != device.prevRSSI) {
         [self willChangeValueForKey:@"nearbyDevicesDictionary"];
         [self didChangeValueForKey:@"nearbyDevicesDictionary"];
+        
+        NSLog(@"Updated %@ with RSSI %d",device.name,device.rssi);
         
         
     }

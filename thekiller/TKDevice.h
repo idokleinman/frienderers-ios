@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+/*
 typedef NS_ENUM(NSUInteger, rangeType) {
     VERY_NEAR = 0,
     NEAR,
@@ -15,14 +16,15 @@ typedef NS_ENUM(NSUInteger, rangeType) {
     FAR,
     VERY_FAR
 };
+*/
 
 @interface TKDevice : NSObject
 
 @property (readonly, nonatomic) NSString* name;
-@property (readonly, nonatomic) NSArray* rssiSamples;
 @property (readonly, nonatomic) NSInteger prevRSSI;
 @property (readonly, nonatomic) NSInteger rssi;
-@property (readonly, nonatomic) rangeType range;
+@property (readonly, nonatomic) BOOL inRange;
+@property (readonly, nonatomic) NSDate *lastUpdate;
 
 
 - (id)initWithName:(NSString*)name;

@@ -61,7 +61,7 @@
         TKDevice *device = [[TKBluetoothManager sharedManager].nearbyDevicesDictionary objectForKey:self.targetProfileID];
         if (device)
         {
-            if (device.range == VERY_NEAR)
+            if (device.inRange)
             {
                 _isTargetInRange = YES;
                 // add glow to gun icon $$$

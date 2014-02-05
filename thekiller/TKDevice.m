@@ -11,10 +11,14 @@
 
 @interface TKDevice ()
 @property (strong, nonatomic) NSString* name;
-@property (strong, nonatomic) NSArray* rssiSamples;
+@property (strong, nonatomic) NSMutableArray* rssiSamples;
+//@property (strong, nonatomic) NSDate* lastUpdate;
 @end
 
 @implementation TKDevice
+
+@synthesize rssi = _rssi;
+
 - (id)initWithName:(NSString*)name {
     if (self = [super init]) {
         self.name = name;
@@ -22,22 +26,62 @@
     }
     return self;
 }
--(void)addSample:(NSNumber *)sample{
-    NSMutableArray* samples = (NSMutableArray*)self.rssiSamples;
-    [samples addObject:sample];
-    if (samples.count > 50) {
-        [samples removeObjectAtIndex:0];
+
+
+-(NSInteger)rssi
+{
+    @synchronized (self.rssiSamples) {
+        // average the RSSI samples from the last 1.5 seconds
+        NSInteger sum = 0, count = 0;
+        for (NSArray* sample in self.rssiSamples)
+        {
+            if ([[NSDate date] timeIntervalSinceDate:sample[1]] < 1.5f)
+            {
+                sum += [sample[0] integerValue];
+                count++;
+            }
+        }
+        
+        _prevRSSI = _rssi;
+        _rssi = (NSInteger)((CGFloat)sum / count);
+        
+        return _rssi;
     }
-    
-    NSInteger sum = 0;
-    for (NSNumber* sample in samples) {
-        sum += [sample integerValue];
-    }
-    
-    _prevRSSI = _rssi;
-    _rssi = (NSInteger)((CGFloat)sum / samples.count);
 }
 
+-(void)addSample:(NSNumber *)sample
+{
+    @synchronized (self.rssiSamples) {
+        [self.rssiSamples addObject:@[sample,[NSDate date]]];
+        if (self.rssiSamples.count > 100)
+        {
+            [self.rssiSamples removeObjectAtIndex:0];
+        }
+        _lastUpdate = [NSDate date];
+    }
+}
+
+
+-(BOOL)inRange
+{
+    NSTimeInterval iv = [[NSDate date] timeIntervalSinceDate:self.lastUpdate];
+    if (iv < 2.0f) // kill devices older than 2 seconds from last update
+    {
+        if (self.rssi > -65)
+            return YES;
+        else
+            return NO;
+        
+    
+    }
+    else
+        return NO;
+
+    
+}
+
+
+/*
 -(rangeType)range
 {
     if (self.rssi < -90)
@@ -58,6 +102,7 @@
     
     return VERY_FAR;
 }
+*/
 
 - (NSString *)description {
     return self.name;
