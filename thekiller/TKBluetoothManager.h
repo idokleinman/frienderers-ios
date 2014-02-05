@@ -16,5 +16,7 @@
 
 +(TKBluetoothManager *)sharedManager;
 - (void)startWithName:(NSString *)name;
+- (void) observeStateOfBluetooth;
+- (void) handleBluetoothNotify;
 
 @end

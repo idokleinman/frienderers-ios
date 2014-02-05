@@ -95,6 +95,12 @@ NSString* const CHARACTERISTIC_UUID = @"BD5DF558-9DF1-4216-8521-411D6F917A8C";
     
     if (central.state == CBCentralManagerStatePoweredOn) {
         [self.central scanForPeripheralsWithServices:@[ [CBUUID UUIDWithString:SERVICE_UUID] ] options:@{ CBCentralManagerScanOptionAllowDuplicatesKey: @YES }];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"bluetoothIsOffNotification" object:self userInfo:@{@"isBluetoothWorking":@(YES)}];
+    }
+    else
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"bluetoothIsOffNotification" object:self userInfo:@{@"isBluetoothWorking":@(NO)}];
     }
 }
 
@@ -154,6 +160,18 @@ NSString* DescriptionForState(NSInteger state)
     }
     
     return description;
+}
+
+- (void) observeStateOfBluetooth
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleBluetoothNotify:) name:@"bluetoothIsOffNotification" object:nil];
+}
+
+- (void) handleBluetoothNotify:(NSNotification *)notification
+{
+    if (notification.userInfo[@"isBluetoothWorking"]){
+        NSLog(@"me luv u long time!");
+    }
 }
 
 @end
