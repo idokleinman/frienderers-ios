@@ -23,5 +23,7 @@
 - (void)shootTarget:(NSString*)targetID success:(BOOL)success nearby:(NSArray*)nearby completion:(void(^)(NSString* nextTargetID, NSString *targetName, NSError* error))completion;
 - (void)joinGame:(void(^)(BOOL success, NSError* error))completion;
 - (void)startGame:(NSString*)gameid completion:(void(^)(NSDictionary* game, NSError* error))completion;
+- (void)allGames:(void(^)(NSArray* games, NSError* error))completion;
+- (void)detailsForGameID:(NSString*)gameID completion:(void(^)(TKGameInfo* gameInfo, NSError* error))completion;
 
 @end

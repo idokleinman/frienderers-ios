@@ -16,7 +16,6 @@ TKAppViewController* AppController() {
 }
 
 @interface TKInternalViewController : UIViewController
-
 @end
 
 @implementation TKInternalViewController
@@ -25,6 +24,7 @@ TKAppViewController* AppController() {
 @interface TKAppViewController ()
 
 @property (strong, nonatomic) TKInternalViewController* internalViewController;
+@property (strong, nonatomic) IBOutlet UIButton* testerButton;
 
 @end
 
@@ -33,6 +33,11 @@ TKAppViewController* AppController() {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+#ifdef DEBUG
+    self.testerButton.hidden = NO;
+#endif
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleNotification:) name:@"remoteNotificationReceived" object:nil];
     
     UINavigationController* n = self.childViewControllers[0];
@@ -336,4 +341,11 @@ TKAppViewController* AppController() {
     
     return resultUIImage;
 }
+
+#pragma mark - Tester
+
+- (IBAction)showTester:(id)sender {
+    [self performSegueWithIdentifier:@"tester" sender:self];
+}
+
 @end

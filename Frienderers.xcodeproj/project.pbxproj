@@ -30,6 +30,7 @@
 		C8F2B4011892E5D300561DBC /* TKAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F2B3FC1892E5D300561DBC /* TKAppViewController.m */; };
 		C8F2B4071893A82E00561DBC /* JollyLodger.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8F2B4061893A82300561DBC /* JollyLodger.ttf */; };
 		C8F2B4081893A82E00561DBC /* Rosewood.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8F2B3F91892E51D00561DBC /* Rosewood.ttf */; };
+		F408589C18A2CFFC00A68FC5 /* TKTesterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F408589B18A2CFFC00A68FC5 /* TKTesterViewController.m */; };
 		F40CBB8E18926594008E2248 /* TKLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F40CBB8D18926594008E2248 /* TKLoginViewController.m */; };
 		F40CBB9418926DD8008E2248 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40CBB9318926DD8008E2248 /* FacebookSDK.framework */; };
 		F4416AED18844EF300399D36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4416AEC18844EF300399D36 /* Foundation.framework */; };
@@ -111,6 +112,8 @@
 		C8F2B3FC1892E5D300561DBC /* TKAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKAppViewController.m; sourceTree = "<group>"; };
 		C8F2B3FD1892E5D300561DBC /* TKAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKAppViewController.h; sourceTree = "<group>"; };
 		C8F2B4061893A82300561DBC /* JollyLodger.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = JollyLodger.ttf; sourceTree = "<group>"; };
+		F408589A18A2CFFC00A68FC5 /* TKTesterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKTesterViewController.h; sourceTree = "<group>"; };
+		F408589B18A2CFFC00A68FC5 /* TKTesterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKTesterViewController.m; sourceTree = "<group>"; };
 		F40CBB8C18926594008E2248 /* TKLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKLoginViewController.h; sourceTree = "<group>"; };
 		F40CBB8D18926594008E2248 /* TKLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKLoginViewController.m; sourceTree = "<group>"; };
 		F40CBB9318926DD8008E2248 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
@@ -222,6 +225,17 @@
 			name = Create;
 			sourceTree = "<group>";
 		};
+		F408589918A2CFE800A68FC5 /* Testing */ = {
+			isa = PBXGroup;
+			children = (
+				F408589A18A2CFFC00A68FC5 /* TKTesterViewController.h */,
+				F408589B18A2CFFC00A68FC5 /* TKTesterViewController.m */,
+				505FFA8E18A2AF6400E365ED /* TKBTTestViewController.h */,
+				505FFA8F18A2AF6400E365ED /* TKBTTestViewController.m */,
+			);
+			name = Testing;
+			sourceTree = "<group>";
+		};
 		F4416AE018844EF300399D36 = {
 			isa = PBXGroup;
 			children = (
@@ -263,13 +277,12 @@
 			children = (
 				F4AF80A31893C2D700B9C9CB /* Images.xcassets */,
 				F4416B20188454BA00399D36 /* Storyboard.storyboard */,
-				505FFA8E18A2AF6400E365ED /* TKBTTestViewController.h */,
-				505FFA8F18A2AF6400E365ED /* TKBTTestViewController.m */,
 				F4AF80AA1893C36700B9C9CB /* Managers */,
 				F4AF80A61893C30A00B9C9CB /* API */,
 				F4AF80A51893C2F000B9C9CB /* Application */,
 				C8F2B3D81892953E00561DBC /* Create */,
 				F4AF80AB1893C3E900B9C9CB /* Game */,
+				F408589918A2CFE800A68FC5 /* Testing */,
 				F4AF809D1893C2AC00B9C9CB /* Notifications */,
 				F4AF80AC1893C47100B9C9CB /* Utils */,
 			);
@@ -540,6 +553,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F408589C18A2CFFC00A68FC5 /* TKTesterViewController.m in Sources */,
 				F49769EE1893B65F000559A3 /* TKDevice.m in Sources */,
 				F4AF80C61893D15700B9C9CB /* AFSecurityPolicy.m in Sources */,
 				F4AF80C31893D15700B9C9CB /* AFHTTPRequestOperationManager.m in Sources */,

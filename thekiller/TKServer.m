@@ -274,6 +274,34 @@
     }] resume];
 }
 
+- (void)detailsForGameID:(NSString*)gameID completion:(void(^)(TKGameInfo* gameInfo, NSError* error))completion {
+    NSString* path = [NSString stringWithFormat:@"/games/%@", gameID];
+    NSString* url = [[self URLWithPath:path] absoluteString];
+    NSMutableURLRequest* req = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:url parameters:nil error:nil];
+    [self request:req completion:^(id response, NSError *error) {
+        if (error) {
+            completion(nil, error);
+            return;
+        }
+        
+        TKGameInfo* gi = [[TKGameInfo alloc] initWithDictionary:response];
+        completion(gi, nil);
+    }];
+}
+
+- (void)allGames:(void(^)(NSArray* games, NSError* error))completion {
+    NSString* url = [[self URLWithPath:@"/games"] absoluteString];
+    NSMutableURLRequest* req = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET" URLString:url parameters:nil error:nil];
+    [self request:req completion:^(id response, NSError *error) {
+        if (error) {
+            completion(nil, error);
+            return;
+        }
+        
+        completion(response, nil);
+    }];
+}
+
 NSError* MakeErrorWithMessage(NSString* desc) {
     NSError* error = [NSError errorWithDomain:@"TKServer" code:0 userInfo:@{ NSLocalizedDescriptionKey: desc }];
     return error;
