@@ -12,7 +12,7 @@
 @interface TKNotificationView : TKView
 @property (strong, nonatomic) IBOutlet UILabel *headerLabel;
 @property (strong, nonatomic) IBOutlet UILabel *topTitleLabel;
-@property (strong, nonatomic) IBOutlet UIImageView *profilePicture;
+@property (strong, nonatomic) IBOutlet UIImageView *notificationImage;
 @property (strong, nonatomic) IBOutlet UILabel *bottomTitleLabel;
 @property (strong, nonatomic) IBOutlet UIButton *continueButton;
 @property (strong, nonatomic) IBOutlet UILabel *buttonLabel;

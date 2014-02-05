@@ -100,6 +100,8 @@ TKAppViewController* AppController() {
             view.buttonLabel.hidden = YES;
             view.needsToFadeOut = YES;
             view.singleLabel.hidden = YES;
+            view.notificationImage.hidden = YES;
+            
             break;
             
         case remoteNotificationKillFailed:
@@ -107,11 +109,12 @@ TKAppViewController* AppController() {
             [view.singleLabel setAttributedText:getAsPopupAttributedString(@"Witness \n Warning!", NSTextAlignmentCenter)];
             view.headerLabel.hidden = YES;
             view.topTitleLabel.hidden = YES;
-            view.profilePicture.hidden = YES;
+            view.notificationImage.hidden = YES;
             view.bottomTitleLabel.hidden = YES;
             view.continueButton.hidden = YES;
             view.buttonLabel.hidden = YES;
             view.needsToFadeOut = YES;
+            
             break;
         
         case remoteNotificationRunAway:
@@ -119,11 +122,12 @@ TKAppViewController* AppController() {
             [view.singleLabel setAttributedText:getAsPopupAttributedString(@"Shooting \n Nearby!", NSTextAlignmentCenter)];
             view.headerLabel.hidden = YES;
             view.topTitleLabel.hidden = YES;
-            view.profilePicture.hidden = YES;
+            view.notificationImage.hidden = YES;
             view.bottomTitleLabel.hidden = YES;
             view.continueButton.hidden = YES;
             view.buttonLabel.hidden = YES;
             view.needsToFadeOut = YES;
+            
             break;
             
         case remoteNotificationSomeoneDied:
@@ -141,6 +145,8 @@ TKAppViewController* AppController() {
             view.buttonLabel.hidden = YES;
             view.needsToFadeOut = YES;
             view.singleLabel.hidden = YES;
+            view.notificationImage.hidden = YES;
+            
             break;
             
         case remoteNotificationSomeoneWin:
@@ -156,6 +162,7 @@ TKAppViewController* AppController() {
             [view.buttonLabel setAttributedText:getAsSmallAttributedString(@"Let's start another round", NSTextAlignmentCenter)];
             view.needsToFadeOut = NO;
             view.singleLabel.hidden = YES;
+            view.notificationImage.hidden = YES;
             
             break;
             
@@ -172,18 +179,20 @@ TKAppViewController* AppController() {
             [view.buttonLabel setAttributedText:getAsSmallAttributedString(@"You won't be forgotten & will be updated with the events to come", NSTextAlignmentCenter)];
             view.singleLabel.hidden = YES;
             view.needsToFadeOut = NO;
+            view.notificationImage.hidden = YES;
+            
             break;
             
         case remoteNotificationGameBegins:
-            [view.singleLabel setAttributedText:getAsSmallAttributedString(@"The game is starting now! \n Ther's no way out \n All you have left is to kill or die", NSTextAlignmentCenter)];
+            [view.singleLabel setAttributedText:getAsSmallAttributedString(@"The game is starting now! \n There's no way out \n All you have left is to kill or die", NSTextAlignmentCenter)];
             view.headerLabel.hidden = YES;
             view.topTitleLabel.hidden = YES;
-            view.profilePicture.hidden = YES;
+            view.notificationImage.hidden = YES;
             view.bottomTitleLabel.hidden = YES;
             view.continueButton.hidden = YES;
             view.buttonLabel.hidden = YES;
-            
             view.needsToFadeOut = YES;
+            
             break;
             
         case remoteNotificationsInviteReceived:
@@ -193,14 +202,37 @@ TKAppViewController* AppController() {
             [view.singleLabel setAttributedText:getAsSmallAttributedString(str, NSTextAlignmentCenter)];
             view.headerLabel.hidden = YES;
             view.topTitleLabel.hidden = YES;
-            view.profilePicture.hidden = YES;
+            view.notificationImage.hidden = YES;
             view.bottomTitleLabel.hidden = YES;
             view.continueButton.hidden = NO;
             view.buttonLabel.hidden = NO;
             [view.buttonLabel setAttributedText:getAsSmallAttributedString(@"Accept or die!", NSTextAlignmentCenter)];
             view.needsToFadeOut = NO;
+            
             break;
         }
+            
+        case remoteNotificationsBTClosed:
+        {
+            UIImage *bluetoothImage = [[UIImage alloc] initWithContentsOfFile:@"BlueTooth"];
+            
+            [view.notificationImage setImage:bluetoothImage];
+            [view.buttonLabel setAttributedText:getAsSmallAttributedString(@"Frienderers is using only Bluetooth Low Energy, \n so it won't kill your battery", NSTextAlignmentCenter)];
+            [view.singleLabel setAttributedText:getAsSmallAttributedString(@"Bluetooth is your secret weapon & \n it must be enabled at all times", NSTextAlignmentCenter)];
+            
+            view.notificationImage.hidden = NO;
+            view.buttonLabel.hidden = NO;
+            view.singleLabel.hidden = NO;
+            
+            view.headerLabel.hidden = YES;
+            view.topTitleLabel.hidden = YES;
+            view.bottomTitleLabel.hidden = YES;
+            view.continueButton.hidden = YES;
+            view.needsToFadeOut = NO;
+            
+            break;
+        }
+            
         default:
             break;
     }
