@@ -21,7 +21,7 @@
                         <action selector="dismissNotificationView:" destination="1" eventType="touchUpInside" id="B86-72-nic"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ImQ-wM-hoG" customClass="TKView">
+                <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ImQ-wM-hoG" customClass="TKView">
                     <rect key="frame" x="20" y="116" width="280" height="343"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
@@ -100,6 +100,6 @@
         </view>
     </objects>
     <resources>
-        <image name="Tick.png" width="59" height="44"/>
+        <image name="Tick.png" width="34" height="34"/>
     </resources>
 </document>
