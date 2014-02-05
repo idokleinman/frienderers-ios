@@ -9,6 +9,7 @@
 #import "TKStartTimerViewController.h"
 #import "TKServer.h"
 #import "TKSoundManager.h"
+#import "TKAppViewController.h"
 
 @interface TKStartTimerViewController ()
 
@@ -72,6 +73,11 @@
         }];
         
         self.gameInfo = gameInfo;
+        
+        for (NSString *fbid in gameInfo.invited) {
+            [AppController() loadProfilePicture:fbid];
+        }
+        
         [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(runGameStartTimer:) userInfo:nil repeats:YES];
     }];
 }

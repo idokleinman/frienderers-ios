@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TKNotificationView.h"
 
 typedef enum {
     remoteNotificationKillSucceeded = 1,
@@ -23,7 +24,12 @@ typedef enum {
 
 @interface TKAppViewController : UIViewController
 
+@property (strong, nonatomic) NSMutableDictionary *profilePictures;
+
 - (void)reloadState;
+-(void)closeNotificationView:(TKNotificationView *)view;
+-(TKNotificationView *)showNotification:(NSDictionary *)params;
+-(void)loadProfilePicture:(NSString *)facebookID;
 
 @end
 

@@ -50,15 +50,9 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yyk-Jb-Akx" customClass="FBProfilePictureView">
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yyk-Jb-Akx" customClass="UIImageView">
                             <rect key="frame" x="20" y="56" width="240" height="240"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="CJ6-YM-8H2">
-                                    <rect key="frame" x="110" y="110" width="20" height="20"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </activityIndicatorView>
-                            </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>
                     </subviews>
@@ -96,10 +90,10 @@
                 <outlet property="bottomTitleLabel" destination="wqc-ZB-jwV" id="fXP-sf-zur"/>
                 <outlet property="buttonLabel" destination="91F-sN-j0o" id="UUb-An-Dxi"/>
                 <outlet property="continueButton" destination="S0D-Q1-YVN" id="NSO-wL-12H"/>
-                <outlet property="fbProfilePicture" destination="yyk-Jb-Akx" id="XTP-tY-3mj"/>
+                <outlet property="fbProfilePicture" destination="yyk-Jb-Akx" id="gfQ-ZZ-WJI"/>
                 <outlet property="headerLabel" destination="mDO-pV-SuO" id="VpD-dw-BGd"/>
+                <outlet property="notificationImage" destination="4gh-Qv-4u0" id="VCS-WP-h77"/>
                 <outlet property="popupView" destination="ImQ-wM-hoG" id="m0P-lj-Tv4"/>
-                <outlet property="profilePicture" destination="yyk-Jb-Akx" id="rBa-zj-zlA"/>
                 <outlet property="singleLabel" destination="z7y-jE-3xk" id="pwe-ix-k5c"/>
                 <outlet property="topTitleLabel" destination="uc8-I5-h9i" id="99x-GR-g7n"/>
             </connections>

@@ -7,7 +7,6 @@
 //
 
 #import "TKAppViewController.h"
-#import "TKNotificationView.h"
 #import "TKServer.h"
 #import "TKAppDelegate.h"
 #import <FacebookSDK/FacebookSDK.h>
@@ -39,7 +38,7 @@ TKAppViewController* AppController() {
     UINavigationController* n = self.childViewControllers[0];
     self.internalViewController = (TKInternalViewController*)n.topViewController;
     
-//    [self performSelector:@selector(showAlert) withObject:nil afterDelay:3.0];
+    self.profilePictures = [NSMutableDictionary dictionary];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -49,12 +48,6 @@ TKAppViewController* AppController() {
 
 - (BOOL)prefersStatusBarHidden {
     return YES;
-}
-
--(void)showAlert
-{
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"remoteNotificationReceived" object:nil userInfo:@{@"loc-args":@{@"type":@(remoteNotificationYouDead), @"name":@"Amit"}}];
-
 }
 
 - (void)reloadState {
@@ -82,7 +75,7 @@ TKAppViewController* AppController() {
     NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"TKNotificationView" owner:self options:nil];
     TKNotificationView *view = arr[0];
     
-    RemoteNotifications type = (RemoteNotifications)[data[@"loc-args"][@"type"] intValue];
+    RemoteNotifications type = (RemoteNotifications)[data[@"type"] intValue];
     
     switch (type) {
         case remoteNotificationKillSucceeded:
@@ -92,8 +85,7 @@ TKAppViewController* AppController() {
             view.headerLabel.hidden = YES;
             [view.topTitleLabel setText:@"KILLED"];
             [view.topTitleLabel setFont:[UIFont fontWithName:@"Rosewood" size:67.0]];
-            [view.fbProfilePicture setProfileID:data[@"loc-args"][@"subjectid"]];
-            [view.fbProfilePicture setPictureCropping:FBProfilePictureCroppingSquare];
+            [view.fbProfilePicture setImage:[UIImage imageWithData:self.profilePictures[data[@"subjectid"]]]];
             [view.bottomTitleLabel setText:@"REST IN PEACE"];
             [view.bottomTitleLabel setFont:[UIFont fontWithName:@"Rosewood" size:35.0]];
             view.continueButton.hidden = YES;
@@ -137,8 +129,7 @@ TKAppViewController* AppController() {
             view.headerLabel.hidden = YES;
             [view.topTitleLabel setText:@"KILLED"];
             [view.topTitleLabel setFont:[UIFont fontWithName:@"Rosewood" size:67.0]];
-            [view.fbProfilePicture setProfileID:data[@"loc-args"][@"subjectid"]];
-            [view.fbProfilePicture setPictureCropping:FBProfilePictureCroppingSquare];
+            [view.fbProfilePicture setImage:[UIImage imageWithData:self.profilePictures[data[@"subjectid"]]]];
             [view.bottomTitleLabel setText:@"REST IN PEACE"];
             [view.bottomTitleLabel setFont:[UIFont fontWithName:@"Rosewood" size:35.0]];
             view.continueButton.hidden = YES;
@@ -150,12 +141,11 @@ TKAppViewController* AppController() {
             break;
             
         case remoteNotificationSomeoneWin:
-            [view.headerLabel setAttributedText:getAsSmallAttributedString([NSString stringWithFormat:@"%@ just killed the last victim", data[@"loc-args"][@"name"]],NSTextAlignmentCenter)];
+            [view.headerLabel setAttributedText:getAsSmallAttributedString([NSString stringWithFormat:@"%@ just killed the last victim", data[@"name"]],NSTextAlignmentCenter)];
             view.headerLabel.hidden = YES;
             [view.topTitleLabel setText:@"WINNER"];
             [view.topTitleLabel setFont:[UIFont fontWithName:@"Rosewood" size:67.0]];
-            [view.fbProfilePicture setProfileID:data[@"loc-args"][@"subjectid"]];
-            [view.fbProfilePicture setPictureCropping:FBProfilePictureCroppingSquare];
+            [view.fbProfilePicture setImage:[UIImage imageWithData:self.profilePictures[data[@"subjectid"]]]];
             [view.bottomTitleLabel setText:@"MEGA KILLER"];
             [view.bottomTitleLabel setFont:[UIFont fontWithName:@"Rosewood" size:35.0]];
             
@@ -167,12 +157,10 @@ TKAppViewController* AppController() {
             break;
             
         case remoteNotificationYouDead:
-            [view.headerLabel setAttributedText:getAsSmallAttributedString([NSString stringWithFormat:@"%@ just shot you", data[@"loc-args"][@"name"]], NSTextAlignmentCenter)];
+            [view.headerLabel setAttributedText:getAsSmallAttributedString([NSString stringWithFormat:@"%@ just shot you", data[@"name"]], NSTextAlignmentCenter)];
             [view.topTitleLabel setText:@"YOU'RE DEAD"];
             [view.topTitleLabel setFont:[UIFont fontWithName:@"Rosewood" size:40.0]];
-            
-            [view.fbProfilePicture setProfileID:data[@"loc-args"][@"subjectid"]];
-            [view.fbProfilePicture setPictureCropping:FBProfilePictureCroppingSquare];
+            [view.fbProfilePicture setImage:[UIImage imageWithData:self.profilePictures[data[@"subjectid"]]]];
             [view.bottomTitleLabel setText:@"REST IN PEACE"];
             [view.bottomTitleLabel setFont:[UIFont fontWithName:@"Rosewood" size:35.0]];
             view.continueButton.hidden = YES;
@@ -197,7 +185,7 @@ TKAppViewController* AppController() {
             
         case remoteNotificationsInviteReceived:
         {
-            NSString *str = [NSString stringWithFormat:@"%@ has invited you to join a Frienderers game starts on %@", data[@"loc-args"][@"name"], data[@"loc-args"][@"start_time"]];
+            NSString *str = [NSString stringWithFormat:@"%@ has invited you to join a Frienderers game starts on %@", data[@"name"], data[@"start_time"]];
             
             [view.singleLabel setAttributedText:getAsSmallAttributedString(str, NSTextAlignmentCenter)];
             view.headerLabel.hidden = YES;
@@ -240,13 +228,11 @@ TKAppViewController* AppController() {
     return view;
 }
 
--(void)handleNotification:(NSNotification *)notification
+-(TKNotificationView *)showNotification:(NSDictionary *)params
 {
-    TKNotificationView *view = [self createNotificationViewWithData:notification.userInfo];
-//    view.center = self.view.center;
+    TKNotificationView *view = [self createNotificationViewWithData:params];
     view.alpha = 0;
     [self.view addSubview:view];
-//    [self.view addSubview:view];
     
     [UIView animateWithDuration:0.4 animations:^{
         view.alpha = 1.0;
@@ -255,13 +241,37 @@ TKAppViewController* AppController() {
             [self performSelector:@selector(closeNotificationView:) withObject:view afterDelay:7.0];
         }
     }];
+    
+    return view;
 }
 
--(void)closeNotificationView:(UIView *)view
+-(void)handleNotification:(NSNotification *)notification
+{
+    [self showNotification:notification.userInfo[@"loc-args"]];
+}
+
+-(void)closeNotificationView:(TKNotificationView *)view
 {
     if (view.superview) {
         [view removeFromSuperview];
     }
+}
+
+-(void)loadProfilePicture:(NSString *)facebookID
+{
+    NSString *urlString = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?width=240&height=240", facebookID];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    [[session dataTaskWithURL:url
+            completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                    self.profilePictures[facebookID] = data;
+                }];
+                
+            }] resume];
 }
 
 @end
