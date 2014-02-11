@@ -19,6 +19,8 @@
 
 @property (strong, nonatomic) NSString* userid;
 @property (strong, nonatomic) NSDictionary* profile;
+@property (assign, nonatomic) TKUserState state;
+@property (strong, nonatomic) TKGameInfo* game;
 
 @end
 
@@ -28,6 +30,10 @@
     static TKServer* i = NULL;
     if (!i) {
         i = [[TKServer alloc] init];
+        i.state = TKUserStateNotInvited;
+        i.userid = nil;
+        i.game = nil;
+        i.profile = nil;
     }
     return i;
 }
@@ -79,37 +85,6 @@
     // register remote notifications once we set the authentication cookie
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
     
-//    
-////#ifdef DEBUG
-////    [self registerPushToken:@"ff1cb8fb9b49794dc6268a5b28132496257e19b611b046a7abe1c458294e0d7d"];
-////#endif
-////    [self createGameWithTitle:@"GAME_TITLE" startTime:[NSDate date] playerUserIDs:@[ @"1234", @"3333" ] completion:^(NSDictionary* game, NSError *error) {
-////        NSLog(@"created game: %@", game);
-////    }];
-//    [self hello:^(NSDictionary *existingGame, NSError *error) {
-//        NSLog(@"existingGame: %@", existingGame);
-//    }];
-//    
-//    [self createGameWithTitle:@"game_title" startTime:[NSDate date] playerUserIDs:@[ @"620032", @"1234", @"3333" ] completion:^(NSDictionary *game, NSError *error) {
-//        NSLog(@"game: %@", game);
-//        
-//        [self joinGame:^(BOOL success, NSError *error) {
-//            if (!success) {
-//                NSLog(@"FAILED TO JOIN GAME");
-//            }
-//            
-//            NSLog(@"JOIN");
-//            
-//            [self startGame:game[@"gameid"] completion:^(NSDictionary *game, NSError *error) {
-//                
-//                [self shootTarget:@"1234" success:YES nearby:@[@"aaa"] completion:^(NSString *nextTargetID, NSError *error) {
-//                    NSLog(@"SHOOT");
-//                }];
-//            }];
-//            
-//        }];
-//    }];
-    
     return YES;
 }
 
@@ -124,13 +99,28 @@
         
         self.profile = response[@"profile"];
         self.userid = response[@"userid"];
+        self.state = [self parseState:response[@"state"]];
         
         NSLog(@"loggin with with userid %@", self.userid);
         NSLog(@"facebook profile: %@", self.profile);
         
         TKGameInfo* gameInfo = [[TKGameInfo alloc] initWithDictionary:response[@"existing-game"]];
+        self.game = gameInfo;
         completion(gameInfo, nil);
     }];
+}
+
+- (TKUserState)parseState:(id)responseState {
+    if (!responseState) {
+        return TKUserStateUnknown;
+    }
+    
+    if ([responseState isEqualToString:@"not_invited"]) return TKUserStateNotInvited;
+    if ([responseState isEqualToString:@"invited"]) return TKUserStateInvited;
+    if ([responseState isEqualToString:@"joined"]) return TKUserStateJoined;
+    if ([responseState isEqualToString:@"alive"]) return TKUserStateAlive;
+    if ([responseState isEqualToString:@"dead"]) return TKUserStateDead;
+    return TKUserStateUnknown;
 }
 
 - (void)nextTarget:(void(^)(NSString* targetUserID, NSString *targetName, NSError* error))completion {

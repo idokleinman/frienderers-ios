@@ -146,8 +146,6 @@ NSString* const CHARACTERISTIC_UUID = @"BD5DF558-9DF1-4216-8521-411D6F917A8C";
         [self didChangeValueForKey:@"nearbyDevicesDictionary"];
         
         NSLog(@"Updated %@ with RSSI %d",device.name,device.rssi);
-        
-        
     }
 }
 

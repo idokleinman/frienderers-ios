@@ -8,10 +8,22 @@
 
 #import <Foundation/Foundation.h>
 #import "TKGameInfo.h"
+
+typedef enum {
+    TKUserStateUnknown = -1,
+    TKUserStateNotInvited = 0,
+    TKUserStateInvited,
+    TKUserStateJoined,
+    TKUserStateAlive,
+    TKUserStateDead
+} TKUserState;
+
 @interface TKServer : NSObject
 
 @property (readonly, nonatomic) NSString* userid;
 @property (readonly, nonatomic) NSDictionary* profile;
+@property (readonly, nonatomic) TKUserState state;
+@property (readonly, nonatomic) TKGameInfo* game;
 
 + (TKServer*)sharedInstance;
 
