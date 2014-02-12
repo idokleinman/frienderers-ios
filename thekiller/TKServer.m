@@ -99,7 +99,6 @@
         
         self.profile = response[@"profile"];
         self.userid = response[@"userid"];
-        self.state = [self parseState:response[@"state"]];
         
         NSLog(@"loggin with with userid %@", self.userid);
         NSLog(@"facebook profile: %@", self.profile);
@@ -110,17 +109,30 @@
     }];
 }
 
-- (TKUserState)parseState:(id)responseState {
-    if (!responseState) {
+TKUserState TKUserStateFromNSString(NSString* s) {
+    if (!s) {
         return TKUserStateUnknown;
     }
     
-    if ([responseState isEqualToString:@"not_invited"]) return TKUserStateNotInvited;
-    if ([responseState isEqualToString:@"invited"]) return TKUserStateInvited;
-    if ([responseState isEqualToString:@"joined"]) return TKUserStateJoined;
-    if ([responseState isEqualToString:@"alive"]) return TKUserStateAlive;
-    if ([responseState isEqualToString:@"dead"]) return TKUserStateDead;
+    if ([s isEqualToString:@"not_invited"]) return TKUserStateNotInvited;
+    if ([s isEqualToString:@"invited"]) return TKUserStateInvited;
+    if ([s isEqualToString:@"joined"]) return TKUserStateJoined;
+    if ([s isEqualToString:@"alive"]) return TKUserStateAlive;
+    if ([s isEqualToString:@"dead"]) return TKUserStateDead;
     return TKUserStateUnknown;
+}
+
+NSString* NSStringFromTKUserState(TKUserState state) {
+    switch (state) {
+        case TKUserStateNotInvited: return @"not_invited";
+        case TKUserStateInvited: return @"invited";
+        case TKUserStateJoined: return @"joined";
+        case TKUserStateAlive: return @"alive";
+        case TKUserStateDead: return @"dead";
+        case TKUserStateUnknown:
+        default:
+            return nil;
+    }
 }
 
 - (void)nextTarget:(void(^)(NSString* targetUserID, NSString *targetName, NSError* error))completion {
@@ -258,6 +270,12 @@
         }
         
         id obj = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        
+        NSString* userState = obj[@"state"];
+        if (userState) {
+            self.state = TKUserStateFromNSString(userState);
+        }
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             completion(obj, nil);
         });

@@ -18,6 +18,11 @@ typedef enum {
     TKUserStateDead
 } TKUserState;
 
+
+extern TKUserState TKUserStateFromNSString(NSString* s);
+extern NSString* NSStringFromTKUserState(TKUserState state);
+
+
 @interface TKServer : NSObject
 
 @property (readonly, nonatomic) NSString* userid;
