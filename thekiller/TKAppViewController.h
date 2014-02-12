@@ -30,7 +30,6 @@ typedef enum {
 - (void)refreshUI;
 -(void)closeNotificationView:(TKNotificationView *)view;
 -(TKNotificationView *)showNotification:(NSDictionary *)params;
--(void)loadProfilePicture:(NSString *)facebookID;
 
 @end
 

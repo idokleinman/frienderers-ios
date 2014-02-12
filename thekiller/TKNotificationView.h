@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TKStyle.h"
+#import "TKProfilePictureView.h"
 
 @interface TKNotificationView : TKView
 @property (strong, nonatomic) IBOutlet UILabel *headerLabel;
@@ -19,6 +20,6 @@
 @property (strong, nonatomic) IBOutlet TKView *popupView;
 @property (nonatomic) BOOL needsToFadeOut;
 
-@property (strong, nonatomic) IBOutlet UIImageView *fbProfilePicture;
+@property (strong, nonatomic) IBOutlet TKProfilePictureView *fbProfilePicture;
 @property (strong, nonatomic) IBOutlet UILabel *singleLabel;
 @end

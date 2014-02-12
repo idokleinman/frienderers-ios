@@ -60,34 +60,13 @@
             return;
         }
 
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            CGRect frame = self.nextTargetFBProfileImage.frame;
-            frame.size.height = 240;
-            [self.nextTargetFBProfileImage setImage:AppController().profilePictures[nextTargetProfileID]];
-            [self.nextTargetFBProfileImage setFrame:frame];
-            _nextTargetProfileID = nextTargetProfileID;
-            
-            self.killLabel.attributedText = getAsSmallAttributedString([NSString stringWithFormat:@"Kill %@ before someone else kills you!", targetName], NSTextAlignmentCenter);
-            
-        }];
+        CGRect frame = self.nextTargetFBProfileImage.frame;
+        frame.size.height = 240;
+        self.nextTargetFBProfileImage.fbid = nextTargetProfileID;
+        [self.nextTargetFBProfileImage setFrame:frame];
+        _nextTargetProfileID = nextTargetProfileID;
         
-//        [FBRequestConnection startWithGraphPath:[NSString stringWithFormat:@"/%@",nextTargetProfileID] completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-//             if (!error)
-//             {
-//                 // Success! Include your code to handle the results here
-//                 NSLog(@"Next target user info: %@", result);
-//                 [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-//                     
-//                     self.killLabel.attributedText = getAsSmallAttributedString([NSString stringWithFormat:@"Kill %@ before someone else kills you!",[result objectForKey:@"first_name"]], NSTextAlignmentCenter);
-//                 }];
-//            }
-//            else
-//            {
-//                // An error occurred, we need to handle the error
-//            }
-//            
-//        }];
-        
+        self.killLabel.attributedText = getAsSmallAttributedString([NSString stringWithFormat:@"Kill %@ before someone else kills you!", targetName], NSTextAlignmentCenter);
     }];
 }
      

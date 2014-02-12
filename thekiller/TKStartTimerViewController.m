@@ -62,21 +62,6 @@
     [super viewDidLoad];
     
     self.gameStartTimerLabel.text = nil;
-    
-//    [[TKServer sharedInstance] hello:^(TKGameInfo *gameInfo, NSError *error) {
-//        if (error) {
-//            [[UIAlertView alertWithError:error] show];
-//            return;
-//        }
-//        
-//        self.gameInfo = gameInfo;
-//        
-//#warning Load profile pictures somewhere, maybe here...
-//        for (NSString *fbid in gameInfo.invited) {
-//            [AppController() loadProfilePicture:fbid];
-//        }
-//        
-//    }];
     [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(runGameStartTimer:) userInfo:nil repeats:YES];
 }
 

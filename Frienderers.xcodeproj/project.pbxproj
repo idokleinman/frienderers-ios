@@ -19,7 +19,6 @@
 		503AAF8F1893E33E00D47BFC /* shotalert.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 503AAF851893E33E00D47BFC /* shotalert.mp3 */; };
 		503AAF901893E33E00D47BFC /* target.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 503AAF861893E33E00D47BFC /* target.mp3 */; };
 		503AAF911893E33E00D47BFC /* winner.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 503AAF871893E33E00D47BFC /* winner.mp3 */; };
-		503AAF941893EC5D00D47BFC /* TKWinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 503AAF931893EC5D00D47BFC /* TKWinViewController.m */; };
 		505FFA9018A2AF6400E365ED /* TKBTTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 505FFA8F18A2AF6400E365ED /* TKBTTestViewController.m */; };
 		50ED335D18928C8100C4B45C /* TKStartTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ED335C18928C8100C4B45C /* TKStartTimerViewController.m */; };
 		50ED336018929D3100C4B45C /* TKStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ED335F18929D3100C4B45C /* TKStyle.m */; };
@@ -53,6 +52,8 @@
 		F49769F11893B954000559A3 /* UIAlertView+alertWithError.m in Sources */ = {isa = PBXBuildFile; fileRef = F49769F01893B954000559A3 /* UIAlertView+alertWithError.m */; };
 		F49769F41893BAC8000559A3 /* TKGameInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F49769F31893BAC8000559A3 /* TKGameInfo.m */; };
 		F4AA5C7A18ABE60A00F0E5D3 /* TKGameOverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA5C7918ABE60A00F0E5D3 /* TKGameOverViewController.m */; };
+		F4AA5C7D18ABF23600F0E5D3 /* TKProfilePicturesCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA5C7C18ABF23600F0E5D3 /* TKProfilePicturesCache.m */; };
+		F4AA5C8118ABF41D00F0E5D3 /* TKProfilePictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA5C8018ABF41D00F0E5D3 /* TKProfilePictureView.m */; };
 		F4AF80A11893C2B600B9C9CB /* TKNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AF809F1893C2B600B9C9CB /* TKNotificationView.m */; };
 		F4AF80A21893C2B600B9C9CB /* TKNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4AF80A01893C2B600B9C9CB /* TKNotificationView.xib */; };
 		F4AF80A41893C2D700B9C9CB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4AF80A31893C2D700B9C9CB /* Images.xcassets */; };
@@ -92,8 +93,6 @@
 		503AAF851893E33E00D47BFC /* shotalert.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = shotalert.mp3; sourceTree = "<group>"; };
 		503AAF861893E33E00D47BFC /* target.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = target.mp3; sourceTree = "<group>"; };
 		503AAF871893E33E00D47BFC /* winner.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = winner.mp3; sourceTree = "<group>"; };
-		503AAF921893EC5D00D47BFC /* TKWinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKWinViewController.h; sourceTree = "<group>"; };
-		503AAF931893EC5D00D47BFC /* TKWinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKWinViewController.m; sourceTree = "<group>"; };
 		505FFA8E18A2AF6400E365ED /* TKBTTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKBTTestViewController.h; sourceTree = "<group>"; };
 		505FFA8F18A2AF6400E365ED /* TKBTTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKBTTestViewController.m; sourceTree = "<group>"; };
 		50ED335B18928C8100C4B45C /* TKStartTimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKStartTimerViewController.h; sourceTree = "<group>"; };
@@ -149,6 +148,10 @@
 		F49769F31893BAC8000559A3 /* TKGameInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKGameInfo.m; sourceTree = "<group>"; };
 		F4AA5C7818ABE60A00F0E5D3 /* TKGameOverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKGameOverViewController.h; sourceTree = "<group>"; };
 		F4AA5C7918ABE60A00F0E5D3 /* TKGameOverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKGameOverViewController.m; sourceTree = "<group>"; };
+		F4AA5C7B18ABF23600F0E5D3 /* TKProfilePicturesCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKProfilePicturesCache.h; sourceTree = "<group>"; };
+		F4AA5C7C18ABF23600F0E5D3 /* TKProfilePicturesCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKProfilePicturesCache.m; sourceTree = "<group>"; };
+		F4AA5C7F18ABF41D00F0E5D3 /* TKProfilePictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKProfilePictureView.h; sourceTree = "<group>"; };
+		F4AA5C8018ABF41D00F0E5D3 /* TKProfilePictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKProfilePictureView.m; sourceTree = "<group>"; };
 		F4AF809E1893C2B600B9C9CB /* TKNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKNotificationView.h; sourceTree = "<group>"; };
 		F4AF809F1893C2B600B9C9CB /* TKNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKNotificationView.m; sourceTree = "<group>"; };
 		F4AF80A01893C2B600B9C9CB /* TKNotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKNotificationView.xib; sourceTree = "<group>"; };
@@ -282,6 +285,7 @@
 		F4416AF218844EF300399D36 /* Frienderers */ = {
 			isa = PBXGroup;
 			children = (
+				F4AA5C7E18ABF41200F0E5D3 /* Views */,
 				F4AF80A31893C2D700B9C9CB /* Images.xcassets */,
 				F4416B20188454BA00399D36 /* Storyboard.storyboard */,
 				F4AF80AA1893C36700B9C9CB /* Managers */,
@@ -330,6 +334,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F4AA5C7E18ABF41200F0E5D3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F4AA5C7F18ABF41D00F0E5D3 /* TKProfilePictureView.h */,
+				F4AA5C8018ABF41D00F0E5D3 /* TKProfilePictureView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		F4AF809D1893C2AC00B9C9CB /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
@@ -373,6 +386,8 @@
 				F4416B1E1884511B00399D36 /* TKBluetoothManager.m */,
 				F49769E91893B616000559A3 /* TKSoundManager.h */,
 				F49769EA1893B616000559A3 /* TKSoundManager.m */,
+				F4AA5C7B18ABF23600F0E5D3 /* TKProfilePicturesCache.h */,
+				F4AA5C7C18ABF23600F0E5D3 /* TKProfilePicturesCache.m */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -386,8 +401,6 @@
 				503AAF671893D8C200D47BFC /* TKInfoScreenViewController.m */,
 				50ED33751892C0D800C4B45C /* TKShootViewController.h */,
 				50ED33761892C0D800C4B45C /* TKShootViewController.m */,
-				503AAF921893EC5D00D47BFC /* TKWinViewController.h */,
-				503AAF931893EC5D00D47BFC /* TKWinViewController.m */,
 				50ED33611892A40900C4B45C /* TKKillTargetViewController.h */,
 				50ED33621892A40900C4B45C /* TKKillTargetViewController.m */,
 				50ED335B18928C8100C4B45C /* TKStartTimerViewController.h */,
@@ -603,7 +616,7 @@
 				F4AF80C31893D15700B9C9CB /* AFHTTPRequestOperationManager.m in Sources */,
 				F4AF80C21893D15700B9C9CB /* AFHTTPRequestOperation.m in Sources */,
 				C8F2B4011892E5D300561DBC /* TKAppViewController.m in Sources */,
-				503AAF941893EC5D00D47BFC /* TKWinViewController.m in Sources */,
+				F4AA5C7D18ABF23600F0E5D3 /* TKProfilePicturesCache.m in Sources */,
 				F4AF80A11893C2B600B9C9CB /* TKNotificationView.m in Sources */,
 				C8F2B3DE1892956F00561DBC /* TKNameAndTimeViewController.m in Sources */,
 				F4AA5C7A18ABE60A00F0E5D3 /* TKGameOverViewController.m in Sources */,
@@ -614,6 +627,7 @@
 				50ED336018929D3100C4B45C /* TKStyle.m in Sources */,
 				C8F2B3DB1892956200561DBC /* TKCreateGameViewController.m in Sources */,
 				503AAF681893D8C200D47BFC /* TKInfoScreenViewController.m in Sources */,
+				F4AA5C8118ABF41D00F0E5D3 /* TKProfilePictureView.m in Sources */,
 				F4AF80C41893D15700B9C9CB /* AFHTTPSessionManager.m in Sources */,
 				50ED335D18928C8100C4B45C /* TKStartTimerViewController.m in Sources */,
 				F4416AF918844EF300399D36 /* main.m in Sources */,

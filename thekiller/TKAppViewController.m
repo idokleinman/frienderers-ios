@@ -77,16 +77,20 @@ TKAppViewController* AppController() {
 - (void)reloadState {
     NSLog(@"reload state");
     [[TKServer sharedInstance] hello:^(TKGameInfo *gameInfo, NSError *error) {
+        if (error) {
+            NSLog(@"ERROR: %@", error);
+            return;
+        }
         
+        NSLog(@"Hello SUCCESS");
     }];
 }
 
--(void)dealloc {
+- (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
--(TKNotificationView *)createNotificationViewWithData:(NSDictionary *)data
-{
+- (TKNotificationView *)createNotificationViewWithData:(NSDictionary *)data {
     NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"TKNotificationView" owner:self options:nil];
     TKNotificationView *view = arr[0];
     
@@ -100,7 +104,7 @@ TKAppViewController* AppController() {
             view.headerLabel.hidden = YES;
             [view.topTitleLabel setText:@"KILLED"];
             [view.topTitleLabel setFont:[UIFont fontWithName:@"Rosewood" size:67.0]];
-            [view.fbProfilePicture setImage:self.profilePictures[data[@"subjectid"]]];
+            view.fbProfilePicture.fbid = data[@"subjectid"];
             [view.bottomTitleLabel setText:@"REST IN PEACE"];
             [view.bottomTitleLabel setFont:[UIFont fontWithName:@"Rosewood" size:35.0]];
             view.continueButton.hidden = YES;
@@ -146,7 +150,7 @@ TKAppViewController* AppController() {
             view.headerLabel.hidden = YES;
             [view.topTitleLabel setText:@"KILLED"];
             [view.topTitleLabel setFont:[UIFont fontWithName:@"Rosewood" size:67.0]];
-            [view.fbProfilePicture setImage:self.profilePictures[data[@"subjectid"]]];
+            view.fbProfilePicture.fbid = data[@"subjectid"];
             [view.bottomTitleLabel setText:@"REST IN PEACE"];
             [view.bottomTitleLabel setFont:[UIFont fontWithName:@"Rosewood" size:35.0]];
             view.continueButton.hidden = YES;
@@ -162,7 +166,7 @@ TKAppViewController* AppController() {
             view.headerLabel.hidden = YES;
             [view.topTitleLabel setText:@"WINNER"];
             [view.topTitleLabel setFont:[UIFont fontWithName:@"Rosewood" size:67.0]];
-            [view.fbProfilePicture setImage:self.profilePictures[data[@"subjectid"]]];
+            view.fbProfilePicture.fbid = data[@"subjectid"];
             [view.bottomTitleLabel setText:@"MEGA KILLER"];
             [view.bottomTitleLabel setFont:[UIFont fontWithName:@"Rosewood" size:35.0]];
             
@@ -177,7 +181,7 @@ TKAppViewController* AppController() {
             [view.headerLabel setAttributedText:getAsSmallAttributedString([NSString stringWithFormat:@"%@ just shot you", data[@"name"]], NSTextAlignmentCenter)];
             [view.topTitleLabel setText:@"YOU'RE DEAD"];
             [view.topTitleLabel setFont:[UIFont fontWithName:@"Rosewood" size:40.0]];
-            [view.fbProfilePicture setImage:self.profilePictures[data[@"subjectid"]]];
+            view.fbProfilePicture.fbid = data[@"subjectid"];
             [view.bottomTitleLabel setText:@"REST IN PEACE"];
             [view.bottomTitleLabel setFont:[UIFont fontWithName:@"Rosewood" size:35.0]];
             view.continueButton.hidden = YES;
@@ -274,86 +278,6 @@ TKAppViewController* AppController() {
     if (view.superview) {
         [view removeFromSuperview];
     }
-}
-
--(void)loadProfilePicture:(NSString *)facebookID
-{
-    NSString *urlString = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?width=240&height=240", facebookID];
-    
-    NSURL *url = [NSURL URLWithString:urlString];
-    
-    NSURLSession *session = [NSURLSession sharedSession];
-    
-    [[session dataTaskWithURL:url
-            completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                UIImage *image = [self convertToGreyscale:data];
-                self.profilePictures[facebookID] = image;
-            }] resume];
-}
-
-- (UIImage *) convertToGreyscale:(NSData *)data {
-    
-    UIImage *i = [UIImage imageWithData:data];
-    
-    int kRed = 1;
-    int kGreen = 2;
-    int kBlue = 4;
-    
-    int colors = kGreen;
-    int m_width = i.size.width;
-    int m_height = i.size.height;
-    
-    uint32_t *rgbImage = (uint32_t *) malloc(m_width * m_height * sizeof(uint32_t));
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    CGContextRef context = CGBitmapContextCreate(rgbImage, m_width, m_height, 8, m_width * 4, colorSpace, kCGBitmapByteOrder32Little | kCGImageAlphaNoneSkipLast);
-    CGContextSetInterpolationQuality(context, kCGInterpolationHigh);
-    CGContextSetShouldAntialias(context, NO);
-    CGContextDrawImage(context, CGRectMake(0, 0, m_width, m_height), [i CGImage]);
-    CGContextRelease(context);
-    CGColorSpaceRelease(colorSpace);
-    
-    // now convert to grayscale
-    uint8_t *m_imageData = (uint8_t *) malloc(m_width * m_height);
-    for(int y = 0; y < m_height; y++) {
-        for(int x = 0; x < m_width; x++) {
-            uint32_t rgbPixel=rgbImage[y*m_width+x];
-            uint32_t sum=0,count=0;
-            if (colors & kRed) {sum += (rgbPixel>>24)&255; count++;}
-            if (colors & kGreen) {sum += (rgbPixel>>16)&255; count++;}
-            if (colors & kBlue) {sum += (rgbPixel>>8)&255; count++;}
-            m_imageData[y*m_width+x]=sum/count;
-        }
-    }
-    free(rgbImage);
-    
-    // convert from a gray scale image back into a UIImage
-    uint8_t *result = (uint8_t *) calloc(m_width * m_height *sizeof(uint32_t), 1);
-    
-    // process the image back to rgb
-    for(int i = 0; i < m_height * m_width; i++) {
-        result[i*4]=0;
-        int val=m_imageData[i];
-        result[i*4+1]=val;
-        result[i*4+2]=val;
-        result[i*4+3]=val;
-    }
-    
-    // create a UIImage
-    colorSpace = CGColorSpaceCreateDeviceRGB();
-    
-    context = CGBitmapContextCreate(result, m_width, m_height, 8, m_width * sizeof(uint32_t), colorSpace, kCGBitmapByteOrder32Little | kCGImageAlphaNoneSkipLast);
-    CGImageRef image = CGBitmapContextCreateImage(context);
-    CGContextRelease(context);
-    CGColorSpaceRelease(colorSpace);
-    UIImage *resultUIImage = [UIImage imageWithCGImage:image];
-    CGImageRelease(image);
-    
-    free(m_imageData);
-    
-    // make sure the data will be released by giving it to an autoreleased NSData
-    [NSData dataWithBytesNoCopy:result length:m_width * m_height];
-    
-    return resultUIImage;
 }
 
 #pragma mark - Tester

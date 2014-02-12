@@ -15,6 +15,7 @@
 #import "TKStyle.h"
 #import "TKServer.h"
 #import "TKSoundManager.h"
+#import "TKProfilePicturesCache.h"
 
 @interface TKAppDelegate ()
 
@@ -36,6 +37,8 @@
     
     [self showApplicationViewControllerIfLoggedIn];
     
+    [[TKProfilePicturesCache sharedInstance] start];
+
     [[TKServer sharedInstance] bk_addObserverForKeyPath:@"userid" task:^(id target) {
         // user id changed, if exists, start bluetooth
         if ([TKServer sharedInstance].userid.length > 0) {
