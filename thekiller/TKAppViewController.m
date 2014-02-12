@@ -93,8 +93,12 @@ TKAppViewController* AppController() {
     
     RemoteNotifications type = (RemoteNotifications)[data[@"type"] intValue];
     
+    NSString *title;
+
     switch (type) {
         case remoteNotificationKillSucceeded:
+            title = @"remoteNotificationKillSucceeded";
+            /*
             //popup
             [view.popupView.layer setBorderColor:[UIColor redColor].CGColor];
             [view.popupView.layer setBorderWidth:2.0];
@@ -109,10 +113,12 @@ TKAppViewController* AppController() {
             view.needsToFadeOut = YES;
             view.singleLabel.hidden = YES;
             view.notificationImage.hidden = YES;
-            
+            */
             break;
             
         case remoteNotificationKillFailed:
+            title = @"remoteNotificationKillFailed";
+            /*
             // popup
             [view.singleLabel setAttributedText:getAsPopupAttributedString(@"Witness \n Warning!", NSTextAlignmentCenter)];
             view.headerLabel.hidden = YES;
@@ -123,10 +129,12 @@ TKAppViewController* AppController() {
             view.fbProfilePicture.hidden = YES;
             view.buttonLabel.hidden = YES;
             view.needsToFadeOut = YES;
-            
+            */
             break;
         
         case remoteNotificationRunAway:
+            title = @"remoteNotificationRunAway";
+            /*
             // popup
             [view.singleLabel setAttributedText:getAsPopupAttributedString(@"Shooting \n Nearby!", NSTextAlignmentCenter)];
             view.headerLabel.hidden = YES;
@@ -137,10 +145,12 @@ TKAppViewController* AppController() {
             view.continueButton.hidden = YES;
             view.buttonLabel.hidden = YES;
             view.needsToFadeOut = YES;
-            
+            */
             break;
             
         case remoteNotificationSomeoneDied:
+            title = @"remoteNotificationSomeoneDied";
+            /*
             // popup
             [view.popupView.layer setBorderColor:[UIColor redColor].CGColor];
             [view.popupView.layer setBorderWidth:2.0];
@@ -155,10 +165,12 @@ TKAppViewController* AppController() {
             view.needsToFadeOut = YES;
             view.singleLabel.hidden = YES;
             view.notificationImage.hidden = YES;
-            
+            */
             break;
             
         case remoteNotificationSomeoneWin:
+            title = @"remoteNotificationSomeoneWin";
+            /*
             [view.headerLabel setAttributedText:getAsSmallAttributedString([NSString stringWithFormat:@"%@ just killed the last victim", data[@"name"]],NSTextAlignmentCenter)];
             view.headerLabel.hidden = YES;
             [view.topTitleLabel setText:@"WINNER"];
@@ -171,10 +183,12 @@ TKAppViewController* AppController() {
             view.needsToFadeOut = NO;
             view.singleLabel.hidden = YES;
             view.notificationImage.hidden = YES;
-            
+            */
             break;
             
         case remoteNotificationYouDead:
+            title = @"remoteNotificationYouDead";
+            /*
             [view.headerLabel setAttributedText:getAsSmallAttributedString([NSString stringWithFormat:@"%@ just shot you", data[@"name"]], NSTextAlignmentCenter)];
             [view.topTitleLabel setText:@"YOU'RE DEAD"];
             [view.topTitleLabel setFont:[UIFont fontWithName:@"Rosewood" size:40.0]];
@@ -186,10 +200,12 @@ TKAppViewController* AppController() {
             view.singleLabel.hidden = YES;
             view.needsToFadeOut = NO;
             view.notificationImage.hidden = YES;
-            
+            */
             break;
             
         case remoteNotificationGameBegins:
+            title = @"remoteNotificationGameBegins";
+            /*
             [view.singleLabel setAttributedText:getAsSmallAttributedString(@"The game is starting now! \n There's no way out \n All you have left is to kill or die", NSTextAlignmentCenter)];
             view.headerLabel.hidden = YES;
             view.topTitleLabel.hidden = YES;
@@ -199,11 +215,13 @@ TKAppViewController* AppController() {
             view.continueButton.hidden = YES;
             view.buttonLabel.hidden = YES;
             view.needsToFadeOut = YES;
-            
+            */
             break;
             
         case remoteNotificationsInviteReceived:
         {
+            title = @"remoteNotificationsInviteReceived";
+            /*
             NSString *str = [NSString stringWithFormat:@"%@ has invited you to join a Frienderers game starts on %@", data[@"name"], data[@"start_time"]];
             
             [view.singleLabel setAttributedText:getAsSmallAttributedString(str, NSTextAlignmentCenter)];
@@ -216,12 +234,14 @@ TKAppViewController* AppController() {
             view.buttonLabel.hidden = NO;
             [view.buttonLabel setAttributedText:getAsSmallAttributedString(@"Accept or die!", NSTextAlignmentCenter)];
             view.needsToFadeOut = NO;
-            
+            */
             break;
         }
             
         case remoteNotificationsBTClosed:
         {
+            title = @"remoteNotificationsBTClosed";
+            /*
             UIImage *bluetoothImage = [UIImage imageNamed:@"BlueTooth"];
             
             [view.notificationImage setImage:bluetoothImage];
@@ -237,20 +257,23 @@ TKAppViewController* AppController() {
             view.bottomTitleLabel.hidden = YES;
             view.continueButton.hidden = YES;
             view.needsToFadeOut = NO;
-            
+            */
             break;
         }
             
         default:
+            title = @"Unknown notification";
             break;
     }
     
+    [[[UIAlertView alloc] initWithTitle:title message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
     return view;
 }
 
 -(TKNotificationView *)showNotification:(NSDictionary *)params
 {
     TKNotificationView *view = [self createNotificationViewWithData:params];
+    
     view.alpha = 0;
     [self.view addSubview:view];
     
@@ -267,7 +290,9 @@ TKAppViewController* AppController() {
 
 -(void)handleNotification:(NSNotification *)notification
 {
-    [self showNotification:notification.userInfo[@"loc-args"]];
+    TKNotificationView *view = [self createNotificationViewWithData:notification.userInfo[@"loc-args"]];
+    view = nil;
+//    [self showNotification:notification.userInfo[@"loc-args"]];
 }
 
 -(void)closeNotificationView:(TKNotificationView *)view

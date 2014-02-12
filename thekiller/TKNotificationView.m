@@ -12,7 +12,7 @@
 @implementation TKNotificationView
 
 - (IBAction)dismissNotificationView:(UIButton *)sender {
-    if (self.superview) {
+    if ((self.superview) && (self.needsToFadeOut)) {
         [self removeFromSuperview];
     }
 }

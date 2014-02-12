@@ -100,7 +100,24 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     NSLog(@"remote notification: %@", userInfo);
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"remoteNotificationReceived" object:nil userInfo:userInfo];
+    
+    RemoteNotifications type = (RemoteNotifications)[userInfo[@"loc-args"][@"type"] intValue];
+    
+    switch (type) {
+        case remoteNotificationGameBegins:
+        case remoteNotificationYouDead:
+        case remoteNotificationsInviteReceived:
+        case remoteNotificationSomeoneWin:
+            [AppController() reloadState];
+            break;
+        case remoteNotificationRunAway:
+        case remoteNotificationSomeoneDied:
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"remoteNotificationReceived" object:nil userInfo:userInfo];
+            break;
+        default:
+            break;
+    }
+    
 }
 
 @end
