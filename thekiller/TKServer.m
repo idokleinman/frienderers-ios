@@ -48,13 +48,13 @@
 }
 
 - (NSString*)domainName {
-    return @"localhost";
-//    return @"frienderers.com";
+//    return @"localhost";
+    return @"frienderers.com";
 }
 
 - (NSString*)domainURLPostfix {
-    return @":5000";
-//    return @"";
+//    return @":5000";
+    return @"";
 }
 
 - (NSURL*)URLWithPath:(NSString*)path {
