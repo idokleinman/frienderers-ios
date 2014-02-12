@@ -63,6 +63,9 @@ TKAppViewController* AppController() {
 - (void)refreshUI {
     NSString* currentState = NSStringFromTKUserState([TKServer sharedInstance].state);
     NSLog(@"current state: %@", currentState);
+    if (!currentState) {
+        return;
+    }
     [self.internalViewController.navigationController popToRootViewControllerAnimated:NO];
     UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:currentState];
     [self.internalViewController.navigationController pushViewController:vc animated:NO];
