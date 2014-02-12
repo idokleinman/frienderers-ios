@@ -135,9 +135,7 @@
         }
         
         NSArray *nearbyPlayersArr = [[TKBluetoothManager sharedManager].nearbyDevicesDictionary allValues];
-        
-        
-        
+
         // if the target is in range and it's the only nearby player arround
         BOOL isSuccess = self.targetInRange && (nearbyPlayersArr.count == 1);
 
@@ -149,6 +147,13 @@
                 [[UIAlertView alertWithError:error] show];
                 return;
             }
+            
+            if ([nextTargetID isEqualToString:self.targetProfileID]) {
+                [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"You are a lame killer! There are witnesses around and you failed!", nil) message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"Damn!", nil) otherButtonTitles:nil] show];
+                return;
+            }
+            
+            [AppController() refreshUI];
         }];
     }
 }

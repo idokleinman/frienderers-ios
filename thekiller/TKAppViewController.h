@@ -27,6 +27,7 @@ typedef enum {
 @property (strong, nonatomic) NSMutableDictionary *profilePictures;
 
 - (void)reloadState;
+- (void)refreshUI;
 -(void)closeNotificationView:(TKNotificationView *)view;
 -(TKNotificationView *)showNotification:(NSDictionary *)params;
 -(void)loadProfilePicture:(NSString *)facebookID;

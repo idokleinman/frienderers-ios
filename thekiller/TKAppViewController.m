@@ -48,18 +48,11 @@ TKAppViewController* AppController() {
     
     [[TKServer sharedInstance] bk_addObserverForKeyPath:@"state" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld task:^(id obj, NSDictionary *change) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            NSString* currentState = NSStringFromTKUserState([TKServer sharedInstance].state);
-            
             if ([change[NSKeyValueChangeNewKey] intValue] == [change[NSKeyValueChangeOldKey] intValue]) {
                 return; // value change
             }
-
-            NSLog(@"state changed to: %@, %@", currentState, change);
             
-            [self.internalViewController.navigationController popToRootViewControllerAnimated:NO];
-            UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:currentState];
-            [self.internalViewController.navigationController pushViewController:vc animated:NO];
-
+            [self refreshUI];
         });
     }];
 }
@@ -73,18 +66,18 @@ TKAppViewController* AppController() {
     return YES;
 }
 
+- (void)refreshUI {
+    NSString* currentState = NSStringFromTKUserState([TKServer sharedInstance].state);
+    NSLog(@"current state: %@", currentState);
+    [self.internalViewController.navigationController popToRootViewControllerAnimated:NO];
+    UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:currentState];
+    [self.internalViewController.navigationController pushViewController:vc animated:NO];
+}
+
 - (void)reloadState {
     NSLog(@"reload state");
-
     [[TKServer sharedInstance] hello:^(TKGameInfo *gameInfo, NSError *error) {
-//        [self.internalViewController dismissViewControllerAnimated:NO completion:nil];
-//        
-//        if (gameInfo) {
-//            [self.internalViewController performSegueWithIdentifier:@"game" sender:self];
-//        }
-//        else {
-//            [self.internalViewController performSegueWithIdentifier:@"create" sender:self];
-//        }
+        
     }];
 }
 
