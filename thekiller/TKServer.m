@@ -293,7 +293,10 @@ NSString* NSStringFromTKUserState(TKUserState state) {
         
         NSString* userState = obj[@"state"];
         if (userState) {
-            self.state = TKUserStateFromNSString(userState);
+            TKUserState newState = TKUserStateFromNSString(userState);
+            if (newState != self.state) {
+                self.state = newState;
+            }
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{
