@@ -30,12 +30,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r4F-lt-fg4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-634" y="495"/>
+            <point key="canvasLocation" x="-866" y="511"/>
         </scene>
         <!--Start Timer View Controller-->
         <scene sceneID="Oon-Tz-Ypq">
             <objects>
-                <viewController id="lTn-4M-60F" customClass="TKStartTimerViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="joined" id="lTn-4M-60F" customClass="TKStartTimerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pgH-nL-Ugx"/>
                         <viewControllerLayoutGuide type="bottom" id="5z3-o9-fbk"/>
@@ -64,7 +64,6 @@
                                 </state>
                                 <connections>
                                     <action selector="infoButton:" destination="lTn-4M-60F" eventType="touchUpInside" id="Bok-Px-r8t"/>
-                                    <segue destination="c9P-Do-3Vb" kind="push" identifier="info" id="XmO-KY-ijl"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -81,17 +80,16 @@
                     <navigationItem key="navigationItem" id="i9M-sf-yw2"/>
                     <connections>
                         <outlet property="gameStartTimerLabel" destination="1c3-Np-G81" id="QR3-Mz-BAR"/>
-                        <segue destination="pkV-Ig-9ny" kind="push" identifier="nextTarget" id="7YH-f0-qUA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="INQ-iw-IOV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1453" y="-240"/>
+            <point key="canvasLocation" x="2576" y="-472"/>
         </scene>
         <!--Kill Target View Controller-->
         <scene sceneID="SeU-C9-8XM">
             <objects>
-                <viewController storyboardIdentifier="killTarget" id="pkV-Ig-9ny" customClass="TKKillTargetViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="alive" id="pkV-Ig-9ny" customClass="TKKillTargetViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VjT-Oi-lhe"/>
                         <viewControllerLayoutGuide type="bottom" id="hvm-zS-bCi"/>
@@ -124,6 +122,7 @@
                                 <state key="normal" image="Tick"/>
                                 <connections>
                                     <action selector="targetApproveButton:" destination="pkV-Ig-9ny" eventType="touchUpInside" id="R99-t1-zdR"/>
+                                    <segue destination="UhG-Mk-rJu" kind="push" identifier="shoot" id="nUC-RE-6SJ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="156" translatesAutoresizingMaskIntoConstraints="NO" id="eTP-KC-aQJ" customClass="TKSmallLabel">
@@ -149,12 +148,11 @@ that pretty face</string>
                         <outlet property="killLabel" destination="wwH-wF-bEk" id="HYu-sN-cq0"/>
                         <outlet property="nextTargetFBProfileImage" destination="nd3-4W-iD2" id="Z0k-8I-Xey"/>
                         <outlet property="wantedLabel" destination="EzQ-62-RLQ" id="Xca-r0-lsG"/>
-                        <segue destination="UhG-Mk-rJu" kind="push" identifier="shoot" id="BAS-wc-rlE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="duV-No-X9w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1964" y="-240"/>
+            <point key="canvasLocation" x="3191" y="-472"/>
         </scene>
         <!--Info Screen View Controller-->
         <scene sceneID="tRd-Az-mku">
@@ -204,7 +202,37 @@ that pretty face</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gmI-O2-iYV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3184" y="983"/>
+            <point key="canvasLocation" x="2096" y="1631"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="cxE-TT-mpV">
+            <objects>
+                <viewController storyboardIdentifier="dead" id="We1-Ig-WsG" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xzC-AE-qCI"/>
+                        <viewControllerLayoutGuide type="bottom" id="6qy-lc-VPP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WeZ-Sp-rXL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DEAD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXE-Oy-dGc">
+                                <rect key="frame" x="137" y="274" width="46" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="tXE-Oy-dGc" secondAttribute="centerX" id="6JB-1n-Aif"/>
+                            <constraint firstAttribute="centerY" secondItem="tXE-Oy-dGc" secondAttribute="centerY" id="mpW-DZ-fdg"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pmm-Ve-ui8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4218" y="-472"/>
         </scene>
         <!--Win View Controller-->
         <scene sceneID="0KO-jd-GT5">
@@ -218,7 +246,7 @@ that pretty face</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You just killed the last player" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kGZ-rK-XHA" customClass="TKSmallLabel">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You just killed the last player" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kGZ-rK-XHA" customClass="TKSmallLabel">
                                 <rect key="frame" x="51" y="20" width="218" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -267,7 +295,7 @@ that pretty face</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xth-YE-dnj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1453" y="495"/>
+            <point key="canvasLocation" x="1519" y="1631"/>
         </scene>
         <!--Shoot View Controller-->
         <scene sceneID="8zn-zP-9i3">
@@ -312,9 +340,6 @@ that pretty face</string>
                                 <state key="normal" image="info">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="c9P-Do-3Vb" kind="push" id="Gnn-xF-dMl"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -341,12 +366,11 @@ that pretty face</string>
                         <outlet property="instructionLabel" destination="IQU-aH-6Jw" id="p1f-t8-GHN"/>
                         <outlet property="shootButton" destination="ZZw-6F-mh4" id="Uaq-oK-b5h"/>
                         <outlet property="shootLabel" destination="0Ic-br-shc" id="vFX-Jh-VN2"/>
-                        <segue destination="VVD-0i-gZm" kind="push" identifier="win" id="LnR-U1-mdn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8KY-zs-2yV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2469" y="-256"/>
+            <point key="canvasLocation" x="3699" y="-472"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Gjj-3u-GOh">
@@ -460,12 +484,12 @@ that pretty face</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2HU-cJ-08u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="298" y="503"/>
+            <point key="canvasLocation" x="190" y="503"/>
         </scene>
         <!--Create Game View Controller-->
         <scene sceneID="dHB-ey-XLg">
             <objects>
-                <viewController id="bM0-Pl-0uu" customClass="TKCreateGameViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="not_invited" id="bM0-Pl-0uu" customClass="TKCreateGameViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XfO-HJ-6JZ"/>
                         <viewControllerLayoutGuide type="bottom" id="FVP-R9-93P"/>
@@ -499,9 +523,6 @@ that pretty face</string>
                                 <state key="normal" image="info">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="c9P-Do-3Vb" kind="push" id="HHn-MR-evD"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -517,7 +538,7 @@ that pretty face</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V3Y-kB-xxs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1447" y="1239"/>
+            <point key="canvasLocation" x="2150" y="293"/>
         </scene>
         <!--Name And Time View Controller-->
         <scene sceneID="fAK-57-5g9">
@@ -627,7 +648,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DDO-YR-wcl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2430" y="1239"/>
+            <point key="canvasLocation" x="2669" y="293"/>
         </scene>
         <!--Test View Controller - Bluetooth Monitor-->
         <scene sceneID="Gdw-4Y-gtB">
@@ -720,7 +741,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </connections>
                 </rotationGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-185" y="503"/>
+            <point key="canvasLocation" x="-394" y="503"/>
         </scene>
         <!--Internal View Controller-->
         <scene sceneID="6m4-4h-P8d">
@@ -747,20 +768,15 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4Sd-Wa-6wZ"/>
-                    <connections>
-                        <segue destination="bM0-Pl-0uu" kind="push" identifier="create" id="exX-d4-VBj"/>
-                        <segue destination="lTn-4M-60F" kind="push" identifier="game" id="fpc-mo-h5X"/>
-                        <segue destination="VVD-0i-gZm" kind="push" identifier="win" id="xVU-sa-WQG"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="csh-QJ-jTP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="821" y="503"/>
+            <point key="canvasLocation" x="733" y="503"/>
         </scene>
         <!--Join Masacare View Controller-->
         <scene sceneID="vYa-SR-fqS">
             <objects>
-                <viewController id="6NY-g0-IFl" customClass="TKJoinMasacareViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="invited" id="6NY-g0-IFl" customClass="TKJoinMasacareViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kLv-5g-ss2"/>
                         <viewControllerLayoutGuide type="bottom" id="Blb-IK-CmN"/>
@@ -781,7 +797,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" image="Tick"/>
                                 <connections>
-                                    <segue destination="lTn-4M-60F" kind="push" id="gPc-aU-Ey5"/>
+                                    <action selector="join:" destination="6NY-g0-IFl" eventType="touchUpInside" id="o9v-7z-7LF"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HqI-1T-H6D" customClass="TKSmallLabel">
@@ -810,7 +826,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pd3-QB-KGN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="218" y="-944"/>
+            <point key="canvasLocation" x="2150" y="-472"/>
         </scene>
     </scenes>
     <resources>
@@ -826,9 +842,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="fpc-mo-h5X"/>
         <segue reference="i1A-F5-R2Q"/>
-        <segue reference="LnR-U1-mdn"/>
-        <segue reference="Gnn-xF-dMl"/>
     </inferredMetricsTieBreakers>
 </document>

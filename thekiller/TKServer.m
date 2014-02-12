@@ -48,13 +48,13 @@
 }
 
 - (NSString*)domainName {
-//    return @"localhost";
-    return @"frienderers.com";
+    return @"localhost";
+//    return @"frienderers.com";
 }
 
 - (NSString*)domainURLPostfix {
-//    return @":5000";
-    return @"";
+    return @":5000";
+//    return @"";
 }
 
 - (NSURL*)URLWithPath:(NSString*)path {
@@ -149,18 +149,18 @@ NSString* NSStringFromTKUserState(TKUserState state) {
 }
 
 
-- (void)startGame:(NSString*)gameid completion:(void(^)(NSDictionary* game, NSError* error))completion {
+- (void)startGame:(NSString*)gameid completion:(void(^)(BOOL started, NSError* error))completion {
     NSString* path = [NSString stringWithFormat:@"/games/%@/start", gameid];
     NSString* url = [[self URLWithPath:path] absoluteString];
     NSMutableURLRequest* req = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"POST" URLString:url parameters:nil error:nil];
     [self request:req completion:^(id response, NSError* error) {
         if (error) {
-            completion(nil, error);
+            completion(NO, error);
             return;
         }
         
-        NSLog(@"%@", response);
-        completion(response, nil);
+        BOOL started = [response[@"is_started"] boolValue];
+        completion(started, nil);
     }];
 }
 

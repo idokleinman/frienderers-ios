@@ -13,7 +13,7 @@
 
 @interface TKStartTimerViewController ()
 
-@property (strong, nonatomic) TKGameInfo* gameInfo;
+//@property (strong, nonatomic) TKGameInfo* gameInfo;
 
 @end
 
@@ -27,24 +27,25 @@
     return [NSString stringWithFormat:@"%02ld:%02ld:%02ld", (long)hours, (long)minutes, (long)seconds];
 }
 
--(void)startGame
+- (void)startGame
 {
     // let server know game is started
-    [[TKServer sharedInstance] startGame:self.gameInfo.gameID completion:^(NSDictionary *game, NSError *error) {
+    [[TKServer sharedInstance] startGame:[TKServer sharedInstance].game.gameID completion:^(BOOL started, NSError *error) {
         if (error) {
             [[UIAlertView alertWithError:error] show];
             return;
         }
         
-        // perform segue
-        NSLog(@"game started");
-        [self performSegueWithIdentifier:@"nextTarget" sender:self];
+        if (!started) {
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"No one joined your game dude", nil) message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"Restart", nil) otherButtonTitles:nil] show];
+            return;
+        }
     }];
 }
 
--(void)runGameStartTimer:(NSTimer *)timer
+- (void)runGameStartTimer:(NSTimer *)timer
 {
-    NSTimeInterval timeIntervalTillStartGame = -[[NSDate date] timeIntervalSinceDate:self.gameInfo.startTime];
+    NSTimeInterval timeIntervalTillStartGame = -[[NSDate date] timeIntervalSinceDate:[TKServer sharedInstance].game.startTime];
     
     if (timeIntervalTillStartGame > 0)
         self.gameStartTimerLabel.text = [self stringFromTimeInterval:timeIntervalTillStartGame];
@@ -60,26 +61,23 @@
 {
     [super viewDidLoad];
     
-    self.gameStartTimerLabel.text = @"--:--:--";
+    self.gameStartTimerLabel.text = nil;
     
-    [[TKServer sharedInstance] hello:^(TKGameInfo *gameInfo, NSError *error) {
-        if (error) {
-            [[UIAlertView alertWithError:error] show];
-            return;
-        }
-        
-        [[TKServer sharedInstance] joinGame:^(BOOL success, NSError *error) {
-            NSLog(@"JOIN GAME %@ (ERROR: %@)", success ? @"OK" : @"FAIL", error);
-        }];
-        
-        self.gameInfo = gameInfo;
-        
-        for (NSString *fbid in gameInfo.invited) {
-            [AppController() loadProfilePicture:fbid];
-        }
-        
-        [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(runGameStartTimer:) userInfo:nil repeats:YES];
-    }];
+//    [[TKServer sharedInstance] hello:^(TKGameInfo *gameInfo, NSError *error) {
+//        if (error) {
+//            [[UIAlertView alertWithError:error] show];
+//            return;
+//        }
+//        
+//        self.gameInfo = gameInfo;
+//        
+//#warning Load profile pictures somewhere, maybe here...
+//        for (NSString *fbid in gameInfo.invited) {
+//            [AppController() loadProfilePicture:fbid];
+//        }
+//        
+//    }];
+    [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(runGameStartTimer:) userInfo:nil repeats:YES];
 }
 
 

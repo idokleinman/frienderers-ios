@@ -39,7 +39,7 @@ extern NSString* NSStringFromTKUserState(TKUserState state);
 - (void)createGameWithTitle:(NSString*)title startTime:(NSDate*)startTime playerUserIDs:(NSArray*)players completion:(void(^)(TKGameInfo* game, NSError* error))completion;
 - (void)shootTarget:(NSString*)targetID success:(BOOL)success nearby:(NSArray*)nearby completion:(void(^)(NSString* nextTargetID, NSString *targetName, NSError* error))completion;
 - (void)joinGame:(void(^)(BOOL success, NSError* error))completion;
-- (void)startGame:(NSString*)gameid completion:(void(^)(NSDictionary* game, NSError* error))completion;
+- (void)startGame:(NSString*)gameid completion:(void(^)(BOOL started, NSError* error))completion;
 - (void)allGames:(void(^)(NSArray* games, NSError* error))completion;
 - (void)detailsForGameID:(NSString*)gameID completion:(void(^)(TKGameInfo* gameInfo, NSError* error))completion;
 

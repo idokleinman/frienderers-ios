@@ -44,6 +44,31 @@ TKAppViewController* AppController() {
     self.internalViewController = (TKInternalViewController*)n.topViewController;
     
     self.profilePictures = [NSMutableDictionary dictionary];
+    
+    [[TKServer sharedInstance] addObserver:self forKeyPath:@"state" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:0];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"state"]) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSString* currentState = NSStringFromTKUserState([TKServer sharedInstance].state);
+            NSLog(@"state changed to: %@, %@", currentState, change);
+            if ([change[NSKeyValueChangeNewKey] intValue] == [change[NSKeyValueChangeOldKey] intValue]) {
+                return; // value change
+            }
+            
+            [self.internalViewController.navigationController popToRootViewControllerAnimated:NO];
+            
+            UIViewController* vc = [self.storyboard instantiateViewControllerWithIdentifier:currentState];
+            [self.internalViewController.navigationController pushViewController:vc animated:NO];
+            
+            
+        });
+        return;
+    }
+    else {
+        return [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -59,14 +84,14 @@ TKAppViewController* AppController() {
     NSLog(@"reload state");
 
     [[TKServer sharedInstance] hello:^(TKGameInfo *gameInfo, NSError *error) {
-        [self.internalViewController dismissViewControllerAnimated:NO completion:nil];
-        
-        if (gameInfo) {
-            [self.internalViewController performSegueWithIdentifier:@"game" sender:self];
-        }
-        else {
-            [self.internalViewController performSegueWithIdentifier:@"create" sender:self];
-        }
+//        [self.internalViewController dismissViewControllerAnimated:NO completion:nil];
+//        
+//        if (gameInfo) {
+//            [self.internalViewController performSegueWithIdentifier:@"game" sender:self];
+//        }
+//        else {
+//            [self.internalViewController performSegueWithIdentifier:@"create" sender:self];
+//        }
     }];
 }
 

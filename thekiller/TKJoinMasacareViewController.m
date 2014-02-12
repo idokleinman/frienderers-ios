@@ -10,6 +10,7 @@
 #import "TKServer.h"
 #import "TKAppDelegate.h"
 #import "TKGameInfo.h"
+#import "TKServer.h"
 
 @interface TKJoinMasacareViewController ()
 
@@ -37,6 +38,12 @@
     
     // Main Label
     self.joinGameLabel.text = [NSString stringWithFormat:@"%@ has invited you to join a Frienderers game \"Game Jam Massacre\" this starts %@ at %@", self.gameInvintationInfo.creatorID, dayGameStarts, timeGameStarts];
+}
+
+- (IBAction)join:(id)sender {
+    [[TKServer sharedInstance] joinGame:^(BOOL success, NSError *error) {
+        NSLog(@"JOIN GAME %@ (ERROR: %@)", success ? @"OK" : @"FAIL", error);
+    }];
 }
 
 @end
