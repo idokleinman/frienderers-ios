@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Citylifeapps. All rights reserved.
 //
 
-#import <NSObject+BKBlockObservation.h>
+#import "NSObject+Binding.h"
 #import "TKProfilePicturesCache.h"
 #import "TKServer.h"
 
@@ -35,7 +35,7 @@
 }
 
 - (void)start {
-    [[TKServer sharedInstance] bk_addObserverForKeyPath:@"game" task:^(id target) {
+    [[TKServer sharedInstance] addObserver:self forKeyPath:@"game" callback:^(id value) {
         TKGameInfo* gameInfo = [TKServer sharedInstance].game;
         if (!gameInfo) {
             return;

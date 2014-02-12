@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		389F665387AC4178BFD276E0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B9F914A8D494AE08D071A29 /* libPods.a */; };
 		503AAF681893D8C200D47BFC /* TKInfoScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 503AAF671893D8C200D47BFC /* TKInfoScreenViewController.m */; };
 		503AAF881893E33E00D47BFC /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 503AAF7E1893E33E00D47BFC /* background.mp3 */; };
 		503AAF891893E33E00D47BFC /* create.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 503AAF7F1893E33E00D47BFC /* create.mp3 */; };
@@ -54,6 +53,7 @@
 		F4AA5C7A18ABE60A00F0E5D3 /* TKGameOverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA5C7918ABE60A00F0E5D3 /* TKGameOverViewController.m */; };
 		F4AA5C7D18ABF23600F0E5D3 /* TKProfilePicturesCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA5C7C18ABF23600F0E5D3 /* TKProfilePicturesCache.m */; };
 		F4AA5C8118ABF41D00F0E5D3 /* TKProfilePictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA5C8018ABF41D00F0E5D3 /* TKProfilePictureView.m */; };
+		F4AA5C8718AC0D9D00F0E5D3 /* NSObject+Binding.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AA5C8618AC0D9D00F0E5D3 /* NSObject+Binding.m */; };
 		F4AF80A11893C2B600B9C9CB /* TKNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AF809F1893C2B600B9C9CB /* TKNotificationView.m */; };
 		F4AF80A21893C2B600B9C9CB /* TKNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4AF80A01893C2B600B9C9CB /* TKNotificationView.xib */; };
 		F4AF80A41893C2D700B9C9CB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4AF80A31893C2D700B9C9CB /* Images.xcassets */; };
@@ -80,7 +80,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		30D42452BF714F86B8086678 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		503AAF661893D8C200D47BFC /* TKInfoScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKInfoScreenViewController.h; sourceTree = "<group>"; };
 		503AAF671893D8C200D47BFC /* TKInfoScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKInfoScreenViewController.m; sourceTree = "<group>"; };
 		503AAF7E1893E33E00D47BFC /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
@@ -152,6 +151,8 @@
 		F4AA5C7C18ABF23600F0E5D3 /* TKProfilePicturesCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKProfilePicturesCache.m; sourceTree = "<group>"; };
 		F4AA5C7F18ABF41D00F0E5D3 /* TKProfilePictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKProfilePictureView.h; sourceTree = "<group>"; };
 		F4AA5C8018ABF41D00F0E5D3 /* TKProfilePictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKProfilePictureView.m; sourceTree = "<group>"; };
+		F4AA5C8518AC0D9D00F0E5D3 /* NSObject+Binding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Binding.h"; sourceTree = "<group>"; };
+		F4AA5C8618AC0D9D00F0E5D3 /* NSObject+Binding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Binding.m"; sourceTree = "<group>"; };
 		F4AF809E1893C2B600B9C9CB /* TKNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKNotificationView.h; sourceTree = "<group>"; };
 		F4AF809F1893C2B600B9C9CB /* TKNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKNotificationView.m; sourceTree = "<group>"; };
 		F4AF80A01893C2B600B9C9CB /* TKNotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKNotificationView.xib; sourceTree = "<group>"; };
@@ -189,7 +190,6 @@
 				F4416AEF18844EF300399D36 /* CoreGraphics.framework in Frameworks */,
 				F4416AF118844EF300399D36 /* UIKit.framework in Frameworks */,
 				F4416AED18844EF300399D36 /* Foundation.framework in Frameworks */,
-				389F665387AC4178BFD276E0 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,7 +255,6 @@
 				F4416B0B18844EF300399D36 /* FrienderersTests */,
 				F4416AEB18844EF300399D36 /* Frameworks */,
 				F4416AEA18844EF300399D36 /* Products */,
-				30D42452BF714F86B8086678 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -414,6 +413,8 @@
 		F4AF80AC1893C47100B9C9CB /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				F4AA5C8518AC0D9D00F0E5D3 /* NSObject+Binding.h */,
+				F4AA5C8618AC0D9D00F0E5D3 /* NSObject+Binding.m */,
 				50ED335E18929D3100C4B45C /* TKStyle.h */,
 				50ED335F18929D3100C4B45C /* TKStyle.m */,
 				F49769EF1893B954000559A3 /* UIAlertView+alertWithError.h */,
@@ -464,11 +465,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F4416B1518844EF300399D36 /* Build configuration list for PBXNativeTarget "Frienderers" */;
 			buildPhases = (
-				47D432D8C0624608BBF9E686 /* Check Pods Manifest.lock */,
 				F4416AE518844EF300399D36 /* Sources */,
 				F4416AE618844EF300399D36 /* Frameworks */,
 				F4416AE718844EF300399D36 /* Resources */,
-				B4F13705A87E4CE0A3178231 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -572,39 +571,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		47D432D8C0624608BBF9E686 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		B4F13705A87E4CE0A3178231 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		F4416AE518844EF300399D36 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -615,6 +581,7 @@
 				F4AF80C61893D15700B9C9CB /* AFSecurityPolicy.m in Sources */,
 				F4AF80C31893D15700B9C9CB /* AFHTTPRequestOperationManager.m in Sources */,
 				F4AF80C21893D15700B9C9CB /* AFHTTPRequestOperation.m in Sources */,
+				F4AA5C8718AC0D9D00F0E5D3 /* NSObject+Binding.m in Sources */,
 				C8F2B4011892E5D300561DBC /* TKAppViewController.m in Sources */,
 				F4AA5C7D18ABF23600F0E5D3 /* TKProfilePicturesCache.m in Sources */,
 				F4AF80A11893C2B600B9C9CB /* TKNotificationView.m in Sources */,
@@ -760,7 +727,6 @@
 		};
 		F4416B1618844EF300399D36 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 30D42452BF714F86B8086678 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -782,7 +748,6 @@
 		};
 		F4416B1718844EF300399D36 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 30D42452BF714F86B8086678 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

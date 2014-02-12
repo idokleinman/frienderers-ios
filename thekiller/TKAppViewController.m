@@ -10,7 +10,7 @@
 #import "TKServer.h"
 #import "TKAppDelegate.h"
 #import <FacebookSDK/FacebookSDK.h>
-#import <NSObject+BKBlockObservation.h>
+#import "NSObject+Binding.h"
 
 TKAppViewController* AppController() {
     return ((TKAppDelegate*)[UIApplication sharedApplication].delegate).appViewController;
@@ -46,14 +46,8 @@ TKAppViewController* AppController() {
     
     self.profilePictures = [NSMutableDictionary dictionary];
     
-    [[TKServer sharedInstance] bk_addObserverForKeyPath:@"state" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld task:^(id obj, NSDictionary *change) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if ([change[NSKeyValueChangeNewKey] intValue] == [change[NSKeyValueChangeOldKey] intValue]) {
-                return; // value change
-            }
-            
-            [self refreshUI];
-        });
+    [[TKServer sharedInstance] addObserver:self forKeyPath:@"state" callback:^(id value) {
+        [self refreshUI];
     }];
 }
 

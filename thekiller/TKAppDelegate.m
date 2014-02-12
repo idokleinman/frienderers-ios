@@ -8,8 +8,7 @@
 
 @import CoreBluetooth;
 
-#import <NSObject+BKBlockObservation.h>
-
+#import "NSObject+Binding.h"
 #import "TKAppDelegate.h"
 #import "TKBluetoothManager.h"
 #import "TKStyle.h"
@@ -39,7 +38,7 @@
     
     [[TKProfilePicturesCache sharedInstance] start];
 
-    [[TKServer sharedInstance] bk_addObserverForKeyPath:@"userid" task:^(id target) {
+    [[TKServer sharedInstance] addObserver:self forKeyPath:@"userid" callback:^(id value) {
         // user id changed, if exists, start bluetooth
         if ([TKServer sharedInstance].userid.length > 0) {
             [[TKBluetoothManager sharedManager] startWithName:[TKServer sharedInstance].userid];
