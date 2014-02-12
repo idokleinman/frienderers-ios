@@ -49,13 +49,16 @@ NSString* const CHARACTERISTIC_UUID = @"BD5DF558-9DF1-4216-8521-411D6F917A8C";
 - (void)startWithName:(NSString *)name
 {
     NSParameterAssert(name);
+
+    if ([_name isEqualToString:name]) {
+        return; // nothing to do. already started with this name
+    }
+    
+    NSAssert(_name.length == 0, @"can't restart blutooth manager with a different name");
+
     _name = name;
     // set up peripheral
-    NSData* data = [@"Hello, world" dataUsingEncoding:NSUTF8StringEncoding];
-    
-    CBMutableCharacteristic* characteristic = [[CBMutableCharacteristic alloc] initWithType:[CBUUID UUIDWithString:CHARACTERISTIC_UUID] properties:CBCharacteristicPropertyRead value:data permissions:CBAttributePermissionsReadable];
     CBMutableService* service = [[CBMutableService alloc] initWithType:[CBUUID UUIDWithString:SERVICE_UUID] primary:YES];
-    service.characteristics = @[ characteristic ];
     self.peripheral = [[CBPeripheralManager alloc] initWithDelegate:self queue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0) options:nil];
     [self.peripheral addService:service];
     self.central = [[CBCentralManager alloc] initWithDelegate:self queue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0) options:nil];
@@ -177,12 +180,12 @@ NSString* DescriptionForState(NSInteger state)
     return description;
 }
 
-- (void) observeStateOfBluetooth
+- (void)observeStateOfBluetooth
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleBluetoothNotify:) name:@"bluetoothIsOffNotification" object:nil];
 }
 
-- (void) handleBluetoothNotify:(NSNotification *)notification
+- (void)handleBluetoothNotify:(NSNotification *)notification
 {
     if (notification.userInfo[@"isBluetoothWorking"]){
         self.notificationView = [AppController() showNotification:@{@"type":@(remoteNotificationsBTClosed)}];

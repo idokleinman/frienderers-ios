@@ -8,6 +8,8 @@
 
 @import CoreBluetooth;
 
+#import <NSObject+BKBlockObservation.h>
+
 #import "TKAppDelegate.h"
 #import "TKBluetoothManager.h"
 #import "TKStyle.h"
@@ -28,35 +30,20 @@
     
     application.applicationSupportsShakeToEdit = YES;
     
-    // start bluetooth as soon as we have a user id
-    [[TKServer sharedInstance] addObserver:self forKeyPath:@"userid" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew | NSKeyValueObservingOptionInitial context:0];
-    
     self.appViewController = [[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"app"];
     
     ConfigureAppearnace();
     
     [self showApplicationViewControllerIfLoggedIn];
     
+    [[TKServer sharedInstance] bk_addObserverForKeyPath:@"userid" task:^(id target) {
+        // user id changed, if exists, start bluetooth
+        if ([TKServer sharedInstance].userid.length > 0) {
+            [[TKBluetoothManager sharedManager] startWithName:[TKServer sharedInstance].userid];
+        }
+    }];
+    
     return YES;
-}
-
-- (void)dealloc {
-    [[TKServer sharedInstance] removeObserver:self forKeyPath:@"userid" context:0];
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    if ([keyPath isEqualToString:@"userid"] && ![change[NSKeyValueChangeOldKey] isEqual:change[NSKeyValueChangeNewKey]]) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            // user id changed, if exists, start bluetooth
-            if ([TKServer sharedInstance].userid.length > 0) {
-                [[TKBluetoothManager sharedManager] startWithName:[TKServer sharedInstance].userid];
-            }
-        });
-        return;
-    }
-    else {
-        return [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-    }
 }
 
 - (void)showApplicationViewControllerIfLoggedIn {
@@ -64,7 +51,6 @@
         self.window.rootViewController = self.appViewController;
     }
 }
-
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

@@ -10,12 +10,14 @@
 #import "TKGameInfo.h"
 
 typedef enum {
-    TKUserStateUnknown = -1,
-    TKUserStateNotInvited = 0,
+    TKUserStateUnknown = 0,
+    TKUserStateNotInvited,
     TKUserStateInvited,
     TKUserStateJoined,
     TKUserStateAlive,
-    TKUserStateDead
+    TKUserStateDead,
+    TKUserStateWon,
+    TKUserStateLost,
 } TKUserState;
 
 
@@ -42,5 +44,6 @@ extern NSString* NSStringFromTKUserState(TKUserState state);
 - (void)startGame:(NSString*)gameid completion:(void(^)(BOOL started, NSError* error))completion;
 - (void)allGames:(void(^)(NSArray* games, NSError* error))completion;
 - (void)detailsForGameID:(NSString*)gameID completion:(void(^)(TKGameInfo* gameInfo, NSError* error))completion;
+- (void)deleteGame:(NSString*)gameID completion:(void(^)(NSError* error))completion;
 
 @end

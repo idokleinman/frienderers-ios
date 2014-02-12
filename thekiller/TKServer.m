@@ -30,7 +30,7 @@
     static TKServer* i = NULL;
     if (!i) {
         i = [[TKServer alloc] init];
-        i.state = TKUserStateNotInvited;
+        i.state = TKUserStateUnknown;
         i.userid = nil;
         i.game = nil;
         i.profile = nil;
@@ -119,6 +119,8 @@ TKUserState TKUserStateFromNSString(NSString* s) {
     if ([s isEqualToString:@"joined"]) return TKUserStateJoined;
     if ([s isEqualToString:@"alive"]) return TKUserStateAlive;
     if ([s isEqualToString:@"dead"]) return TKUserStateDead;
+    if ([s isEqualToString:@"won"]) return TKUserStateWon;
+    if ([s isEqualToString:@"lost"]) return TKUserStateLost;
     return TKUserStateUnknown;
 }
 
@@ -129,6 +131,8 @@ NSString* NSStringFromTKUserState(TKUserState state) {
         case TKUserStateJoined: return @"joined";
         case TKUserStateAlive: return @"alive";
         case TKUserStateDead: return @"dead";
+        case TKUserStateLost: return @"lost";
+        case TKUserStateWon: return @"won";
         case TKUserStateUnknown:
         default:
             return nil;
@@ -227,6 +231,22 @@ NSString* NSStringFromTKUserState(TKUserState state) {
         NSLog(@"Create game response: %@", response);
         TKGameInfo* gameInfo = [[TKGameInfo alloc] initWithDictionary:response];
         completion(gameInfo, nil);
+    }];
+}
+
+- (void)deleteGame:(NSString*)gameID completion:(void(^)(NSError* error))completion {
+    NSString* path = [NSString stringWithFormat:@"/games/%@", gameID];
+    NSString* url = [[self URLWithPath:path] absoluteString];
+    NSMutableURLRequest* req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    req.HTTPMethod = @"DELETE";
+    
+    [self request:req completion:^(id response, NSError *error) {
+        if (error) {
+            completion(error);
+            return;
+        }
+        
+        completion(nil);
     }];
 }
 

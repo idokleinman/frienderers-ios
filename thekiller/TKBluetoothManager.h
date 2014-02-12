@@ -14,9 +14,7 @@
 @property (readonly, nonatomic) NSString* centralStatus;
 @property (readonly, nonatomic) NSMutableDictionary* nearbyDevicesDictionary;
 
-+(TKBluetoothManager *)sharedManager;
++ (TKBluetoothManager *)sharedManager;
 - (void)startWithName:(NSString *)name;
-- (void) observeStateOfBluetooth;
-- (void) handleBluetoothNotify;
 
 @end
