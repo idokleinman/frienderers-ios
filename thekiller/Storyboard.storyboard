@@ -166,8 +166,8 @@ that pretty face</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="AdX-S6-Z1j">
-                                <rect key="frame" x="20" y="20" width="280" height="528"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="AdX-S6-Z1j">
+                                <rect key="frame" x="20" y="40" width="280" height="508"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <string key="text">-There is one winner whose mission is to isolate and kill other players and not fall into the trap of others' similar intentions. 
 - Ensure you are close enough to kill your assigned target each time and far away from all the other players when doing so. 
@@ -191,12 +191,6 @@ that pretty face</string>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="GpZ-B1-XSa" firstAttribute="top" secondItem="AdX-S6-Z1j" secondAttribute="bottom" constant="20" id="C7o-ML-dDY"/>
-                            <constraint firstItem="AdX-S6-Z1j" firstAttribute="leading" secondItem="MWH-tW-Jd7" secondAttribute="leading" constant="20" id="COl-If-3dI"/>
-                            <constraint firstAttribute="trailing" secondItem="AdX-S6-Z1j" secondAttribute="trailing" constant="20" id="JKI-GF-vEg"/>
-                            <constraint firstItem="AdX-S6-Z1j" firstAttribute="top" secondItem="b4J-zj-c8J" secondAttribute="bottom" constant="20" id="pBP-xF-je2"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ohj-XV-zmR"/>
                 </viewController>
@@ -233,69 +227,6 @@ that pretty face</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pmm-Ve-ui8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3980" y="305"/>
-        </scene>
-        <!--Win View Controller-->
-        <scene sceneID="0KO-jd-GT5">
-            <objects>
-                <viewController storyboardIdentifier="win" id="VVD-0i-gZm" customClass="TKWinViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="BTa-ho-FJ5"/>
-                        <viewControllerLayoutGuide type="bottom" id="6S1-K4-t6a"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Y6o-dN-jbc" customClass="TKView">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You just killed the last player" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kGZ-rK-XHA" customClass="TKSmallLabel">
-                                <rect key="frame" x="51" y="20" width="218" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Win!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSo-a9-Ssr" customClass="TKBigLabel">
-                                <rect key="frame" x="127" y="274" width="67" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0fu-5p-VvW" customClass="TKButton">
-                                <rect key="frame" x="131" y="444" width="59" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Tick">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="continueButtonPressed" destination="VVD-0i-gZm" eventType="touchUpInside" id="tqK-4P-18n"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's start another round and kill them again" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="253" translatesAutoresizingMaskIntoConstraints="NO" id="i7m-Hm-rsP" customClass="TKSmallLabel">
-                                <rect key="frame" x="34" y="507" width="253" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="centerX" secondItem="kGZ-rK-XHA" secondAttribute="centerX" id="1Yk-PV-u7v"/>
-                            <constraint firstAttribute="centerX" secondItem="0fu-5p-VvW" secondAttribute="centerX" id="Fme-aL-g5D"/>
-                            <constraint firstAttribute="centerX" secondItem="i7m-Hm-rsP" secondAttribute="centerX" id="JhH-xh-xYi"/>
-                            <constraint firstItem="kGZ-rK-XHA" firstAttribute="top" secondItem="BTa-ho-FJ5" secondAttribute="bottom" constant="20" id="Kmq-80-N1D"/>
-                            <constraint firstAttribute="centerY" secondItem="aSo-a9-Ssr" secondAttribute="centerY" id="auF-b4-jxp"/>
-                            <constraint firstItem="6S1-K4-t6a" firstAttribute="top" secondItem="0fu-5p-VvW" secondAttribute="bottom" constant="80" id="hRK-7H-L0U"/>
-                            <constraint firstItem="6S1-K4-t6a" firstAttribute="top" secondItem="i7m-Hm-rsP" secondAttribute="bottom" constant="20" id="jkp-au-NT0"/>
-                            <constraint firstAttribute="centerX" secondItem="aSo-a9-Ssr" secondAttribute="centerX" id="wQ9-wn-qrr"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="RNa-Wk-Qoc"/>
-                    <connections>
-                        <outlet property="buttonTitleLabel" destination="i7m-Hm-rsP" id="qY8-lU-88c"/>
-                        <outlet property="headerLabel" destination="kGZ-rK-XHA" id="AxZ-lr-Dcv"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xth-YE-dnj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1519" y="1631"/>
         </scene>
         <!--Shoot View Controller-->
         <scene sceneID="8zn-zP-9i3">
@@ -766,7 +697,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </state>
                                 <connections>
                                     <action selector="showTester:" destination="7bb-r5-vme" eventType="touchUpInside" id="KSc-sa-RwY"/>
-                                    <segue destination="2Nb-Lf-hid" kind="modal" identifier="tester" id="i1A-F5-R2Q"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -774,7 +704,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </view>
                     <connections>
                         <outlet property="testerButton" destination="Gri-KG-S2A" id="diM-Ay-umd"/>
-                        <segue destination="2Nb-Lf-hid" kind="modal" id="ytu-Ug-9RM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4R2-JO-M9j" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -924,7 +853,4 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="i1A-F5-R2Q"/>
-    </inferredMetricsTieBreakers>
 </document>
