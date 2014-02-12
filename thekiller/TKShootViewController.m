@@ -112,12 +112,27 @@
 }
 
 - (IBAction)shoot:(id)sender {
-    [self shoot];
+#warning Call [self shoot]
+    [self shootWithSuccess:YES];
+}
+
+- (IBAction)failedShoot:(id)sender { // for debugging
+    [self shootWithSuccess:NO];
 }
 
 - (void)shoot {
-    if (self.gunLoaded)
-    {
+    if (!self.targetInRange) {
+        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Your target is not in range", nil) message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"Ooops...", nil) otherButtonTitles:nil] show];
+        return;
+    }
+
+    NSArray *nearbyPlayersArr = [[TKBluetoothManager sharedManager].nearbyDevicesDictionary allValues];
+    BOOL success = self.targetInRange && nearbyPlayersArr.count == 1;
+    [self shootWithSuccess:success];
+}
+
+- (void)shootWithSuccess:(BOOL)success {
+    if (self.gunLoaded) {
         self.gunLoaded = NO;
         self.gunLoadedLabel.attributedText = getAsSmallAttributedString(@"Your gun is not loaded", NSTextAlignmentCenter);
         // play shoot sound
@@ -125,23 +140,8 @@
         
         [[TKSoundManager sharedManager] playSound:@"shoot"];
         
-#warning XX
-        self.targetInRange = YES;
-        
-        if (!self.targetInRange) {
-            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Your target is not in range", nil) message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"Ooops...", nil) otherButtonTitles:nil] show];
-            return;
-        }
-        
         NSArray *nearbyPlayersArr = [[TKBluetoothManager sharedManager].nearbyDevicesDictionary allValues];
-
-        // if the target is in range and it's the only nearby player arround
-        BOOL isSuccess = self.targetInRange && (nearbyPlayersArr.count == 1);
-
-#warning XX
-        isSuccess = YES;
-        
-        [[TKServer sharedInstance] shootTarget:self.targetProfileID success:isSuccess nearby:nearbyPlayersArr completion:^(NSString *nextTargetID, NSString *targetName, NSError *error) {
+        [[TKServer sharedInstance] shootTarget:self.targetProfileID success:success nearby:nearbyPlayersArr completion:^(NSString *nextTargetID, NSString *targetName, NSError *error) {
             if (error) {
                 [[UIAlertView alertWithError:error] show];
                 return;
@@ -157,10 +157,8 @@
     }
 }
 
--(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
-{
-    if (motion == UIEventSubtypeMotionShake)
-    {
+-(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+    if (motion == UIEventSubtypeMotionShake) {
         [self shoot];
     }
 }

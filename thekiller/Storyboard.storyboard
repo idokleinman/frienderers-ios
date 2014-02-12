@@ -275,10 +275,21 @@ that pretty face</string>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fnn-qv-q9J">
+                                <rect key="frame" x="117" y="447" width="87" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Failed Shoot">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="failedShoot:" destination="UhG-Mk-rJu" eventType="touchUpInside" id="T26-LZ-tdE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Rba-ZU-y0a" firstAttribute="top" secondItem="JQ3-dp-CBi" secondAttribute="bottom" constant="20" id="5F9-qR-rt4"/>
+                            <constraint firstItem="JQ3-dp-CBi" firstAttribute="top" secondItem="Fnn-qv-q9J" secondAttribute="bottom" constant="37" id="7dO-4q-EOh"/>
                             <constraint firstAttribute="centerX" secondItem="JM2-ZM-Roe" secondAttribute="centerX" id="ALx-im-Czl"/>
                             <constraint firstItem="0Ic-br-shc" firstAttribute="top" secondItem="ZZw-6F-mh4" secondAttribute="bottom" constant="34" id="LXI-Nd-heq"/>
                             <constraint firstAttribute="centerX" secondItem="0Ic-br-shc" secondAttribute="centerX" id="SEZ-2D-lrQ"/>
@@ -291,6 +302,7 @@ that pretty face</string>
                             <constraint firstAttribute="centerX" secondItem="JQ3-dp-CBi" secondAttribute="centerX" id="mRK-vV-aRr"/>
                             <constraint firstAttribute="centerX" secondItem="IQU-aH-6Jw" secondAttribute="centerX" id="mep-Ka-6R0"/>
                             <constraint firstAttribute="centerY" secondItem="ZZw-6F-mh4" secondAttribute="centerY" id="rwL-RS-nrp"/>
+                            <constraint firstAttribute="centerX" secondItem="Fnn-qv-q9J" secondAttribute="centerX" id="u1r-XV-Ex9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jJz-sH-WIG"/>
