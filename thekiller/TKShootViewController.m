@@ -43,7 +43,6 @@
     _isTargetInRange = NO;
     self.gunLoadedLabel.attributedText = getAsSmallAttributedString(@"Your gun is not loaded", NSTextAlignmentCenter);
     
-    [[TKBluetoothManager sharedManager] startWithName:[TKServer sharedInstance].userid];
     [[TKBluetoothManager sharedManager] addObserver:self forKeyPath:@"nearbyDevicesDictionary" options:NSKeyValueObservingOptionInitial context:0];
     
     self.gunButton.alpha = 0.5;

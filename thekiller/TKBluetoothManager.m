@@ -58,18 +58,11 @@ NSString* const CHARACTERISTIC_UUID = @"BD5DF558-9DF1-4216-8521-411D6F917A8C";
     service.characteristics = @[ characteristic ];
     self.peripheral = [[CBPeripheralManager alloc] initWithDelegate:self queue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0) options:nil];
     [self.peripheral addService:service];
-    
-    
-    
-    [self peripheralManagerDidUpdateState:self.peripheral];
-    
-    // set up central
     self.central = [[CBCentralManager alloc] initWithDelegate:self queue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0) options:nil];
     
-    [self centralManagerDidUpdateState:self.central];
-    
     self.nearbyDevicesDictionary = [NSMutableDictionary new];
-    
+    [self peripheralManagerDidUpdateState:self.peripheral];
+    [self centralManagerDidUpdateState:self.central];
 }
 
 #pragma mark - Peripheral
@@ -78,11 +71,13 @@ NSString* const CHARACTERISTIC_UUID = @"BD5DF558-9DF1-4216-8521-411D6F917A8C";
 {
     self.peripheralStatus = DescriptionForState(peripheral.state);
     
-    NSDictionary* d = @{ CBAdvertisementDataLocalNameKey: self.name,
-                         CBAdvertisementDataServiceUUIDsKey: @[ [CBUUID UUIDWithString:SERVICE_UUID] ] };
+    if (peripheral.state == CBPeripheralManagerStatePoweredOn) {
+        NSDictionary* d = @{ CBAdvertisementDataLocalNameKey: self.name,
+                             CBAdvertisementDataServiceUUIDsKey: @[ [CBUUID UUIDWithString:SERVICE_UUID] ] };
+        
+        [self.peripheral startAdvertising:d];
+    }
     
-    [self.peripheral startAdvertising:d];
-
     NSLog(@"Peripheral Status: %@", self.peripheralStatus);
     
     

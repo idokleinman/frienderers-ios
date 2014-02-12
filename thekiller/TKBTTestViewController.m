@@ -28,7 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[TKBluetoothManager sharedManager] startWithName:[[UIDevice currentDevice] name]];
+//    [[TKBluetoothManager sharedManager] startWithName:[[UIDevice currentDevice] name]];
     
     [[TKBluetoothManager sharedManager] addObserver:self forKeyPath:@"nearbyDevicesDictionary" options:NSKeyValueObservingOptionInitial context:0];
     
